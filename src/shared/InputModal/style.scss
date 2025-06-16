@@ -1,0 +1,44 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+.input-modal {
+    width: 60% !important;
+    max-width: 60% !important;
+    margin: 20px auto;
+    background-color: var(--background-color);
+
+    @include max768 {
+        width: 80% !important;
+        max-width: 80% !important;
+    }
+
+    .modal-content {
+        background-color: transparent;
+
+        .modal-header .btn-close {
+            filter: var(--close-button-filter);
+        }
+    }
+
+    .title {
+        text-align: center;
+        color: var(--text-black);
+        font-size: 1.2em;
+    }
+
+    .id-input,
+    .btn {
+        margin-top: 10px;
+    }
+
+    .id-input {
+        height: 200px;
+        color: var(--text-black) !important;
+        border: var(--filter-btn-border) 1px solid !important;
+        background-color: var(--background-color) !important;
+
+        &::placeholder {
+            color: #888888 !important;
+        }
+    }
+}

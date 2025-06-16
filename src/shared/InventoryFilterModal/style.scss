@@ -1,0 +1,80 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+.filter-modal {
+    width: 60% !important;
+    max-width: 60% !important;
+    margin: 20px auto;
+    background-color: var(--background-color);
+
+    @include max768 {
+        width: 80% !important;
+        max-width: 80% !important;
+    }
+
+    .modal-content {
+        background-color: transparent;
+
+        .modal-header .btn-close {
+            filter: var(--close-button-filter);
+        }
+    }
+
+    .title {
+        text-align: center;
+        color: var(--text-black);
+        font-size: 1.2em;
+    }
+
+    .keyword-input {
+        margin: 0 !important;
+    }
+
+    .dropdown-selector {
+        button {
+            width: 100%;
+            background-color: transparent !important;
+            color: var(--text-black) !important;
+            border-color: #777777 !important;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 10px !important;
+            height: 37px;
+        }
+
+        .dropdown-menu {
+            width: 100%;
+            background-color: var(--background-color) !important;
+            border-color: #777777 !important;
+            padding: 3px 0 !important;
+        }
+    }
+
+    .reset-filters {
+        cursor: pointer;
+        color: var(--text-black);
+
+        svg {
+            margin-right: 5px;
+        }
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        min-height: 60px;
+
+        & > div {
+            color: var(--text-black);
+        }
+    }
+
+    img {
+        cursor: pointer;
+        margin: 3px;
+    }
+}

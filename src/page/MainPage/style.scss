@@ -1,0 +1,59 @@
+@import "src/styles/colors.scss";
+
+.tool-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    a {
+        text-decoration: none;
+        cursor: default;
+    }
+
+    .tool-row {
+        .tool-btn {
+            width: 80%;
+            height: 130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px auto;
+            border: 2px solid var(--table-border-center);
+            border-radius: 5px;
+            color: var(--text-black);
+            cursor: pointer;
+
+            &:hover {
+                color: var(--earth) !important;
+                border-color: var(--earth) !important;
+                background-color: var(
+                    --result-number-panel-success-background
+                ) !important;
+                font-weight: 600;
+            }
+
+            .icon {
+                margin: 10px 0;
+            }
+            .title {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+        }
+
+        .author-link {
+            width: 80%;
+            height: 130px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 20px auto;
+
+            a {
+                cursor: pointer;
+            }
+        }
+    }
+}

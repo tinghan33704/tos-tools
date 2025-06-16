@@ -1,0 +1,61 @@
+@import "src/styles/mediaQuery.scss";
+
+.floating-btn {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 20%;
+    opacity: 0.8;
+    background: #000;
+    color: white;
+    cursor: pointer;
+    font-size: 1.8rem;
+    z-index: 1010;
+
+    transition: opacity 0.5s;
+
+    &.hide {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.setting {
+    left: 1rem;
+    bottom: calc(0rem + 40px);
+}
+
+.to-top {
+    right: 1rem;
+    bottom: calc(4rem + 40px);
+}
+.to-bottom {
+    right: 1rem;
+    bottom: calc(0rem + 40px);
+}
+
+@include max576 {
+    .setting {
+        left: 1rem;
+        bottom: calc(0rem + 64px);
+    }
+
+    .to-top {
+        right: 1rem;
+        bottom: calc(4rem + 64px);
+    }
+    .to-bottom {
+        right: 1rem;
+        bottom: calc(0rem + 64px);
+    }
+}

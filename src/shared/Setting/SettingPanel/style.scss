@@ -1,0 +1,56 @@
+@import "src/styles/mediaQuery.scss";
+
+.setting-panel {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding-right: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    opacity: 0.8;
+    background: #000;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 1;
+
+    &-row {
+        position: fixed;
+        left: 1rem;
+        bottom: calc(3rem + 40px);
+        z-index: 100;
+        opacity: 1;
+        transition: opacity 0.5s;
+
+        &.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        font-size: 1.8rem;
+        outline: none;
+        background: transparent;
+        color: white;
+    }
+    &-desc {
+        margin-left: 5px;
+        white-space: nowrap;
+    }
+}
+
+@include max576 {
+    .setting-panel {
+        &-row {
+            bottom: calc(3rem + 64px);
+        }
+    }
+}

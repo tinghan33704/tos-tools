@@ -1,0 +1,42 @@
+@import "src/styles/colors.scss";
+
+.filter-row,
+.filter-button-group {
+    &-title {
+        text-align: left;
+
+        h3 {
+            margin: 15px 0;
+        }
+    }
+}
+
+.filter-row {
+    display: flex;
+    align-items: center;
+
+    &-trigger {
+        svg {
+            font-size: 2rem;
+            color: var(--text-black);
+        }
+    }
+
+    &-collapsible {
+        cursor: pointer;
+    }
+
+    &-title {
+        color: var(--text-black);
+    }
+}
+
+.filter-button-group-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .bottom-col {
+        border-bottom: 1px solid var(--text-black);
+        opacity: 0.2;
+    }
+}

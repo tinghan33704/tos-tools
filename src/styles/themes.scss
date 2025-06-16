@@ -1,0 +1,9 @@
+@import "colors";
+@import "mixins";
+
+.App.light-theme {
+    @include spread-map($theme-light);
+}
+.App.dark-theme {
+    @include spread-map($theme-dark);
+}

@@ -1,0 +1,89 @@
+.result-table {
+    border-bottom: 2px var(--table-border) double !important;
+
+    &.table > :not(caption) > * > * {
+        background-color: transparent;
+    }
+
+    td {
+        padding: 0.75rem;
+        vertical-align: middle;
+    }
+
+    .monster-first-tr {
+        border-top: 2px var(--table-border) double !important;
+    }
+
+    .monster-tr {
+        border-top: 1px var(--table-border-center) solid;
+
+        .td-monster-icon {
+            width: 10%;
+            border-right: 1px solid var(--table-border-center);
+            background-color: transparent;
+            padding: 0.25rem;
+
+            a {
+                text-decoration: none;
+                color: var(--result-monster-id-tag-text);
+            }
+        }
+        .td-description,
+        .td-activate {
+            width: 90%;
+            font-size: 1em;
+            color: var(--text-black);
+            border-bottom: 1px solid var(--table-border-center);
+        }
+        .td-relative {
+            width: 90%;
+        }
+
+        .relative-img {
+            max-width: 40px;
+            margin-right: 5px;
+            padding: 0.2rem 0;
+        }
+
+        &-w {
+            background-color: color-mix(in srgb, var(--water), transparent 90%);
+
+            .td-description {
+                box-shadow: inset 5px 0 0 0
+                    color-mix(in srgb, var(--water), transparent 40%);
+            }
+        }
+        &-f {
+            background-color: color-mix(in srgb, var(--fire), transparent 90%);
+
+            .td-description {
+                box-shadow: inset 5px 0 0 0
+                    color-mix(in srgb, var(--fire), transparent 40%);
+            }
+        }
+        &-e {
+            background-color: color-mix(in srgb, var(--earth), transparent 90%);
+
+            .td-description {
+                box-shadow: inset 5px 0 0 0
+                    color-mix(in srgb, var(--earth), transparent 40%);
+            }
+        }
+        &-l {
+            background-color: color-mix(in srgb, var(--light), transparent 90%);
+
+            .td-description {
+                box-shadow: inset 5px 0 0 0
+                    color-mix(in srgb, var(--light), transparent 40%);
+            }
+        }
+        &-d {
+            background-color: color-mix(in srgb, var(--dark), transparent 90%);
+
+            .td-description {
+                box-shadow: inset 5px 0 0 0
+                    color-mix(in srgb, var(--dark), transparent 40%);
+            }
+        }
+    }
+}

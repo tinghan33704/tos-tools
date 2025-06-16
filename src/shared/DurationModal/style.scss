@@ -1,0 +1,47 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+.option-modal {
+    width: 80% !important;
+    max-width: 80% !important;
+    margin: 20px auto;
+    background-color: var(--background-color);
+
+    @include max768 {
+        width: 95% !important;
+        max-width: 95% !important;
+    }
+
+    .modal-content {
+        background-color: transparent;
+
+        .modal-header .btn-close {
+            filter: var(--close-button-filter);
+        }
+    }
+
+    .option-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--text-black);
+        text-align: center;
+        border: 1px solid transparent;
+        padding: 5px 0;
+
+        @include min992 {
+            border-right: 1px solid var(--option-row-hr);
+        }
+    }
+
+    .option-row {
+        padding: 1rem 0;
+        margin: 0 1rem;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid var(--option-row-hr);
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import "src/styles/colors.scss";
+
+.filter-button-group {
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+
+    & > div {
+        margin-bottom: 1rem;
+    }
+}

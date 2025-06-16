@@ -1,0 +1,11 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+.popover-content {
+    background-color: black;
+    position: absolute;
+    z-index: 1050;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.5s linear;
+}

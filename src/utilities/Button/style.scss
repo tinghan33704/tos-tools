@@ -1,0 +1,38 @@
+@import "src/styles/colors.scss";
+
+.btn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    svg {
+        padding-right: 5px;
+    }
+
+    &-disabled {
+        filter: brightness(80%);
+        -webkit-filter: brightness(80%);
+    }
+}
+
+.reset-btn {
+    background-color: var(--btn-primary) !important;
+    color: var(--text-white) !important;
+}
+.sort-btn {
+    background-color: var(--btn-default) !important;
+    color: var(--text-black) !important;
+}
+.and-or-btn {
+    background-color: var(--btn-warning) !important;
+    color: var(--text-black) !important;
+
+    &.and-btn,
+    &.m-and-btn {
+        background-color: var(--btn-danger) !important;
+        color: var(--text-white) !important;
+    }
+}
+.start-btn {
+    background-color: var(--btn-success) !important;
+    color: var(--text-white) !important;
+}

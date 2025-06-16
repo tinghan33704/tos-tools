@@ -1,0 +1,188 @@
+$--btn-primary: --btn-primary;
+$--btn-default: --btn-default;
+$--btn-warning: --btn-warning;
+$--btn-danger: --btn-danger;
+$--btn-success: --btn-success;
+
+$--text-white: --text-white;
+$--text-black: --text-black;
+
+$--water: --water;
+$--fire: --fire;
+$--earth: --earth;
+$--light: --light;
+$--dark: --dark;
+
+$--background-color: --background-color;
+$--header-footer-bg: --header-footer-bg;
+
+$--filter-btn-border: --filter-btn-border;
+$--filter-btn-checked-blue-bg: --filter-btn-checked-blue-bg;
+$--filter-btn-checked-green-bg: --filter-btn-checked-green-bg;
+$--filter-btn-checked-orange-bg: --filter-btn-checked-orange-bg;
+$--filter-btn-checked-purple-bg: --filter-btn-checked-purple-bg;
+$--filter-btn-checked-cyan-bg: --filter-btn-checked-cyan-bg;
+$--filter-btn-border: --filter-btn-border;
+$--filter-btn-bg: --filter-btn-bg;
+
+$--result-monster-id-tag-bg: --result-monster-id-tag-bg;
+$--result-monster-id-tag-text: --result-monster-id-tag-text;
+$--popover-monster-name-water: --popover-monster-name-water;
+$--popover-monster-name-fire: --popover-monster-name-fire;
+$--popover-monster-name-earth: --popover-monster-name-earth;
+$--popover-monster-name-light: --popover-monster-name-light;
+$--popover-monster-name-dark: --popover-monster-name-dark;
+$--popover-monster-name-undefined: --popover-monster-name-undefined;
+$--popover-bg: --popover-bg;
+$--popover-border: --popover-border;
+$--popover-skill-name: --popover-skill-name;
+$--popover-skill-name-refine: --popover-skill-name-refine;
+$--popover-skill-name-recall: --popover-skill-name-recall;
+$--popover-skill-charge: --popover-skill-charge;
+$--popover-skill-description: --popover-skill-description;
+$--popover-skill-description-fixed-board-label: --popover-skill-description-fixed-board-label;
+$--popover-skill-description-note-label: --popover-skill-description-note-label;
+$--popover-skill-description-positive-label: --popover-skill-description-positive-label;
+$--popover-skill-description-negative-label: --popover-skill-description-negative-label;
+$--popover-skill-description-multiple-label: --popover-skill-description-multiple-label;
+$--popover-skill-description-anno-label: --popover-skill-description-anno-label;
+$--popover-skill-hr: --popover-skill-hr;
+$--option-row-hr: --option-row-hr;
+$--result-sort-title: --result-sort-title;
+$--result-sort-title-bg: --result-sort-title-bg;
+$--tab-btn-active-bg: --tab-btn-active-bg;
+$--close-button-filter: --close-button-filter;
+$--table-border-center: --table-border-center;
+$--table-border: --table-border;
+
+$--result-number-panel-background: --result-number-panel-background;
+$--result-number-panel-success-background: --result-number-panel-success-background;
+
+$--all-collect-bg: --all-collect-bg;
+$--all-collect: --all-collect;
+
+$theme-light: (
+    $--btn-primary: #007bff,
+    $--btn-default: #eeeeee,
+    $--btn-warning: #ffc720,
+    $--btn-danger: #dc3545,
+    $--btn-success: #28a745,
+
+    $--text-white: white,
+    $--text-black: black,
+
+    $--background-color: white,
+    $--header-footer-bg: #333333,
+
+    $--water: #55a4d7,
+    $--fire: #f75856,
+    $--earth: #50c900,
+    $--light: #f8cc2f,
+    $--dark: #cb80d5,
+
+    $--filter-btn-checked-blue-bg: rgb(100, 100, 255),
+    $--filter-btn-checked-green-bg: rgb(50, 155, 50),
+    $--filter-btn-checked-orange-bg: rgb(242, 129, 0),
+    $--filter-btn-checked-purple-bg: rgb(107, 0, 152),
+    $--filter-btn-checked-cyan-bg: rgb(0, 148, 206),
+    $--filter-btn-border: black,
+    $--filter-btn-bg: transparent,
+
+    $--result-monster-id-tag-bg: black,
+    $--result-monster-id-tag-text: var(--text-white),
+    $--popover-bg: black,
+    $--popover-border: rgba(255, 255, 255, 0.4),
+    $--popover-monster-name-water: var(--water),
+    $--popover-monster-name-fire: var(--fire),
+    $--popover-monster-name-earth: var(--earth),
+    $--popover-monster-name-light: var(--light),
+    $--popover-monster-name-dark: var(--dark),
+    $--popover-monster-name-undefined: var(--text-white),
+    $--popover-skill-name: yellow,
+    $--popover-skill-name-refine: orange,
+    $--popover-skill-name-recall: #91dff3,
+    $--popover-skill-charge: #ff6666,
+    $--popover-skill-description: var(--text-white),
+    $--popover-skill-description-fixed-board-label: #82e8ff,
+    $--popover-skill-description-note-label: #ffc107,
+    $--popover-skill-description-positive-label: #35e85c,
+    $--popover-skill-description-negative-label: #fc7474,
+    $--popover-skill-description-multiple-label: #ffa500,
+    $--popover-skill-description-anno-label: #ffa500,
+    $--popover-skill-hr: rgba(255, 255, 255, 0.2),
+    $--option-row-hr: rgba(0, 0, 0, 0.2),
+    $--result-sort-title: #343a40,
+    $--result-sort-title-bg: #eeeeee,
+    $--tab-btn-active-bg: #888888,
+    $--table-border-center: #777777,
+    $--table-border: #777777,
+
+    $--close-button-filter: invert(1) grayscale(100%) brightness(0%),
+    $--result-number-panel-background: #ecffff,
+    $--result-number-panel-success-background: #e2ffe9,
+
+    $--all-collect-bg: #fff7db,
+    $--all-collect: #ffaa00,
+);
+$theme-dark: (
+    $--btn-primary: #003070,
+    $--btn-default: #666666,
+    $--btn-warning: #786004,
+    $--btn-danger: #661823,
+    $--btn-success: #145323,
+
+    $--text-white: #aaaaaa,
+    $--text-black: #aaaaaa,
+
+    $--background-color: #363636,
+    $--header-footer-bg: #0b0b0b,
+
+    $--water: #1f599c,
+    $--fire: #a9211c,
+    $--earth: #0a5f0c,
+    $--light: #c29e1c,
+    $--dark: #5f057d,
+
+    $--filter-btn-checked-blue-bg: rgba(100, 100, 255, 0.6),
+    $--filter-btn-checked-green-bg: rgba(50, 155, 50, 0.4),
+    $--filter-btn-checked-orange-bg: rgba(242, 129, 0, 0.4),
+    $--filter-btn-checked-purple-bg: rgb(107, 0, 152, 0.6),
+    $--filter-btn-checked-cyan-bg: rgb(0, 148, 206, 0.6),
+    $--filter-btn-border: #aaaaaa,
+    $--filter-btn-bg: transparent,
+
+    $--result-monster-id-tag-bg: black,
+    $--result-monster-id-tag-text: var(--text-white),
+    $--popover-bg: black,
+    $--popover-border: rgba(255, 255, 255, 0.4),
+    $--popover-monster-name-water: var(--water),
+    $--popover-monster-name-fire: var(--fire),
+    $--popover-monster-name-earth: var(--earth),
+    $--popover-monster-name-light: var(--light),
+    $--popover-monster-name-dark: var(--dark),
+    $--popover-monster-name-undefined: var(--text-white),
+    $--popover-skill-name: #9a9a00,
+    $--popover-skill-name-refine: #cc8300,
+    $--popover-skill-name-recall: #70add1,
+    $--popover-skill-charge: #aa4444,
+    $--popover-skill-description: var(--text-white),
+    $--popover-skill-description-fixed-board-label: #2ba4bc,
+    $--popover-skill-description-note-label: #dba400,
+    $--popover-skill-description-positive-label: #1d9b36,
+    $--popover-skill-description-negative-label: #e53737,
+    $--popover-skill-description-multiple-label: #af7716,
+    $--popover-skill-description-anno-label: #af7716,
+    $--popover-skill-hr: rgba(255, 255, 255, 0.2),
+    $--option-row-hr: rgba(255, 255, 255, 0.2),
+    $--result-sort-title: #343a40,
+    $--result-sort-title-bg: #666666,
+    $--tab-btn-active-bg: #666666,
+    $--table-border-center: #888888,
+    $--table-border: #aaaaaa,
+
+    $--close-button-filter: invert(1) grayscale(100%) brightness(200%),
+    $--result-number-panel-background: rgba(236, 255, 255, 0.5),
+    $--result-number-panel-success-background: rgba(226, 255, 233, 0.5),
+    $--all-collect-bg: rgba(224, 204, 139, 0.3),
+    $--all-collect: rgba(234, 141, 88, 0.6),
+);

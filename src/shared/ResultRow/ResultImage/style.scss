@@ -1,0 +1,510 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+[aria-describedby="result-info"] {
+    outline: 3.5px #ff6666 dashed;
+}
+
+.result-image {
+    width: 100%;
+    cursor: pointer;
+
+    &-gray {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%) opacity(30%);
+    }
+
+    &-no-popover {
+        cursor: default;
+    }
+
+    &-wrapper {
+        position: relative;
+
+        .combine-icon {
+            position: absolute;
+            right: -20%;
+            top: -20%;
+            width: 40%;
+
+            &-gray {
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%) opacity(40%);
+            }
+        }
+    }
+
+    &-id-tag {
+        width: 100%;
+        height: 24px;
+        background-color: var(--result-monster-id-tag-bg);
+        color: var(--result-monster-id-tag-text);
+        margin-bottom: 15px;
+        cursor: pointer;
+
+        &-gray {
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%) opacity(30%);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--result-monster-id-tag-text);
+
+            & > div {
+                width: 100%;
+                text-align: center;
+                font-weight: 500;
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+.result-info-popover.popover {
+    background-color: var(--popover-bg);
+    border: 1px var(--popover-border) solid;
+    font-size: 1.2em;
+    max-width: 450px;
+    min-width: 450px;
+    max-height: 250px;
+    border-radius: 5px;
+    // margin: 0;
+
+    @include max576 {
+        max-width: 300px;
+        min-width: 300px;
+    }
+
+    .popover-arrow {
+        display: none !important;
+    }
+
+    & > div {
+        width: 100%;
+        margin: 0;
+    }
+
+    .result-info-header {
+        background-color: var(--popover-bg);
+        position: sticky;
+        display: flex;
+        align-items: center;
+        // top: 0;
+        padding-top: 0.5rem;
+        z-index: 99;
+
+        hr {
+            margin: 6px 0 0 0;
+        }
+
+        &-w {
+            background: color-mix(
+                in srgb,
+                var(--popover-monster-name-water),
+                var(--popover-bg) 80%
+            );
+        }
+        &-f {
+            background: color-mix(
+                in srgb,
+                var(--popover-monster-name-fire),
+                var(--popover-bg) 80%
+            );
+        }
+        &-e {
+            background: color-mix(
+                in srgb,
+                var(--popover-monster-name-earth),
+                var(--popover-bg) 80%
+            );
+        }
+        &-l {
+            background: color-mix(
+                in srgb,
+                var(--popover-monster-name-light),
+                var(--popover-bg) 80%
+            );
+        }
+        &-d {
+            background: color-mix(
+                in srgb,
+                var(--popover-monster-name-dark),
+                var(--popover-bg) 80%
+            );
+        }
+    }
+
+    .monster-attr-race-star {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+        font-weight: bold;
+        text-align: center;
+
+        img {
+            width: 25px;
+
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+        }
+    }
+    @media (min-width: 576px) {
+        .monster-attr-race-star {
+            justify-content: flex-start;
+        }
+    }
+
+    .monster-name,
+    .craft-name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+        font-weight: bold;
+        text-align: center;
+
+        &-w {
+            color: var(--popover-monster-name-water);
+        }
+        &-f {
+            color: var(--popover-monster-name-fire);
+        }
+        &-e {
+            color: var(--popover-monster-name-earth);
+        }
+        &-l {
+            color: var(--popover-monster-name-light);
+        }
+        &-d {
+            color: var(--popover-monster-name-dark);
+        }
+        &-o {
+            color: var(--text-white);
+        }
+        &-u {
+            color: var(--popover-monster-name-undefined);
+        }
+    }
+
+    .monster-skill {
+        margin: 0;
+        padding: 0;
+
+        &-wrapper {
+            max-height: 205px;
+            overflow-y: scroll;
+        }
+
+        &-hr hr {
+            border-top: var(--popover-skill-hr) 1px solid;
+            opacity: 1;
+            margin: 0;
+        }
+
+        &-name {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            text-align: left;
+            white-space: pre-wrap;
+
+            &-row {
+                width: 100%;
+                margin: 3px 0;
+                padding: 0;
+            }
+
+            &-refine,
+            &-recall,
+            &-combine {
+                img {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 7px;
+                }
+            }
+
+            &-normal,
+            &-combine {
+                color: var(--popover-skill-name);
+            }
+            &-refine {
+                color: var(--popover-skill-name-refine);
+            }
+            &-recall {
+                color: var(--popover-skill-name-recall);
+            }
+        }
+
+        &-charge {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: var(--popover-skill-charge);
+            font-size: 0.8em;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        &-transform-row,
+        &-combine-row {
+            display: flex;
+            align-items: center;
+            color: var(--popover-skill-name);
+            font-weight: bold;
+            width: 100%;
+            margin: 5px 0;
+
+            & > div {
+                display: flex;
+                align-items: center;
+                padding: 0;
+            }
+
+            img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+                padding: 0;
+                margin: 0 5px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &-description {
+            &-row {
+                width: 100%;
+                margin: 3px 0;
+                padding: 0;
+            }
+
+            color: var(--popover-skill-description);
+            margin-bottom: 5px;
+
+            [class^="fixed-board-label"] {
+                color: var(--popover-skill-description-fixed-board-label);
+                cursor: pointer;
+            }
+            .desc-note-label {
+                color: var(--popover-skill-description-note-label);
+                cursor: pointer;
+            }
+            .desc-positive-label {
+                color: var(--popover-skill-description-positive-label);
+                cursor: pointer;
+            }
+            .desc-negative-label {
+                color: var(--popover-skill-description-negative-label);
+                cursor: pointer;
+            }
+            .desc-multiple-label {
+                color: var(--popover-skill-description-multiple-label);
+            }
+            .desc-anno-label {
+                opacity: 0.55;
+            }
+        }
+    }
+
+    .craft-wrapper {
+        max-height: 250px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding-bottom: 5px;
+    }
+
+    .craft-name {
+        padding: 0.5rem 0;
+        border-bottom: 2px double var(--popover-border);
+    }
+
+    .craft-section-title {
+        color: var(--popover-skill-name-recall);
+        text-align: center;
+        padding: 0;
+    }
+
+    .craft-objective {
+        color: var(--text-white);
+        padding-top: 4px;
+        padding-bottom: 4px;
+        flex-wrap: wrap;
+
+        img {
+            cursor: default;
+        }
+
+        .craft-attr-race-img {
+            width: 25px;
+            margin-right: 8px;
+        }
+
+        .craft-monster-img {
+            width: 40px;
+            margin: 2px;
+        }
+
+        &-series {
+            color: var(--popover-skill-name);
+        }
+
+        @media (min-width: 576px) {
+            border-left: 1px solid var(--popover-border);
+        }
+        @media (max-width: 576px) {
+            justify-content: center;
+            border-top: 1px solid var(--popover-border);
+        }
+    }
+
+    .craft-charge {
+        color: var(--text-white);
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        @media (min-width: 576px) {
+            border-left: 1px solid var(--popover-border);
+        }
+        @media (max-width: 576px) {
+            justify-content: center;
+            border-top: 1px solid var(--popover-border);
+        }
+    }
+
+    .craft-enhance {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+
+        .row {
+            display: flex;
+            padding: 4px 0;
+            width: 100%;
+
+            @media (max-width: 576px) {
+                width: 100%;
+            }
+        }
+
+        .craft-enhance-hp-row,
+        .craft-enhance-atk-row {
+            @media (min-width: 576px) {
+                border-right: 1px solid var(--popover-border);
+            }
+            @media (max-width: 576px) {
+                border-bottom: 1px solid var(--popover-border);
+            }
+        }
+
+        &-title {
+            justify-content: center;
+            text-align: center;
+
+            &-hp {
+                color: var(--popover-monster-name-earth);
+            }
+            &-atk {
+                color: var(--popover-monster-name-fire);
+            }
+            &-rec {
+                color: var(--popover-monster-name-water);
+            }
+
+            @media (max-width: 576px) {
+                border-right: 1px solid var(--popover-border);
+            }
+        }
+
+        &-number {
+            color: var(--popover-skill-name);
+            text-align: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    }
+
+    .craft-skill {
+        &-rows {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            border-top: 2px double var(--popover-border);
+
+            .craft-section-title {
+                padding: 10px 0;
+                margin: 0;
+                border-bottom: 1px solid var(--popover-border);
+            }
+        }
+
+        &-row {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            margin: 0;
+        }
+
+        &-index {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 40px;
+
+                @media (max-width: 576px) {
+                    width: 25px;
+                }
+            }
+        }
+
+        &-text {
+            display: flex;
+            align-items: center;
+            color: var(--text-white);
+            border-left: 1px solid var(--popover-border);
+        }
+    }
+
+    .craft-hr {
+        // border-style: double !important;
+        // border-width: 3px !important;
+        // border-color: var(--popover-border);
+        margin: 0;
+
+        border-bottom: 1px solid var(--popover-border);
+    }
+
+    .craft-objective,
+    .craft-charge,
+    .craft-enhance,
+    .craft-skill {
+        display: flex;
+        align-items: center;
+
+        &-row {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--popover-border);
+
+            @media (max-width: 576px) {
+                padding: 2px 0;
+            }
+        }
+    }
+}

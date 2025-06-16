@@ -1,0 +1,48 @@
+@import "src/styles/colors.scss";
+
+.tag-row {
+    padding: 0 calc(0.75rem - 5px) !important;
+
+    .tag-wrapper {
+        padding: 5px !important;
+
+        .result-tag {
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            color: var(--text-white);
+            text-align: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 5px;
+            cursor: default;
+        }
+        .function-tag,
+        .skill-function-tag {
+            background-color: var(--filter-btn-checked-blue-bg);
+        }
+        .armed-function-tag {
+            background-color: var(--filter-btn-checked-cyan-bg);
+        }
+        .keyword-tag {
+            background-color: var(--filter-btn-checked-purple-bg);
+        }
+        .tag-tag {
+            background-color: var(--filter-btn-checked-orange-bg);
+        }
+        .attribute-tag,
+        .race-tag,
+        .star-tag,
+        .charge-tag,
+        .genre-tag,
+        .activate-tag,
+        .mode-tag {
+            background-color: var(--filter-btn-checked-green-bg);
+        }
+        .tag-subtext {
+            color: #ccccff;
+            font-size: 0.8em;
+        }
+    }
+}

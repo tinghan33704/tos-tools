@@ -1,0 +1,21 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+.desc-note {
+    position: absolute;
+    background-color: rgba(60, 60, 60, 0.85);
+    border: 2px solid #333333;
+    font-size: 1em;
+    padding: 10px;
+    z-index: 2000;
+
+    .desc-note-label {
+        color: var(--popover-skill-description-note-label);
+    }
+    .positive-note-label {
+        color: var(--popover-skill-description-positive-label);
+    }
+    .negative-note-label {
+        color: var(--popover-skill-description-negative-label);
+    }
+}

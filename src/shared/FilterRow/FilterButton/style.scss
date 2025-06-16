@@ -1,0 +1,59 @@
+@import "src/styles/colors.scss";
+
+.btn-shell {
+    padding: 6px 3px !important;
+
+    .btn-input[type="checkbox"] {
+        display: none;
+
+        & + label.btn {
+            display: flex !important;
+            justify-content: center;
+            align-items: center !important;
+            padding: 0.25rem !important;
+            height: 100%;
+
+            font-size: 1.2em;
+            color: var(--text-black);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            background-color: var(--filter-btn-bg);
+            border: 1px solid var(--filter-btn-border);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        &:checked + label.btn {
+            background-color: var(--filter-btn-checked-blue-bg);
+            color: var(--text-white);
+            font-weight: bold;
+
+            &.attribute-btn,
+            &.race-btn,
+            &.star-btn,
+            &.charge-btn,
+            &.genre-btn,
+            &.activate-btn,
+            &.objective-btn,
+            &.mode-btn,
+            &.version-btn {
+                background-color: var(--filter-btn-checked-green-bg);
+            }
+            &.tag-btn,
+            &.extraTag-btn {
+                background-color: var(--filter-btn-checked-orange-bg);
+            }
+            &.armedFunctions-btn {
+                background-color: var(--filter-btn-checked-cyan-bg);
+            }
+        }
+    }
+
+    .btn-icon {
+        height: 1em;
+        margin-right: 10px;
+    }
+}

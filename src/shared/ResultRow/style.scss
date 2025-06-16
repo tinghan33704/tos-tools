@@ -1,0 +1,74 @@
+@import "src/styles/colors.scss";
+
+.result-row {
+    display: flex;
+    align-items: center;
+
+    &-title {
+        text-align: left;
+        color: var(--text-black);
+
+        h3 {
+            margin: 15px 0;
+        }
+    }
+
+    .uid-tag {
+        vertical-align: middle;
+        font-size: 1.2rem;
+        color: gray;
+        padding: 0 10px;
+        text-align: end;
+    }
+}
+
+.result-wrapper {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    .row {
+        padding: 0;
+    }
+
+    .sort-by-title {
+        display: flex;
+        align-items: center;
+        color: var(--result-sort-title);
+        background-color: var(--result-sort-title-bg);
+        font-size: 1.7em;
+        font-weight: bold;
+        margin-bottom: 10px;
+
+        img {
+            width: 30px;
+            margin-right: 6px;
+        }
+
+        &-charge {
+            padding-left: 15px;
+        }
+
+        &.w {
+            color: var(--water);
+        }
+        &.f {
+            color: var(--fire);
+        }
+        &.e {
+            color: var(--earth);
+        }
+        &.l {
+            color: var(--light);
+        }
+        &.d {
+            color: var(--dark);
+        }
+    }
+
+    .no-result {
+        padding-top: 20px;
+        text-align: center;
+        color: #888888;
+    }
+}

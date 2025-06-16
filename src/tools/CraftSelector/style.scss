@@ -1,0 +1,122 @@
+@import "src/styles/colors.scss";
+
+$craft-mode-count: 11;
+
+.craft-select-table {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--text-black);
+
+    tr,
+    td {
+        // background-color: transparent !important;
+        border-color: var(--table-border);
+    }
+
+    thead {
+        position: sticky;
+        top: 53px;
+        z-index: 5;
+        height: 95px;
+    }
+
+    tbody {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.craft-header-type {
+    text-align: center;
+    padding: 10px !important;
+    background-color: #343a40 !important;
+    border: none;
+
+    &-text {
+        font-weight: 700;
+        color: white;
+    }
+}
+
+.craft-info-tr {
+    height: 75px;
+    cursor: pointer;
+
+    td {
+        background-color: rgba(120, 120, 120, 0.3) !important;
+        border-top-style: double;
+        border-top-width: 3px;
+    }
+
+    .craft-name {
+        vertical-align: middle;
+        font-size: 1.2rem;
+        text-align: center;
+        color: var(--text-black);
+        font-weight: 600;
+    }
+
+    .craft-objective {
+        vertical-align: middle;
+
+        img {
+            margin: 3px;
+        }
+    }
+}
+
+.craft-image-tr {
+    height: 60px;
+
+    .craft-image {
+        width: calc(100% / $craft-mode-count);
+        padding: 10px !important;
+        background-color: transparent;
+        cursor: not-allowed;
+
+        .result-image-id-tag {
+            margin: 0 !important;
+        }
+
+        &-selected {
+            background-color: var(--filter-btn-checked-green-bg);
+
+            -webkit-box-shadow: inset 0px 0px 0px 2px #006d01;
+            -moz-box-shadow: inset 0px 0px 0px 2px #006d01;
+            box-shadow: inset 0px 0px 0px 2px #006d01;
+        }
+
+        &.craft-have-mode {
+            cursor: pointer;
+
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.result-wrapper {
+    margin-bottom: 20px;
+}
+
+.result-id-panel {
+    background-color: var(--result-number-panel-background);
+    border: 2px #0080ff solid;
+    padding: 20px !important;
+    font-size: 1.5em;
+    color: #000079;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &-copied {
+        background-color: var(--result-number-panel-success-background);
+        border: 2px #5bd876 solid;
+    }
+}
+
+.note-row {
+    font-size: 1.5em;
+    color: var(--text-black);
+    text-align: center;
+    padding: 10px;
+}

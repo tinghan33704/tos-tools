@@ -1,0 +1,79 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+.user-data-modal {
+    width: 80% !important;
+    max-width: 80% !important;
+    margin: 20px auto;
+    background-color: var(--background-color);
+
+    @include max768 {
+        width: 95% !important;
+        max-width: 95% !important;
+    }
+
+    .modal-content {
+        background-color: transparent;
+
+        .modal-header .btn-close {
+            filter: var(--close-button-filter);
+        }
+    }
+
+    .tab-btn {
+        display: flex;
+
+        .nav-link {
+            background-color: transparent;
+            color: var(--text-black);
+            font-size: 1.2em;
+
+            &.active {
+                background-color: var(--tab-btn-active-bg);
+                color: var(--text-white);
+            }
+        }
+    }
+
+    .sub-panel {
+        margin-top: 40px;
+
+        .input,
+        .btn {
+            margin-top: 10px;
+        }
+
+        .input {
+            text-align: center;
+            color: var(--text-black) !important;
+            border: var(--filter-btn-border) 1px solid !important;
+            background-color: var(--background-color) !important;
+
+            &::placeholder {
+                color: #888888 !important;
+            }
+        }
+
+        .data-status {
+            padding: 20px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+
+            &.waiting {
+                color: #4169e1;
+            }
+            &.success,
+            &.saved {
+                color: green;
+            }
+            &.error {
+                color: red;
+            }
+
+            svg {
+                margin-right: 10px;
+            }
+        }
+    }
+}

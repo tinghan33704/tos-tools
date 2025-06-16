@@ -1,0 +1,110 @@
+@import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
+
+.option-modal {
+    width: 80% !important;
+    max-width: 80% !important;
+    margin: 20px auto;
+    background-color: var(--background-color);
+
+    @include max768 {
+        width: 95% !important;
+        max-width: 95% !important;
+    }
+
+    .modal-content {
+        background-color: transparent;
+
+        .modal-header .btn-close {
+            filter: var(--close-button-filter);
+        }
+    }
+
+    .option-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--text-black);
+        text-align: center;
+        border: 1px solid transparent;
+        padding: 5px 0;
+
+        @include min992 {
+            border-right: 1px solid var(--option-row-hr);
+        }
+    }
+
+    .option-row {
+        padding: 1rem 0;
+        margin: 0 1rem;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid var(--option-row-hr);
+        }
+
+        .activate-row,
+        .objective-row {
+            .accordion-item {
+                border: none;
+                border-top: 1px solid var(--option-row-hr);
+                border-bottom: 1px solid var(--option-row-hr);
+                border-radius: 0;
+                background-color: transparent;
+            }
+
+            .accordion-header {
+                .collapse-header {
+                    display: flex;
+                    align-items: center;
+
+                    svg {
+                        position: absolute;
+
+                        &:first-child {
+                            left: 20px;
+                        }
+                        &:last-child {
+                            right: 20px;
+                        }
+                    }
+                }
+            }
+
+            .accordion-body {
+                padding-top: 10px;
+            }
+
+            .accordion-button {
+                color: var(--text-black);
+                background: transparent;
+                border-radius: 0;
+                font-size: 1.2rem;
+                justify-content: center;
+                box-shadow: none;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        .objective-row {
+            .accordion-item {
+                border-bottom: none;
+            }
+        }
+
+        .objective-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-black);
+        }
+    }
+}

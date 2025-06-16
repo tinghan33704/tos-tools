@@ -1,0 +1,60 @@
+@import "src/styles/mediaQuery.scss";
+
+.page-container {
+    position: relative;
+    width: 80% !important;
+    padding-bottom: 40px;
+
+    .author-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: var(--text-white);
+        background-color: var(--header-footer-bg);
+        text-align: center;
+        padding: 0 0 3px 0;
+        z-index: 1020;
+
+        @include max576 {
+            display: block;
+        }
+
+        img {
+            width: 18px;
+            position: relative;
+            top: 2px;
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        .donate {
+            text-decoration: none;
+            margin-left: 15px;
+            /*color: #d6d6d6;*/
+            color: #ffce3d;
+
+            &:hover {
+                text-decoration: none;
+                color: #ffce3d;
+                font-weight: bold;
+            }
+        }
+
+        .author-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 24px;
+        }
+    }
+}

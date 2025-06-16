@@ -1,0 +1,23 @@
+@import "src/styles/colors.scss";
+
+.result-id-panel {
+    background-color: var(--result-number-panel-background);
+    border: 2px #0080ff solid;
+    padding: 20px !important;
+    font-size: 1.5em;
+    color: #000079;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &-copied {
+        background-color: var(--result-number-panel-success-background);
+        border: 2px #5bd876 solid;
+    }
+}
+
+.note-row {
+    font-size: 1.5em;
+    color: var(--text-black);
+    text-align: center;
+    padding: 10px;
+}
