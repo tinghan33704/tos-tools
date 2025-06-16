@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import { ThemeContextProvider } from "./utilities/Context/ThemeContext"
 import { THEMES } from "./constant/toolConfig"
 import { DataContextProvider } from "./utilities/Context/DataContext"
-import { getPlayerData } from "./utilities/utils"
+import { getPlayerStoredData } from "./utilities/utils"
 
 import MainPage from "./page/MainPage"
 import SkillFilter from "./tools/SkillFilter/SkillFilter"
@@ -27,7 +27,7 @@ const App = () => {
                 : THEMES?.[0]
             : THEMES?.[0]
     )
-    const [playerData, setPlayerData] = useState<string>(getPlayerData())
+    const [playerData, setPlayerData] = useState<string>(getPlayerStoredData())
 
     const changeTheme = useCallback(() => {
         const _theme =

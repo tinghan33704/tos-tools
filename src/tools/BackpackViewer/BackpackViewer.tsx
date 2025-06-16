@@ -6,7 +6,7 @@ import { sealContent, sealOpenPeriod } from "src/constant/filterConstants"
 
 import {
     fetchPlayerData,
-    getPlayerData,
+    getPlayerStoredData,
     getUrlParams,
 } from "src/utilities/utils"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
@@ -35,13 +35,14 @@ const availablePages = Object.keys(sealContent).filter(
 
 const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     const dataContext = useContext(DataContext)
-    const { setPlayerData } = dataContext
+    const { playerData, setPlayerData } = dataContext
 
     const [currentTab, setCurrentTab] = useState<string>(availablePages[0])
     const [currentCardCategory, setCurrentCardCategory] =
         useState<string>("all")
     const [currentSort, setCurrentSort] = useState<string>("default")
-    const [userDataModalOpen, setUserDataModalOpen] = useState<boolean>(false)
+    const [userDataModalOpen, setUserDataModalOpen] = useState(false)
+    const [isAfterInitLoad, setIsAfterInitLoad] = useState(false)
 
     const { Popover, togglePopover, setPopoverContent } = usePopover()
 
@@ -52,10 +53,10 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     }, [])
 
     useEffect(() => {
-        if (!getPlayerData()?.uid) {
+        if (isAfterInitLoad && !playerData?.uid) {
             openUserDataModal()
         }
-    }, [currentTab])
+    }, [isAfterInitLoad, currentTab])
 
     const setInitPage = useCallback(() => {
         const _page = localStorage?.getItem("CURRENT_PAGE") || ""
@@ -74,8 +75,10 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
         if (params?.uid) {
             const data = await fetchPlayerData(params?.uid, "", "import")
             if (data) setPlayerData(data)
-        } else if (!getPlayerData()?.uid && !params?.uid) {
+            setIsAfterInitLoad(true)
+        } else if (!getPlayerStoredData()?.uid && !params?.uid) {
             openUserDataModal()
+            setIsAfterInitLoad(true)
         }
     }, [openUserDataModal, setPlayerData])
 

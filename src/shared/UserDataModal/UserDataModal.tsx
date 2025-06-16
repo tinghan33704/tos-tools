@@ -3,7 +3,8 @@ import { Col, Form, Modal, Nav, Row, Tab } from "react-bootstrap"
 import { faCheck, faDownload, faTimes } from "@fortawesome/free-solid-svg-icons"
 
 import { uid_maxlength, veri_maxlength } from "src/constant/filterConstants"
-import { fetchPlayerData } from "src/utilities/utils"
+import { fetchPlayerData, setUrlParams } from "src/utilities/utils"
+import Context from "src/utilities/Context/Context"
 import DataContext from "src/utilities/Context/DataContext"
 import Icon from "src/utilities/Icon"
 import Button from "src/utilities/Button"
@@ -17,6 +18,7 @@ export interface IUserDataModalProps {
 
 const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
     const dataContext = useContext(DataContext)
+    const { toolId } = useContext(Context)
     const { playerData, setPlayerData } = dataContext
     const { open, onClose } = props
     const ref = useRef(null)
@@ -65,8 +67,14 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
             onChangeDataStatus
         )
 
-        if (data) setPlayerData(data)
-    }, [action, onChangeDataStatus, setPlayerData, uid, veri])
+        if (data) {
+            setPlayerData(data)
+
+            if (toolId === "backpack-viewer") {
+                setUrlParams({ uid })
+            }
+        }
+    }, [action, onChangeDataStatus, setPlayerData, toolId, uid, veri])
 
     const saveBackpack = useCallback(() => {
         try {

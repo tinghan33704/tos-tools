@@ -285,7 +285,7 @@ export const fetchPlayerData = async (
     }
 }
 
-export const getPlayerData = () => {
+export const getPlayerStoredData = () => {
     return JSON.parse(localStorage.getItem("PLAYER_DATA") || "{}")
 }
 
