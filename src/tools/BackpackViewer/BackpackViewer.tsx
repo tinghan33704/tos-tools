@@ -51,6 +51,12 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
         setInitPage()
     }, [])
 
+    useEffect(() => {
+        if (!getPlayerData()?.uid) {
+            openUserDataModal()
+        }
+    }, [currentTab])
+
     const setInitPage = useCallback(() => {
         const _page = localStorage?.getItem("CURRENT_PAGE") || ""
         const page = availablePages.includes(_page) ? _page : availablePages[0]

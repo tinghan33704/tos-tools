@@ -68,9 +68,9 @@ const Inventory: React.FC<IInventoryProps> = ({
 
     useEffect(() => {
         setCards(
-            playerData?.wholeData.sort(
+            playerData?.wholeData?.sort(
                 (a: IObject, b: IObject) => b?.acquiredAt - a?.acquiredAt
-            )
+            ) || []
         )
     }, [])
 

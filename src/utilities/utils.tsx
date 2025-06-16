@@ -186,10 +186,10 @@ export const fetchPlayerData = async (
             .post(
                 `https://website-api.tosgame.com/api/checkup/login?token=&uid=${userId}&auth=${userAuth}`
             )
-            .then((response) => {
+            .then((response: IObject) => {
                 token = response?.data?.token
             })
-            .catch((error) => {
+            .catch((error: IObject) => {
                 throw new Error("Failed to get token")
             })
 
@@ -198,10 +198,10 @@ export const fetchPlayerData = async (
             .get(
                 `https://website-api.tosgame.com/api/checkup/getUserProfile?targetUid=${playerId}&token=${token}`
             )
-            .then((response) => {
+            .then((response: IObject) => {
                 inventoryData = response?.data
             })
-            .catch((error) => {
+            .catch((error: IObject) => {
                 throw new Error("Failed to get inventory data")
             })
 
@@ -431,7 +431,11 @@ export const descriptionTranslator = (
 }
 
 export const getUrlParams = () => {
-    const params = new URLSearchParams(window.location.search)
+    const params =
+        window.location.href
+            ?.split("?")?.[1]
+            ?.split("&")
+            ?.map((query) => query?.split("=")) || []
 
     let paramObj = {}
     for (const [key, value] of params) {
@@ -452,7 +456,7 @@ export const setUrlParams = (newParams: IObject) => {
 
     if (queryStr.slice(-1) === "&") queryStr = queryStr.slice(0, -1)
 
-    window.history.pushState(null, "", queryStr)
+    window.history.pushState(null, "", window.location.href + queryStr)
 }
 
 export const removeUrlParams = () => {
