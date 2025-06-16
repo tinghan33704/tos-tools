@@ -17,7 +17,7 @@ const MainPage: React.FC<IMainPageProps> = () => {
                 {Object.values(toolConfig).map((tool: IObject) => {
                     return (
                         <Col sm={6}>
-                            <a href={`./${tool?.toolPath}`}>
+                            <a href={`./#/${tool?.toolPath}`}>
                                 <div className='tool-btn'>
                                     <div className='icon'>
                                         <Image path={`favicon/${tool?.icon}`} />
