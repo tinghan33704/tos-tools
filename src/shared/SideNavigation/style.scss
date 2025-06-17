@@ -21,6 +21,13 @@
         transition: 0.3s;
         background-color: rgba(0, 0, 0, 0.4);
         border-bottom: #d6d6d6 1px solid;
+
+        svg {
+            position: absolute;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
     }
 
     &-items {

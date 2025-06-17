@@ -42,6 +42,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
         useState<string>("all")
     const [currentSort, setCurrentSort] = useState<string>("default")
     const [userDataModalOpen, setUserDataModalOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [isAfterInitLoad, setIsAfterInitLoad] = useState(false)
 
     const { Popover, togglePopover, setPopoverContent } = usePopover()
@@ -73,9 +74,17 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     const getInitData = useCallback(async () => {
         const params: IObject = getUrlParams()
         if (params?.uid) {
-            const data = await fetchPlayerData(params?.uid, "", "import")
-            if (data) setPlayerData(data)
-            setIsAfterInitLoad(true)
+            setIsLoading(true)
+            try {
+                const data = await fetchPlayerData(params?.uid, "", "import")
+
+                if (data) setPlayerData(data)
+            } catch (err) {
+                console.error(err)
+            } finally {
+                setIsLoading(false)
+                setIsAfterInitLoad(true)
+            }
         } else if (!getPlayerStoredData()?.uid && !params?.uid) {
             openUserDataModal()
             setIsAfterInitLoad(true)
@@ -141,23 +150,40 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                 openUserDataModal={openUserDataModal}
                 backpackViewerPage={currentTab}
             >
-                <>
-                    {renderSeriesSelector()}
-                    {currentTab === "完整背包" ? (
-                        <Inventory
-                            togglePopover={togglePopover}
-                            setPopoverContent={setPopoverContent}
-                        />
-                    ) : (
-                        <SeriesRow
-                            tab={currentTab}
-                            cardCategory={currentCardCategory}
-                            sortBy={currentSort}
-                            togglePopover={togglePopover}
-                            setPopoverContent={setPopoverContent}
-                        />
-                    )}
-                </>
+                {isLoading ? (
+                    <div
+                        className='loading'
+                        style={{
+                            height: `${
+                                window.innerHeight -
+                                document
+                                    .getElementsByClassName("tool-header")[0]
+                                    ?.getBoundingClientRect()?.height -
+                                60
+                            }px`,
+                        }}
+                    >
+                        載入資料中...
+                    </div>
+                ) : (
+                    <>
+                        {renderSeriesSelector()}
+                        {currentTab === "完整背包" ? (
+                            <Inventory
+                                togglePopover={togglePopover}
+                                setPopoverContent={setPopoverContent}
+                            />
+                        ) : (
+                            <SeriesRow
+                                tab={currentTab}
+                                cardCategory={currentCardCategory}
+                                sortBy={currentSort}
+                                togglePopover={togglePopover}
+                                setPopoverContent={setPopoverContent}
+                            />
+                        )}
+                    </>
+                )}
             </PageContainer>
             <UserDataModal
                 open={userDataModalOpen}

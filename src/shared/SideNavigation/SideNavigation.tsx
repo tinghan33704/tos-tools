@@ -6,6 +6,8 @@ import { toolConfig } from "src/constant/toolConfig"
 import Image from "src/utilities/Image"
 
 import "./style.scss"
+import { faClose } from "@fortawesome/free-solid-svg-icons"
+import Icon from "src/utilities/Icon"
 
 export interface ISideNavigationProps {
     isOpen: boolean
@@ -16,7 +18,10 @@ const SideNavigation: React.FC<ISideNavigationProps> = (props) => {
     const { isOpen, onClose } = props
     return (
         <Offcanvas show={isOpen} onHide={onClose} className='side-navigation'>
-            <div className='side-navigation-header'>工具列表</div>
+            <div className='side-navigation-header'>
+                <Icon icon={faClose} onClick={onClose} />
+                工具列表
+            </div>
             <div className='side-navigation-items'>
                 {Object.values(toolConfig).map((config) => {
                     return (

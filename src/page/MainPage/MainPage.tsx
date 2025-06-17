@@ -11,22 +11,38 @@ import "./style.scss"
 interface IMainPageProps {}
 
 const MainPage: React.FC<IMainPageProps> = () => {
+    const onClick = (e: React.MouseEvent, url: string) => {
+        window.location.href = url
+    }
+
     return (
         <div className='tool-container'>
+            <Row className='header-row'>
+                <Col xs={0} sm={2}></Col>
+                <Col xs={9} sm={8} className='title'>
+                    神魔之塔相關工具
+                </Col>
+                <Col xs={3} sm={2} className='sub-title'>
+                    by 蒼曜
+                </Col>
+            </Row>
             <Row className='tool-row'>
                 {Object.values(toolConfig).map((tool: IObject) => {
                     return (
                         <Col sm={6}>
-                            <a href={`./#/${tool?.toolPath}`}>
-                                <div className='tool-btn'>
-                                    <div className='icon'>
-                                        <Image path={`favicon/${tool?.icon}`} />
-                                    </div>
-                                    <div className='title'>
-                                        {tool?.title?.substring(4)}
-                                    </div>
+                            <div
+                                className='tool-btn'
+                                onClick={(e: React.MouseEvent<HTMLElement>) =>
+                                    onClick(e, `./#/${tool?.toolPath}`)
+                                }
+                            >
+                                <div className='icon'>
+                                    <Image path={`favicon/${tool?.icon}`} />
                                 </div>
-                            </a>
+                                <div className='title'>
+                                    {tool?.title?.substring(4)}
+                                </div>
+                            </div>
                         </Col>
                     )
                 })}

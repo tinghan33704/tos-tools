@@ -332,15 +332,15 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                 selectedFunction
                                             ].includes(option_text[0]) &&
                                                 (!Array.isArray(tag) ||
-                                                    tag?.[1] === 1)) ||
+                                                    +tag?.[1] === 1)) ||
                                                 (durationObj[
                                                     selectedFunction
                                                 ].includes(option_text[1]) &&
-                                                    tag?.[1] > 1) ||
+                                                    +tag?.[1] > 1) ||
                                                 (durationObj[
                                                     selectedFunction
                                                 ].includes(option_text[2]) &&
-                                                    tag?.[1] === -1) ||
+                                                    +tag?.[1] === -1) ||
                                                 (!durationObj[
                                                     selectedFunction
                                                 ].includes(option_text[0]) &&
@@ -399,19 +399,19 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                     selectedFunction
                                                 ].includes(option_text[0]) &&
                                                     (!Array.isArray(tag) ||
-                                                        tag?.[1] === 1)) ||
+                                                        +tag?.[1] === 1)) ||
                                                     (durationObj[
                                                         selectedFunction
                                                     ].includes(
                                                         option_text[1]
                                                     ) &&
-                                                        tag?.[1] > 1) ||
+                                                        +tag?.[1] > 1) ||
                                                     (durationObj[
                                                         selectedFunction
                                                     ].includes(
                                                         option_text[2]
                                                     ) &&
-                                                        tag?.[1] === -1) ||
+                                                        +tag?.[1] === -1) ||
                                                     (!durationObj[
                                                         selectedFunction
                                                     ].includes(
