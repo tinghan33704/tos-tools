@@ -62,9 +62,7 @@ const InputModal: React.FC<IInputModalProps> = (props) => {
                                     className='id-input'
                                     placeholder='輸入編號字串'
                                     value={inputId}
-                                    onKeyPress={(event) => {
-                                        console.log(event)
-
+                                    onKeyDown={(event) => {
                                         return [
                                             " ",
                                             "0",

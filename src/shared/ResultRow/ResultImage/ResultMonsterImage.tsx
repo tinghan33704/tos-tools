@@ -1,5 +1,4 @@
 import React, { useCallback, useContext, useRef, useMemo } from "react"
-import * as ReactDOMServer from "react-dom/server"
 import { Col, OverlayTrigger, Popover, Row } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
@@ -79,25 +78,23 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                             xs={9}
                             sm={9}
                             className={`monster-skill-name monster-skill-name-${skill?.type}`}
-                            dangerouslySetInnerHTML={{
-                                __html: `${ReactDOMServer.renderToString(
-                                    <>
-                                        {skill?.type === "refine" ? (
-                                            <Image
-                                                path={`icon/refine_${skill?.refine}`}
-                                            />
-                                        ) : skill?.type === "recall" ? (
-                                            <Image path='icon/recall' />
-                                        ) : skill?.type === "combine" ||
-                                          skill?.changedSkill ? (
-                                            <Image path='icon/combine' />
-                                        ) : (
-                                            <></>
-                                        )}
-                                    </>
-                                )}${skill?.name}`,
-                            }}
-                        ></Col>
+                        >
+                            <>
+                                {skill?.type === "refine" ? (
+                                    <Image
+                                        path={`icon/refine_${skill?.refine}`}
+                                    />
+                                ) : skill?.type === "recall" ? (
+                                    <Image path='icon/recall' />
+                                ) : skill?.type === "combine" ||
+                                  skill?.changedSkill ? (
+                                    <Image path='icon/combine' />
+                                ) : (
+                                    <></>
+                                )}
+                                {skill?.name}
+                            </>
+                        </Col>
                         <Col xs={3} sm={3} className={"monster-skill-charge"}>
                             {`${skill?.charge || ""} `}
                             {"reduce" in skill

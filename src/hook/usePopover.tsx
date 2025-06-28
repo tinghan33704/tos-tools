@@ -45,11 +45,13 @@ export const usePopover = () => {
     }, [isVisible])
 
     useEffect(() => {
-        prevTarget?.setAttribute("style", "")
-        target?.setAttribute(
-            "style",
-            isOpen ? "outline: 3.5px #FF6666 dashed" : ""
-        )
+        if (target !== prevTarget) {
+            prevTarget?.setAttribute("style", "")
+            target?.setAttribute(
+                "style",
+                isOpen ? "outline: 3.5px #FF6666 dashed" : ""
+            )
+        }
     }, [target, isOpen, prevTarget])
 
     const onResize = useCallback(() => {
@@ -75,7 +77,7 @@ export const usePopover = () => {
                 setPrevTarget(null)
             }
         },
-        [isVisible, content]
+        [isVisible, prevTarget, target]
     )
 
     const setPopoverPosition = useCallback(() => {
@@ -120,10 +122,16 @@ export const usePopover = () => {
                 left,
                 // display: isOpen ? "block" : "none",
             }
-            setDynamicPos(position)
-            setIsVisible(isOpen)
+
+            if (
+                Math.floor(top) !== Math.floor(dynamicPos?.top) ||
+                Math.floor(left) !== Math.floor(dynamicPos?.left)
+            ) {
+                setDynamicPos(position)
+                setIsVisible(isOpen)
+            }
         }
-    }, [isOpen, target])
+    }, [dynamicPos, isOpen, target])
 
     const setPopoverContent = useCallback((content: React.ReactElement) => {
         setContent(content)
@@ -131,10 +139,12 @@ export const usePopover = () => {
 
     const togglePopover = useCallback(
         (e: React.MouseEvent) => {
-            setIsVisible(false)
-            setIsOpen(target ? true : !isOpen)
-            setPrevTarget(target)
-            setTarget(e?.target as HTMLImageElement)
+            if (e?.target !== target) {
+                setIsVisible(false)
+                setIsOpen(target ? true : !isOpen)
+                setPrevTarget(target)
+                setTarget(e?.target as HTMLImageElement)
+            }
         },
         [isOpen, target]
     )
