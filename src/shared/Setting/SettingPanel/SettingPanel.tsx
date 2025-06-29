@@ -158,8 +158,8 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
     const renderPanels = useCallback(() => {
         let toolSettings =
             config?.toolId === "backpack-viewer"
-                ? toolConfig[config.toolId]?.setting?.[backpackViewerPage]
-                : toolConfig[config.toolId]?.setting || {}
+                ? toolConfig[config.toolId]?.setting?.[backpackViewerPage] || []
+                : toolConfig[config.toolId]?.setting || []
 
         return toolSettings.map((setting: string) => {
             const toolSetting = panelMapping[setting]

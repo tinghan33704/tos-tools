@@ -7,5 +7,17 @@
     z-index: 1050;
     border-radius: 5px;
     border: none;
-    transition: all 0.5s linear;
+    transition-delay: 0s;
+    transition-duration: 1s;
+    transition-property: opacity;
+
+    &.close {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &.open {
+        visibility: visible;
+        opacity: 1;
+    }
 }

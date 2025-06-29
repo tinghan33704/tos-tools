@@ -37,7 +37,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     const dataContext = useContext(DataContext)
     const { playerData, setPlayerData } = dataContext
 
-    const [currentTab, setCurrentTab] = useState<string>(availablePages[0])
+    const [currentTab, setCurrentTab] = useState<any>("")
     const [currentCardCategory, setCurrentCardCategory] =
         useState<string>("all")
     const [currentSort, setCurrentSort] = useState<string>("default")
@@ -165,7 +165,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                     >
                         載入資料中...
                     </div>
-                ) : (
+                ) : currentTab ? (
                     <>
                         {renderSeriesSelector()}
                         {currentTab === "完整背包" ? (
@@ -183,6 +183,21 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                             />
                         )}
                     </>
+                ) : (
+                    <div
+                        className='loading'
+                        style={{
+                            height: `${
+                                window.innerHeight -
+                                document
+                                    .getElementsByClassName("tool-header")[0]
+                                    ?.getBoundingClientRect()?.height -
+                                60
+                            }px`,
+                        }}
+                    >
+                        載入頁面中...
+                    </div>
                 )}
             </PageContainer>
             <UserDataModal

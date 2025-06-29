@@ -1,12 +1,12 @@
 import React, { useRef } from "react"
-import ReactDOM, { createPortal } from "react-dom"
+import { createPortal } from "react-dom"
 import { useState, useCallback, useEffect } from "react"
 
 import "./style.scss"
 
 export const usePopover = () => {
-    const [target, setTarget] = useState<HTMLImageElement | null>()
-    const [prevTarget, setPrevTarget] = useState<HTMLImageElement | null>()
+    const [target, setTarget] = useState<any>()
+    const [prevTarget, setPrevTarget] = useState<any>()
     const [content, setContent] = useState<React.ReactElement>(<></>)
     const [isOpen, setIsOpen] = useState(false)
     const [isVisible, setIsVisible] = useState(false) // Control visibility of popover. Make sure popover is not visible until the positioning is done
@@ -22,37 +22,63 @@ export const usePopover = () => {
 
         window.addEventListener("scroll", onScroll)
         window.addEventListener("resize", onResize)
+        window.addEventListener("click", onClick as any)
         return () => {
             window.removeEventListener("scroll", onScroll)
             window.addEventListener("resize", onResize)
+            window.removeEventListener("click", onClick as any)
         }
     }, [])
 
-    useEffect(() => {
+    const closePopover = useCallback(() => {
         setIsVisible(false)
-        setPopoverPosition()
-    }, [content, isOpen, target])
+        setIsOpen(false)
+    }, [])
 
-    useEffect(() => {
-        setPopoverPosition()
-    }, [scrollPosition, size])
+    const onClick = useCallback(
+        (e: React.MouseEvent) => {
+            if (
+                isOpen &&
+                ref?.current &&
+                !ref?.current.contains(e?.target) &&
+                target &&
+                !target?.contains(e?.target)
+            ) {
+                closePopover()
+            }
+        },
+        [closePopover, isOpen, target]
+    )
 
     useEffect(() => {
         window.addEventListener("click", onClick as any)
         return () => {
             window.removeEventListener("click", onClick as any)
         }
-    }, [isVisible])
+    }, [isOpen, onClick])
 
     useEffect(() => {
-        if (target !== prevTarget) {
-            prevTarget?.setAttribute("style", "")
-            target?.setAttribute(
-                "style",
-                isOpen ? "outline: 3.5px #FF6666 dashed" : ""
-            )
+        if (isOpen) {
+            setIsVisible(false)
+            setPopoverPosition()
         }
-    }, [target, isOpen, prevTarget])
+    }, [content, isOpen])
+
+    useEffect(() => {
+        setPopoverPosition()
+    }, [scrollPosition, size])
+
+    const toggleBorder = useCallback(() => {
+        prevTarget?.setAttribute("style", "")
+        target?.setAttribute(
+            "style",
+            isOpen ? "outline: 3.5px #FF6666 dashed" : ""
+        )
+    }, [isOpen, prevTarget, target])
+
+    useEffect(() => {
+        toggleBorder()
+    }, [isOpen, target])
 
     const onResize = useCallback(() => {
         setSize([window.innerWidth, window.innerHeight])
@@ -61,24 +87,6 @@ export const usePopover = () => {
     const onScroll = useCallback(() => {
         setScrollPosition(window.pageYOffset)
     }, [])
-
-    const onClick = useCallback(
-        (e: React.MouseEvent) => {
-            if (
-                isVisible &&
-                ref?.current &&
-                !ref?.current.contains(e?.target)
-            ) {
-                setIsVisible(false)
-                setIsOpen(false)
-                prevTarget?.setAttribute("style", "")
-                target?.setAttribute("style", "")
-                setTarget(null)
-                setPrevTarget(null)
-            }
-        },
-        [isVisible, prevTarget, target]
-    )
 
     const setPopoverPosition = useCallback(() => {
         const refCurrent = ref?.current
@@ -102,7 +110,7 @@ export const usePopover = () => {
             const pageY = window?.scrollY || window?.pageYOffset
 
             const top =
-                overlayBottom + offset + popoverHeight > window.innerHeight - 27
+                overlayBottom + offset + popoverHeight > window.innerHeight - 0
                     ? overlayTop + pageY - popoverHeight - offset
                     : overlayBottom + pageY + offset
 
@@ -120,7 +128,6 @@ export const usePopover = () => {
             const position = {
                 top,
                 left,
-                // display: isOpen ? "block" : "none",
             }
 
             if (
@@ -128,8 +135,8 @@ export const usePopover = () => {
                 Math.floor(left) !== Math.floor(dynamicPos?.left)
             ) {
                 setDynamicPos(position)
-                setIsVisible(isOpen)
             }
+            setIsVisible(isOpen)
         }
     }, [dynamicPos, isOpen, target])
 
@@ -139,25 +146,22 @@ export const usePopover = () => {
 
     const togglePopover = useCallback(
         (e: React.MouseEvent) => {
-            if (e?.target !== target) {
-                setIsVisible(false)
-                setIsOpen(target ? true : !isOpen)
+            if (e?.target) {
+                setIsOpen(true)
                 setPrevTarget(target)
-                setTarget(e?.target as HTMLImageElement)
+                setTarget(e?.target)
             }
         },
-        [isOpen, target]
+        [target]
     )
 
     const renderPopoverContent = useCallback(() => {
         return (
             <div
-                className='popover-content'
+                className={`popover-content ${isVisible ? "open" : "close"}`}
                 ref={ref}
                 style={{
                     ...dynamicPos,
-                    visibility: isVisible ? "visible" : "hidden",
-                    // opacity: isOpen ? 1 : 0,
                 }}
             >
                 {content}

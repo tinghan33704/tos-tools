@@ -456,6 +456,8 @@ export const setUrlParams = (newParams: IObject) => {
 
     if (queryStr.slice(-1) === "&") queryStr = queryStr.slice(0, -1)
 
+    removeUrlParams()
+
     window.history.pushState(null, "", window.location.href + queryStr)
 }
 
