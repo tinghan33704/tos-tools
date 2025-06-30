@@ -142,6 +142,8 @@ export const usePopover = () => {
 
     const setPopoverContent = useCallback((content: React.ReactElement) => {
         setContent(content)
+        // hide popover before changing position
+        setIsVisible(false)
     }, [])
 
     const togglePopover = useCallback(

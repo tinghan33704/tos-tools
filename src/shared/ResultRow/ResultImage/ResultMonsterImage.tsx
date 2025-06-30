@@ -92,7 +92,14 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                 ) : (
                                     <></>
                                 )}
-                                {skill?.name}
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: descriptionTranslator(
+                                            id,
+                                            skill?.name
+                                        ),
+                                    }}
+                                ></div>
                             </>
                         </Col>
                         <Col xs={3} sm={3} className={"monster-skill-charge"}>
