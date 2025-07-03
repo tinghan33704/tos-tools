@@ -74,6 +74,10 @@ export const usePopover = () => {
             "style",
             isOpen ? "outline: 3.5px #FF6666 dashed" : ""
         )
+
+        prevTarget?.removeAttribute("focused")
+        if (isOpen) target?.setAttribute("focused", isOpen)
+        else target?.removeAttribute("focused")
     }, [isOpen, prevTarget, target])
 
     useEffect(() => {

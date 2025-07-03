@@ -24,16 +24,7 @@ const Image: React.FC<IImageProps> = (props) => {
     const setImageSrc = useCallback(() => {
         let srcPath
         try {
-            if (path.startsWith("monster")) {
-                const monsterId = parseInt(path.split("/")[1])
-                const hasSpecialImage = getMonsterById(monsterId)?.specialImage
-
-                srcPath = require(`src/img/${path}${
-                    hasSpecialImage && isFocused ? "_sp" : ""
-                }.png`)
-            } else {
-                srcPath = require(`src/img/${path}.png`)
-            }
+            srcPath = require(`src/img/${path}.png`)
         } catch (err) {
             if (path.startsWith("monster")) {
                 const monsterId = parseInt(path.split("/")[1])
