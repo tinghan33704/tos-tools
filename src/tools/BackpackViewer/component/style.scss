@@ -137,12 +137,11 @@
     display: flex;
     align-items: center;
     padding: 2px;
-    z-index: 1000;
+    overflow-x: auto;
 
-    // @include max576 {
-    //     max-width: 300px;
-    //     min-width: 300px;
-    // }
+    @include max576 {
+        max-width: 300px;
+    }
 
     .popover-arrow {
         display: none !important;
