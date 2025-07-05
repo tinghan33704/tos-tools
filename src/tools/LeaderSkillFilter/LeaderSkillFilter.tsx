@@ -9,12 +9,12 @@ import React, {
 import _ from "lodash"
 
 import {
-    leader_skill_function_string,
-    attr_type_string,
-    race_type_string,
-    star_type_string,
-    tag_string,
-    leader_skill_object_string,
+    leaderSkillFunctionString,
+    attrTypeString,
+    raceTypeString,
+    starTypeString,
+    tagString,
+    leaderSkillObjectString,
 } from "src/constant/filterConstants"
 import { leaderSkillData } from "src/constant/leaderData"
 
@@ -101,16 +101,16 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
         if (!_.isEmpty(params)) {
             setSelectedFunctions(
-                decodeMapping(leader_skill_function_string, params?.search)
+                decodeMapping(leaderSkillFunctionString, params?.search)
             )
-            setSelectedAttributes(decodeMapping(attr_type_string, params?.attr))
-            setSelectedRaces(decodeMapping(race_type_string, params?.race))
+            setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
+            setSelectedRaces(decodeMapping(raceTypeString, params?.race))
             setSelectedStars(
-                decodeMapping(star_type_string, params?.star).map(
+                decodeMapping(starTypeString, params?.star).map(
                     (star) => `${star} ★`
                 )
             )
-            setSelectedTags(decodeMapping(tag_string, params?.tag))
+            setSelectedTags(decodeMapping(tagString, params?.tag))
             setKeyword(unicodeToString(params?.keyword || ""))
             setAndOr(["or", "and"][+params?.genre || 0])
 
@@ -124,13 +124,13 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
             if (all) {
                 // clicking on the attribute/race text to select the whole column/row
-                const attrTypeString = attr_type_string
-                const raceTypeString = race_type_string
+                const attrTypeStr = attrTypeString
+                const raceTypeStr = raceTypeString
                     .slice(0, 7)
                     .map((str) => str[0])
 
                 if (attribute) {
-                    raceTypeString.forEach((race) => {
+                    raceTypeStr.forEach((race) => {
                         const objectiveStr = `${attribute}${race}`
                         _objective = {
                             ..._objective,
@@ -146,7 +146,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         }
                     })
                 } else if (race) {
-                    attrTypeString.forEach((attribute) => {
+                    attrTypeStr.forEach((attribute) => {
                         const objectiveStr = `${attribute}${race}`
                         _objective = {
                             ..._objective,
@@ -292,7 +292,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 )
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
-                                        (!leader_skill_object_string.includes(
+                                        (!leaderSkillObjectString.includes(
                                             attrRace
                                         ) &&
                                             funcArr.some(
@@ -308,7 +308,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                                         attrRace?.[1]
                                                     )
                                             )) ||
-                                        (leader_skill_object_string?.includes(
+                                        (leaderSkillObjectString?.includes(
                                             attrRace
                                         ) &&
                                             funcArr.some((feat: IObject) =>
@@ -358,7 +358,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
-                                        (!leader_skill_object_string.includes(
+                                        (!leaderSkillObjectString.includes(
                                             attrRace
                                         ) &&
                                             funcArr.some(
@@ -374,7 +374,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                                         attrRace?.[1]
                                                     )
                                             )) ||
-                                        (leader_skill_object_string.includes(
+                                        (leaderSkillObjectString.includes(
                                             attrRace
                                         ) &&
                                             funcArr.some((feat: IObject) =>
@@ -508,7 +508,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 )
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
-                                        (!leader_skill_object_string.includes(
+                                        (!leaderSkillObjectString.includes(
                                             attrRace
                                         ) &&
                                             funcArr.some(
@@ -524,7 +524,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                                         attrRace?.[1]
                                                     )
                                             )) ||
-                                        (leader_skill_object_string?.includes(
+                                        (leaderSkillObjectString?.includes(
                                             attrRace
                                         ) &&
                                             funcArr.some((feat: IObject) =>
@@ -572,7 +572,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
                                         !(
-                                            (!leader_skill_object_string.includes(
+                                            (!leaderSkillObjectString.includes(
                                                 attrRace
                                             ) &&
                                                 funcArr.some(
@@ -588,7 +588,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                                             attrRace?.[1]
                                                         )
                                                 )) ||
-                                            (leader_skill_object_string.includes(
+                                            (leaderSkillObjectString.includes(
                                                 attrRace
                                             ) &&
                                                 funcArr.some((feat: IObject) =>
@@ -771,17 +771,14 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         setCurrentSearchParam(searchParam)
 
         setUrlParams({
-            search: encodeMapping(
-                leader_skill_function_string,
-                selectedFunctions
-            ),
-            attr: encodeMapping(attr_type_string, selectedAttributes),
-            race: encodeMapping(race_type_string, selectedRaces),
+            search: encodeMapping(leaderSkillFunctionString, selectedFunctions),
+            attr: encodeMapping(attrTypeString, selectedAttributes),
+            race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
-                star_type_string,
+                starTypeString,
                 selectedStars.map((s) => s[0])
             ),
-            tag: encodeMapping(tag_string, selectedTags),
+            tag: encodeMapping(tagString, selectedTags),
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
                 : "",
@@ -854,29 +851,29 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                     <FilterRow
                         title={"功能"}
                         type={"functions"}
-                        data={leader_skill_function_string}
+                        data={leaderSkillFunctionString}
                     />
                     <KeywordRow />
                     <FilterRow
                         title={"召喚獸標籤"}
                         type={"tag"}
-                        data={tag_string}
+                        data={tagString}
                         collapsible
                     />
                     <FilterRow
                         title={"召喚獸屬性"}
                         type={"attribute"}
-                        data={attr_type_string}
+                        data={attrTypeString}
                     />
                     <FilterRow
                         title={"召喚獸種族"}
                         type={"race"}
-                        data={race_type_string}
+                        data={raceTypeString}
                     />
                     <FilterRow
                         title={"召喚獸稀有度"}
                         type={"star"}
-                        data={star_type_string}
+                        data={starTypeString}
                         btnSuffix={" ★"}
                     />
                     <div ref={resultRef}>

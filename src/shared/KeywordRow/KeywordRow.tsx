@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { faUndo } from "@fortawesome/free-solid-svg-icons"
 import { Col, Form, Row } from "react-bootstrap"
 
-import { input_maxlength } from "src/constant/filterConstants"
+import { inputMaxLength } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
 import Button from "src/utilities/Button"
 
@@ -35,7 +35,7 @@ const KeywordRow: React.FC<IKeywordRowProps> = (props) => {
                             className='keyword-input'
                             placeholder='輸入技能關鍵字'
                             value={keyword}
-                            maxLength={input_maxlength}
+                            maxLength={inputMaxLength}
                             onChange={(e) => changeKeyword(e.target.value)}
                         />
                     </Form.Group>

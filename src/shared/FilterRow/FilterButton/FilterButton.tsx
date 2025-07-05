@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { Col } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
-import { attr_zh_to_en, race_zh_to_en } from "src/constant/filterConstants"
+import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
 import Image from "src/utilities/Image"
 
@@ -31,19 +31,19 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
 
     const buttonIcon =
         group === "attribute" ? (
-            attr_zh_to_en?.[text] ? (
+            attrZhToEn?.[text] ? (
                 <Image
                     className='btn-icon'
-                    path={`icon/icon_${attr_zh_to_en[text]}`}
+                    path={`icon/icon_${attrZhToEn[text]}`}
                 />
             ) : (
                 <></>
             )
         ) : group === "race" ? (
-            race_zh_to_en?.[text] ? (
+            raceZhToEn?.[text] ? (
                 <Image
                     className='btn-icon'
-                    path={`icon/icon_${race_zh_to_en[text]}`}
+                    path={`icon/icon_${raceZhToEn[text]}`}
                 />
             ) : (
                 <></>

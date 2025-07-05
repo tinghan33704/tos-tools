@@ -8,7 +8,7 @@ import {
     getMonsterById,
     paddingZeros,
 } from "src/utilities/utils"
-import { attr_zh_to_en, race_zh_to_en } from "src/constant/filterConstants"
+import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
 import Image from "src/utilities/Image"
 
 import "./style.scss"
@@ -49,17 +49,17 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     const renderMonsterName = useCallback(() => {
         return (
             <Row
-                className={`result-info-header result-info-header-${attr_zh_to_en[attribute]}`}
+                className={`result-info-header result-info-header-${attrZhToEn[attribute]}`}
             >
                 <Col xs={12} sm={3} className='monster-attr-race-star'>
-                    <Image path={`icon/icon_${attr_zh_to_en[attribute]}`} />
-                    <Image path={`icon/icon_${race_zh_to_en[race]}`} />
+                    <Image path={`icon/icon_${attrZhToEn[attribute]}`} />
+                    <Image path={`icon/icon_${raceZhToEn[race]}`} />
                     <Image path={`icon/icon_${star}`} />
                 </Col>
                 <Col
                     xs={12}
                     sm={9}
-                    className={`monster-name monster-name-${attr_zh_to_en[attribute]}`}
+                    className={`monster-name monster-name-${attrZhToEn[attribute]}`}
                 >
                     {name}
                 </Col>

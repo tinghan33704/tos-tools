@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
+import React, { useEffect, useRef, useState, useCallback } from "react"
 import _ from "lodash"
 import { Accordion, Col, Row } from "react-bootstrap"
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"
 
-import { monsterData } from "src/constant/monsterData"
-import { getMonsterById, paddingZeros } from "src/utilities/utils"
+import { paddingZeros } from "src/utilities/utils"
 import Image from "src/utilities/Image"
+import Icon from "src/utilities/Icon"
+import MonsterImage from "./MonsterImage"
 
 import "./style.scss"
-import MonsterImage from "./MonsterImage"
 
 interface ISeriesBlockProps {
     playerData: IObject
@@ -47,6 +48,8 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
     setPopoverContent,
 }) => {
     const ref = useRef(null)
+
+    const [isOpen, setIsOpen] = useState(true)
 
     const renderSeriesInfoPopover = useCallback(
         (ids: number[]) => {
@@ -118,12 +121,16 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                 className={`monster-series-header${
                     isAllCollected ? " all-collected" : ""
                 }`}
+                onClick={() => setIsOpen(!isOpen)}
             >
+                <span className='title-expander'>
+                    <Icon icon={isOpen ? faCaretUp : faCaretDown} />
+                </span>
                 <div>{title}</div>
                 <span className='collect-progress'>{`${collected} / ${total}`}</span>
             </Accordion.Header>
         )
-    }, [data, playerData, title])
+    }, [data, playerData, title, isOpen])
 
     const onClickImage = useCallback(
         (e: React.MouseEvent, ids: number[]) => {
@@ -188,7 +195,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                 })}
             </Row>
         )
-    }, [data, onClickImage, playerData])
+    }, [data, onClickImage, playerData, title])
 
     return (
         <>

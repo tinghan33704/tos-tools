@@ -2,14 +2,14 @@ import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
 import _ from "lodash"
 
 import {
-    craft_armed_type_string,
-    craft_attr_type_string,
-    craft_charge_type_string,
-    craft_genre_type_string,
-    craft_mode_type_string,
-    craft_race_type_string,
-    craft_skill_type_string,
-    craft_star_type_string,
+    craftArmedTypeString,
+    craftAttrTypeString,
+    craftChargeTypeString,
+    craftGenreTypeString,
+    craftModeTypeString,
+    craftRaceTypeString,
+    craftSkillTypeString,
+    craftStarTypeString,
 } from "src/constant/filterConstants"
 
 import { ContextProvider } from "src/utilities/Context/Context"
@@ -97,30 +97,26 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
 
         if (!_.isEmpty(params)) {
             setSelectedSkillFunctions(
-                decodeMapping(craft_skill_type_string, params?.skill)
+                decodeMapping(craftSkillTypeString, params?.skill)
             )
             setSelectedArmedFunctions(
-                decodeMapping(craft_armed_type_string, params?.armed)
+                decodeMapping(craftArmedTypeString, params?.armed)
             )
-            setSelectedModes(
-                decodeMapping(craft_mode_type_string, params?.mode)
-            )
+            setSelectedModes(decodeMapping(craftModeTypeString, params?.mode))
             setSelectedAttributes(
-                decodeMapping(craft_attr_type_string, params?.attr)
+                decodeMapping(craftAttrTypeString, params?.attr)
             )
-            setSelectedRaces(
-                decodeMapping(craft_race_type_string, params?.race)
-            )
+            setSelectedRaces(decodeMapping(craftRaceTypeString, params?.race))
             setSelectedStars(
-                decodeMapping(craft_star_type_string, params?.star).map(
+                decodeMapping(craftStarTypeString, params?.star).map(
                     (star) => `${star} ★`
                 )
             )
             setSelectedCharges(
-                decodeMapping(craft_charge_type_string, params?.charge)
+                decodeMapping(craftChargeTypeString, params?.charge)
             )
             setSelectedGenres(
-                decodeMapping(craft_genre_type_string, params?.genre)
+                decodeMapping(craftGenreTypeString, params?.genre)
             )
             setKeyword(unicodeToString(params?.keyword || ""))
             setAndOr(["or", "and", "m-and"][+params?.genre || 0])
@@ -439,23 +435,17 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
         setCurrentSearchParam(searchParam)
 
         setUrlParams({
-            skill: encodeMapping(
-                craft_skill_type_string,
-                selectedSkillFunctions
-            ),
-            armed: encodeMapping(
-                craft_armed_type_string,
-                selectedArmedFunctions
-            ),
-            mode: encodeMapping(craft_mode_type_string, selectedModes),
-            attr: encodeMapping(craft_attr_type_string, selectedAttributes),
-            race: encodeMapping(craft_race_type_string, selectedRaces),
+            skill: encodeMapping(craftSkillTypeString, selectedSkillFunctions),
+            armed: encodeMapping(craftArmedTypeString, selectedArmedFunctions),
+            mode: encodeMapping(craftModeTypeString, selectedModes),
+            attr: encodeMapping(craftAttrTypeString, selectedAttributes),
+            race: encodeMapping(craftRaceTypeString, selectedRaces),
             star: encodeMapping(
-                craft_star_type_string,
+                craftStarTypeString,
                 selectedStars.map((s) => s[0])
             ),
-            charge: encodeMapping(craft_charge_type_string, selectedCharges),
-            genre: encodeMapping(craft_genre_type_string, selectedGenres),
+            charge: encodeMapping(craftChargeTypeString, selectedCharges),
+            genre: encodeMapping(craftGenreTypeString, selectedGenres),
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
                 : "",
@@ -512,44 +502,44 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                     <FilterRow
                         title={"龍脈能力"}
                         type={"skillFunctions"}
-                        data={craft_skill_type_string}
+                        data={craftSkillTypeString}
                     />
                     <FilterRow
                         title={"武裝能力"}
                         type={"armedFunctions"}
-                        data={craft_armed_type_string}
+                        data={craftArmedTypeString}
                     />
                     <KeywordRow />
                     <FilterRow
                         title={"龍刻模式"}
                         type={"mode"}
-                        data={craft_mode_type_string}
+                        data={craftModeTypeString}
                     />
                     <FilterRow
                         title={"裝備屬性"}
                         type={"attribute"}
-                        data={craft_attr_type_string}
+                        data={craftAttrTypeString}
                     />
                     <FilterRow
                         title={"裝備種族"}
                         type={"race"}
-                        data={craft_race_type_string}
+                        data={craftRaceTypeString}
                     />
                     <FilterRow
                         title={"龍刻稀有度"}
                         type={"star"}
-                        data={craft_star_type_string}
+                        data={craftStarTypeString}
                         btnSuffix={" ★"}
                     />
                     <FilterRow
                         title={"龍刻充能條件"}
                         type={"charge"}
-                        data={craft_charge_type_string}
+                        data={craftChargeTypeString}
                     />
                     <FilterRow
                         title={"龍刻種類"}
                         type={"genre"}
-                        data={craft_genre_type_string}
+                        data={craftGenreTypeString}
                     />
                     <div ref={resultRef}>
                         {isAfterFilter ? (

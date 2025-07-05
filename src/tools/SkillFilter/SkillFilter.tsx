@@ -9,14 +9,14 @@ import React, {
 import _ from "lodash"
 
 import {
-    skill_function_string,
-    tag_string,
-    attr_type_string,
-    race_type_string,
-    star_type_string,
-    charge_type_string,
-    genre_type_string,
-    option_text,
+    skillFunctionString,
+    tagString,
+    attrTypeString,
+    raceTypeString,
+    starTypeString,
+    chargeTypeString,
+    genreTypeString,
+    optionText,
 } from "src/constant/filterConstants"
 
 import { ContextProvider } from "src/utilities/Context/Context"
@@ -116,22 +116,20 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
         if (!_.isEmpty(params)) {
             const selectedFunction = decodeMapping(
-                skill_function_string,
+                skillFunctionString,
                 params?.search
             )
             setSelectedFunctions(selectedFunction)
-            setSelectedAttributes(decodeMapping(attr_type_string, params?.attr))
-            setSelectedRaces(decodeMapping(race_type_string, params?.race))
+            setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
+            setSelectedRaces(decodeMapping(raceTypeString, params?.race))
             setSelectedStars(
-                decodeMapping(star_type_string, params?.star).map(
+                decodeMapping(starTypeString, params?.star).map(
                     (star) => `${star} ★`
                 )
             )
-            setSelectedTags(decodeMapping(tag_string, params?.tag))
-            setSelectedCharges(
-                decodeMapping(charge_type_string, params?.charge)
-            )
-            setSelectedGenres(decodeMapping(genre_type_string, params?.genre))
+            setSelectedTags(decodeMapping(tagString, params?.tag))
+            setSelectedCharges(decodeMapping(chargeTypeString, params?.charge))
+            setSelectedGenres(decodeMapping(genreTypeString, params?.genre))
             setKeyword(unicodeToString(params?.keyword || ""))
             setAndOr(["or", "and", "m-and"][+params?.genre || 0])
 
@@ -144,7 +142,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                             .reduce(
                                 (acc: string[], cur: string, index: number) => {
                                     if (cur === "1") {
-                                        acc = [...acc, option_text[index]]
+                                        acc = [...acc, optionText[index]]
                                     }
                                     return acc
                                 },
@@ -156,7 +154,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                     ? selectedFunction.reduce((acc, cur, index) => {
                           return {
                               ...acc,
-                              [cur]: durationArr[index],
+                              [cur]: durationArr?.[index],
                           }
                       }, {})
                     : {}
@@ -330,28 +328,26 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                     selectedFunction) &&
                                             ((durationObj[
                                                 selectedFunction
-                                            ].includes(option_text[0]) &&
+                                            ].includes(optionText[0]) &&
                                                 (!Array.isArray(tag) ||
                                                     +tag?.[1] === 1)) ||
                                                 (durationObj[
                                                     selectedFunction
-                                                ].includes(option_text[1]) &&
+                                                ].includes(optionText[1]) &&
                                                     +tag?.[1] > 1) ||
                                                 (durationObj[
                                                     selectedFunction
-                                                ].includes(option_text[2]) &&
+                                                ].includes(optionText[2]) &&
                                                     +tag?.[1] === -1) ||
                                                 (!durationObj[
                                                     selectedFunction
-                                                ].includes(option_text[0]) &&
+                                                ].includes(optionText[0]) &&
                                                     !durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[1]
-                                                    ) &&
+                                                    ].includes(optionText[1]) &&
                                                     !durationObj[
                                                         selectedFunction
-                                                    ].includes(option_text[2])))
+                                                    ].includes(optionText[2])))
                                         )
                                     }
                                 )
@@ -397,35 +393,29 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         selectedFunction) &&
                                                 ((durationObj[
                                                     selectedFunction
-                                                ].includes(option_text[0]) &&
+                                                ].includes(optionText[0]) &&
                                                     (!Array.isArray(tag) ||
                                                         +tag?.[1] === 1)) ||
                                                     (durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[1]
-                                                    ) &&
+                                                    ].includes(optionText[1]) &&
                                                         +tag?.[1] > 1) ||
                                                     (durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[2]
-                                                    ) &&
+                                                    ].includes(optionText[2]) &&
                                                         +tag?.[1] === -1) ||
                                                     (!durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[0]
-                                                    ) &&
+                                                    ].includes(optionText[0]) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[1]
+                                                            optionText[1]
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[2]
+                                                            optionText[2]
                                                         )))
                                             )
                                         }
@@ -517,34 +507,32 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[0]
+                                                            optionText[0]
                                                         )) ||
                                                     (tag[1] > 1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[1]
+                                                            optionText[1]
                                                         )) ||
                                                     (tag[1] === -1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[2]
+                                                            optionText[2]
                                                         )) ||
                                                     (!durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[1]
-                                                    ) &&
+                                                    ].includes(optionText[1]) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[1]
+                                                            optionText[1]
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[2]
+                                                            optionText[2]
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -560,23 +548,19 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                 if (
                                                     durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[0]
-                                                    ) ||
+                                                    ].includes(optionText[0]) ||
                                                     (!durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[0]
-                                                    ) &&
+                                                    ].includes(optionText[0]) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[1]
+                                                            optionText[1]
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[2]
+                                                            optionText[2]
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -629,34 +613,32 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[0]
+                                                            optionText[0]
                                                         )) ||
                                                     (tag[1] > 1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[1]
+                                                            optionText[1]
                                                         )) ||
                                                     (tag[1] === -1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[2]
+                                                            optionText[2]
                                                         )) ||
                                                     (!durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[0]
-                                                    ) &&
+                                                    ].includes(optionText[0]) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[1]
+                                                            optionText[1]
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[2]
+                                                            optionText[2]
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -675,23 +657,19 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                 if (
                                                     durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[0]
-                                                    ) ||
+                                                    ].includes(optionText[0]) ||
                                                     (!durationObj[
                                                         selectedFunction
-                                                    ].includes(
-                                                        option_text[0]
-                                                    ) &&
+                                                    ].includes(optionText[0]) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[1]
+                                                            optionText[1]
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            option_text[2]
+                                                            optionText[2]
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -758,7 +736,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                 if (
                     (!isGenreSelected ||
-                        selectedGenres.includes(genre_type_string[0])) &&
+                        selectedGenres.includes(genreTypeString[0])) &&
                     skillIndexArray.length > 0
                 )
                     result.push({
@@ -770,7 +748,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                 if (
                     (!isGenreSelected ||
-                        selectedGenres.includes(genre_type_string[1])) &&
+                        selectedGenres.includes(genreTypeString[1])) &&
                     skillIndexArrayCombine.length > 0
                 )
                     resultCombine.push({
@@ -813,7 +791,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                 if (
                     (!isGenreSelected ||
-                        selectedGenres.includes(genre_type_string[0])) &&
+                        selectedGenres.includes(genreTypeString[0])) &&
                     skillIndexArray.length > 0
                 )
                     result.push({
@@ -825,7 +803,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                 if (
                     (!isGenreSelected ||
-                        selectedGenres.includes(genre_type_string[1])) &&
+                        selectedGenres.includes(genreTypeString[1])) &&
                     skillIndexArrayCombine.length > 0
                 )
                     resultCombine.push({
@@ -860,27 +838,27 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
         setCurrentSearchParam(searchParam)
 
         setUrlParams({
-            search: encodeMapping(skill_function_string, selectedFunctions),
-            attr: encodeMapping(attr_type_string, selectedAttributes),
-            race: encodeMapping(race_type_string, selectedRaces),
+            search: encodeMapping(skillFunctionString, selectedFunctions),
+            attr: encodeMapping(attrTypeString, selectedAttributes),
+            race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
-                star_type_string,
+                starTypeString,
                 selectedStars.map((s) => s[0])
             ),
-            tag: encodeMapping(tag_string, selectedTags),
-            charge: encodeMapping(charge_type_string, selectedCharges),
-            genre: encodeMapping(genre_type_string, selectedGenres),
+            tag: encodeMapping(tagString, selectedTags),
+            charge: encodeMapping(chargeTypeString, selectedCharges),
+            genre: encodeMapping(genreTypeString, selectedGenres),
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
                 : "",
             or: ["or", "and", "m-and"].indexOf(andOr).toString(),
             duration: encode(
-                skill_function_string
+                skillFunctionString
                     .flat()
                     .reduce((acc: string, cur: string) => {
                         if (Object.keys(durationObj).includes(cur)) {
                             return acc.concat(
-                                option_text
+                                optionText
                                     .map((opt) =>
                                         durationObj[cur].includes(opt)
                                             ? "1"
@@ -888,6 +866,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                     )
                                     .join("")
                             )
+                        } else if (selectedFunctions.includes(cur)) {
+                            return acc + "000"
                         }
                         return acc
                     }, "")
@@ -967,40 +947,40 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                     <FilterRow
                         title={"功能"}
                         type={"functions"}
-                        data={skill_function_string}
+                        data={skillFunctionString}
                     />
                     <KeywordRow />
                     <FilterRow
                         title={"召喚獸標籤"}
                         type={"tag"}
-                        data={tag_string}
+                        data={tagString}
                         collapsible
                     />
                     <FilterRow
                         title={"召喚獸屬性"}
                         type={"attribute"}
-                        data={attr_type_string}
+                        data={attrTypeString}
                     />
                     <FilterRow
                         title={"召喚獸種族"}
                         type={"race"}
-                        data={race_type_string}
+                        data={raceTypeString}
                     />
                     <FilterRow
                         title={"召喚獸稀有度"}
                         type={"star"}
-                        data={star_type_string}
+                        data={starTypeString}
                         btnSuffix={" ★"}
                     />
                     <FilterRow
                         title={"技能累積方式"}
                         type={"charge"}
-                        data={charge_type_string}
+                        data={chargeTypeString}
                     />
                     <FilterRow
                         title={"技能種類"}
                         type={"genre"}
-                        data={genre_type_string}
+                        data={genreTypeString}
                     />
                     <div ref={resultRef}>
                         {isAfterFilter ? (

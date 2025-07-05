@@ -1,11 +1,12 @@
 import axios from "axios"
+import _ from "lodash"
 
 import { armedCraftData } from "src/constant/armedCraftData"
 import { craftData } from "src/constant/craftData"
 import {
-    input_maxlength,
+    inputMaxLength,
     myAuth,
-    skill_alias,
+    skillAlias,
 } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
 
@@ -71,7 +72,7 @@ export const isValidInputString = (text: string) => {
 export const checkKeyword = (keywordStr: string) => {
     let sanitizedKeywordStr = textSanitizer(keywordStr)
 
-    if (sanitizedKeywordStr.length > input_maxlength) {
+    if (sanitizedKeywordStr.length > inputMaxLength) {
         errorAlert(4)
         return []
     } else {
@@ -81,8 +82,8 @@ export const checkKeyword = (keywordStr: string) => {
 
 export const addAlias = (skillArr: string[], keywords: string[]) => {
     let _skillArr = [...skillArr]
-    Object.keys(skill_alias).forEach((skill) => {
-        const keyword_alias_arr = skill_alias[skill]
+    Object.keys(skillAlias).forEach((skill) => {
+        const keyword_alias_arr = skillAlias[skill]
 
         Object.keys(keywords).forEach((keyword) => {
             if (keyword_alias_arr.includes(keyword)) {
@@ -108,7 +109,7 @@ export const errorAlert = (index: number) => {
             alert(`${errorPrefix}請輸入技能關鍵字`)
             break
         case 4:
-            alert(`${errorPrefix}技能關鍵字數量不得超過 ${input_maxlength}`)
+            alert(`${errorPrefix}技能關鍵字數量不得超過 ${inputMaxLength}`)
             break
         case 5:
             alert(`${errorPrefix}請輸入 UID`)
@@ -478,9 +479,11 @@ export const encodeMapping = (allValue: any[], selected: any[]) => {
 
 export const encode = (input: string) => {
     const base = 6
-    const paddedInput = input.padEnd(
-        input.length +
-            (input.length % base > 0 ? base - (input.length % base) : 0),
+    const paddedInput = _.padEnd(
+        input,
+        input.length % base === 0
+            ? input.length
+            : (Math.floor(input.length / base) + 1) * base,
         "0"
     )
     const inputArr = paddedInput.match(/.{1,6}/g) || []

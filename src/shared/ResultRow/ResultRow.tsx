@@ -2,11 +2,11 @@ import React, { useCallback, useContext, useMemo } from "react"
 import { Col, Row } from "react-bootstrap"
 
 import {
-    attr_type_string,
-    attr_zh_to_en,
-    race_type_string,
-    race_zh_to_en,
-    skill_function_string,
+    attrTypeString,
+    attrZhToEn,
+    raceTypeString,
+    raceZhToEn,
+    skillFunctionString,
 } from "src/constant/filterConstants"
 import { getMonsterById } from "src/utilities/utils"
 import Context from "src/utilities/Context/Context"
@@ -52,7 +52,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
 
     const resultDataByAttribute: Record<string, []> = useMemo(
         () =>
-            attr_type_string.reduce((acc, cur) => {
+            attrTypeString.reduce((acc, cur) => {
                 return {
                     ...acc,
                     [cur]: resultData.filter(
@@ -65,7 +65,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
 
     const resultDataCombineByAttribute: Record<string, []> = useMemo(
         () =>
-            attr_type_string.reduce((acc, cur) => {
+            attrTypeString.reduce((acc, cur) => {
                 return {
                     ...acc,
                     [cur]: resultDataCombine.filter(
@@ -78,7 +78,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
 
     const resultDataByRace: Record<string, []> = useMemo(
         () =>
-            race_type_string.reduce((acc, cur) => {
+            raceTypeString.reduce((acc, cur) => {
                 return {
                     ...acc,
                     [cur]: resultData.filter(
@@ -91,7 +91,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
 
     const resultDataCombineByRace: Record<string, []> = useMemo(
         () =>
-            race_type_string.reduce((acc, cur) => {
+            raceTypeString.reduce((acc, cur) => {
                 return {
                     ...acc,
                     [cur]: resultDataCombine.filter(
@@ -114,7 +114,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
     }, [])
 
     const renderResultByAttribute = useCallback(() => {
-        return attr_type_string.map((attr: string) => {
+        return attrTypeString.map((attr: string) => {
             const data = resultDataByAttribute[attr]
             const dataCombine = resultDataCombineByAttribute[attr]
 
@@ -124,9 +124,9 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                 <>
                     <Col
                         xs={12}
-                        className={`sort-by-title ${attr_zh_to_en[attr]}`}
+                        className={`sort-by-title ${attrZhToEn[attr]}`}
                     >
-                        <Image path={`icon/icon_${attr_zh_to_en[attr]}`} />
+                        <Image path={`icon/icon_${attrZhToEn[attr]}`} />
                         {attr}
                     </Col>
                     {data.length + dataCombine.length > 0 ? (
@@ -167,7 +167,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
     ])
 
     const renderResultByRace = useCallback(() => {
-        return race_type_string.map((race: string) => {
+        return raceTypeString.map((race: string) => {
             const data = resultDataByRace[race]
             const dataCombine = resultDataCombineByRace[race]
 
@@ -176,7 +176,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
             ) : (
                 <>
                     <Col xs={12} className='sort-by-title'>
-                        <Image path={`icon/icon_${race_zh_to_en[race]}`} />
+                        <Image path={`icon/icon_${raceZhToEn[race]}`} />
                         {race}
                     </Col>
                     {data.length + dataCombine.length > 0 ? (
@@ -272,7 +272,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
     ])
 
     const renderResultByFunction = useCallback(() => {
-        return skill_function_string.flat().map((func) => {
+        return skillFunctionString.flat().map((func) => {
             const skillWithFunction = resultData
                 .map((data) => {
                     const withFunctionIndexes = data.skillIndexes.filter(

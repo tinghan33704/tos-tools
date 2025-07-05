@@ -1,12 +1,22 @@
 import React, { useState, useEffect, useContext, useCallback } from "react"
-import { Container } from "react-bootstrap"
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons"
+import { Alert, Container } from "react-bootstrap"
+import { faClose, faDollarSign } from "@fortawesome/free-solid-svg-icons"
 
 import Context from "src/utilities/Context/Context"
 import Setting from "../Setting"
 import Icon from "src/utilities/Icon"
 
 import "./style.scss"
+import {
+    allToolBroadcastNotification,
+    backpackViewerNotification,
+    craftFilterNotification,
+    craftSelectorNotification,
+    leaderSkillFilterNotification,
+    monsterSelectorNotification,
+    skillFilterNotification,
+    teamSkillFilterNotification,
+} from "src/constant/filterConstants"
 
 export interface IPageContainerProps {
     children: React.ReactElement
@@ -28,6 +38,8 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
     } = props
     const { toolId } = useContext(Context)
 
+    const [isNotificationOpen, setIsNotificationOpen] = useState(true)
+
     useEffect(() => {
         const headerElement =
             document.getElementsByClassName("tool-header")?.[0]
@@ -48,6 +60,44 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
     }, [])
 
     const [headerHeight, setHeaderHeight] = useState<number>(0)
+
+    const renderNotification = useCallback(() => {
+        const message = allToolBroadcastNotification?.length
+            ? allToolBroadcastNotification
+            : toolId === "skill-filter"
+            ? skillFilterNotification
+            : toolId === "team-skill-filter"
+            ? teamSkillFilterNotification
+            : toolId === "leader-skill-filter"
+            ? leaderSkillFilterNotification
+            : toolId === "craft-filter"
+            ? craftFilterNotification
+            : toolId === "craft-selector"
+            ? craftSelectorNotification
+            : toolId === "monster-selector"
+            ? monsterSelectorNotification
+            : toolId === "backpack-viewer"
+            ? backpackViewerNotification
+            : ""
+
+        return isNotificationOpen && message?.length ? (
+            <Alert
+                className='notification'
+                key={`${toolId}-notification`}
+                variant={"primary"}
+            >
+                {message}
+                <span
+                    className='close-notification'
+                    onClick={() => setIsNotificationOpen(false)}
+                >
+                    <Icon icon={faClose} />
+                </span>
+            </Alert>
+        ) : (
+            <></>
+        )
+    }, [isNotificationOpen, toolId])
 
     const renderFooter = useCallback(() => {
         const currYear = new Date().getFullYear()
@@ -107,6 +157,7 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
             className='page-container'
             style={{ paddingTop: `${headerHeight}px` }}
         >
+            {renderNotification()}
             {children}
             <Setting
                 openDurationModal={openDurationModal}

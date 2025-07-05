@@ -61,6 +61,9 @@ $--result-number-panel-success-background: --result-number-panel-success-backgro
 $--all-collect-bg: --all-collect-bg;
 $--all-collect: --all-collect;
 
+$--notification-bg: --notification-bg;
+$--notification: --notification;
+
 $theme-light: (
     $--btn-primary: #007bff,
     $--btn-default: #eeeeee,
@@ -123,6 +126,9 @@ $theme-light: (
 
     $--all-collect-bg: #fff7db,
     $--all-collect: #ffaa00,
+
+    $--notification: #004085,
+    $--notification-bg: #cce5ff,
 );
 $theme-dark: (
     $--btn-primary: #003070,
@@ -185,4 +191,6 @@ $theme-dark: (
     $--result-number-panel-success-background: rgba(226, 255, 233, 0.5),
     $--all-collect-bg: rgba(224, 204, 139, 0.3),
     $--all-collect: rgba(234, 141, 88, 0.6),
+    $--notification: #8caecc,
+    $--notification-bg: #355e84,
 );

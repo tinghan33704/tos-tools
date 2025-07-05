@@ -4,9 +4,9 @@ import _, { throttle } from "lodash"
 import { faCheck, faLightbulb } from "@fortawesome/free-solid-svg-icons"
 
 import {
-    craft_mode_type_string,
-    race_zh_to_en,
-    attr_zh_to_en,
+    craftModeTypeString,
+    raceZhToEn,
+    attrZhToEn,
 } from "src/constant/filterConstants"
 import { armedCraftData } from "src/constant/armedCraftData"
 
@@ -236,7 +236,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                 <Table bordered className='craft-select-table'>
                     <thead style={{ top: `${headerHeight - 1}px` }}>
                         <tr>
-                            {craft_mode_type_string.map((type, index) => {
+                            {craftModeTypeString.map((type, index) => {
                                 return (
                                     <td className='craft-header-type'>
                                         <Image
@@ -254,7 +254,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                     </thead>
                     <tbody>
                         {displayedData.map((name: string) => {
-                            const allCrafts = craft_mode_type_string
+                            const allCrafts = craftModeTypeString
                                 .map((mode) => {
                                     return craftDataByName[name]?.[mode] || []
                                 })
@@ -273,8 +273,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                         <td
                                             className='craft-objective'
                                             colSpan={
-                                                craft_mode_type_string.length -
-                                                4
+                                                craftModeTypeString.length - 4
                                             }
                                         >
                                             {craftDataByName[name]?.series ? (
@@ -329,7 +328,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                         <Image
                                                             width={30}
                                                             path={`icon/icon_${
-                                                                attr_zh_to_en[
+                                                                attrZhToEn[
                                                                     craftDataByName[
                                                                         name
                                                                     ]?.attribute
@@ -347,7 +346,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                         <Image
                                                             width={30}
                                                             path={`icon/icon_${
-                                                                race_zh_to_en[
+                                                                raceZhToEn[
                                                                     craftDataByName[
                                                                         name
                                                                     ]?.race
@@ -385,7 +384,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                     ].map((item, index) => {
                                         return (
                                             <tr className='craft-image-tr'>
-                                                {craft_mode_type_string.map(
+                                                {craftModeTypeString.map(
                                                     (mode) => {
                                                         const id =
                                                             craftDataByName?.[

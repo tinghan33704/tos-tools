@@ -1,10 +1,7 @@
 import React, { useCallback, useContext, useRef } from "react"
 import { Col, Modal, Row } from "react-bootstrap"
 
-import {
-    option_text,
-    skill_function_string,
-} from "src/constant/filterConstants"
+import { optionText, skillFunctionString } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
 import FilterButton from "../FilterRow/FilterButton"
 
@@ -23,7 +20,7 @@ const DurationModal: React.FC<IDurationModalProps> = (props) => {
     const { functions } = useContext(Context)
 
     const renderOptionRows = useCallback(() => {
-        const selectedFunctions = skill_function_string
+        const selectedFunctions = skillFunctionString
             .flat()
             .filter((skill_function: string) => {
                 return (
@@ -38,16 +35,17 @@ const DurationModal: React.FC<IDurationModalProps> = (props) => {
                 <Col xs={12} md={12} lg={4} className='option-text'>
                     {func}
                 </Col>
-                {option_text.map((option, option_index) => (
+                {optionText.map((option, option_index) => (
                     <FilterButton
                         group='option'
-                        index={func_index * option_text.length + option_index}
+                        index={func_index * optionText.length + option_index}
                         text={option}
                         checked={!!durationObj?.[func]?.includes(option)}
                         callback={(e) => toggleDuration(func, option)}
                         key={`option-${
-                            func_index * option_text.length + option_index
+                            func_index * optionText.length + option_index
                         }`}
+                        size={{ xs: 4 }}
                     />
                 ))}
             </Row>

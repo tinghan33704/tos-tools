@@ -2,7 +2,7 @@ import React, { useCallback } from "react"
 import _ from "lodash"
 import { Table } from "react-bootstrap"
 
-import { attr_zh_to_en } from "src/constant/filterConstants"
+import { attrZhToEn } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
 import { descriptionTranslator, getMonsterById } from "src/utilities/utils"
 import Image from "src/utilities/Image"
@@ -69,9 +69,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                                                 index_index === 0
                                                     ? "monster-first-tr"
                                                     : ""
-                                            } monster-tr-${
-                                                attr_zh_to_en[attr]
-                                            }`}
+                                            } monster-tr-${attrZhToEn[attr]}`}
                                         >
                                             {index_index === 0 && (
                                                 <td
@@ -100,7 +98,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                                             ></td>
                                         </tr>
                                         <tr
-                                            className={`monster-tr monster-tr-${attr_zh_to_en[attr]}`}
+                                            className={`monster-tr monster-tr-${attrZhToEn[attr]}`}
                                         >
                                             <td
                                                 className='td-activate'
@@ -114,7 +112,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                                             ></td>
                                         </tr>
                                         <tr
-                                            className={`monster-tr monster-tr-${attr_zh_to_en[attr]}`}
+                                            className={`monster-tr monster-tr-${attrZhToEn[attr]}`}
                                         >
                                             <td className='td-relative'>
                                                 {renderRelativeRow(

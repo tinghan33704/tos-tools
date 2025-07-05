@@ -10,12 +10,12 @@ import {
 } from "react-bootstrap"
 
 import {
-    attr_type_string,
-    leader_skill_function_string,
-    leader_skill_limit_string,
-    leader_skill_object_string,
-    leader_skill_type_no_object,
-    race_type_string,
+    attrTypeString,
+    leaderSkillFunctionString,
+    leaderSkillLimitString,
+    leaderSkillObjectString,
+    leaderSkillTypeNoObject,
+    raceTypeString,
 } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
 import Icon from "src/utilities/Icon"
@@ -70,11 +70,11 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
     const ref = useRef(null)
     const { functions } = useContext(Context)
 
-    const attrTypeString = attr_type_string
-    const raceTypeString = race_type_string.slice(0, 7).map((str) => str[0])
+    const attrTypeStr = attrTypeString
+    const raceTypeStr = raceTypeString.slice(0, 7).map((str) => str[0])
 
     const renderOptionRows = useCallback(() => {
-        const selectedFunctions = leader_skill_function_string
+        const selectedFunctions = leaderSkillFunctionString
             .flat()
             .filter((skill_function: string) => {
                 return (functions as string[]).includes(skill_function)
@@ -88,7 +88,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                     </Col>
                     <Col xs={12} md={12} lg={8}>
                         <Row>
-                            {!leader_skill_type_no_object.includes(func) && (
+                            {!leaderSkillTypeNoObject.includes(func) && (
                                 <Col
                                     xs={12}
                                     md={12}
@@ -107,29 +107,28 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                             </Accordion.Header>
                                             <Accordion.Body>
                                                 <Row>
-                                                    {[
-                                                        " ",
-                                                        ...attrTypeString,
-                                                    ].map((attr) => (
-                                                        <Col
-                                                            className='objective-text'
-                                                            xs={2}
-                                                            onClick={(e) =>
-                                                                attr !== " "
-                                                                    ? toggleObjective(
-                                                                          func,
-                                                                          attr,
-                                                                          "",
-                                                                          true
-                                                                      )
-                                                                    : null
-                                                            }
-                                                        >
-                                                            {attr}
-                                                        </Col>
-                                                    ))}
+                                                    {[" ", ...attrTypeStr].map(
+                                                        (attr) => (
+                                                            <Col
+                                                                className='objective-text'
+                                                                xs={2}
+                                                                onClick={(e) =>
+                                                                    attr !== " "
+                                                                        ? toggleObjective(
+                                                                              func,
+                                                                              attr,
+                                                                              "",
+                                                                              true
+                                                                          )
+                                                                        : null
+                                                                }
+                                                            >
+                                                                {attr}
+                                                            </Col>
+                                                        )
+                                                    )}
                                                 </Row>
-                                                {raceTypeString.map(
+                                                {raceTypeStr.map(
                                                     (race, race_index) => (
                                                         <Row>
                                                             <Col
@@ -146,18 +145,18 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                             >
                                                                 {race}
                                                             </Col>
-                                                            {attrTypeString.map(
+                                                            {attrTypeStr.map(
                                                                 (
                                                                     attr,
                                                                     attr_index
                                                                 ) => {
                                                                     const index =
-                                                                        (attrTypeString.length *
-                                                                            raceTypeString.length +
-                                                                            leader_skill_object_string.length) *
+                                                                        (attrTypeStr.length *
+                                                                            raceTypeStr.length +
+                                                                            leaderSkillObjectString.length) *
                                                                             func_index +
                                                                         race_index *
-                                                                            attrTypeString.length +
+                                                                            attrTypeStr.length +
                                                                         attr_index
 
                                                                     return (
@@ -197,18 +196,18 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                     )
                                                 )}
                                                 <Row className='mt-4'>
-                                                    {leader_skill_object_string.map(
+                                                    {leaderSkillObjectString.map(
                                                         (
                                                             object,
                                                             object_index
                                                         ) => {
                                                             const index =
-                                                                (attrTypeString.length *
-                                                                    raceTypeString.length +
-                                                                    leader_skill_object_string.length) *
+                                                                (attrTypeStr.length *
+                                                                    raceTypeStr.length +
+                                                                    leaderSkillObjectString.length) *
                                                                     func_index +
-                                                                attrTypeString.length *
-                                                                    raceTypeString.length +
+                                                                attrTypeStr.length *
+                                                                    raceTypeStr.length +
                                                                 object_index
                                                             return (
                                                                 <>
@@ -275,13 +274,13 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                         </Accordion.Header>
                                         <Accordion.Body>
                                             <Row>
-                                                {leader_skill_limit_string.map(
+                                                {leaderSkillLimitString.map(
                                                     (option, option_index) => (
                                                         <FilterButton
                                                             group='activate'
                                                             index={
                                                                 func_index *
-                                                                    leader_skill_limit_string.length +
+                                                                    leaderSkillLimitString.length +
                                                                 option_index
                                                             }
                                                             text={option}
@@ -305,7 +304,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                             }}
                                                             key={`activate-${
                                                                 func_index *
-                                                                    leader_skill_limit_string.length +
+                                                                    leaderSkillLimitString.length +
                                                                 option_index
                                                             }`}
                                                         />
@@ -323,10 +322,10 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
         ))
     }, [
         activateObj,
-        attrTypeString,
+        attrTypeStr,
         functions,
         objectiveObj,
-        raceTypeString,
+        raceTypeStr,
         toggleActivate,
         toggleObjective,
     ])

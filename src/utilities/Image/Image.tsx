@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react"
 
-import { attr_zh_to_en } from "src/constant/filterConstants"
+import { attrZhToEn } from "src/constant/filterConstants"
 import { getCraftById, getMonsterById } from "../utils"
 
 export interface IImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -30,7 +30,7 @@ const Image: React.FC<IImageProps> = (props) => {
                 const monsterId = parseInt(path.split("/")[1])
                 const monsterAttr = getMonsterById(monsterId)?.attribute
                 const attrSuffix = monsterAttr
-                    ? `_${attr_zh_to_en[monsterAttr]}`
+                    ? `_${attrZhToEn[monsterAttr]}`
                     : ""
 
                 srcPath = require(`src/img/monster/noname${attrSuffix}.png`)

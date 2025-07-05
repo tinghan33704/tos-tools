@@ -13,6 +13,10 @@
     -webkit-box-shadow: inset 0 0 6px rgba(90, 90, 90, 0.7);
 }
 
+.modal-dialog {
+    border-radius: 0.5rem;
+}
+
 .modal-open {
     overflow-y: scroll !important;
     padding: 0 !important;

@@ -10,9 +10,9 @@ import {
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons"
 
 import {
-    attr_zh_to_en,
-    input_maxlength,
-    race_zh_to_en,
+    attrZhToEn,
+    inputMaxLength,
+    raceZhToEn,
 } from "src/constant/filterConstants"
 import Image from "src/utilities/Image"
 import Icon from "src/utilities/Icon"
@@ -80,11 +80,13 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
         return (
             <>
                 <Row>
-                    <Col xs={2}>屬性</Col>
-                    <Col xs={10}>
-                        {Object.keys(attr_zh_to_en).map((attr) => (
+                    <Col className='title' xs={12} sm={2}>
+                        屬性
+                    </Col>
+                    <Col className='field' xs={12} sm={10}>
+                        {Object.keys(attrZhToEn).map((attr) => (
                             <Image
-                                path={`icon/icon_${attr_zh_to_en[attr]}`}
+                                path={`icon/icon_${attrZhToEn[attr]}`}
                                 onClick={() =>
                                     onChangeFilter("attribute", attr)
                                 }
@@ -100,11 +102,13 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={2}>種族</Col>
-                    <Col xs={10}>
-                        {Object.keys(race_zh_to_en).map((race) => (
+                    <Col className='title' xs={12} sm={2}>
+                        種族
+                    </Col>
+                    <Col className='field' xs={12} sm={10}>
+                        {Object.keys(raceZhToEn).map((race) => (
                             <Image
-                                path={`icon/icon_${race_zh_to_en[race]}`}
+                                path={`icon/icon_${raceZhToEn[race]}`}
                                 onClick={() => onChangeFilter("race", race)}
                                 style={{
                                     filter: `brightness(${
@@ -118,8 +122,10 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={2}>稀有度</Col>
-                    <Col xs={10}>
+                    <Col className='title' xs={12} sm={2}>
+                        稀有度
+                    </Col>
+                    <Col className='field' xs={12} sm={10}>
                         {[...Array(8).keys()].map((star) => (
                             <Image
                                 path={`icon/icon_${star + 1}`}
@@ -136,8 +142,10 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={2}>名稱/標籤</Col>
-                    <Col xs={10}>
+                    <Col className='title' xs={12} sm={2}>
+                        名稱/標籤
+                    </Col>
+                    <Col className='field' xs={12} sm={10}>
                         <Form>
                             <Form.Group>
                                 <Form.Control
@@ -145,7 +153,7 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                                     className='keyword-input'
                                     placeholder=''
                                     value={filters?.keyword || ""}
-                                    maxLength={input_maxlength}
+                                    maxLength={inputMaxLength}
                                     onChange={(e) =>
                                         setFilters({
                                             ...filters,
@@ -158,8 +166,10 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={2}>排序</Col>
-                    <Col xs={5}>
+                    <Col className='title' xs={12} sm={2}>
+                        排序
+                    </Col>
+                    <Col className='field' xs={6} sm={5}>
                         <DropdownButton
                             className='dropdown-selector'
                             title={
@@ -185,7 +195,7 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                             </div>
                         </DropdownButton>
                     </Col>
-                    <Col xs={5}>
+                    <Col className='field' xs={6} sm={5}>
                         <DropdownButton
                             className='dropdown-selector'
                             title={

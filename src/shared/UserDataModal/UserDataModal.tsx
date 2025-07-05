@@ -2,7 +2,7 @@ import React, { useRef, useState, useCallback, useContext } from "react"
 import { Col, Form, Modal, Nav, Row, Tab } from "react-bootstrap"
 import { faCheck, faDownload, faTimes } from "@fortawesome/free-solid-svg-icons"
 
-import { uid_maxlength, veri_maxlength } from "src/constant/filterConstants"
+import { uidMaxLength, veriMaxLength } from "src/constant/filterConstants"
 import { fetchPlayerData, setUrlParams } from "src/utilities/utils"
 import Context from "src/utilities/Context/Context"
 import DataContext from "src/utilities/Context/DataContext"
@@ -115,7 +115,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                                 className='input uid-input'
                                 placeholder='輸入 UID'
                                 value={uid}
-                                maxLength={uid_maxlength}
+                                maxLength={uidMaxLength}
                                 onChange={(e) => onChangeUid(e.target.value)}
                                 disabled={inputDisabled}
                             />
@@ -125,7 +125,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                                     className='input veri-input'
                                     placeholder='輸入驗證碼'
                                     value={veri}
-                                    maxLength={veri_maxlength}
+                                    maxLength={veriMaxLength}
                                     onChange={(e) =>
                                         onChangeVeri(e.target.value)
                                     }

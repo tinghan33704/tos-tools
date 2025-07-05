@@ -4,10 +4,10 @@ import { AutoTextSize } from "auto-text-size"
 
 import { getCraftById, getMonsterById, paddingZeros } from "src/utilities/utils"
 import {
-    attr_zh_to_en,
-    craft_charge_type_string,
-    craft_charge_type_string_mapping,
-    race_zh_to_en,
+    attrZhToEn,
+    craftChargeTypeString,
+    craftChargeTypeStringMapping,
+    raceZhToEn,
 } from "src/constant/filterConstants"
 import Image from "src/utilities/Image"
 
@@ -55,7 +55,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                     xs={12}
                     sm={12}
                     className={`craft-name craft-name-${
-                        attr_zh_to_en?.[attribute] || "o"
+                        attrZhToEn?.[attribute] || "o"
                     }`}
                 >
                     {name}
@@ -68,7 +68,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                         xs={12}
                         sm={8}
                         className={`craft-objective craft-name-${
-                            attr_zh_to_en?.[attribute] || "o"
+                            attrZhToEn?.[attribute] || "o"
                         }`}
                     >
                         {hasObjective ? (
@@ -96,7 +96,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                 <>
                                     {attribute && attribute !== "沒有限制" ? (
                                         <Image
-                                            path={`icon/icon_${attr_zh_to_en[attribute]}`}
+                                            path={`icon/icon_${attrZhToEn[attribute]}`}
                                             className={"craft-attr-race-img"}
                                         />
                                     ) : (
@@ -104,7 +104,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                     )}
                                     {race && race !== "沒有限制" ? (
                                         <Image
-                                            path={`icon/icon_${race_zh_to_en[race]}`}
+                                            path={`icon/icon_${raceZhToEn[race]}`}
                                             className={"craft-attr-race-img"}
                                         />
                                     ) : (
@@ -126,8 +126,8 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                         充能條件
                     </Col>
                     <Col xs={12} sm={8} className={`craft-charge`}>
-                        {craft_charge_type_string_mapping[
-                            craft_charge_type_string.indexOf(charge)
+                        {craftChargeTypeStringMapping[
+                            craftChargeTypeString.indexOf(charge)
                         ] || ""}
                     </Col>
                 </Row>

@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
 import _ from "lodash"
 
 import {
-    team_skill_function_string,
-    team_skill_activate_string,
-    attr_type_string,
-    race_type_string,
-    star_type_string,
+    teamSkillFunctionString,
+    teamSkillActivateString,
+    attrTypeString,
+    raceTypeString,
+    starTypeString,
 } from "src/constant/filterConstants"
 
 import { ContextProvider } from "src/utilities/Context/Context"
@@ -81,15 +81,15 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
         if (!_.isEmpty(params)) {
             setSelectedFunctions(
-                decodeMapping(team_skill_function_string, params?.search)
+                decodeMapping(teamSkillFunctionString, params?.search)
             )
             setSelectedActivate(
-                decodeMapping(team_skill_activate_string, params?.act)
+                decodeMapping(teamSkillActivateString, params?.act)
             )
-            setSelectedAttributes(decodeMapping(attr_type_string, params?.attr))
-            setSelectedRaces(decodeMapping(race_type_string, params?.race))
+            setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
+            setSelectedRaces(decodeMapping(raceTypeString, params?.race))
             setSelectedStars(
-                decodeMapping(star_type_string, params?.star).map(
+                decodeMapping(starTypeString, params?.star).map(
                     (star) => `${star} ★`
                 )
             )
@@ -304,15 +304,12 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
         setCurrentSearchParam(searchParam)
 
         setUrlParams({
-            search: encodeMapping(
-                team_skill_function_string,
-                selectedFunctions
-            ),
-            act: encodeMapping(team_skill_activate_string, selectedActivate),
-            attr: encodeMapping(attr_type_string, selectedAttributes),
-            race: encodeMapping(race_type_string, selectedRaces),
+            search: encodeMapping(teamSkillFunctionString, selectedFunctions),
+            act: encodeMapping(teamSkillActivateString, selectedActivate),
+            attr: encodeMapping(attrTypeString, selectedAttributes),
+            race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
-                star_type_string,
+                starTypeString,
                 selectedStars.map((s) => s[0])
             ),
             keyword: textSanitizer(keyword).length
@@ -369,28 +366,28 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                     <FilterRow
                         title={"功能"}
                         type={"functions"}
-                        data={team_skill_function_string}
+                        data={teamSkillFunctionString}
                     />
                     <KeywordRow />
                     <FilterRow
                         title={"發動條件"}
                         type={"activate"}
-                        data={team_skill_activate_string}
+                        data={teamSkillActivateString}
                     />
                     <FilterRow
                         title={"召喚獸屬性"}
                         type={"attribute"}
-                        data={attr_type_string}
+                        data={attrTypeString}
                     />
                     <FilterRow
                         title={"召喚獸種族"}
                         type={"race"}
-                        data={race_type_string}
+                        data={raceTypeString}
                     />
                     <FilterRow
                         title={"召喚獸稀有度"}
                         type={"star"}
-                        data={star_type_string}
+                        data={starTypeString}
                         btnSuffix={" ★"}
                     />
                     <div ref={resultRef}>

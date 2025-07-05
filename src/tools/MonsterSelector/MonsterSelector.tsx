@@ -3,9 +3,9 @@ import _ from "lodash"
 import { faCheck, faLightbulb } from "@fortawesome/free-solid-svg-icons"
 
 import {
-    tag_string,
-    version_string,
-    extra_filter_data,
+    tagString,
+    versionString,
+    extraFilterData,
 } from "src/constant/filterConstants"
 
 import { ContextProvider } from "src/utilities/Context/Context"
@@ -99,7 +99,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
 
         let result: IObject[] = []
 
-        const selectedExtraData = extra_filter_data
+        const selectedExtraData = extraFilterData
             .flat(1)
             .filter((tagObj) => selectedExtraTags.includes(tagObj?.name))
         const idGroup = selectedExtraData
@@ -232,14 +232,14 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                     <FilterRow
                         title={"官方標籤"}
                         type={"tag"}
-                        data={tag_string}
+                        data={tagString}
                         collapsible
                         hideReset
                     />
                     <FilterRow
                         title={"其他標籤"}
                         type={"extraTag"}
-                        data={extra_filter_data.map((group) =>
+                        data={extraFilterData.map((group) =>
                             group.map((item: IObject) => item.name)
                         )}
                         collapsible
@@ -249,7 +249,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                     <FilterRow
                         title={"版本標籤"}
                         type={"version"}
-                        data={version_string}
+                        data={versionString}
                         collapsible
                         hideReset
                     />

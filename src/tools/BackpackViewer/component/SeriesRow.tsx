@@ -1,5 +1,5 @@
 import _ from "lodash"
-import React, { useContext } from "react"
+import React, { useCallback, useContext } from "react"
 import { Col, Row } from "react-bootstrap"
 
 import { sealContent } from "src/constant/filterConstants"
@@ -42,21 +42,24 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
 }) => {
     const { playerData } = useContext(DataContext)
 
-    const isCardInCorrectCategory = (id: number) => {
-        const allCategory = cardCategory === "all"
-        const onlyNonCrossOver = cardCategory === "non-crossover"
-        const onlyCrossOver = cardCategory === "crossover"
+    const isCardInCorrectCategory = useCallback(
+        (id: number) => {
+            const allCategory = cardCategory === "all"
+            const onlyNonCrossOver = cardCategory === "non-crossover"
+            const onlyCrossOver = cardCategory === "crossover"
 
-        const isCardCrossOver = monsterData.find(
-            (monster) => monster.id === id
-        )?.crossOver
+            const isCardCrossOver = monsterData.find(
+                (monster) => monster.id === id
+            )?.crossOver
 
-        return (
-            allCategory ||
-            (onlyNonCrossOver && !isCardCrossOver) ||
-            (onlyCrossOver && isCardCrossOver)
-        )
-    }
+            return tab === "其他卡片"
+                ? allCategory ||
+                      (onlyNonCrossOver && !isCardCrossOver) ||
+                      (onlyCrossOver && isCardCrossOver)
+                : true
+        },
+        [cardCategory, tab]
+    )
 
     return (
         <Row>
@@ -150,7 +153,9 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                             playerData={playerData}
                             title={title}
                             data={_data}
-                            key={index}
+                            key={`${Object.keys(sealContent).indexOf(
+                                tab
+                            )}-${index}`}
                             togglePopover={togglePopover}
                             setPopoverContent={setPopoverContent}
                         />

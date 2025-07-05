@@ -7,9 +7,23 @@
     margin: 20px auto;
     background-color: var(--background-color);
 
-    @include max768 {
+    .title {
+        text-align: center;
+    }
+
+    @include max576 {
         width: 80% !important;
         max-width: 80% !important;
+        margin: auto !important;
+        margin-top: 20px !important;
+
+        .title {
+            margin-bottom: 10px;
+        }
+        .field {
+            text-align: center;
+            margin-bottom: 10px;
+        }
     }
 
     .modal-content {
@@ -18,12 +32,6 @@
         .modal-header .btn-close {
             filter: var(--close-button-filter);
         }
-    }
-
-    .title {
-        text-align: center;
-        color: var(--text-black);
-        font-size: 1.2em;
     }
 
     .keyword-input {

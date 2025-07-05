@@ -5,6 +5,21 @@
     width: 80% !important;
     padding-bottom: 40px;
 
+    .notification {
+        margin: 10px 0 !important;
+        color: var(--notification) !important;
+        background-color: var(--notification-bg) !important;
+
+        .close-notification {
+            position: absolute;
+            right: 5px;
+            top: 0px;
+            font-size: 1.2rem;
+            opacity: 0.75;
+            cursor: pointer;
+        }
+    }
+
     .author-info {
         display: flex;
         justify-content: center;

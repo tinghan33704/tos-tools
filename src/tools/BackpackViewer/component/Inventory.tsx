@@ -18,10 +18,10 @@ import {
 import DataContext from "src/utilities/Context/DataContext"
 
 import {
-    attr_type_string,
-    attr_zh_to_en,
-    race_type_string,
-    race_zh_to_en,
+    attrTypeString,
+    attrZhToEn,
+    raceTypeString,
+    raceZhToEn,
 } from "src/constant/filterConstants"
 import MonsterImage from "./MonsterImage"
 import Image from "src/utilities/Image"
@@ -125,21 +125,19 @@ const Inventory: React.FC<IInventoryProps> = ({
                         return orderBy === "asc" ? a?.id - b?.id : b?.id - a?.id
                     case "attr":
                         return orderBy === "asc"
-                            ? attr_type_string.indexOf(monsterA?.attribute) -
-                                  attr_type_string.indexOf(
-                                      monsterB?.attribute
-                                  ) || defaultSort(a, b)
-                            : attr_type_string.indexOf(monsterB?.attribute) -
-                                  attr_type_string.indexOf(
-                                      monsterA?.attribute
-                                  ) || defaultSort(a, b)
+                            ? attrTypeString.indexOf(monsterA?.attribute) -
+                                  attrTypeString.indexOf(monsterB?.attribute) ||
+                                  defaultSort(a, b)
+                            : attrTypeString.indexOf(monsterB?.attribute) -
+                                  attrTypeString.indexOf(monsterA?.attribute) ||
+                                  defaultSort(a, b)
                     case "race":
                         return orderBy === "asc"
-                            ? race_type_string.indexOf(monsterA?.race) -
-                                  race_type_string.indexOf(monsterB?.race) ||
+                            ? raceTypeString.indexOf(monsterA?.race) -
+                                  raceTypeString.indexOf(monsterB?.race) ||
                                   defaultSort(a, b)
-                            : race_type_string.indexOf(monsterB?.race) -
-                                  race_type_string.indexOf(monsterA?.race) ||
+                            : raceTypeString.indexOf(monsterB?.race) -
+                                  raceTypeString.indexOf(monsterA?.race) ||
                                   defaultSort(a, b)
                     case "level":
                         return orderBy === "asc"
@@ -189,12 +187,10 @@ const Inventory: React.FC<IInventoryProps> = ({
                 <Row>
                     <Col xs={12} sm={4} className='monster-info'>
                         <Image
-                            path={`icon/icon_${
-                                attr_zh_to_en[monster?.attribute]
-                            }`}
+                            path={`icon/icon_${attrZhToEn[monster?.attribute]}`}
                         />
                         <Image
-                            path={`icon/icon_${race_zh_to_en[monster?.race]}`}
+                            path={`icon/icon_${raceZhToEn[monster?.race]}`}
                         />
                         <Image path={`icon/icon_${monster?.star}`} />
                     </Col>
@@ -202,7 +198,7 @@ const Inventory: React.FC<IInventoryProps> = ({
                         xs={12}
                         sm={8}
                         className={`monster-name monster-name-${
-                            attr_zh_to_en[monster?.attribute]
+                            attrZhToEn[monster?.attribute]
                         }`}
                     >
                         {monster?.name}
@@ -308,24 +304,20 @@ const Inventory: React.FC<IInventoryProps> = ({
                     {"attribute" in filters &&
                         [...filters?.attribute]
                             .sort((a: string, b: string) => {
-                                const arr = Object.keys(attr_zh_to_en)
+                                const arr = Object.keys(attrZhToEn)
                                 return arr.indexOf(a) - arr.indexOf(b)
                             })
                             .map((attr: string) => (
-                                <Image
-                                    path={`icon/icon_${attr_zh_to_en[attr]}`}
-                                />
+                                <Image path={`icon/icon_${attrZhToEn[attr]}`} />
                             ))}
                     {"race" in filters &&
                         [...filters?.race]
                             .sort((a: string, b: string) => {
-                                const arr = Object.keys(race_zh_to_en)
+                                const arr = Object.keys(raceZhToEn)
                                 return arr.indexOf(a) - arr.indexOf(b)
                             })
                             .map((race: string) => (
-                                <Image
-                                    path={`icon/icon_${race_zh_to_en[race]}`}
-                                />
+                                <Image path={`icon/icon_${raceZhToEn[race]}`} />
                             ))}
                     {"star" in filters &&
                         filters?.star
