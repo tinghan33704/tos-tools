@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tos-tools/static/css/main.9cb3b9dd.css",
-    "main.js": "/tos-tools/static/js/main.5daa89bf.js",
+    "main.css": "/tos-tools/static/css/main.f4fca6aa.css",
+    "main.js": "/tos-tools/static/js/main.0a377893.js",
     "static/js/453.81541129.chunk.js": "/tos-tools/static/js/453.81541129.chunk.js",
     "static/media/neglect_tomori.png": "/tos-tools/static/media/neglect_tomori.b1bd499ee85d2f9f4f27.png",
     "static/media/tosmark.png": "/tos-tools/static/media/tosmark.eed3c79382398cf7d719.png",
@@ -6433,12 +6433,12 @@
     "static/media/rune_l.png": "/tos-tools/static/media/rune_l.1e99503b56e955be72eb.png",
     "static/media/noname_w.png": "/tos-tools/static/media/noname_w.9036638b216808fd9528.png",
     "index.html": "/tos-tools/index.html",
-    "main.9cb3b9dd.css.map": "/tos-tools/static/css/main.9cb3b9dd.css.map",
-    "main.5daa89bf.js.map": "/tos-tools/static/js/main.5daa89bf.js.map",
+    "main.f4fca6aa.css.map": "/tos-tools/static/css/main.f4fca6aa.css.map",
+    "main.0a377893.js.map": "/tos-tools/static/js/main.0a377893.js.map",
     "453.81541129.chunk.js.map": "/tos-tools/static/js/453.81541129.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9cb3b9dd.css",
-    "static/js/main.5daa89bf.js"
+    "static/css/main.f4fca6aa.css",
+    "static/js/main.0a377893.js"
   ]
 }
