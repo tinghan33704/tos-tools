@@ -1,10 +1,9 @@
 {
   "files": {
     "main.css": "/tos-tools/static/css/main.9cb3b9dd.css",
-    "main.js": "/tos-tools/static/js/main.063c14a9.js",
+    "main.js": "/tos-tools/static/js/main.07ee897e.js",
     "static/js/453.81541129.chunk.js": "/tos-tools/static/js/453.81541129.chunk.js",
     "static/media/neglect_tomori.png": "/tos-tools/static/media/neglect_tomori.b1bd499ee85d2f9f4f27.png",
-    "static/media/merak_banner.png": "/tos-tools/static/media/merak_banner.c2588b37839b4d8a4b70.png",
     "static/media/tosmark.png": "/tos-tools/static/media/tosmark.eed3c79382398cf7d719.png",
     "static/media/explode.png": "/tos-tools/static/media/explode.39fb9f5910cd7d4f2fff.png",
     "static/media/its_my_birthday.png": "/tos-tools/static/media/its_my_birthday.8da41e474f08c9490bbc.png",
@@ -6386,6 +6385,7 @@
     "static/media/5011.png": "/tos-tools/static/media/5011.812bf0c7f6f23d15a2e6.png",
     "static/media/ALO.png": "/tos-tools/static/media/ALO.712d2bc88a0cad71cf51.png",
     "static/media/棋魂.png": "/tos-tools/static/media/棋魂.e31387a48c5176d85e32.png",
+    "static/media/craft_selector_favicon.png": "/tos-tools/static/media/craft_selector_favicon.0935feaa02eca495d206.png",
     "static/media/5040.png": "/tos-tools/static/media/5040.8889eb3a8da9ab453dfc.png",
     "static/media/5041.png": "/tos-tools/static/media/5041.8889eb3a8da9ab453dfc.png",
     "static/media/5042.png": "/tos-tools/static/media/5042.8889eb3a8da9ab453dfc.png",
@@ -6434,11 +6434,11 @@
     "static/media/noname_w.png": "/tos-tools/static/media/noname_w.9036638b216808fd9528.png",
     "index.html": "/tos-tools/index.html",
     "main.9cb3b9dd.css.map": "/tos-tools/static/css/main.9cb3b9dd.css.map",
-    "main.063c14a9.js.map": "/tos-tools/static/js/main.063c14a9.js.map",
+    "main.07ee897e.js.map": "/tos-tools/static/js/main.07ee897e.js.map",
     "453.81541129.chunk.js.map": "/tos-tools/static/js/453.81541129.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9cb3b9dd.css",
-    "static/js/main.063c14a9.js"
+    "static/js/main.07ee897e.js"
   ]
 }
