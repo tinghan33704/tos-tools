@@ -50,7 +50,7 @@ export const toolConfig: IObject = {
     "craft-selector": {
         title: "神魔之塔龍刻編號生成器",
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=3897329",
-        icon: "craft_favicon",
+        icon: "craft_selector_favicon",
         topBtn: ["reset-all", "start-generate"],
         setting: ["input_id", "theme"],
         toolPath: "tos-craft-selector",

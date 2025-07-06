@@ -207,7 +207,9 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                         className={"craft-skill-index"}
                                     >
                                         <Image
-                                            path={`craft/skill_${index + 1}`}
+                                            path={`icon/craft_skill_${
+                                                index + 1
+                                            }`}
                                         />
                                     </Col>
                                     <Col
@@ -238,7 +240,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                         className={"craft-skill-index"}
                                     >
                                         <Image
-                                            path={`craft/armed_skill_${
+                                            path={`icon/armed_skill_${
                                                 index + 1
                                             }`}
                                         />

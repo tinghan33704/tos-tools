@@ -67,7 +67,7 @@ const Image: React.FC<IImageProps> = (props) => {
                     ? require(`src/img/rune/rune_none.png`)
                     : path.startsWith("icon")
                     ? require(`src/img/icon/icon_undefined.png`)
-                    : require(`src/img/craft/noname.png`)
+                    : require(`src/img/other/loading.png`)
             }
             alt={alt}
             tabIndex={0}
