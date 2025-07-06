@@ -19,10 +19,10 @@ const MainPage: React.FC<IMainPageProps> = () => {
         <div className='tool-container'>
             <Row className='header-row'>
                 <Col xs={0} sm={2}></Col>
-                <Col xs={9} sm={8} className='title'>
+                <Col xs={12} sm={8} className='title'>
                     神魔之塔相關工具
                 </Col>
-                <Col xs={3} sm={2} className='sub-title'>
+                <Col xs={12} sm={2} className='sub-title'>
                     by 蒼曜
                 </Col>
             </Row>

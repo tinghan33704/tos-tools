@@ -1,4 +1,5 @@
 @import "src/styles/colors.scss";
+@import "src/styles/mediaQuery.scss";
 
 .tool-container {
     display: flex;
@@ -23,9 +24,10 @@
         .title {
             display: flex;
             justify-content: center;
-            font-size: 2.4rem;
+            font-size: 2rem;
             color: var(--text-white);
             letter-spacing: 0.1em;
+            padding: 2px 0;
         }
 
         .sub-title {
@@ -35,12 +37,22 @@
             font-size: 1.2rem;
             color: var(--text-white);
         }
+
+        @include max576 {
+            .sub-title {
+                justify-content: center;
+            }
+        }
     }
 
     .tool-row {
         width: 80%;
         margin: auto;
-        padding: 60px 0 0 0;
+        padding: 55px 0 0 0;
+
+        @include max576 {
+            padding: 85px 0 0 0;
+        }
 
         .tool-btn {
             width: 80%;
