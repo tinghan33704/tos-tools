@@ -299,11 +299,17 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 // >
                 //     <div className='result-image-wrapper' onClick={onClickImage}>{renderImage()}</div>
                 // </OverlayTrigger>
-                <div className='result-image-wrapper' onClick={onClickImage}>
+                <div
+                    key={id}
+                    className='result-image-wrapper'
+                    onClick={onClickImage}
+                >
                     {renderImage()}
                 </div>
             ) : (
-                <div className='result-image-wrapper'>{renderImage()}</div>
+                <div key={id} className='result-image-wrapper'>
+                    {renderImage()}
+                </div>
             )}
 
             {renderIdTag()}

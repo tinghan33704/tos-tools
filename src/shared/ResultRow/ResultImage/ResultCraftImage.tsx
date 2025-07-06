@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useMemo } from "react"
 import { Col, OverlayTrigger, Popover, Row } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
-import { getCraftById, getMonsterById, paddingZeros } from "src/utilities/utils"
+import { getCraftById, paddingZeros } from "src/utilities/utils"
 import {
     attrZhToEn,
     craftChargeTypeString,
@@ -347,11 +347,17 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                 // >
                 //     <div className='result-image-wrapper'>{renderImage()}</div>
                 // </OverlayTrigger>
-                <div className='result-image-wrapper' onClick={onClickImage}>
+                <div
+                    key={id}
+                    className='result-image-wrapper'
+                    onClick={onClickImage}
+                >
                     {renderImage()}
                 </div>
             ) : (
-                <div className='result-image-wrapper'>{renderImage()}</div>
+                <div key={id} className='result-image-wrapper'>
+                    {renderImage()}
+                </div>
             )}
 
             {renderIdTag()}

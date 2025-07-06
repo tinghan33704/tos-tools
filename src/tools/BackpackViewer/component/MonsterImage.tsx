@@ -74,7 +74,11 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
 
     const renderImage = useCallback(() => {
         return (
-            <div className='monster-series-image-shell' onClick={onClick}>
+            <div
+                key={id}
+                className='monster-series-image-shell'
+                onClick={onClick}
+            >
                 <Image
                     path={`monster/${id}`}
                     className={`result-image${
