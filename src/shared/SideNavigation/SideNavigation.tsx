@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Offcanvas } from "react-bootstrap"
+import { faClose } from "@fortawesome/free-solid-svg-icons"
 
 import { toolConfig } from "src/constant/toolConfig"
 import Image from "src/utilities/Image"
+import Icon from "src/utilities/Icon"
 
 import "./style.scss"
-import { faClose } from "@fortawesome/free-solid-svg-icons"
-import Icon from "src/utilities/Icon"
 
 export interface ISideNavigationProps {
     isOpen: boolean

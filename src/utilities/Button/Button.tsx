@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react"
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons"
 
 import Icon from "../Icon"
-import { IconDefinition } from "@fortawesome/free-solid-svg-icons"
 
 import "./style.scss"
 

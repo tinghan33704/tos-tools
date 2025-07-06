@@ -10,13 +10,13 @@ import {
 } from "src/constant/filterConstants"
 import { getMonsterById } from "src/utilities/utils"
 import Context from "src/utilities/Context/Context"
+import DataContext from "src/utilities/Context/DataContext"
 import Image from "src/utilities/Image"
 import ResultTag from "./ResultTag"
 import ResultImageGroup from "./ResultImageGroup"
 import ResultTable from "./ResultTable"
 
 import "./style.scss"
-import DataContext from "src/utilities/Context/DataContext"
 
 export interface IResultRowProps {
     resultData?: IObject[]

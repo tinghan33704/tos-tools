@@ -24,12 +24,12 @@ import {
     textSanitizer,
     unicodeToString,
 } from "src/utilities/utils"
-import Header from "../../shared/Header"
+import { usePopover } from "src/hook/usePopover"
+import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
 import KeywordRow from "src/shared/KeywordRow"
 import ResultRow from "src/shared/ResultRow"
-import { usePopover } from "src/hook/usePopover"
 
 interface ITeamSkillFilterProps {}
 

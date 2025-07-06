@@ -19,6 +19,7 @@ import {
 import { leaderSkillData } from "src/constant/leaderData"
 
 import { ContextProvider } from "src/utilities/Context/Context"
+import DataContext from "src/utilities/Context/DataContext"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
 import {
     addAlias,
@@ -34,15 +35,14 @@ import {
     textSanitizer,
     unicodeToString,
 } from "src/utilities/utils"
-import Header from "../../shared/Header"
+import { usePopover } from "src/hook/usePopover"
+import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
 import KeywordRow from "src/shared/KeywordRow"
 import ResultRow from "src/shared/ResultRow"
 import ObjectiveModal from "src/shared/ObjectiveModal"
 import UserDataModal from "src/shared/UserDataModal"
-import DataContext from "src/utilities/Context/DataContext"
-import { usePopover } from "src/hook/usePopover"
 
 interface ILeaderSkillFilterProps {}
 

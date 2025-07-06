@@ -18,10 +18,11 @@ import {
     genreTypeString,
     optionText,
 } from "src/constant/filterConstants"
+import { monsterData } from "src/constant/monsterData"
 
 import { ContextProvider } from "src/utilities/Context/Context"
+import DataContext from "src/utilities/Context/DataContext"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
-import { monsterData } from "src/constant/monsterData"
 import {
     addAlias,
     checkKeyword,
@@ -37,7 +38,8 @@ import {
     textSanitizer,
     unicodeToString,
 } from "src/utilities/utils"
-import Header from "../../shared/Header"
+import { usePopover } from "src/hook/usePopover"
+import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
 import KeywordRow from "src/shared/KeywordRow"
@@ -46,8 +48,6 @@ import DurationModal from "src/shared/DurationModal"
 import UserDataModal from "src/shared/UserDataModal"
 import FixedBoard from "src/shared/FixedBoard"
 import DescriptionNote from "src/shared/DescriptionNote"
-import DataContext from "src/utilities/Context/DataContext"
-import { usePopover } from "src/hook/usePopover"
 
 interface ISkillFilterProps {}
 

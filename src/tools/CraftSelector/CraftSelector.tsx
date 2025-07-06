@@ -20,7 +20,7 @@ import {
 } from "src/utilities/utils"
 import Icon from "src/utilities/Icon"
 import Image from "src/utilities/Image"
-import Header from "../../shared/Header"
+import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import ResultRow from "src/shared/ResultRow"
 import { ResultCraftImage } from "src/shared/ResultRow/ResultImage"

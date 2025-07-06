@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react"
+import React, { useRef, useState, useCallback } from "react"
 import _ from "lodash"
 import { Accordion, Col, Row } from "react-bootstrap"
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"

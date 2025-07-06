@@ -3,7 +3,6 @@ import { Dropdown, DropdownButton } from "react-bootstrap"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 
 import { sealContent, sealOpenPeriod } from "src/constant/filterConstants"
-
 import {
     fetchPlayerData,
     getPlayerStoredData,
@@ -11,9 +10,9 @@ import {
 } from "src/utilities/utils"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
 import DataContext from "src/utilities/Context/DataContext"
-import { usePopover } from "src/hook/usePopover"
 import { ContextProvider } from "src/utilities/Context/Context"
-import Header from "../../shared/Header"
+import { usePopover } from "src/hook/usePopover"
+import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import UserDataModal from "src/shared/UserDataModal"
 import Icon from "src/utilities/Icon"

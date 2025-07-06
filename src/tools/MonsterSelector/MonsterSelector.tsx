@@ -7,13 +7,13 @@ import {
     versionString,
     extraFilterData,
 } from "src/constant/filterConstants"
+import { monsterData } from "src/constant/monsterData"
 
 import { ContextProvider } from "src/utilities/Context/Context"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
-import { monsterData } from "src/constant/monsterData"
 import { errorAlert, getMonsterById, paddingZeros } from "src/utilities/utils"
 import Icon from "src/utilities/Icon"
-import Header from "../../shared/Header"
+import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
 import ResultRow from "src/shared/ResultRow"

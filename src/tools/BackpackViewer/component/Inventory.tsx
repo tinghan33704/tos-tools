@@ -23,16 +23,17 @@ import {
     raceTypeString,
     raceZhToEn,
 } from "src/constant/filterConstants"
-import MonsterImage from "./MonsterImage"
+import { checkKeyword, getMonsterById } from "src/utilities/utils"
 import Image from "src/utilities/Image"
 import Icon from "src/utilities/Icon"
 import InventoryFilterModal from "src/shared/InventoryFilterModal"
-import "./style.scss"
-import { checkKeyword, getMonsterById } from "src/utilities/utils"
 import {
     orderByCategories,
     sortByCategories,
 } from "src/shared/InventoryFilterModal/InventoryFilterModal"
+import MonsterImage from "./MonsterImage"
+
+import "./style.scss"
 
 interface IInventoryProps {
     togglePopover: (e: React.MouseEvent) => void
