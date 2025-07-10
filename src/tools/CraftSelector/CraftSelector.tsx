@@ -283,7 +283,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                     ]?.series.map(
                                                         (serie: string) => (
                                                             <Image
-                                                                width={50}
+                                                                width={30}
                                                                 path={`series/${serie}`}
                                                             />
                                                         )
@@ -304,10 +304,6 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                     name
                                                 ]?.monster?.map(
                                                     (monster: number) => {
-                                                        const _monster =
-                                                            getMonsterById(
-                                                                monster
-                                                            )
                                                         return (
                                                             <Image
                                                                 width={50}

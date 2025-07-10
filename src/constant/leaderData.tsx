@@ -1,4 +1,4 @@
-// Last modified : 2025.07.03 23:49
+// Last modified : 2025.07.10 23:36
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -39868,6 +39868,47 @@ export const leaderSkillData: IObject[] = [
 			}
 		],
 		'monster': [10948]
+	},
+	{
+		'name': '五彩之心',
+		'description': `
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員', '妖'],
+				'limit': []
+			},
+			{
+				'name': ['增攻', '減傷'],
+				'object': [],
+				'limit': ['消除一組數量']
+			}
+		],
+		'monster': [10950]
+	},
+	{
+		'name': '王者號令',
+		'description': `
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員', '妖', '龍', '神', '魔'],
+				'limit': []
+			},
+			{
+				'name': ['敵方受傷增加', '增攻'],
+				'object': [],
+				'limit': ['成員屬性數量']
+			},
+			{
+				'name': ['增加Ex.Combo', '增加Combo'],
+				'object': [],
+				'limit': []
+			}
+		],
+		'monster': [10953]
 	},
 	{
 		'name': '歷劫之道',
