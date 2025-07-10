@@ -161,6 +161,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
         Object.keys(typeMap).forEach((type) => {
             resetButton(type)
         })
+        setKeyword("")
     }, [resetButton, typeMap])
 
     const startFilter = useCallback(() => {

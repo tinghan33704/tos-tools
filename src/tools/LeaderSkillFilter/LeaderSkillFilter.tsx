@@ -250,6 +250,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         Object.keys(typeMap).forEach((type) => {
             resetButton(type)
         })
+        setKeyword("")
     }, [resetButton, typeMap])
 
     const startFilter = useCallback(() => {

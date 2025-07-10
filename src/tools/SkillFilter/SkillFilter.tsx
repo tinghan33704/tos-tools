@@ -236,6 +236,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
         Object.keys(typeMap).forEach((type) => {
             resetButton(type)
         })
+        setKeyword("")
     }, [resetButton, typeMap])
 
     const startFilter = useCallback(() => {

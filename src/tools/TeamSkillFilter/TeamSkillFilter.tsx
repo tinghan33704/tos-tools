@@ -136,6 +136,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
         Object.keys(typeMap).forEach((type) => {
             resetButton(type)
         })
+        setKeyword("")
     }, [resetButton, typeMap])
 
     const startFilter = useCallback(() => {

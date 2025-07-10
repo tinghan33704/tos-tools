@@ -22,6 +22,7 @@
         "react": "^18.2.0",
         "react-bootstrap": "^2.10.2",
         "react-dom": "^18.2.0",
+        "react-lazyload": "^3.2.1",
         "react-native": "^0.74.0",
         "react-router-dom": "^6.23.0",
         "react-scripts": "5.0.1",
@@ -55,6 +56,7 @@
     },
     "devDependencies": {
         "@types/lodash": "^4.17.13",
+        "@types/react-lazyload": "^3.2.3",
         "@types/webpack-env": "^1.18.4"
     },
     "homepage": "https://tinghan33704.github.io/tos-tools/#/"

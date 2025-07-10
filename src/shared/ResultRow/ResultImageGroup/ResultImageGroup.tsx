@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { Col, Row } from "react-bootstrap"
+import LazyLoad from "react-lazyload"
 
 import Context from "src/utilities/Context/Context"
 import DataContext from "src/utilities/Context/DataContext"
@@ -28,21 +29,38 @@ const ResultImageGroup: React.FC<IResultImageGroupProps> = (props) => {
                         useInventory && !playerData?.card?.includes(data?.id)
                     return (
                         <Col xs={3} md={2} lg={1}>
-                            {toolId === "craft-filter" ? (
-                                <ResultCraftImage
-                                    data={{ id: data, notInInventory }}
-                                    noImagePopover={noImagePopover}
-                                    togglePopover={togglePopover}
-                                    setPopoverContent={setPopoverContent}
-                                />
-                            ) : (
-                                <ResultMonsterImage
-                                    data={{ ...data, notInInventory }}
-                                    noImagePopover={noImagePopover}
-                                    togglePopover={togglePopover}
-                                    setPopoverContent={setPopoverContent}
-                                />
-                            )}
+                            <LazyLoad
+                                once
+                                offset={500}
+                                placeholder={
+                                    <span
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            color: "#666666",
+                                        }}
+                                    >
+                                        載入中...
+                                    </span>
+                                }
+                            >
+                                {toolId === "craft-filter" ? (
+                                    <ResultCraftImage
+                                        data={{ id: data, notInInventory }}
+                                        noImagePopover={noImagePopover}
+                                        togglePopover={togglePopover}
+                                        setPopoverContent={setPopoverContent}
+                                    />
+                                ) : (
+                                    <ResultMonsterImage
+                                        data={{ ...data, notInInventory }}
+                                        noImagePopover={noImagePopover}
+                                        togglePopover={togglePopover}
+                                        setPopoverContent={setPopoverContent}
+                                    />
+                                )}
+                            </LazyLoad>
                         </Col>
                     )
                 })}
