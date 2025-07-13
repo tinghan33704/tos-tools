@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useCallback, useContext } from "react"
 import { faUndo } from "@fortawesome/free-solid-svg-icons"
 import { Col, Form, Row } from "react-bootstrap"
 
@@ -12,6 +12,14 @@ export interface IKeywordRowProps {}
 
 const KeywordRow: React.FC<IKeywordRowProps> = (props) => {
     const { keyword, resetKeyword, changeKeyword } = useContext(Context)
+
+    const onInputKeyPress = useCallback((event: any) => {
+        if (event?.key === "Enter") {
+            // prevent pressing enter cause reload of page
+            event.preventDefault()
+        }
+    }, [])
+
     return (
         <>
             <Row className='keyword-row'>
@@ -37,6 +45,7 @@ const KeywordRow: React.FC<IKeywordRowProps> = (props) => {
                             value={keyword}
                             maxLength={inputMaxLength}
                             onChange={(e) => changeKeyword(e.target.value)}
+                            onKeyDown={onInputKeyPress}
                         />
                     </Form.Group>
                 </Form>
