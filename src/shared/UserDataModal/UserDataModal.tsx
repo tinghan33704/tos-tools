@@ -104,6 +104,17 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
         setVeri(veri)
     }, [])
 
+    const onInputKeyPress = useCallback(
+        (event: any) => {
+            if (event?.key === "Enter") {
+                // prevent pressing enter cause reload of page
+                event.preventDefault()
+                dataStatus.status === "success" ? saveBackpack() : importData()
+            }
+        },
+        [dataStatus.status, importData, saveBackpack]
+    )
+
     const renderSubPanel = useCallback(
         (event: string) => {
             return (
@@ -117,6 +128,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                                 value={uid}
                                 maxLength={uidMaxLength}
                                 onChange={(e) => onChangeUid(e.target.value)}
+                                onKeyDown={onInputKeyPress}
                                 disabled={inputDisabled}
                             />
                             {event === "update" ? (
@@ -129,6 +141,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                                     onChange={(e) =>
                                         onChangeVeri(e.target.value)
                                     }
+                                    onKeyDown={onInputKeyPress}
                                     disabled={inputDisabled}
                                 />
                             ) : (
