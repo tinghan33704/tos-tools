@@ -131,7 +131,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             setSelectedCharges(decodeMapping(chargeTypeString, params?.charge))
             setSelectedGenres(decodeMapping(genreTypeString, params?.genre))
             setKeyword(unicodeToString(params?.keyword || ""))
-            setAndOr(["or", "and", "m-and"][+params?.genre || 0])
+            setAndOr(["or", "and", "m-and"][+params?.or || 0])
 
             const durationArr =
                 decode(params?.duration)

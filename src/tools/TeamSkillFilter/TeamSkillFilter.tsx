@@ -94,7 +94,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                 )
             )
             setKeyword(unicodeToString(params?.keyword || ""))
-            setAndOr(["or", "and"][+params?.genre || 0])
+            setAndOr(["or", "and"][+params?.or || 0])
 
             setLoadingParams(true)
         }

@@ -119,7 +119,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                 decodeMapping(craftGenreTypeString, params?.genre)
             )
             setKeyword(unicodeToString(params?.keyword || ""))
-            setAndOr(["or", "and", "m-and"][+params?.genre || 0])
+            setAndOr(["or", "and", "m-and"][+params?.or || 0])
 
             setLoadingParams(true)
         }
