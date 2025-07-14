@@ -54,10 +54,10 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
 
     const resetFilter = useCallback(() => {
         setFilters({
-            sortBy: Object.keys(sortByCategories)[0],
-            orderBy: Object.keys(orderByCategories)[0],
+            sortBy: _filters?.sortBy || Object.keys(sortByCategories)[0],
+            orderBy: _filters?.orderBy || Object.keys(orderByCategories)[0],
         })
-    }, [])
+    }, [_filters])
 
     const onChangeFilter = useCallback(
         (type: string, value: string | number) => {
