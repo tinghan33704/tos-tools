@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tos-tools/static/css/main.f4fca6aa.css",
-    "main.js": "/tos-tools/static/js/main.8432fd6d.js",
+    "main.js": "/tos-tools/static/js/main.663085df.js",
     "static/js/453.81541129.chunk.js": "/tos-tools/static/js/453.81541129.chunk.js",
     "static/media/neglect_tomori.png": "/tos-tools/static/media/neglect_tomori.b1bd499ee85d2f9f4f27.png",
     "static/media/tosmark.png": "/tos-tools/static/media/tosmark.eed3c79382398cf7d719.png",
@@ -6458,11 +6458,11 @@
     "static/media/noname_w.png": "/tos-tools/static/media/noname_w.9036638b216808fd9528.png",
     "index.html": "/tos-tools/index.html",
     "main.f4fca6aa.css.map": "/tos-tools/static/css/main.f4fca6aa.css.map",
-    "main.8432fd6d.js.map": "/tos-tools/static/js/main.8432fd6d.js.map",
+    "main.663085df.js.map": "/tos-tools/static/js/main.663085df.js.map",
     "453.81541129.chunk.js.map": "/tos-tools/static/js/453.81541129.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4fca6aa.css",
-    "static/js/main.8432fd6d.js"
+    "static/js/main.663085df.js"
   ]
 }
