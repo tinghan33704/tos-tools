@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback, useContext } from "react"
+import { useSearchParams } from "react-router-dom"
 import { Dropdown, DropdownButton } from "react-bootstrap"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 
@@ -44,6 +45,8 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [isAfterInitLoad, setIsAfterInitLoad] = useState(false)
 
+    const [urlQuery, setUrlQuery] = useSearchParams()
+
     const { Popover, togglePopover, setPopoverContent } = usePopover()
 
     useEffect(() => {
@@ -57,6 +60,10 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
             openUserDataModal()
         }
     }, [isAfterInitLoad, currentTab])
+
+    useEffect(() => {
+        getInitData()
+    }, [urlQuery])
 
     const setInitPage = useCallback(() => {
         const _page = localStorage?.getItem("CURRENT_PAGE") || ""
@@ -74,6 +81,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
         const params: IObject = getUrlParams()
         if (params?.uid) {
             setIsLoading(true)
+            setPlayerData({})
             try {
                 const data = await fetchPlayerData(params?.uid, "", "import")
 

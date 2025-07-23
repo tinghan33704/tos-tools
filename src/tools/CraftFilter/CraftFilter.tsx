@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
+import { useSearchParams } from "react-router-dom"
 import _ from "lodash"
 
 import {
@@ -59,6 +60,8 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
 
     const resultRef = useRef<HTMLDivElement>(null)
 
+    const [urlQuery, setUrlQuery] = useSearchParams()
+
     const typeMap: Record<string, any[]> = useMemo(() => {
         return {
             skillFunctions: [selectedSkillFunctions, setSelectedSkillFunctions],
@@ -91,6 +94,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
     useEffect(() => {
         if (loadingParams) startFilter()
     }, [loadingParams])
+
+    useEffect(() => {
+        loadUrlParams()
+    }, [urlQuery])
 
     const loadUrlParams = useCallback(() => {
         const params: IObject = getUrlParams()

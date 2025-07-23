@@ -59,6 +59,8 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
     )
 
     const importData = useCallback(async () => {
+        setPlayerData({})
+
         const data: IObject | null = await fetchPlayerData(
             uid,
             veri,

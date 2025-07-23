@@ -6,6 +6,7 @@ import React, {
     useCallback,
     useContext,
 } from "react"
+import { useSearchParams } from "react-router-dom"
 import _ from "lodash"
 
 import {
@@ -78,6 +79,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
     const { playerData } = useContext(DataContext)
 
+    const [urlQuery, setUrlQuery] = useSearchParams()
+
     const typeMap: Record<string, any[]> = useMemo(() => {
         return {
             functions: [selectedFunctions, setSelectedFunctions],
@@ -110,6 +113,10 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
     useEffect(() => {
         if (loadingParams) startFilter()
     }, [loadingParams])
+
+    useEffect(() => {
+        loadUrlParams()
+    }, [urlQuery])
 
     const loadUrlParams = useCallback(() => {
         const params: IObject = getUrlParams()
