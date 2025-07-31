@@ -5,6 +5,7 @@ export const setFavIconAndTitle = (toolId: string) => {
 
     const tool = toolConfig[toolId]
 
-    if (link) link.href = require(`src/img/favicon/${tool.icon}.png`)
+    if (link) link.href = `./src/img/favicon/${tool.icon}.png`
+
     document.title = tool.title
 }

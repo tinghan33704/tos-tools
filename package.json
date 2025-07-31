@@ -1,20 +1,20 @@
 {
     "name": "tos-tools",
-    "version": "0.1.0",
     "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "start": "vite",
+        "build": "vite build",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview"
+    },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/free-brands-svg-icons": "^6.5.2",
         "@fortawesome/free-regular-svg-icons": "^6.5.2",
         "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
-        "@testing-library/jest-dom": "^5.17.0",
-        "@testing-library/react": "^13.4.0",
-        "@testing-library/user-event": "^13.5.0",
-        "@types/jest": "^27.5.2",
-        "@types/node": "^16.18.96",
-        "@types/react": "^18.2.79",
-        "@types/react-dom": "^18.2.25",
         "auto-text-size": "^0.2.3",
         "axios": "^1.6.8",
         "bootstrap": "^5.3.3",
@@ -23,41 +23,25 @@
         "react-bootstrap": "^2.10.2",
         "react-dom": "^18.2.0",
         "react-lazyload": "^3.2.1",
-        "react-native": "^0.74.0",
         "react-router-dom": "^6.23.0",
-        "react-scripts": "5.0.1",
-        "sass": "^1.75.0",
-        "typescript": "^4.9.5",
-        "web-vitals": "^2.1.4"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "rollup-plugin-copy": "^3.5.0",
+        "sass": "^1.75.0"
     },
     "devDependencies": {
         "@types/lodash": "^4.17.13",
+        "@types/node": "^16.18.96",
+        "@types/react": "^18.2.15",
+        "@types/react-dom": "^18.2.7",
         "@types/react-lazyload": "^3.2.3",
-        "@types/webpack-env": "^1.18.4"
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "@vitejs/plugin-react": "^4.7.0",
+        "eslint": "^8.45.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.3",
+        "typescript": "^5.0.2",
+        "vite": "^4.4.5",
+        "vite-tsconfig-paths": "^5.1.4"
     },
     "homepage": "https://tinghan33704.github.io/tos-tools/#/"
 }

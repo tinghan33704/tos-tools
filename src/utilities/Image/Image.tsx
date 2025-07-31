@@ -22,22 +22,7 @@ const Image: React.FC<IImageProps> = (props) => {
     }, [path, isFocused])
 
     const setImageSrc = useCallback(() => {
-        let srcPath
-        try {
-            srcPath = require(`src/img/${path}.png`)
-        } catch (err) {
-            if (path.startsWith("monster")) {
-                const monsterId = parseInt(path.split("/")[1])
-                const monsterAttr = getMonsterById(monsterId)?.attribute
-                const attrSuffix = monsterAttr
-                    ? `_${attrZhToEn[monsterAttr]}`
-                    : ""
-
-                srcPath = require(`src/img/monster/noname${attrSuffix}.png`)
-            } else if (path.startsWith("craft")) {
-                srcPath = require(`src/img/craft/noname.png`)
-            }
-        }
+        const srcPath = `./src/img/${path}.png`
 
         let title = ""
         if (path.startsWith("monster")) {
@@ -52,7 +37,23 @@ const Image: React.FC<IImageProps> = (props) => {
 
         setSrcPath(srcPath)
         setTitle(title)
-    }, [isFocused, path])
+    }, [path])
+
+    const handleImageError = useCallback(() => {
+        let srcPath = ""
+        if (path.startsWith("monster")) {
+            const monsterId = parseInt(path.split("/")[1])
+            const monsterAttr = getMonsterById(monsterId)?.attribute
+            const attrSuffix = monsterAttr ? `_${attrZhToEn[monsterAttr]}` : ""
+
+            // srcPath = require(`src/img/monster/noname${attrSuffix}.png`)
+            srcPath = `./src/img/monster/noname${attrSuffix}.png`
+        } else if (path.startsWith("craft")) {
+            // srcPath = require(`src/img/craft/noname.png`)
+            srcPath = `./src/img/craft/noname.png`
+        }
+        setSrcPath(srcPath)
+    }, [path])
 
     return (
         <img
@@ -60,14 +61,19 @@ const Image: React.FC<IImageProps> = (props) => {
                 isLoaded
                     ? srcPath
                     : path.startsWith("monster")
-                    ? require(`src/img/monster/noname.png`)
+                    ? // ? require(`src/img/monster/noname.png`)
+                      `./src/img/monster/noname.png`
                     : path.startsWith("craft")
-                    ? require(`src/img/craft/noname.png`)
+                    ? // ? require(`src/img/craft/noname.png`)
+                      `./src/img/craft/noname.png`
                     : path.startsWith("rune")
-                    ? require(`src/img/rune/rune_none.png`)
+                    ? // ? require(`src/img/rune/rune_none.png`)
+                      `./src/img/rune/rune_none.png`
                     : path.startsWith("icon")
-                    ? require(`src/img/icon/icon_undefined.png`)
-                    : require(`src/img/other/loading.png`)
+                    ? // ? require(`src/img/icon/icon_undefined.png`)
+                      `./src/img/icon/icon_undefined.png`
+                    : // : require(`src/img/other/loading.png`)
+                      `./src/img/other/loading.png`
             }
             alt={alt}
             tabIndex={0}
@@ -76,6 +82,7 @@ const Image: React.FC<IImageProps> = (props) => {
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             onLoad={() => setIsLoaded(true)}
+            onError={handleImageError}
             {...props}
         />
     )
