@@ -1,6 +1,7 @@
 import React, { useCallback } from "react"
 import _ from "lodash"
 import { Table } from "react-bootstrap"
+import LazyLoad from "react-lazyload"
 
 import { attrZhToEn } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
@@ -58,7 +59,23 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                 const monster = getMonsterById(id)
 
                 return (
-                    <>
+                    <LazyLoad
+                        once
+                        offset={500}
+                        placeholder={
+                            <span
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    color: "#666666",
+                                    height: "50px",
+                                }}
+                            >
+                                載入中...
+                            </span>
+                        }
+                    >
                         {skillIndexes.map(
                             (index: number, index_index: number) => {
                                 const skill = monster?.teamSkill?.[index]
@@ -124,7 +141,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                                 )
                             }
                         )}
-                    </>
+                    </LazyLoad>
                 )
             })}
         </Table>

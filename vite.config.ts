@@ -11,6 +11,20 @@ export default defineConfig({
             hook: "writeBundle",
         }),
     ],
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: "modern-compiler", // or "modern"
+                silenceDeprecations: [
+                    "legacy-js-api",
+                    "mixed-decls",
+                    "color-functions",
+                    "global-builtin",
+                    "import",
+                ],
+            },
+        },
+    },
     resolve: {
         alias: {
             src: "/src",

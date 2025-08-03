@@ -23,6 +23,14 @@
             background-color: transparent;
             padding: 0.25rem;
 
+            & > div {
+                padding: 0.5rem;
+
+                .result-image-id-tag {
+                    margin: 0 !important;
+                }
+            }
+
             a {
                 text-decoration: none;
                 color: var(--result-monster-id-tag-text);
