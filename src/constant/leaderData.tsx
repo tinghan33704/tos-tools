@@ -1,4 +1,4 @@
-// Last modified : 2025.08.01 00:14
+// Last modified : 2025.08.06 22:34
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -40030,6 +40030,83 @@ export const leaderSkillData: IObject[] = [
 			}
 		],
 		'monster': [10968]
+	},
+	{
+		'name': '烈焰衝鋒',
+		'description': `
+		
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員', '火', '機'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': ['特定成員'],
+				'limit': []
+			},
+			{
+				'name': ['增加Ex.Combo', '增加Combo'],
+				'object': [],
+				'limit': ['消除特定符石']
+			}
+		],
+		'monster': [10970]
+	},
+	{
+		'name': '改變世界的力量',
+		'description': `
+		
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員', '人', '神', '機'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': ['特定成員'],
+				'limit': []
+			},
+			{
+				'name': '行動值提升',
+				'object': ['機'],
+				'limit': []
+			}
+		],
+		'monster': [10972]
+	},
+	{
+		'name': '暗影指揮',
+		'description': `
+		
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員', '暗', '人', '神', '機'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': ['特定成員'],
+				'limit': []
+			},
+			{
+				'name': ['增加Ex.Combo', '增加Combo'],
+				'object': [],
+				'limit': ['消除特定符石']
+			},
+			{
+				'name': '其他減CD',
+				'object': ['特定成員'],
+				'limit': ['消除特定符石']
+			}
+		],
+		'monster': [10973]
 	},
 	{
 		'name': '歷劫之道',
