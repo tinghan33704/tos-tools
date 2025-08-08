@@ -424,7 +424,11 @@ export const descriptionTranslator = (
               )
               .replace(
                   /「道」狀態?/g,
-                  `<span class='desc-note-label-9 positive-note-label'>「道」狀態</span>`
+                  `<span class='desc-note-label-9 desc-positive-label'>「道」狀態</span>`
+              )
+              .replace(
+                  /GEASS 狀態?/g,
+                  `<span class='desc-note-label-3 desc-positive-label'>GEASS 狀態</span>`
               )
         : (description || "")
               ?.replace(/\n[^\S\n]*/g, "<br>")
