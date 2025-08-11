@@ -30,6 +30,7 @@ const showFirstStageAsEmptyPreview = [
     "星際巡航",
     "成為同伴的契約",
     "偶像光環",
+    "棋盤上的革命",
 ]
 const showFinalStageEvenNotExist = [
     "強力武裝",
