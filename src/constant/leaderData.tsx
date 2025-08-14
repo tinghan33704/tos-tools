@@ -1,4 +1,4 @@
-// Last modified : 2025.08.11 17:15
+// Last modified : 2025.08.14 23:34
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -40045,7 +40045,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			}
 		],
-		'monster': [10969, 10971, 10974, 10975, 10976, 10977, 10978, 10979]
+		'monster': [10969, 10971, 10974, 10975, 10976, 10977, 10978, 10979, 10983, 10984, 10985]
 	},
 	{
 		'name': '烈焰衝鋒',
