@@ -1,4 +1,4 @@
-// Last modified : 2025.08.14 23:34
+// Last modified : 2025.08.22 00:39
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -40045,7 +40045,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			}
 		],
-		'monster': [10969, 10971, 10974, 10975, 10976, 10977, 10978, 10979, 10983, 10984, 10985]
+		'monster': [10969, 10971, 10974, 10975, 10976, 10977, 10978, 10979, 10983, 10984, 10985, 10986, 10987]
 	},
 	{
 		'name': '烈焰衝鋒',
@@ -40142,6 +40142,87 @@ export const leaderSkillData: IObject[] = [
 			}
 		],
 		'monster': [10973]
+	},
+	{
+		'name': '最後的皇帝',
+		'description': `
+		
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員', '暗', '人', '神', '機'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': ['特定成員'],
+				'limit': []
+			}
+		],
+		'monster': [10980]
+	},
+	{
+		'name': '紅蓮的英雄',
+		'description': `
+		
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員', '火', '機'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': ['特定成員'],
+				'limit': []
+			},
+			{
+				'name': ['增加Ex.Combo', '增加Combo'],
+				'object': [],
+				'limit': []
+			}
+		],
+		'monster': [10981]
+	},
+	{
+		'name': '逆臣制裁',
+		'description': `
+		
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回', '無視二屬盾', '無視三屬盾', '無視四屬盾', '無視五屬盾'],
+				'object': ['特定成員', '人', '神', '機'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': [],
+				'limit': ['消除特定符石']
+			}
+		],
+		'monster': [10982]
+	},
+	{
+		'name': '不列顛尼亞萬歲',
+		'description': `
+		
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': [],
+				'limit': ['消除特定符石']
+			}
+		],
+		'monster': [10988]
 	},
 	{
 		'name': '不老不死的魔女',
