@@ -272,7 +272,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         skillIndexes: skillIndexArray,
                     })
             } else {
-                let skillIndexArray = []
+                const skillIndexArray = []
 
                 for (const [
                     monsterSkillIndex,
@@ -287,15 +287,15 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         continue
 
                     skillIndexArray.push(monsterSkillIndex)
-
-                    if (skillIndexArray?.length)
-                        result.push({
-                            id: monster.id,
-                            attr: monster.attribute,
-                            race: monster.race,
-                            skillIndexes: skillIndexArray,
-                        })
                 }
+
+                if (skillIndexArray?.length)
+                    result.push({
+                        id: monster.id,
+                        attr: monster.attribute,
+                        race: monster.race,
+                        skillIndexes: skillIndexArray,
+                    })
             }
         }
         setResultData(result)
