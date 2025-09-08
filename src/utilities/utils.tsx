@@ -70,7 +70,7 @@ export const isValidInputString = (text: string) => {
 }
 
 export const checkKeyword = (keywordStr: string) => {
-    let sanitizedKeywordStr = textSanitizer(keywordStr)
+    const sanitizedKeywordStr = textSanitizer(keywordStr)
 
     if (sanitizedKeywordStr.length > inputMaxLength) {
         errorAlert(4)
@@ -81,7 +81,7 @@ export const checkKeyword = (keywordStr: string) => {
 }
 
 export const addAlias = (skillArr: string[], keywords: string[]) => {
-    let _skillArr = [...skillArr]
+    const _skillArr = [...skillArr]
     Object.keys(skillAlias).forEach((skill) => {
         const keyword_alias_arr = skillAlias[skill]
 
