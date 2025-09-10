@@ -1,4 +1,4 @@
-// Last modified : 2025.09.09 01:14
+// Last modified : 2025.09.10 18:27
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -40411,7 +40411,15 @@ export const leaderSkillData: IObject[] = [
 	{
 		'name': '永夜神槍',
 		'description': `
-		
+		I. 自身屬性及神族及【北域之詩】成員
+		⓵ 攻擊力 130 倍
+		⓶ 生命力及回復力 5 倍
+		II. 消除【北域之詩】成員屬性或心符石
+		⇒ 隊伍成員攻擊力 3 倍
+		III. 進場時
+		⇒ 神族及【北域之詩】成員技能 CD - 2
+		IV. 移動符石後
+		⇒ 增加 4 連擊 (Ex. Combo、Combo)
 		`,
 		'tag': [
 			{
@@ -40440,7 +40448,13 @@ export const leaderSkillData: IObject[] = [
 	{
 		'name': '永夜神槍 ‧ 諸神黃昏',
 		'description': `
-		
+		I. 自身屬性及神族及【北域之詩】成員
+		⓵ 攻擊力 130 倍
+		⓶ 生命力及回復力 6 倍
+		II. 消除【北域之詩】成員屬性或心符石
+		⇒ 隊伍成員攻擊力 4 倍
+		IV. 移動符石後
+		⇒ 增加 8 連擊 (Ex.Combo、Combo)
 		`,
 		'tag': [
 			{
@@ -40464,7 +40478,13 @@ export const leaderSkillData: IObject[] = [
 	{
 		'name': '永夜神槍 ‧ 諸神黃昏',
 		'description': `
-		
+		I. 自身屬性及神族及【北域之詩】成員
+		⓵ 攻擊力 130 倍
+		⓶ 生命力及回復力 6 倍
+		II. 消除【北域之詩】成員屬性或心符石
+		⇒ 隊伍成員攻擊力 4 倍
+		IV. 移動符石後
+		⇒ 增加 8 連擊 (Ex.Combo、Combo)
 		`,
 		'tag': [
 			{
@@ -40488,7 +40508,13 @@ export const leaderSkillData: IObject[] = [
 	{
 		'name': '永夜神槍 ‧ 諸神黃昏',
 		'description': `
-		
+		I. 自身屬性及神族及【北域之詩】成員
+		⓵ 攻擊力 130 倍
+		⓶ 生命力及回復力 6 倍
+		II. 消除【北域之詩】成員屬性或心符石
+		⇒ 隊伍成員攻擊力 4 倍
+		IV. 移動符石後
+		⇒ 增加 8 連擊 (Ex.Combo、Combo)
 		`,
 		'tag': [
 			{
@@ -40512,7 +40538,13 @@ export const leaderSkillData: IObject[] = [
 	{
 		'name': '永夜神槍 ‧ 諸神黃昏',
 		'description': `
-		
+		I. 自身屬性及神族及【北域之詩】成員
+		⓵ 攻擊力 130 倍
+		⓶ 生命力及回復力 6 倍
+		II. 消除【北域之詩】成員屬性或心符石
+		⇒ 隊伍成員攻擊力 4 倍
+		IV. 移動符石後
+		⇒ 增加 8 連擊 (Ex.Combo、Combo)
 		`,
 		'tag': [
 			{
@@ -40536,7 +40568,13 @@ export const leaderSkillData: IObject[] = [
 	{
 		'name': '永夜神槍 ‧ 諸神黃昏',
 		'description': `
-		
+		I. 自身屬性及神族及【北域之詩】成員
+		⓵ 攻擊力 130 倍
+		⓶ 生命力及回復力 6 倍
+		II. 消除【北域之詩】成員屬性或心符石
+		⇒ 隊伍成員攻擊力 4 倍
+		IV. 移動符石後
+		⇒ 增加 8 連擊 (Ex.Combo、Combo)
 		`,
 		'tag': [
 			{
