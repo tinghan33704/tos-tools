@@ -61392,9 +61392,16 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 掉落的水符石及心符石添加為「加護」符石
                 `,tag:["解除隱身",["凍結敵方",2],["無法行動",2],["敵方轉水",2],["無視血浴地型",2],["水屬追打",2],["火屬追打",2],["木屬追打",2],["光屬追打",2],["暗屬追打",2],["全隊追打",2],["加護符石製造",2],"敵身狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11012,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11013,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11014,name:"眾神之后 · 弗麗嘉",attribute:"暗",race:"神族",star:6,monsterTag:["北域之詩","境外探索"],crossOver:!1,skill:[{name:"神后戰域",type:"normal",charge:"CD",num:5,description:`
+                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11013,name:"宿因牽引 ‧ 薇兒丹蒂",attribute:"木",race:"神族",star:6,monsterTag:["北域之詩","烽火詩篇"],crossOver:!1,skill:[{name:"殘破戰舞",type:"normal",charge:"CD",num:6,description:`
+				I. 使敵人進入「寄生」狀態，持續至敵人死亡
+				⇒ 以「敵人防禦力的 10 倍加 10 萬」點進行「吮血」(此傷害無視「敵人技能」及「我方技能加乘」)
+				II. 在本層數 (Wave) 內
+				⓵ 隊伍成員回復力變為 0
+				⓶ 隊長及自身攻擊力 4 倍
+				⓷ 掉落的木符石及心符石添加為「加護」符石
+				⓸ 隊長為神族或【北域之詩】成員 (發動技能時)
+				⇒ 隊伍成員無視「全版消除盾」
+                `,tag:[["寄生敵方",-1],["回血",-1],["我方減回",-1],["界王拳",-1],["增傷",-1],["加護符石製造",-1],["無視首消全版盾",-1],"敵身狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11014,name:"眾神之后 · 弗麗嘉",attribute:"暗",race:"神族",star:6,monsterTag:["北域之詩","境外探索"],crossOver:!1,skill:[{name:"神后戰域",type:"normal",charge:"CD",num:5,description:`
 				I. 點選元素法陣上的屬性符石 1 次
 				⓵ 將點選的種類符石添加為「加護」符石
 				⓶ 1 回合內，敵人轉換為相應屬性
@@ -62091,11 +62098,36 @@ function print() { __p += __j.call(arguments, '') }
 				V. 掉落的光符石及暗符石添加為「加護」符石
 				VI. 隊長為獸類或【北域之詩】成員(發動技能時)
 				⇒ 隊伍成員無視「首消組數屬性符石盾」
-                `,tag:[["冥控敵方",-1],["敵方轉暗",-1],"移除","整版移除","移除強制掉落","強制掉直行屬性","強制掉心","獸族符石製造","神族符石製造","增傷","無視減傷抗性","無視敵身減傷","無視數字盾",["電擊敵方",-1],["敵方轉光",-1],"防漆黑","增加Ex.Combo","增加Combo","加護符石製造","無視首消組數屬性盾","敵身狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11022,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11023,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11024,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+                `,tag:[["冥控敵方",-1],["敵方轉暗",-1],"移除","整版移除","移除強制掉落","強制掉直行屬性","強制掉心","獸族符石製造","神族符石製造","增傷","無視減傷抗性","無視敵身減傷","無視數字盾",["電擊敵方",-1],["敵方轉光",-1],"防漆黑","增加Ex.Combo","增加Combo","加護符石製造","無視首消組數屬性盾","敵身狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11022,name:"墨喙神諭 ‧ 福金和霧尼",attribute:"火",race:"獸類",star:6,monsterTag:["北域之詩","魔神戰"],crossOver:!1,skill:[{name:"雙鴉巡界",type:"normal",charge:"CD",num:6,description:`
+				I. 此技能無視「開技消耗代價」
+				II. 解除「暴風」
+				III. 還原所有「碎裂」的位置
+				IV. 點選成員直行符石 6 次
+				⓵ 將點選的直行符石轉化為該直行成員屬性種族強化符石
+				⓶ 將其他符石轉化為心強化符石
+				1 回合內
+				V. 隊伍成員攻擊力 2.2 倍
+				VI.【北域之詩】成員無視「開技消耗代價」
+				VII. 移動符石時間結束時
+				⇒ 記錄場上符石分佈
+				VIII. 回合結束時
+				⇒ 將所有符石轉化為所記錄的符石
+				IX. 隊長為獸類或【北域之詩】成員
+				⓵ V - VIII 效果的持續時間更改為 2 回合
+				⓶ 消除符石後
+				⇒ 自身技能 CD - 1
+                `,tag:["無視開技扣血","解除暴風","碎裂還原","符石轉水","符石轉火","符石轉木","符石轉光","符石轉暗","符石轉水強化","符石轉火強化","符石轉木強化","符石轉光強化","符石轉暗強化","人族符石製造","獸族符石製造","妖族符石製造","龍族符石製造","神族符石製造","魔族符石製造","機械族符石製造","符石轉心","符石轉心強化","五屬版面","五屬心版面",["增傷",2],["記錄版面",2],["大幅轉版",2],"減CD"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11023,name:"厄戀終結 ‧ 安爾伯達",attribute:"暗",race:"神族",star:6,monsterTag:["北域之詩","地獄魔王"],crossOver:!1,skill:[{name:"命運逆言",type:"normal",charge:"CD",num:5,description:`
+				I. 點選場上的符石 3 次
+				⇒ 移除第 1、2 及 3 次點選的種類符石
+				⇒ 掉落隨機第 1、2 及 3 次點選的種類以外神族強化符石
+				1 回合內
+				II. 神族及【北域之詩】成員無視「反首消符石盾」及「符石連擊零化」
+				III. 隊伍成員無視「火焰地型」及「反饋」
+				IV. 首批符石
+				⇒ 所有符石 1 粒即可發動消除
+				V. 首批消除符石種類 ≤3
+				⇒ 符石消除階段後自身技能 CD - 4
+                `,tag:["移除","指定符石移除","移除強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗","強制掉心","神族符石製造","無視反首消盾","無視追擊零化","無視火焰地型","防反饋","一消","減CD"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11024,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11025,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
