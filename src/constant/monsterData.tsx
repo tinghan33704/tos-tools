@@ -1,4 +1,4 @@
-// Last modified : 2025.09.12 12:53
+// Last modified : 2025.09.13 12:20
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -204702,10 +204702,10 @@ export const monsterData: IObject[] = [
 				◆ 於回合開始時點擊已儲滿的龍脈儀
 				⇒ 可觸發此能力 (對敵人首次發動此能力，消耗龍脈儀使用次數 0 次；其後對相同敵人再次發動此能力，需消耗龍脈儀使用次數 1 次)
 				`,
-				'activate': `以「黑色騎士團首領 ‧ ZERO」或「魯路修 ‧ 維 ‧ 不列顛尼亞與海市蜃樓」作隊長，並以【CODE GEASS】角色作戰友`,
+				'activate': `以「黑色騎士團首領 ‧ ZERO」作隊長，並以【CODE GEASS】角色作戰友`,
 				'skill_tag': ['龍脈儀蓄能', '龍脈儀抗性', '龍脈儀能力'],
 				'activate_tag': ['指定隊長戰友'],
-				'relative': [10973, 10980, 'CODE GEASS']
+				'relative': [10973, 'CODE GEASS']
 			},
 			{
 				'description': `
@@ -205100,7 +205100,7 @@ export const monsterData: IObject[] = [
 				⇒ 該「魯路修 ‧ 維 ‧ 不列顛尼亞與海市蜃樓」轉換為所選擇的模式
 
 				1 回合內
-				I.【CODE GEASS】及暗屬性成員
+				I.【CODE GEASS】、機械族及暗屬性成員
 				⓵ 攻擊力 4 倍
 				⓶ 無視
 				▋「首消粒數盾」
@@ -205174,7 +205174,7 @@ export const monsterData: IObject[] = [
 				⇒ 技能 CD -8
 				▋ 點選元素法陣上的符石 1 次
 				⇒ 移除所有符石
-				⇒ 掉落所點選的人族強化符石
+				⇒ 掉落所點選的機械族強化符石
 				▋ 移動符石後
 				⇒ 首批掉落所點選的隊長種族強化符石
 				▋ 場上位置不受「碎裂」、「結界地型」、「暴風」技能影響
@@ -205186,10 +205186,10 @@ export const monsterData: IObject[] = [
 				◆ 於回合開始時點擊已儲滿的龍脈儀
 				⇒ 可觸發此能力 (對敵人首次發動此能力，消耗龍脈儀使用次數 0 次；其後對相同敵人再次發動此能力，需消耗龍脈儀使用次數 1 次)
 				`,
-				'activate': `以「黑色騎士團首領 ‧ ZERO」或「魯路修 ‧ 維 ‧ 不列顛尼亞與海市蜃樓」作隊長，並以【CODE GEASS】角色作戰友`,
+				'activate': `以「魯路修 ‧ 維 ‧ 不列顛尼亞與海市蜃樓」作隊長，並以【CODE GEASS】角色作戰友`,
 				'skill_tag': ['龍脈儀蓄能', '龍脈儀抗性', '龍脈儀能力'],
 				'activate_tag': ['指定隊長戰友'],
-				'relative': [10973, 10980, 'CODE GEASS']
+				'relative': [10980, 'CODE GEASS']
 			},
 			{
 				'description': `
