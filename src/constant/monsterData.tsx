@@ -1,4 +1,4 @@
-// Last modified : 2025.09.19 01:20
+// Last modified : 2025.09.19 10:54
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -208912,7 +208912,7 @@ export const monsterData: IObject[] = [
         'name': '墨喙神諭 ‧ 福金和霧尼',
         'attribute': '火',
         'race': '獸類',
-        'star': 6,
+        'star': 7,
         'monsterTag': ['北域之詩', '魔神戰'],
         'crossOver': false,
         'skill': [
