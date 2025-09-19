@@ -62588,7 +62588,7 @@ function print() { __p += __j.call(arguments, '') }
 				V. 掉落的光符石及暗符石添加為「加護」符石
 				VI. 隊長為獸類或【北域之詩】成員(發動技能時)
 				⇒ 隊伍成員無視「首消組數屬性符石盾」
-                `,tag:[["冥控敵方",-1],["敵方轉暗",-1],"移除","整版移除","移除強制掉落","強制掉直行屬性","強制掉心","獸族符石製造","神族符石製造","增傷","無視減傷抗性","無視敵身減傷","無視數字盾",["電擊敵方",-1],["敵方轉光",-1],"防漆黑","增加Ex.Combo","增加Combo","加護符石製造","無視首消組數屬性盾","敵身狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11022,name:"墨喙神諭 ‧ 福金和霧尼",attribute:"火",race:"獸類",star:6,monsterTag:["北域之詩","魔神戰"],crossOver:!1,skill:[{name:"雙鴉巡界",type:"normal",charge:"CD",num:6,description:`
+                `,tag:[["冥控敵方",-1],["敵方轉暗",-1],"移除","整版移除","移除強制掉落","強制掉直行屬性","強制掉心","獸族符石製造","神族符石製造","增傷","無視減傷抗性","無視敵身減傷","無視數字盾",["電擊敵方",-1],["敵方轉光",-1],"防漆黑","增加Ex.Combo","增加Combo","加護符石製造","無視首消組數屬性盾","敵身狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11022,name:"墨喙神諭 ‧ 福金和霧尼",attribute:"火",race:"獸類",star:7,monsterTag:["北域之詩","魔神戰"],crossOver:!1,skill:[{name:"雙鴉巡界",type:"normal",charge:"CD",num:6,description:`
 				I. 此技能無視「開技消耗代價」
 				II. 解除「暴風」
 				III. 還原所有「碎裂」的位置
