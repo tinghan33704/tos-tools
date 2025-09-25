@@ -57714,7 +57714,7 @@ function print() { __p += __j.call(arguments, '') }
 				VI.「灼熱地型」傷害
 				⇒ 減少 100%
 				VII. 若隊長為【JoJo的奇妙冒險】成員
-				⇒ 全隊無視「力的印記
+				⇒ 全隊無視「力的印記」
 				`,tag:["移除","直行移除","移除強制掉落","強制掉直行屬性","人族符石製造","獸族符石製造","妖族符石製造","龍族符石製造","神族符石製造","魔族符石製造","機械族符石製造","符石轉心","符石轉心強化",["暴怒狀態",5],["增傷",5],["光屬追打",5],["自身追打",5],["界王拳",5],["無屬追打",5],["無視減傷抗性",5],["無視首消組數屬性盾",5],["無視灼熱地型",5],["無視力的印記",5]]},{name:"這就是...鎮魂曲！！",type:"normal",charge:"EP",num:10,description:`
 				I. 解除「終結倒數」
 				II. 連擊 (Combo) 時
@@ -62595,11 +62595,29 @@ function print() { __p += __j.call(arguments, '') }
 				▋ 自身進入 2 回合「暴擊」狀態
 				【≥51 步】
 				▋ 自身進入 2 回合「暴怒」狀態
-                `,tag:["無視步數限制","無視首消全版盾","無視血浴地型","無視一步一傷",["亢奮狀態",2],["增傷",2],["界王拳",2],["暴擊狀態",2],["暴怒狀態",2]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11025,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11026,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11027,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+                `,tag:["無視步數限制","無視首消全版盾","無視血浴地型","無視一步一傷",["亢奮狀態",2],["增傷",2],["界王拳",2],["暴擊狀態",2],["暴怒狀態",2]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11025,name:"血線雙偶 ‧ 麗塔與曼蒂",attribute:"木",race:"魔族",star:6,monsterTag:["公會任務"],crossOver:!1,skill:[{name:"死亡遊戲",type:"normal",charge:"CD",num:5,description:`
+				I. <board>將第 1、2 及 3 直行轉化為木強化符石</board>
+				II. <board>將第 4、5 及 6 直行轉化為心強化符石</board>
+				1 回合內
+				III. 消除 ≥2 種符石
+				⇒ 自身技能 CD -2
+				IV. 移動符石後
+				⇒ 掉落 30 粒隊長屬性強化符石
+                `,tag:["符石轉木","符石轉木強化","符石轉心","符石轉心強化","大幅轉版","固定版面","減CD","天降強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗"]}],teamSkill:[],board:[["E","E","E","H","H","H","E","E","E","H","H","H","E","E","E","H","H","H","E","E","E","H","H","H","E","E","E","H","H","H"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11026,name:"雨夜屠斧 ‧ 柯馬克",attribute:"水",race:"魔族",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"雨狩屠戮",type:"normal",charge:"CD",num:6,description:`
+				I. 解除「暴風」
+				II. 還原所有「碎裂」的位置
+				III. <board>引爆第 1、2 及 3 直行
+				⇒ 掉落固定版面符石 (火屬性、木屬性、光屬性、暗屬性及心強化符石)</board>
+				1 回合內
+				IV. 魔族成員攻擊力 2.2 倍
+				V. 隊長為魔族成員 (發動技能時)
+				⇒ 隊伍成員無視「符石禁咒」
+				VI. 消除水符石數量 ≥15
+				⇒ 魔族成員攻擊傷害無視「指定減傷抗性敵技」及「減傷狀態」
+				VII. 移動符石後
+				⇒ 每消除 1 種符石
+				⇒ 掉落 5 粒水魔族強化符石
+                `,tag:["解除暴風","碎裂還原","引爆","直行引爆","引爆強制掉落","強制掉火","強制掉木","強制掉光","強制掉暗","強制掉心","固定版面","增傷","無視符石禁消","無視減傷抗性","無視敵身減傷","天降強制掉落","強制掉水","魔族符石製造"]}],teamSkill:[],board:[["F","F","F","-","-","-","E","E","E","-","-","-","L","L","L","-","-","-","D","D","D","-","-","-","H","H","H","-","-","-"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.50"},{id:11027,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11028,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
@@ -71615,7 +71633,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		V. 反之，減少 50% 所受傷害
 		`,tag:[{name:["增攻","增血"],object:["特定成員","木","魔"],limit:[]},{name:"增攻",object:["特定成員","魔"],limit:[]},{name:"增加Combo",object:[],limit:["消除數量"]},{name:["增攻","減傷"],object:[],limit:["消除數量"]}],monster:[10622]},{name:"十刑之怒 ‧ 魔",description:`
 		魔族成員攻擊力 10 倍
-		`,tag:[{name:"增攻",object:["魔"],limit:[]}],monster:[2937,10635,10685,10727,10754,10756,10799,10800,10838,10889,10890,10921,10922,10930,10959,10965,11024]},{name:"不殺之念",description:`
+		`,tag:[{name:"增攻",object:["魔"],limit:[]}],monster:[2937,10635,10685,10727,10754,10756,10799,10800,10838,10889,10890,10921,10922,10930,10959,10965,11024,11025,11026]},{name:"不殺之念",description:`
 		I. 火屬性及人類成員
 		⇒ 攻擊力 10 倍、生命力及回復力 2 倍
 		II.【神劍闖江湖】成員
