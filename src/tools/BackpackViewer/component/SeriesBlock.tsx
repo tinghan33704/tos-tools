@@ -31,6 +31,7 @@ const showFirstStageAsEmptyPreview = [
     "成為同伴的契約",
     "偶像光環",
     "棋盤上的革命",
+    "魔法學習之路",
 ]
 const showFinalStageEvenNotExist = [
     "強力武裝",

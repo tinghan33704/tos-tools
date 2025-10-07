@@ -47,19 +47,20 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     )
 
     const renderMonsterName = useCallback(() => {
+        const attrStr = attrZhToEn?.[attribute] || "u"
+        const raceStr = raceZhToEn?.[race] || "u"
+
         return (
-            <Row
-                className={`result-info-header result-info-header-${attrZhToEn[attribute]}`}
-            >
+            <Row className={`result-info-header result-info-header-${attrStr}`}>
                 <Col xs={12} sm={3} className='monster-attr-race-star'>
-                    <Image path={`icon/icon_${attrZhToEn[attribute]}`} />
-                    <Image path={`icon/icon_${raceZhToEn[race]}`} />
+                    <Image path={`icon/icon_${attrStr}`} />
+                    <Image path={`icon/icon_${raceStr}`} />
                     <Image path={`icon/icon_${star}`} />
                 </Col>
                 <Col
                     xs={12}
                     sm={9}
-                    className={`monster-name monster-name-${attrZhToEn[attribute]}`}
+                    className={`monster-name monster-name-${attrStr}`}
                 >
                     {name}
                 </Col>

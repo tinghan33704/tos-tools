@@ -133,6 +133,13 @@
                 var(--popover-bg) 80%
             );
         }
+        &-u {
+            background: color-mix(
+                in srgb,
+                var(--popover-monster-name-undefined),
+                var(--popover-bg) 80%
+            );
+        }
     }
 
     .monster-attr-race-star {
