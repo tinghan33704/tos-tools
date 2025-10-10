@@ -1,4 +1,4 @@
-// Last modified : 2025.10.11 02:27
+// Last modified : 2025.10.11 02:37
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -210613,7 +210613,7 @@ export const monsterData: IObject[] = [
         'attribute': '暗',
         'race': '魔族',
         'star': 7,
-        'monsterTag': ['第七王子'],
+        'monsterTag': ['第七王子', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {
