@@ -63169,7 +63169,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓶ 技能 EP +1
 				`,activate:"以 ≥3 個【第七王子】角色作成員",skill_tag:["增攻","增回","增血","其他減CD","其他回EP"],activate_tag:["指定成員"],relative:["第七王子"]},{description:`
 				◆「毒蛾 ‧ 蓮」、「蜘蛛 ‧ 伽利略」、「巨鼠 ‧ 巴比倫」、「闇鴉 ‧ 酷洛」及「百傷 ‧ 塔利亞」「三圍」基值 1.7 倍
-				`,activate:"以 ≥3 個「毒蛾 ‧ 蓮」、「蜘蛛 ‧ 伽利略」、「闇鴉 ‧ 酷洛」、「巨鼠 ‧ 巴比倫」或「百傷 ‧ 塔利亞」作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員"],relative:[11031,11038,11039,11040,11041]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.51"},{id:11042,name:"魔界貴族 ‧ 基札戮姆",attribute:"暗",race:"魔族",star:7,monsterTag:["第七王子"],crossOver:!0,skill:[{name:"影狼",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以 ≥3 個「毒蛾 ‧ 蓮」、「蜘蛛 ‧ 伽利略」、「闇鴉 ‧ 酷洛」、「巨鼠 ‧ 巴比倫」或「百傷 ‧ 塔利亞」作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員"],relative:[11031,11038,11039,11040,11041]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.51"},{id:11042,name:"魔界貴族 ‧ 基札戮姆",attribute:"暗",race:"魔族",star:7,monsterTag:["第七王子","地獄魔王"],crossOver:!0,skill:[{name:"影狼",type:"normal",charge:"CD",num:6,description:`
 				I. <board 1>將第 3、4 及 5 橫行轉化為固定版面符石 (暗屬性及心魔族強化符石)</board>
 				II. 在本層數 (Wave) 內
 				⓵ 魔族及【第七王子】成員
