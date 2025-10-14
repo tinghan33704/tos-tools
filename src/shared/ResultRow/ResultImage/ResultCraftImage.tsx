@@ -216,9 +216,10 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                         xs={10}
                                         sm={10}
                                         className={"craft-skill-text"}
-                                    >
-                                        {skill}
-                                    </Col>
+                                        dangerouslySetInnerHTML={{
+                                            __html: skill,
+                                        }}
+                                    ></Col>
                                 </Row>
                             )
                         })}
@@ -249,9 +250,10 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                         xs={10}
                                         sm={10}
                                         className={"craft-skill-text"}
-                                    >
-                                        {skill}
-                                    </Col>
+                                        dangerouslySetInnerHTML={{
+                                            __html: skill,
+                                        }}
+                                    ></Col>
                                 </Row>
                             )
                         })}
