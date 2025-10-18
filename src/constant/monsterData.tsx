@@ -1,4 +1,4 @@
-// Last modified : 2025.10.11 02:37
+// Last modified : 2025.10.18 17:49
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -211048,22 +211048,34 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11046,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['第七王子'],
+        'name': '使從契約 ‧ 吉列爾',
+        'attribute': '光',
+        'race': '神族',
+        'star': 6,
+        'monsterTag': ['第七王子', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '淨化系神聖魔法「微光」',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 4,
                 'description': `
-
+				I. 自身位於第 1、2 或 3 直行
+				⓵ <board 1>將第 1、2 及 3 直行轉化為固定版面符石 (光屬性、暗屬性及心神族強化符石)</board>
+				⓶ 將第 4、5 及 6 直行添加為「加護」符石
+				II. 自身位於第 4、5 或 6 直行
+				⓵ <board 2>將第 4、5 及 6 直行轉化為固定版面符石 (水屬性、火屬性及木屬性神族強化符石)</board>
+				⓶ 將第 1、2 及 3 直行添加為「加護」符石
+				1 回合內
+				III.【第七王子】成員
+				⓵ 攻擊力 2.5 倍
+				⓶ 無視「步數盾」
+				IV. 隊伍成員無視「步數限制」
+				V. 首批消除符石數量 ≥15
+				⇒ 符石消除階段後，「使從契約 ‧ 吉列爾」及「神的信使 ‧ 吉列爾」技能 CD -3
                 `,
-                'tag': []
+                'tag': ['符石轉光', '符石轉暗', '符石轉心', '符石轉光強化', '符石轉暗強化', '符石轉心強化', '神族符石製造', '固定版面', '加護符石製造', '符石轉水', '符石轉火', '符石轉木', '符石轉水強化', '符石轉火強化', '符石轉木強化', '增傷', '無視步數限制', '減CD']
             }
         ],
         'teamSkill': [
@@ -211090,7 +211102,34 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['增攻', '增回', '增血', '其他減CD', '其他回EP'],
 				'activate_tag': ['指定成員'],
 				'relative': ['第七王子']
+			},
+			{
+				'description': `
+				◆ 隊伍成員無視「中毒」
+				
+				◆ 解除「連環光牢」
+				`,
+				'activate': `以「使從契約 ‧ 吉列爾」或「神的信使 ‧ 吉列爾」作成員`,
+				'skill_tag': ['防毒', '防射擊'],
+				'activate_tag': [],
+				'relative': [11046, 11047]
 			}
+		],
+		'board': [
+			[
+				'Lg', 'Lg', 'Lg', '-' , '-' , '-' , 
+				'Dg', 'Dg', 'Dg', '-' , '-' , '-' , 
+				'Hg', 'Hg', 'Hg', '-' , '-' , '-' , 
+				'Dg', 'Dg', 'Dg', '-' , '-' , '-' , 
+				'Lg', 'Lg', 'Lg', '-' , '-' , '-' , 
+			],
+			[
+				'-' , '-' , '-' , 'Wg', 'Wg', 'Wg', 
+				'-' , '-' , '-' , 'Fg', 'Fg', 'Fg', 
+				'-' , '-' , '-' , 'Eg', 'Eg', 'Eg', 
+				'-' , '-' , '-' , 'Fg', 'Fg', 'Fg', 
+				'-' , '-' , '-' , 'Wg', 'Wg', 'Wg', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -211099,22 +211138,38 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11047,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['第七王子'],
+        'name': '神的信使 ‧ 吉列爾',
+        'attribute': '光',
+        'race': '神族',
+        'star': 7,
+        'monsterTag': ['第七王子', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '具現化系神聖魔法「光武」',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 4,
                 'description': `
+				I. 隊長為【第七王子】成員
+				⇒ <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心神族強化符石)</board>
+				▋ 反之
+				⇒ <board>引爆所有符石
+				⇒ 掉落固定版面符石 (五屬及心神族強化符石)</board>
+				1 回合內
+				II. 【第七王子】成員
+				⓵ 攻擊力 3 倍
+				⓶ 無視「步數盾」
+				III. 隊伍成員無視「步數限制」
+				IV. 移動符石後
+				⇒ 掉落的光符石及心符石添加為「加護」符石
+				V. 回合結束時
+				⇒ <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心神族強化符石)</board>
 
                 `,
-                'tag': []
+                'tag': ['移除', '整版移除', '移除強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '神族符石製造', '固定版面', '五屬版面', '五屬心版面', '引爆', '整版引爆', '引爆強制掉落', '增傷', '無視步數限制', '加護符石製造']
             }
         ],
         'teamSkill': [
@@ -211141,7 +211196,27 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['增攻', '增回', '增血', '其他減CD', '其他回EP'],
 				'activate_tag': ['指定成員'],
 				'relative': ['第七王子']
+			},
+			{
+				'description': `
+				◆ 隊伍成員無視「中毒」
+				
+				◆ 解除「連環光牢」
+				`,
+				'activate': `以「使從契約 ‧ 吉列爾」或「神的信使 ‧ 吉列爾」作成員`,
+				'skill_tag': ['防毒', '防射擊'],
+				'activate_tag': [],
+				'relative': [11046, 11047]
 			}
+		],
+		'board': [
+			[
+				'Lg', 'Wg', 'Fg', 'Eg', 'Dg', 'Hg', 
+				'Lg', 'Wg', 'Fg', 'Eg', 'Dg', 'Hg', 
+				'Lg', 'Wg', 'Fg', 'Eg', 'Dg', 'Hg', 
+				'Lg', 'Wg', 'Fg', 'Eg', 'Dg', 'Hg', 
+				'Lg', 'Wg', 'Fg', 'Eg', 'Dg', 'Hg', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -211150,22 +211225,30 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11048,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['第七王子'],
+        'name': '反射的受詛者 ‧ 內戰',
+        'attribute': '暗',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['第七王子', '反射的受詛者 ‧ 內戰'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '全方位脊髓反射',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				3 回合內
+				I. 我方所受傷害 1.5 倍
+				II. 受到致命傷害
+				⇒ 召喚師不會死亡
+				III. 自身擊中敵人後
+				⇒ 使敵人進入「束縛」狀態，持續 1 回合
+				▋ 使敵人無法行動
+				IV. 吸收每個敵人本回合首次造成的傷害
+				⇒ 隊伍成員以吸收的傷害對敵人進行 50 萬倍暗屬性反擊
                 `,
-                'tag': []
+                'tag': [['我方受傷增加', 3], ['意志', 3], '束縛敵方', '無法行動', ['敵方傷害吸收', 3], ['反擊', 3], '敵身狀態']
             }
         ],
         'teamSkill': [
@@ -211201,22 +211284,29 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11049,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['第七王子'],
+        'name': '魔界龍 ‧ 黑龍',
+        'attribute': '暗',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['第七王子', '討伐戰'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '蹂躪快意',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. <board>將第 1 及 6 直行轉化為暗龍類符石</board>
+				2 回合內
+				II. 增加 10 連擊 (Combo)
+				III. 只能消除首批符石
+				IV. 若有擊斃敵人或發動龍類成員角色符石
+				⇒ 該回合不會扣減該技能效果的尚餘回合數
+				V. 回合結束時
+				⇒ <board>將第 1 及 6 直行轉化為暗龍類符石</board>
                 `,
-                'tag': []
+                'tag': [['符石轉暗', 2], ['龍族符石製造', 2], ['固定版面', 2], ['增加Combo', 2], ['只能首消符石', 2]]
             }
         ],
         'teamSkill': [
@@ -211244,6 +211334,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': ['第七王子']
 			}
+		],
+		'board': [
+			[
+				'dr', '-' , '-' , '-' , '-' , 'dr', 
+				'dr', '-' , '-' , '-' , '-' , 'dr', 
+				'dr', '-' , '-' , '-' , '-' , 'dr', 
+				'dr', '-' , '-' , '-' , '-' , 'dr', 
+				'dr', '-' , '-' , '-' , '-' , 'dr', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
