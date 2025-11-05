@@ -85,7 +85,7 @@ export const addAlias = (skillArr: string[], keywords: string[]) => {
     Object.keys(skillAlias).forEach((skill) => {
         const keyword_alias_arr = skillAlias[skill]
 
-        Object.keys(keywords).forEach((keyword) => {
+        keywords.forEach((keyword) => {
             if (keyword_alias_arr.includes(keyword)) {
                 _skillArr.push(skill)
                 return false
