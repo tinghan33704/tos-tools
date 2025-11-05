@@ -64067,7 +64067,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 進場技能 CD 變為 0
 				⓶ 每回合結束時
 				⇒【劍骨龍】及【魘尾獸】成員技能 CD -1 (需消除符石及不可疊加)
-				`,activate:"以【魘尾獸】角色作成員",skill_tag:["進場減CD","其他減CD"],activate_tag:["指定成員"],relative:["魘尾獸"]}],board:[{board:["Hb","Hb","Hb","Hb","Hb","Hb","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","1b","1b","1b","1b","1b","1b"],note:["隊長屬性強化符石"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"V2025.60"},{id:11060,name:"蠶食心域 ‧ 烏里瑪",attribute:"火",race:"妖精類",star:6,monsterTag:["萬千心界","地獄魔王"],crossOver:!1,skill:[{name:"煉獄尖嘯",type:"normal",charge:"CD",num:7,description:`
+				`,activate:"以【魘尾獸】角色作成員",skill_tag:["進場減CD","其他減CD"],activate_tag:["指定成員"],relative:["魘尾獸"]}],board:[{board:["Hb","Hb","Hb","Hb","Hb","Hb","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","1b","1b","1b","1b","1b","1b"],note:["隊長屬性強化符石"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"V2025.60"},{id:11060,name:"蠶食心域 ‧ 烏里瑪",attribute:"火",race:"妖精類",star:7,monsterTag:["萬千心界","地獄魔王"],crossOver:!1,skill:[{name:"煉獄尖嘯",type:"normal",charge:"CD",num:7,description:`
 				I. 火屬性及妖精類成員
 				⓵ 解除「技能封鎖」狀態
 				⓶ 以「亢奮」及「暴怒」狀態取代「疲憊」、「休眠」、「風壓」、「麻痺」及「沉默」狀態 (此技能無視「休眠」、「風壓」、「沉默」及「技能封鎖」狀態)
