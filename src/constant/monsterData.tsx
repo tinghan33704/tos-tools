@@ -1,4 +1,4 @@
-// Last modified : 2025.11.05 17:33
+// Last modified : 2025.11.05 22:01
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -4979,7 +4979,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				敵方生命力 20% 以下時，即殺
 				`,
-				'tag': ['直傷', '無視技能直傷']
+				'tag': []
 			}
 		],
 		'teamSkill': [
@@ -5015,7 +5015,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				敵方生命力 20% 以下時，即殺
 				`,
-				'tag': ['直傷', '無視技能直傷']
+				'tag': []
 			}
 		],
 		'teamSkill': [
@@ -5051,7 +5051,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				敵方生命力 20% 以下時，即殺
 				`,
-				'tag': ['直傷', '無視技能直傷']
+				'tag': []
 			}
 		],
 		'teamSkill': [
@@ -24867,7 +24867,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				敵方生命力 20% 以下時，即殺
 				`,
-				'tag': ['直傷', '無視技能直傷']
+				'tag': []
 			}
 		],
 		'teamSkill': [
@@ -96931,7 +96931,7 @@ export const monsterData: IObject[] = [
 				敵方為人類，而且當前生命力為
 				⇒ 100 萬或以下，即殺
 				`,
-				'tag': ['直傷', '無視技能直傷']
+				'tag': []
 			},
 			{
 				'name': '連天和次元也要一併突破！',
@@ -104740,7 +104740,7 @@ export const monsterData: IObject[] = [
 				II. 若敵方生命力 >15%
 				⇒ 消耗敵方現有 40% 生命力
 				`,
-				'tag': ['直傷', '無視技能直傷', '消耗']
+				'tag': ['消耗']
 			},
 			{
 				'name': '合體',
@@ -124827,7 +124827,7 @@ export const monsterData: IObject[] = [
 				IV. 敵方生命力為 <25%
 				⇒ 即殺
 				`,
-				'tag': ['符石轉火', '符石轉火強化', '人族符石製造', '增傷', '界王拳', '直傷', '無視技能直傷']
+				'tag': ['符石轉火', '符石轉火強化', '人族符石製造', '增傷', '界王拳']
 			}
 		],
 		'teamSkill': [],
