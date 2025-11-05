@@ -1,4 +1,4 @@
-// Last modified : 2025.11.03 17:00
+// Last modified : 2025.11.05 17:33
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -212777,7 +212777,7 @@ export const monsterData: IObject[] = [
         'name': '蠶食心域 ‧ 烏里瑪',
         'attribute': '火',
         'race': '妖精類',
-        'star': 6,
+        'star': 7,
         'monsterTag': ['萬千心界', '地獄魔王'],
         'crossOver': false,
         'skill': [
