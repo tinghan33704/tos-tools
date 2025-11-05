@@ -686,15 +686,15 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 隊中「遊俠」系列角色的攻擊力有機會提升 2 倍，最大機率 25%
 				`,activate:"以 ≥3 個不同屬性、相同星數的「遊俠」系列角色作成員",skill_tag:["爆擊"],activate_tag:["指定成員"],relative:[133,136,139,142,145]}],maxLevel:99,maxSkill:15,maxRefine:4,version:"v1.00"},{id:143,name:"暗遊俠",attribute:"暗",race:"人類",star:3,monsterTag:["遊俠"],crossOver:!1,skill:[{name:"生命終解",type:"normal",charge:"CD",num:12,description:`
 				敵方生命力 20% 以下時，即殺
-				`,tag:["直傷","無視技能直傷"]}],teamSkill:[{description:`
+				`,tag:[]}],teamSkill:[{description:`
 				◆ 隊中「遊俠」系列角色的攻擊力有機會提升 2 倍，最大機率 25%
 				`,activate:"以 ≥3 個不同屬性、相同星數的「遊俠」系列角色作成員",skill_tag:["爆擊"],activate_tag:["指定成員"],relative:[131,134,137,140,143]}],maxLevel:15,maxSkill:15,maxRefine:0,version:"v1.00"},{id:144,name:"暗夜刺客",attribute:"暗",race:"人類",star:4,monsterTag:["遊俠"],crossOver:!1,skill:[{name:"生命終解",type:"normal",charge:"CD",num:12,description:`
 				敵方生命力 20% 以下時，即殺
-				`,tag:["直傷","無視技能直傷"]}],teamSkill:[{description:`
+				`,tag:[]}],teamSkill:[{description:`
 				◆ 隊中「遊俠」系列角色的攻擊力有機會提升 2 倍，最大機率 25%
 				`,activate:"以 ≥3 個不同屬性、相同星數的「遊俠」系列角色作成員",skill_tag:["爆擊"],activate_tag:["指定成員"],relative:[132,135,138,141,144]}],maxLevel:70,maxSkill:15,maxRefine:0,version:"v1.00"},{id:145,name:"暗影劍豪",attribute:"暗",race:"人類",star:5,monsterTag:["遊俠"],crossOver:!1,skill:[{name:"生命終解",type:"normal",charge:"CD",num:12,description:`
 				敵方生命力 20% 以下時，即殺
-				`,tag:["直傷","無視技能直傷"]}],teamSkill:[{description:`
+				`,tag:[]}],teamSkill:[{description:`
 				◆ 隊中「遊俠」系列角色的攻擊力有機會提升 2 倍，最大機率 25%
 				`,activate:"以 ≥3 個不同屬性、相同星數的「遊俠」系列角色作成員",skill_tag:["爆擊"],activate_tag:["指定成員"],relative:[133,136,139,142,145]}],maxLevel:99,maxSkill:15,maxRefine:4,version:"v1.00"},{id:146,name:"冰耀巨像",attribute:"水",race:"獸類",star:3,monsterTag:["巨像"],crossOver:!1,skill:[{name:"符石變換 ‧ 水",type:"normal",charge:"CD",num:5,description:`
 				火符石轉化為水符石
@@ -3384,7 +3384,7 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 隊中「遊俠」系列的角色的攻擊力有 50% 機會提升 2 倍
 				`,activate:"以「信念承傳 ‧ 輝煌騎士」作隊長或戰友，並以 5 個不同的 6 星「遊俠」系列的角色作成員 ",skill_tag:["增攻","爆擊"],activate_tag:["指定隊長","指定戰友","指定成員"],relative:[7004,686,687,688,689,690]}],maxLevel:99,maxSkill:15,maxRefine:4,version:"v7.30"},{id:690,name:"邪譽承傳 ‧ 暗影劍豪",attribute:"暗",race:"人類",star:6,monsterTag:["遊俠"],crossOver:!1,skill:[{name:"生命終解",type:"normal",charge:"CD",num:12,description:`
 				敵方生命力 20% 以下時，即殺
-				`,tag:["直傷","無視技能直傷"]}],teamSkill:[{description:`
+				`,tag:[]}],teamSkill:[{description:`
 				◆ 隊中「遊俠」系列角色的攻擊力有機會提升 2 倍，最大機率 25%
 				`,activate:"以 ≥3 個不同屬性、相同星數的「遊俠」系列角色作成員",skill_tag:["爆擊"],activate_tag:["指定成員"],relative:[686,687,688,689,690]},{description:`
 				◆「遊俠」系列的角色發動主動技能後，1 回合內，全隊攻擊力 1.5 倍 (同 1 回合只會發動 1 次)
@@ -17747,7 +17747,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,tag:["符石兼具水","符石兼具火","符石兼具木","符石兼具光","符石兼具暗"]},{name:"人類殲滅",type:"normal",charge:"CD",num:7,description:`
 				敵方為人類，而且當前生命力為
 				⇒ 100 萬或以下，即殺
-				`,tag:["直傷","無視技能直傷"]},{name:"連天和次元也要一併突破！",type:"normal",charge:"CD",num:-1,combine:{member:[2422,2410,2411,2412,2419],out:2425},description:`
+				`,tag:[]},{name:"連天和次元也要一併突破！",type:"normal",charge:"CD",num:-1,combine:{member:[2422,2410,2411,2412,2419],out:2425},description:`
 				「大紅蓮團團長 ‧ 西蒙與紅蓮螺巖」、「維拉爾與鹽基」、「庸子」、「妮亞」和「螺旋王 ‧ 羅傑儂與羅善巖」相連時可以合體：
 				I. 完全回復生命力
 				II. 儲滿龍脈儀
@@ -20434,7 +20434,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 即殺
 				II. 若敵方生命力 >15%
 				⇒ 消耗敵方現有 40% 生命力
-				`,tag:["直傷","無視技能直傷","消耗"]},{name:"合體",type:"normal",charge:"CD",num:-1,combine:{member:[2550,2555],out:2560},description:`
+				`,tag:["消耗"]},{name:"合體",type:"normal",charge:"CD",num:-1,combine:{member:[2550,2555],out:2560},description:`
 				「沙場無敵 ‧ 呂布」和「悚駭轍印 ‧ 呂凌霜」相連時可以合體：
 				1 回合內
 				I. 合體角色攻擊力 1.5 倍
@@ -28098,7 +28098,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 攻擊力 5 倍
 				IV. 敵方生命力為 <25%
 				⇒ 即殺
-				`,tag:["符石轉火","符石轉火強化","人族符石製造","增傷","界王拳","直傷","無視技能直傷"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2024.21"},{id:2876,name:"無常五蘊 ‧ 燃燈",attribute:"光",race:"神族",star:6,monsterTag:["珍念時光"],crossOver:!1,specialImage:!0,skill:[{name:"光靈符籙",type:"normal",charge:"CD",num:5,description:`
+				`,tag:["符石轉火","符石轉火強化","人族符石製造","增傷","界王拳"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2024.21"},{id:2876,name:"無常五蘊 ‧ 燃燈",attribute:"光",race:"神族",star:6,monsterTag:["珍念時光"],crossOver:!1,specialImage:!0,skill:[{name:"光靈符籙",type:"normal",charge:"CD",num:5,description:`
 				I. 點選場上的符石 1 次
 				⇒ 移除該種符石
 				⇒ 掉落心強化符石
