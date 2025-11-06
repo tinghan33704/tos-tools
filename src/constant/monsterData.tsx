@@ -1,4 +1,4 @@
-// Last modified : 2025.11.05 22:01
+// Last modified : 2025.11.06 17:37
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -212839,29 +212839,65 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11061,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '夢火啟途 ‧ 謝貝妮',
+        'attribute': '火',
+        'race': '人類',
+        'star': 6,
+        'monsterTag': ['萬千心界', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '逆境反撲',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 3,
                 'description': `
-
+				I. 此技能無視「開技消耗代價」
+				II. 解除「亡命爆擊」
+				III. 點選場上直行符石 3 次
+				⓵ 引爆第 1 次點選的直行
+				⇒ 掉落火「風化」符石
+				⓶ 引爆第 2 次點選的直行
+				⇒ 掉落火「電擊」符石
+				⓷ 引爆第 3 次點選的直行
+				⇒ 掉落火「凍結」符石
+				1 回合內
+				IV.「火焰地型」及「反饋」傷害轉化為生命力
+				V. 自身無視「全消盾」及「減傷狀態」
+				VI. 消除「風化」符石
+				⓵ 自身攻擊力 3 倍
+				⓶ 自身技能 CD -1
+				VII. 消除「電擊」符石
+				⓵ 自身技能 CD -1
+				⓶ 增加 10 連擊 (Combo)
+				VIII. 消除「凍結」符石
+				⓵ 自身技能 CD -1
+				⓶ 自身對敵人追打 100% 自身屬性攻擊 3 次
                 `,
-                'tag': []
+                'tag': ['無視開技扣血', '解除自爆', '引爆', '直行引爆', '引爆強制掉落', '強制掉火', '無視火焰地型', '防反饋', '無視全首消盾', '無視敵身減傷', '界王拳', '增傷', '減CD', '增加Combo', '火屬追打', '自身追打']
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【萬千心界】成員「三圍」基值 2.2 倍
+				
+				◆【萬千心界】成員各自以自身回復力基值的 4 倍各自加入自身攻擊力
+
+				◆ 發動【萬千心界】成員角色符石
+				⓵【萬千心界】成員進入 2 回合「亢奮」狀態
+				⓶ 移動符石後，增加 8 連擊 (Ex. Combo、Combo)
+				`,
+				'activate': `以「凜潔心界 ‧ 曼陀羅」作成員，並以 ≥3 個【萬千心界】角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '亢奮狀態', '增加Ex.Combo', '增加Combo'],
+				'activate_tag': ['指定成員'],
+				'relative': [11055, '萬千心界']
+			}
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'V2025.60'
     },
     {
         'id': 11062,
@@ -212891,29 +212927,37 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11063,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '凶暴凌遲 ‧ 蜥蜴戰士',
+        'attribute': '暗',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['武術大賽'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '龍血沸騰',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 龍類成員進入 2 回合「暴擊」狀態
+				II. 點選場上的符石 2 次
+				⇒ 自身對敵人造成 100% 點選的種類傷害各 15 次
+				2 回合內
+				III. 龍類成員
+				⓵ 攻擊力 1.8 倍
+				⓶ 無視「固定連擊盾」及「連擊相等盾」
+				IV. 消除符石後
+				⇒ 置身「暴擊」狀態的龍類成員技能 CD -1
                 `,
-                'tag': []
+                'tag': [['暴擊狀態', 2], ['增傷', 2], '直傷', ['無視固定連擊盾', 2], ['無視連擊相等盾', 2], ['減CD', 2]]
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'V2025.60'
     },
     {
         'id': 11064,
@@ -212995,29 +213039,49 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11067,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '叛親謀奪 ‧ 卡洛',
+        'attribute': '火',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['血噬', '叛親謀奪'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '血色魔噬',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 自身對敵人造成 1 億點自身屬性的傷害 1 次 (此傷害無視「強化突破」及「防禦力」)
+				2 回合內
+				II. 自身攻擊力 5 倍
+				III. 隊伍成員無視「黏腐」及「瘴氣地型」
+				IV. 消除符石數量 ≥30
+				⇒ 回合結束時，自身技能 CD -1
+				V. 消除符石後
+				⇒ 每消除 1 種屬性符石
+				⇒ 掉落 6 粒火魔族強化符石
                 `,
-                'tag': []
+                'tag': ['直傷', '破強化直傷', '破防直傷', ['界王拳', 2], ['增傷', 2], ['無視黏腐', 2], ['無視瘴氣', 2], ['減CD', 2], ['天降強制掉落', 2], ['強制掉火', 2], ['魔族符石製造', 2]]
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【血噬】成員對敵方造成攻擊傷害的 5% 轉化為
+				⇒ 我方生命力
+				⇒ 最大為【血噬】成員總生命力
+				`,
+				'activate': `以【血噬】角色作成員`,
+				'skill_tag': ['我方傷害吸收'],
+				'activate_tag': ['指定成員'],
+				'relative': ['血噬']
+			}
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'V2025.60'
     },
     {
         'id': 11068,

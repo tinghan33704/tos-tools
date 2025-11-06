@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useRef, useMemo } from "react"
-import { Col, OverlayTrigger, Popover, Row } from "react-bootstrap"
+import { Col, Popover, Row } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
 import Context from "src/utilities/Context/Context"
