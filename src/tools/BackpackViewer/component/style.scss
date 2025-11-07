@@ -448,3 +448,39 @@
     margin-top: 20px;
     color: #666666;
 }
+
+.had-count-container {
+    height: 70px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border: thick double;
+    border-radius: 10px;
+
+    & > span {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+    }
+
+    &-all {
+        background-color: var(--all-collect-bg);
+        color: var(--all-collect);
+        border-color: var(--light);
+    }
+    &-partial {
+        background-color: var(--result-number-panel-success-background);
+        color: var(--earth);
+        border-color: var(--earth);
+    }
+
+    .had-count {
+        font-size: 2rem;
+        margin-right: 6px;
+    }
+    .all-count {
+        font-size: 1.2rem;
+    }
+}

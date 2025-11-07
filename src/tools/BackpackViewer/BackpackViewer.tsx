@@ -30,7 +30,7 @@ const availablePages = Object.keys(sealContent).filter(
         (new Date().getTime() >=
             new Date(sealOpenPeriod?.[page]?.start).getTime() &&
             new Date().getTime() <=
-                new Date(sealOpenPeriod?.[page]?.emd).getTime())
+                new Date(sealOpenPeriod?.[page]?.end).getTime())
 )
 
 const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
@@ -41,6 +41,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     const [currentCardCategory, setCurrentCardCategory] =
         useState<string>("all")
     const [currentSort, setCurrentSort] = useState<string>("default")
+    const [hideHadMonster, setHideHadMonster] = useState(false)
     const [userDataModalOpen, setUserDataModalOpen] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [isAfterInitLoad, setIsAfterInitLoad] = useState(false)
@@ -136,6 +137,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
             toolId='backpack-viewer'
             sort={currentSort}
             category={currentCardCategory}
+            hideHadMonster={hideHadMonster}
             toggleSort={() =>
                 setCurrentSort(
                     sortTypes[
@@ -151,6 +153,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                     ]
                 )
             }
+            toggleHideHadMonster={() => setHideHadMonster(!hideHadMonster)}
         >
             <Header />
             <PageContainer
@@ -187,6 +190,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                                 sortBy={currentSort}
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
+                                hideHadMonster={hideHadMonster}
                             />
                         )}
                     </>

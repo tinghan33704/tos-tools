@@ -15,6 +15,7 @@ interface ISeriesRowProps {
     sortBy: string
     togglePopover: (e: React.MouseEvent) => void
     setPopoverContent: (content: React.ReactElement) => void
+    hideHadMonster: boolean
 }
 
 const doNotIgnoreIndependentItem = [
@@ -39,6 +40,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
     sortBy,
     togglePopover,
     setPopoverContent,
+    hideHadMonster,
 }) => {
     const { playerData } = useContext(DataContext)
 
@@ -61,8 +63,38 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
         [cardCategory, tab]
     )
 
+    const allMaxCardNumber = Object.values(sealContent["All Max 自選"]).flat()
+        .length
+    const allMaxCardHadNumber = Object.values(sealContent["All Max 自選"])
+        .flat()
+        .filter((item) =>
+            _.isArray(item)
+                ? item?.some((m) => playerData?.card?.includes(m))
+                : playerData?.card?.includes(item)
+        ).length
+
     return (
         <Row>
+            {tab === "All Max 自選" && (
+                <Col xs={12} md={12} lg={12}>
+                    <div
+                        className={`had-count-container had-count-container-${
+                            allMaxCardHadNumber >= allMaxCardNumber
+                                ? "all"
+                                : "partial"
+                        }`}
+                    >
+                        <span>
+                            <span className='had-count'>
+                                {allMaxCardHadNumber}
+                            </span>{" "}
+                            <span className='all-count'>
+                                / {allMaxCardNumber}
+                            </span>
+                        </span>
+                    </div>
+                </Col>
+            )}
             {Object.keys(sealContent[tab]).map((title, index) => {
                 let _data: (number | number[])[] = []
 
@@ -147,7 +179,15 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                     )
                 }
 
-                return (
+                if (tab === "All Max 自選" && hideHadMonster) {
+                    _data = _data.filter((item) =>
+                        _.isArray(item)
+                            ? item?.every((m) => !playerData?.card?.includes(m))
+                            : !playerData?.card?.includes(item)
+                    )
+                }
+
+                return _data?.length ? (
                     <Col xs={12} md={6} lg={6}>
                         <SeriesBlock
                             playerData={playerData}
@@ -160,6 +200,8 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                             setPopoverContent={setPopoverContent}
                         />
                     </Col>
+                ) : (
+                    <></>
                 )
             })}
         </Row>

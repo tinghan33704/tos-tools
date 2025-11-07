@@ -38,6 +38,8 @@ const Context = React.createContext({
     toggleCategory: () => {},
     sort: "default",
     toggleSort: () => {},
+    hideHadMonster: false,
+    toggleHideHadMonster: () => {},
 })
 
 export const ContextProvider = (props: any) => {

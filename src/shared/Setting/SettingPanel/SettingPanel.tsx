@@ -115,15 +115,22 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
                 text: config?.sort === "default" ? "預設排序" : "按持有數排序",
                 callback: config?.toggleSort,
             },
+            hide_had_monster: {
+                icon: config?.hideHadMonster ? faCompress : faExpand,
+                text: `${config?.hideHadMonster ? "隱藏" : "顯示"}已持有角色`,
+                callback: config?.toggleHideHadMonster,
+            },
         }
     }, [
         changeTheme,
         config?.category,
+        config?.hideHadMonster,
         config?.resultView,
         config?.showNoData,
         config?.sort,
         config?.toggleCategory,
         config?.toggleResultView,
+        config?.toggleHideHadMonster,
         config?.toggleShowNoData,
         config?.toggleSort,
         config?.toggleUseInventory,
@@ -156,7 +163,7 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
     }, [panelOpen])
 
     const renderPanels = useCallback(() => {
-        let toolSettings =
+        const toolSettings =
             config?.toolId === "backpack-viewer"
                 ? toolConfig[config.toolId]?.setting?.[backpackViewerPage] || []
                 : toolConfig[config.toolId]?.setting || []
@@ -182,7 +189,7 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
                 </div>
             )
         })
-    }, [config, onClosePanel, panelMapping])
+    }, [backpackViewerPage, config.toolId, onClosePanel, panelMapping])
 
     return (
         <div

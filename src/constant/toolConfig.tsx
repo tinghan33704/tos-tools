@@ -61,7 +61,7 @@ export const toolConfig: IObject = {
         icon: "backpack_favicon",
         topInfo: ["uid", "last-update"],
         setting: {
-            "All Max 自選": ["backpack", "theme"],
+            "All Max 自選": ["sort", "hide_had_monster", "backpack", "theme"],
             古幣封印: ["sort", "backpack", "theme"],
             魔法石封印: ["sort", "backpack", "theme"],
             獨立封印: ["sort", "backpack", "theme"],
