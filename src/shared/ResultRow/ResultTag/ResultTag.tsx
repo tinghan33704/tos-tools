@@ -47,7 +47,7 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
     )
 
     return (
-        <Row className='tag-row'>
+        <Row className='result-tag-row'>
             {_.isPlainObject(functions)
                 ? Object.entries(functions).map((item: any[]) => {
                       if (item?.[1]?.length) {

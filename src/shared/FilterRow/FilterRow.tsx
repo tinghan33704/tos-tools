@@ -45,10 +45,12 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
                     type={type}
                     groupData={data}
                     btnSuffix={btnSuffix}
+                    useLazyLoad={collapsible}
+                    {...(collapsible ? { isCollapseOpen } : {})}
                 />
             </div>
         )
-    }, [btnSuffix, data, type])
+    }, [btnSuffix, collapsible, data, isCollapseOpen, type])
 
     const toggleCollapse = useCallback(() => {
         setIsCollapseOpen(!isCollapseOpen)
