@@ -1,4 +1,5 @@
 import React, { useRef, useState, useCallback } from "react"
+import LazyLoad from "react-lazyload"
 import _ from "lodash"
 import { Accordion, Col, Row } from "react-bootstrap"
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"
@@ -200,7 +201,23 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
     }, [data, onClickImage, playerData, title])
 
     return (
-        <>
+        <LazyLoad
+            once
+            offset={500}
+            placeholder={
+                <span
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#666666",
+                        height: 150,
+                    }}
+                >
+                    載入中...
+                </span>
+            }
+        >
             <Accordion defaultActiveKey={`${key}`}>
                 <Accordion.Item eventKey={`${key}`} className='accordion-item'>
                     {renderHeader()}
@@ -210,7 +227,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                     <hr />
                 </Accordion.Item>
             </Accordion>
-        </>
+        </LazyLoad>
     )
 }
 
