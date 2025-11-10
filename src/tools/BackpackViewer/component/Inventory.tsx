@@ -365,8 +365,10 @@ const Inventory: React.FC<IInventoryProps> = ({
                     </Col>
                 </Row>
                 <Row className='filter-display'>
-                    <Col xs={9}>{renderFilter()}</Col>
-                    <Col xs={3} className='card-count'>
+                    <Col sm={9} xs={12}>
+                        {renderFilter()}
+                    </Col>
+                    <Col sm={3} xs={12} className='card-count'>
                         {filteredCards.length} 張卡片
                     </Col>
                 </Row>

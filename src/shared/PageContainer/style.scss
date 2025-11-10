@@ -5,6 +5,10 @@
     width: 80% !important;
     padding-bottom: 40px;
 
+    @include max576 {
+        width: 90% !important;
+    }
+
     .notification {
         margin: 10px 0 !important;
         color: var(--notification) !important;
