@@ -26,10 +26,20 @@ export const getMonsterById = (id: number) => {
 }
 
 export const getCraftById = (id: number) => {
-    return (
-        [...craftData, ...armedCraftData].find((craft) => craft?.id === id) ??
-        {}
-    )
+    const craftSerie =
+        [...craftData, ...armedCraftData].find((craft) =>
+            Object.values(craft?.mode).includes(id)
+        ) || {}
+
+    const craftObj: IObject = {
+        ...craftSerie,
+        id,
+        mode: (Object.keys(craftSerie?.mode || {}) || []).find(
+            (key) => craftSerie?.mode[key] === id
+        ),
+    }
+
+    return craftObj
 }
 
 export const paddingZeros = (str: string | number, padCount: number) => {

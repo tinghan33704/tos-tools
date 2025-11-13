@@ -31,7 +31,10 @@ const Image: React.FC<IImageProps> = (props) => {
             title = `No.${monsterId} ${monsterName}`
         } else if (path.startsWith("craft")) {
             const craftId = parseInt(path.split("/")[1])
-            const craftName = getCraftById(craftId)?.name || ""
+            const craft = getCraftById(craftId)
+            const craftName = craft?.nameFormat
+                ? craft?.nameFormat.replace("{mode}", craft?.mode)
+                : `${craft?.name}${craft?.mode}`
             title = `No.${craftId} ${craftName}`
         }
 
@@ -40,20 +43,31 @@ const Image: React.FC<IImageProps> = (props) => {
     }, [path])
 
     const handleImageError = useCallback(() => {
-        let srcPath = ""
+        let errSrcPath = ""
         if (path.startsWith("monster")) {
             const monsterId = parseInt(path.split("/")[1])
             const monsterAttr = getMonsterById(monsterId)?.attribute
             const attrSuffix = monsterAttr ? `_${attrZhToEn[monsterAttr]}` : ""
 
-            // srcPath = require(`src/img/monster/noname${attrSuffix}.png`)
-            srcPath = `./src/img/monster/noname${attrSuffix}.png`
+            errSrcPath = `./src/img/monster/noname${attrSuffix}.png`
         } else if (path.startsWith("craft")) {
-            // srcPath = require(`src/img/craft/noname.png`)
-            srcPath = `./src/img/craft/noname.png`
+            const craftId = parseInt(path.split("/")[1])
+            const craftName = getCraftById(craftId)?.name
+
+            const imageName = srcPath
+                ?.split("/")
+                .slice(-1)?.[0]
+                ?.replace(".png", "")
+
+            if (!isNaN(Number(imageName))) {
+                // if there's no image name with craft id, check if there's image name with craft name
+                errSrcPath = `./src/img/craft/${craftName}.png`
+            } else {
+                errSrcPath = `./src/img/craft/noname.png`
+            }
         }
-        setSrcPath(srcPath)
-    }, [path])
+        setSrcPath(errSrcPath)
+    }, [path, srcPath])
 
     return (
         <img
@@ -61,19 +75,14 @@ const Image: React.FC<IImageProps> = (props) => {
                 isLoaded
                     ? srcPath
                     : path.startsWith("monster")
-                    ? // ? require(`src/img/monster/noname.png`)
-                      `./src/img/monster/noname.png`
+                    ? `./src/img/monster/noname.png`
                     : path.startsWith("craft")
-                    ? // ? require(`src/img/craft/noname.png`)
-                      `./src/img/craft/noname.png`
+                    ? `./src/img/craft/noname.png`
                     : path.startsWith("rune")
-                    ? // ? require(`src/img/rune/rune_none.png`)
-                      `./src/img/rune/rune_none.png`
+                    ? `./src/img/rune/rune_none.png`
                     : path.startsWith("icon")
-                    ? // ? require(`src/img/icon/icon_undefined.png`)
-                      `./src/img/icon/icon_undefined.png`
-                    : // : require(`src/img/other/loading.png`)
-                      `./src/img/other/loading.png`
+                    ? `./src/img/icon/icon_undefined.png`
+                    : `./src/img/other/loading.png`
             }
             alt={alt}
             tabIndex={0}

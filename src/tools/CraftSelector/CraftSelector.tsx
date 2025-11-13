@@ -12,12 +12,7 @@ import { armedCraftData } from "src/constant/armedCraftData"
 
 import { ContextProvider } from "src/utilities/Context/Context"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
-import {
-    errorAlert,
-    getCraftById,
-    getMonsterById,
-    paddingZeros,
-} from "src/utilities/utils"
+import { errorAlert, getCraftById, paddingZeros } from "src/utilities/utils"
 import Icon from "src/utilities/Icon"
 import Image from "src/utilities/Image"
 import Header from "src/shared/Header"
@@ -115,7 +110,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
         const craftPureName: Set<string> = new Set()
 
         armedCraftData.forEach((craft) => {
-            let pureName = getCraftPureName(craft.name)
+            const pureName = craft.name
 
             if (!craftDataByName?.[pureName]) {
                 craftDataByName[pureName] = { duplicateCount: 1 }
@@ -137,22 +132,20 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                 craftDataByName[pureName].series = craft.series
             }
 
-            if (!craftDataByName[pureName]?.nameTag) {
-                craftDataByName[pureName].nameTag = craft.nameTag
-            }
-
             craftPureName.add(pureName)
 
-            if (craftDataByName?.[pureName]?.[craft.mode]) {
-                craftDataByName[pureName][craft.mode].push(craft.id)
-            } else {
-                craftDataByName[pureName][craft.mode] = [craft.id]
-            }
+            Object.keys(craft?.mode).forEach((mode) => {
+                if (craftDataByName?.[pureName]?.[mode]) {
+                    craftDataByName[pureName][mode].push(craft?.mode?.[mode])
+                } else {
+                    craftDataByName[pureName][mode] = [craft?.mode?.[mode]]
+                }
 
-            craftDataByName[pureName].duplicateCount = Math.max(
-                craftDataByName[pureName].duplicateCount,
-                craftDataByName[pureName][craft.mode].length
-            )
+                craftDataByName[pureName].duplicateCount = Math.max(
+                    craftDataByName[pureName].duplicateCount,
+                    craftDataByName[pureName][mode].length
+                )
+            })
         })
 
         setCraftDataByName(craftDataByName)
@@ -256,7 +249,11 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                         {displayedData.map((name: string) => {
                             const allCrafts = craftModeTypeString
                                 .map((mode) => {
-                                    return craftDataByName[name]?.[mode] || []
+                                    return (
+                                        craftDataByName[name]?.[
+                                            mode.slice(-2)
+                                        ] || []
+                                    )
                                 })
                                 .flat()
                             return (
@@ -385,7 +382,9 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                         const id =
                                                             craftDataByName?.[
                                                                 name
-                                                            ]?.[mode]?.[index]
+                                                            ]?.[
+                                                                mode.slice(-2)
+                                                            ]?.[index]
 
                                                         return id ? (
                                                             <td

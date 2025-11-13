@@ -27,6 +27,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
     const craftInfo: IObject = getCraftById(id)
     const {
         name = "",
+        mode = "",
         attribute = "",
         race = "",
         charge = 0,
@@ -38,6 +39,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
         description,
         skill_description,
         armed_description,
+        nameFormat,
     } = craftInfo
 
     const renderCraftInfo = useCallback(() => {
@@ -58,7 +60,11 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                         attrZhToEn?.[attribute] || "o"
                     }`}
                 >
-                    {name}
+                    {`【${paddingZeros(id, 3)}】${
+                        nameFormat
+                            ? nameFormat.replace("{mode}", mode)
+                            : `${name}${mode}`
+                    }`}
                 </Col>
                 <Row className={"craft-objective-row"}>
                     <Col xs={12} sm={4} className={`craft-section-title`}>

@@ -184,6 +184,8 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
         const isChargeSelected = !!selectedCharges.length
         const isGenreSelected = !!selectedGenres.length
 
+        const _selectedModes = selectedModes?.map((mode) => mode.slice(-2)) // get mode abbreviation
+
         let result: IObject[] = []
 
         // Normal craft
@@ -191,7 +193,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
         if (!isGenreSelected || selectedGenres.includes("一般龍刻")) {
             for (const craft of craftData) {
                 if (
-                    (isModeSelected && !selectedModes.includes(craft.mode)) ||
+                    (isModeSelected &&
+                        !_selectedModes.some((mode) =>
+                            Object.keys(craft.mode)?.includes(mode)
+                        )) ||
                     (isAttrSelected &&
                         !selectedAttributes.includes(craft.attribute)) ||
                     (isRaceSelected && !selectedRaces.includes(craft.race)) ||
@@ -273,7 +278,16 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         if (!isAllKeywordChecked) continue
                     }
                 }
-                if (craft?.tag?.length) result.push(craft.id)
+                if (craft?.tag?.length)
+                    result = result.concat(
+                        isModeSelected
+                            ? Object.keys(craft?.mode)
+                                  ?.filter((mode) =>
+                                      _selectedModes.includes(mode)
+                                  )
+                                  ?.map((mode) => craft?.mode?.[mode])
+                            : Object.values(craft?.mode)
+                    )
             }
         }
 
@@ -287,7 +301,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
         ) {
             for (const craft of armedCraftData) {
                 if (
-                    (isModeSelected && !selectedModes.includes(craft.mode)) ||
+                    (isModeSelected &&
+                        !_selectedModes.some((mode) =>
+                            Object.keys(craft.mode)?.includes(mode)
+                        )) ||
                     (isAttrSelected &&
                         !(
                             selectedAttributes.includes(craft.attribute) ||
@@ -422,7 +439,15 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                     craft?.skill_tag?.length ||
                     craft?.armed_tag?.length
                 )
-                    result.push(craft.id)
+                    result = result.concat(
+                        isModeSelected
+                            ? Object.keys(craft?.mode)
+                                  ?.filter((mode) =>
+                                      _selectedModes.includes(mode)
+                                  )
+                                  ?.map((mode) => craft?.mode?.[mode])
+                            : Object.values(craft?.mode)
+                    )
             }
         }
 
