@@ -1,12 +1,20 @@
-import React, { useEffect, useRef, useState, useCallback } from "react"
-import { Table } from "react-bootstrap"
-import _, { throttle } from "lodash"
-import { faCheck, faLightbulb } from "@fortawesome/free-solid-svg-icons"
+import React, { useEffect, useRef, useState, useCallback, useMemo } from "react"
+import { Col, Form, Row, Table } from "react-bootstrap"
+import _ from "lodash"
+import {
+    faBackward,
+    faCaretLeft,
+    faCaretRight,
+    faCheck,
+    faForward,
+    faLightbulb,
+} from "@fortawesome/free-solid-svg-icons"
 
 import {
     craftModeTypeString,
     raceZhToEn,
     attrZhToEn,
+    inputMaxLength,
 } from "src/constant/filterConstants"
 import { armedCraftData } from "src/constant/armedCraftData"
 
@@ -15,6 +23,7 @@ import { setFavIconAndTitle } from "src/utilities/toolSetting"
 import { errorAlert, getCraftById, paddingZeros } from "src/utilities/utils"
 import Icon from "src/utilities/Icon"
 import Image from "src/utilities/Image"
+import Button from "src/utilities/Button"
 import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import ResultRow from "src/shared/ResultRow"
@@ -25,6 +34,8 @@ import "./style.scss"
 
 interface ICraftSelectorProps {}
 
+const PAGE_SIZE = 10
+
 const CraftSelector: React.FC<ICraftSelectorProps> = () => {
     const [selectedCrafts, setSelectedCrafts] = useState<number[]>([])
     const [resultData, setResultData] = useState<number[]>([])
@@ -34,62 +45,31 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
 
     const [craftDataByName, setCraftDataByName] = useState<IObject>({})
     const [craftPureName, setCraftPureName] = useState<Set<string>>(new Set())
-    const [headerHeight, setHeaderHeight] = useState<number>(0)
-    const [displayEnd, setDisplayEnd] = React.useState(0)
-    const [scrollPosition, setScrollPosition] = React.useState(0)
-    const [displayedData, setDisplayedData] = useState<string[]>([])
+    const [currentPage, setCurrentPage] = useState(0)
+    const [keyword, setKeyword] = useState<string>("")
+    const [keywordArr, setKeywordArr] = useState<string[]>([])
 
-    const itemRowHeight = 175
-    const screenHeight = Math.max(
-        document.documentElement.clientHeight,
-        window.innerHeight || 0
+    const filteredCraftPureName = useMemo(() => {
+        return [...craftPureName].filter(
+            (name) =>
+                !keywordArr.length ||
+                keywordArr.some((keyword) =>
+                    name.replace(" ", "").includes(keyword)
+                )
+        )
+    }, [craftPureName, keywordArr])
+
+    const totalPage = useMemo(
+        () => Math.ceil(filteredCraftPureName.length / PAGE_SIZE),
+        [filteredCraftPureName]
     )
-    const offset = screenHeight * 5
 
     const resultRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         setFavIconAndTitle("craft-selector")
         initCraftData()
-
-        const headerElement =
-            document.getElementsByClassName("tool-header")?.[0]
-        setHeaderHeight(headerElement?.clientHeight)
-        setDisplayEnd(Math.round((scrollPosition + offset) / itemRowHeight))
     }, [])
-
-    useEffect(() => {
-        window.addEventListener("resize", onResize)
-        window.addEventListener("scroll", onScroll)
-        return () => {
-            window.removeEventListener("resize", onResize)
-            window.removeEventListener("scroll", onScroll)
-        }
-    }, [])
-
-    const onResize = useCallback(() => {
-        const headerElement =
-            document.getElementsByClassName("tool-header")?.[0]
-        setHeaderHeight(headerElement?.clientHeight)
-    }, [])
-
-    const onScroll = throttle(() => {
-        const scrollTop = window.scrollY
-        setScrollPosition(scrollTop)
-    }, 100)
-
-    useEffect(() => {
-        setDisplayEnd(
-            Math.max(
-                displayEnd,
-                Math.round((scrollPosition + offset) / itemRowHeight)
-            )
-        )
-    }, [displayEnd, offset, scrollPosition])
-
-    useEffect(() => {
-        setDisplayedData([...craftPureName].slice(0, displayEnd))
-    }, [displayEnd, craftPureName])
 
     const getCraftPureName = (name: string) => {
         return name
@@ -223,213 +203,414 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
         [selectedCrafts]
     )
 
+    const movePage = useCallback(
+        (offset: number) => {
+            const newPage = currentPage + offset
+            setCurrentPage(
+                newPage >= totalPage - 1
+                    ? totalPage - 1
+                    : newPage < 0
+                    ? 0
+                    : newPage
+            )
+        },
+        [currentPage, totalPage]
+    )
+
+    const renderHeader = useCallback(() => {
+        return (
+            <div className='inventory-header craft-selector-header'>
+                <Row className='pagination'>
+                    <Col xs={2} sm={2} md={1} className='page-btn'>
+                        {currentPage > 0 && (
+                            <div
+                                className='inventory-pagination left'
+                                onClick={() => movePage(-10)}
+                            >
+                                <Icon icon={faBackward} />
+                            </div>
+                        )}
+                    </Col>
+                    <Col xs={2} sm={2} md={2} className='page-btn'>
+                        {currentPage > 0 && (
+                            <div
+                                className='inventory-pagination middle'
+                                onClick={() => movePage(-1)}
+                            >
+                                <Icon
+                                    icon={faCaretLeft}
+                                    style={{ fontSize: "1.2em" }}
+                                />
+                            </div>
+                        )}
+                    </Col>
+                    <Col xs={4} sm={4} md={6} className='page-count'>
+                        <div>
+                            <span className='current-page'>
+                                {currentPage + 1}
+                            </span>{" "}
+                            / {totalPage}
+                        </div>
+                    </Col>
+                    <Col xs={2} sm={2} md={2} className='page-btn'>
+                        {currentPage < totalPage - 1 && (
+                            <div
+                                className='inventory-pagination middle'
+                                onClick={() => movePage(1)}
+                            >
+                                <Icon
+                                    icon={faCaretRight}
+                                    style={{ fontSize: "1.2em" }}
+                                />
+                            </div>
+                        )}
+                    </Col>
+                    <Col xs={2} sm={2} md={1} className='page-btn'>
+                        {currentPage < totalPage - 1 && (
+                            <div
+                                className='inventory-pagination right'
+                                onClick={() => movePage(10)}
+                            >
+                                <Icon icon={faForward} />
+                            </div>
+                        )}
+                    </Col>
+                </Row>
+            </div>
+        )
+    }, [currentPage, movePage, totalPage])
+
+    const onFilterKeyword = useCallback(() => {
+        setKeywordArr(keyword.trim().replace(" ", "").split(","))
+        setCurrentPage(0)
+    }, [keyword])
+
+    const onInputKeyPress = useCallback((event: any) => {
+        if (event?.key === "Enter") {
+            // prevent pressing enter cause reload of page
+            event.preventDefault()
+        }
+    }, [])
+
+    const changeKeyword = useCallback((value: string) => {
+        setKeyword(value)
+    }, [])
+
+    const renderKeyword = useCallback(() => {
+        return (
+            <Row className='keyword-input-row'>
+                <Col xs={9} md={10} className='keyword-input-col'>
+                    <Form>
+                        <Form.Group>
+                            <Form.Control
+                                type='input'
+                                className='keyword-input'
+                                placeholder='輸入龍刻名稱'
+                                value={keyword}
+                                maxLength={inputMaxLength}
+                                onChange={(e) => changeKeyword(e.target.value)}
+                                onKeyDown={onInputKeyPress}
+                            />
+                        </Form.Group>
+                    </Form>
+                </Col>
+                <Col xs={3} md={2}>
+                    <Button
+                        className='top-btn start-btn'
+                        text={"搜尋"}
+                        onClick={onFilterKeyword}
+                    />
+                </Col>
+            </Row>
+        )
+    }, [changeKeyword, keyword, onFilterKeyword, onInputKeyPress])
+
     const renderTable = useCallback(() => {
         return (
             <>
-                <Table bordered className='craft-select-table'>
-                    <thead style={{ top: `${headerHeight - 1}px` }}>
-                        <tr>
-                            {craftModeTypeString.map((type, index) => {
-                                return (
-                                    <td className='craft-header-type'>
-                                        <Image
-                                            width={50}
-                                            path={`craft/${type}`}
-                                            noTitle
-                                        />
-                                        <div className='craft-header-type-text'>
-                                            {type.slice(-2)}
+                {renderKeyword()}
+                <div className='craft-select-table-wrapper'>
+                    <Table bordered className='craft-select-table'>
+                        <thead>
+                            <tr>
+                                {craftModeTypeString.map((type) => {
+                                    return (
+                                        <td className='craft-header-type'>
+                                            <Image
+                                                width={50}
+                                                path={`craft/${type}`}
+                                                noTitle
+                                            />
+                                            <div className='craft-header-type-text'>
+                                                {type.slice(-2)}
+                                            </div>
+                                        </td>
+                                    )
+                                })}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {!filteredCraftPureName.length ? (
+                                <tr className='craft-info-tr no-result-tr'>
+                                    <td colSpan={craftModeTypeString.length}>
+                                        <div className='no-result'>
+                                            <h1>查無結果</h1>
                                         </div>
                                     </td>
-                                )
-                            })}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {displayedData.map((name: string) => {
-                            const allCrafts = craftModeTypeString
-                                .map((mode) => {
-                                    return (
-                                        craftDataByName[name]?.[
-                                            mode.slice(-2)
-                                        ] || []
+                                </tr>
+                            ) : (
+                                filteredCraftPureName
+                                    .slice(
+                                        currentPage * 10,
+                                        (currentPage + 1) * 10
                                     )
-                                })
-                                .flat()
-                            return (
-                                <>
-                                    <tr
-                                        className='craft-info-tr'
-                                        onClick={() =>
-                                            onSelectCrafts(allCrafts)
-                                        }
-                                    >
-                                        <td className='craft-name' colSpan={4}>
-                                            {name}
-                                        </td>
-                                        <td
-                                            className='craft-objective'
-                                            colSpan={
-                                                craftModeTypeString.length - 4
-                                            }
-                                        >
-                                            {craftDataByName[name]?.series ? (
-                                                <>
-                                                    {craftDataByName[
-                                                        name
-                                                    ]?.series.map(
-                                                        (serie: string) => (
-                                                            <Image
-                                                                width={30}
-                                                                path={`series/${serie}`}
-                                                            />
-                                                        )
-                                                    )}{" "}
-                                                    {craftDataByName[
-                                                        name
-                                                    ]?.series
-                                                        .map(
-                                                            (serie: string) =>
-                                                                `【${serie}】`
-                                                        )
-                                                        .join("、")}
-                                                    特性
-                                                </>
-                                            ) : craftDataByName[name]
-                                                  ?.monster ? (
-                                                craftDataByName[
-                                                    name
-                                                ]?.monster?.map(
-                                                    (monster: number) => {
-                                                        return (
-                                                            <Image
-                                                                width={50}
-                                                                path={`monster/${monster}`}
-                                                            />
+                                    .map((name: string) => {
+                                        const allCrafts = craftModeTypeString
+                                            .map((mode) => {
+                                                return (
+                                                    craftDataByName[name]?.[
+                                                        mode.slice(-2)
+                                                    ] || []
+                                                )
+                                            })
+                                            .flat()
+                                        return (
+                                            <>
+                                                <tr
+                                                    className='craft-info-tr'
+                                                    onClick={() =>
+                                                        onSelectCrafts(
+                                                            allCrafts
                                                         )
                                                     }
-                                                )
-                                            ) : craftDataByName[name]
-                                                  ?.attribute ||
-                                              craftDataByName[name]?.race ? (
-                                                <>
-                                                    {craftDataByName[name]
-                                                        ?.attribute &&
-                                                    craftDataByName[name]
-                                                        ?.attribute !==
-                                                        "沒有限制" ? (
-                                                        <Image
-                                                            width={30}
-                                                            path={`icon/icon_${
-                                                                attrZhToEn[
-                                                                    craftDataByName[
-                                                                        name
-                                                                    ]?.attribute
-                                                                ]
-                                                            }`}
-                                                        />
-                                                    ) : (
-                                                        <></>
-                                                    )}
-                                                    {craftDataByName[name]
-                                                        ?.race &&
-                                                    craftDataByName[name]
-                                                        ?.race !==
-                                                        "沒有限制" ? (
-                                                        <Image
-                                                            width={30}
-                                                            path={`icon/icon_${
-                                                                raceZhToEn[
-                                                                    craftDataByName[
-                                                                        name
-                                                                    ]?.race
-                                                                ]
-                                                            }`}
-                                                        />
-                                                    ) : (
-                                                        <></>
-                                                    )}{" "}
-                                                    {craftDataByName[name]
-                                                        ?.attribute &&
-                                                    craftDataByName[name]
-                                                        ?.attribute !==
-                                                        "沒有限制"
-                                                        ? `${craftDataByName[name]?.attribute}屬性`
-                                                        : ""}
-                                                    {craftDataByName[name]
-                                                        ?.race &&
-                                                    craftDataByName[name]
-                                                        ?.race !== "沒有限制"
-                                                        ? craftDataByName[name]
-                                                              ?.race
-                                                        : ""}
-                                                </>
-                                            ) : (
-                                                ``
-                                            )}
-                                        </td>
-                                    </tr>
-                                    {[
-                                        ...Array(
-                                            craftDataByName?.[name]
-                                                ?.duplicateCount
-                                        ),
-                                    ].map((item, index) => {
-                                        return (
-                                            <tr className='craft-image-tr'>
-                                                {craftModeTypeString.map(
-                                                    (mode) => {
-                                                        const id =
-                                                            craftDataByName?.[
-                                                                name
-                                                            ]?.[
-                                                                mode.slice(-2)
-                                                            ]?.[index]
-
-                                                        return id ? (
-                                                            <td
-                                                                className={`craft-image craft-have-mode${
-                                                                    selectedCrafts.includes(
-                                                                        id
+                                                >
+                                                    <td
+                                                        className='craft-name'
+                                                        colSpan={4}
+                                                    >
+                                                        {name}
+                                                    </td>
+                                                    <td
+                                                        className='craft-objective'
+                                                        colSpan={
+                                                            craftModeTypeString.length -
+                                                            4
+                                                        }
+                                                    >
+                                                        {craftDataByName[name]
+                                                            ?.series ? (
+                                                            <>
+                                                                {craftDataByName[
+                                                                    name
+                                                                ]?.series.map(
+                                                                    (
+                                                                        serie: string
+                                                                    ) => (
+                                                                        <Image
+                                                                            width={
+                                                                                30
+                                                                            }
+                                                                            path={`series/${serie}`}
+                                                                        />
                                                                     )
-                                                                        ? " craft-image-selected"
-                                                                        : ""
-                                                                }`}
-                                                                onClick={() =>
-                                                                    onSelectCrafts(
-                                                                        [id]
+                                                                )}{" "}
+                                                                {craftDataByName[
+                                                                    name
+                                                                ]?.series
+                                                                    .map(
+                                                                        (
+                                                                            serie: string
+                                                                        ) =>
+                                                                            `【${serie}】`
+                                                                    )
+                                                                    .join("、")}
+                                                                特性
+                                                            </>
+                                                        ) : craftDataByName[
+                                                              name
+                                                          ]?.monster ? (
+                                                            craftDataByName[
+                                                                name
+                                                            ]?.monster?.map(
+                                                                (
+                                                                    monster: number
+                                                                ) => {
+                                                                    return (
+                                                                        <Image
+                                                                            width={
+                                                                                50
+                                                                            }
+                                                                            path={`monster/${monster}`}
+                                                                        />
                                                                     )
                                                                 }
-                                                            >
-                                                                <ResultCraftImage
-                                                                    data={{
-                                                                        id,
-                                                                    }}
-                                                                    noImagePopover={
-                                                                        true
-                                                                    }
-                                                                />
-                                                            </td>
+                                                            )
+                                                        ) : craftDataByName[
+                                                              name
+                                                          ]?.attribute ||
+                                                          craftDataByName[name]
+                                                              ?.race ? (
+                                                            <>
+                                                                {craftDataByName[
+                                                                    name
+                                                                ]?.attribute &&
+                                                                craftDataByName[
+                                                                    name
+                                                                ]?.attribute !==
+                                                                    "沒有限制" ? (
+                                                                    <Image
+                                                                        width={
+                                                                            30
+                                                                        }
+                                                                        path={`icon/icon_${
+                                                                            attrZhToEn[
+                                                                                craftDataByName[
+                                                                                    name
+                                                                                ]
+                                                                                    ?.attribute
+                                                                            ]
+                                                                        }`}
+                                                                    />
+                                                                ) : (
+                                                                    <></>
+                                                                )}
+                                                                {craftDataByName[
+                                                                    name
+                                                                ]?.race &&
+                                                                craftDataByName[
+                                                                    name
+                                                                ]?.race !==
+                                                                    "沒有限制" ? (
+                                                                    <Image
+                                                                        width={
+                                                                            30
+                                                                        }
+                                                                        path={`icon/icon_${
+                                                                            raceZhToEn[
+                                                                                craftDataByName[
+                                                                                    name
+                                                                                ]
+                                                                                    ?.race
+                                                                            ]
+                                                                        }`}
+                                                                    />
+                                                                ) : (
+                                                                    <></>
+                                                                )}{" "}
+                                                                {craftDataByName[
+                                                                    name
+                                                                ]?.attribute &&
+                                                                craftDataByName[
+                                                                    name
+                                                                ]?.attribute !==
+                                                                    "沒有限制"
+                                                                    ? `${craftDataByName[name]?.attribute}屬性`
+                                                                    : ""}
+                                                                {craftDataByName[
+                                                                    name
+                                                                ]?.race &&
+                                                                craftDataByName[
+                                                                    name
+                                                                ]?.race !==
+                                                                    "沒有限制"
+                                                                    ? craftDataByName[
+                                                                          name
+                                                                      ]?.race
+                                                                    : ""}
+                                                            </>
                                                         ) : (
-                                                            <td className='craft-image'></td>
-                                                        )
-                                                    }
-                                                )}
-                                            </tr>
+                                                            ``
+                                                        )}
+                                                    </td>
+                                                </tr>
+                                                {[
+                                                    ...Array(
+                                                        craftDataByName?.[name]
+                                                            ?.duplicateCount
+                                                    ),
+                                                ].map((item, index) => {
+                                                    return (
+                                                        <tr className='craft-image-tr'>
+                                                            {craftModeTypeString.map(
+                                                                (mode) => {
+                                                                    const id =
+                                                                        craftDataByName?.[
+                                                                            name
+                                                                        ]?.[
+                                                                            mode.slice(
+                                                                                -2
+                                                                            )
+                                                                        ]?.[
+                                                                            index
+                                                                        ]
+
+                                                                    return id ? (
+                                                                        <td
+                                                                            className={`craft-image craft-have-mode${
+                                                                                selectedCrafts.includes(
+                                                                                    id
+                                                                                )
+                                                                                    ? " craft-image-selected"
+                                                                                    : ""
+                                                                            }`}
+                                                                            onClick={() =>
+                                                                                onSelectCrafts(
+                                                                                    [
+                                                                                        id,
+                                                                                    ]
+                                                                                )
+                                                                            }
+                                                                        >
+                                                                            <ResultCraftImage
+                                                                                data={{
+                                                                                    id,
+                                                                                }}
+                                                                                noImagePopover={
+                                                                                    true
+                                                                                }
+                                                                            />
+                                                                        </td>
+                                                                    ) : (
+                                                                        <td className='craft-image'></td>
+                                                                    )
+                                                                }
+                                                            )}
+                                                        </tr>
+                                                    )
+                                                })}
+                                            </>
                                         )
-                                    })}
-                                </>
-                            )
-                        })}
-                    </tbody>
-                </Table>
+                                    })
+                            )}
+                        </tbody>
+                        <thead>
+                            <tr>
+                                {craftModeTypeString.map((type) => {
+                                    return (
+                                        <td className='craft-header-type'>
+                                            <div className='craft-header-type-text'>
+                                                {type.slice(-2)}
+                                            </div>
+                                            <Image
+                                                width={50}
+                                                path={`craft/${type}`}
+                                                noTitle
+                                            />
+                                        </td>
+                                    )
+                                })}
+                            </tr>
+                        </thead>
+                    </Table>
+                </div>
             </>
         )
     }, [
         craftDataByName,
-        displayedData,
-        headerHeight,
+        currentPage,
+        filteredCraftPureName,
         onSelectCrafts,
+        renderKeyword,
         selectedCrafts,
     ])
 
@@ -447,7 +628,9 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
         >
             <Header />
             <PageContainer openInputModal={openInputModal}>
-                <>
+                <div className='craft-selector'>
+                    {renderHeader()}
+                    {renderTable()}
                     <div ref={resultRef}>
                         {isAfterFilter ? (
                             <>
@@ -459,8 +642,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                             <></>
                         )}
                     </div>
-                    {renderTable()}
-                </>
+                </div>
             </PageContainer>
             <InputModal
                 open={inputModalOpen}
