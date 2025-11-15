@@ -102,7 +102,7 @@ export const usePopover = () => {
             const overlayBottom = overlayPos?.bottom || 0
             const overlayLeft = overlayPos?.left || 0
             const overlayRight = overlayPos?.right || 0
-            const overlayHeight = overlayPos?.height || 0
+            // const overlayHeight = overlayPos?.height || 0
             const overlayWidth = overlayPos?.width || 0
             const offset = 5
 
@@ -175,24 +175,21 @@ export const usePopover = () => {
         )
     }, [content, dynamicPos, isVisible])
 
-    const Popover = useCallback(
-        ({ children }: any) => {
-            // wait until DOM loaded then render portal
-            return (
-                <>
-                    {isDomReady ? (
-                        createPortal(
-                            renderPopoverContent(),
-                            document.getElementsByClassName("App")?.[0]
-                        )
-                    ) : (
-                        <></>
-                    )}
-                </>
-            )
-        },
-        [isDomReady, renderPopoverContent]
-    )
+    const Popover = useCallback(() => {
+        // wait until DOM loaded then render portal
+        return (
+            <>
+                {isDomReady ? (
+                    createPortal(
+                        renderPopoverContent(),
+                        document.getElementsByClassName("App")?.[0]
+                    )
+                ) : (
+                    <></>
+                )}
+            </>
+        )
+    }, [isDomReady, renderPopoverContent])
 
     return { Popover, togglePopover, setPopoverContent }
 }

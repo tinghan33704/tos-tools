@@ -16,7 +16,7 @@ import "./style.scss"
 export interface IFilterRowProps {
     title: string
     type: string
-    data: any
+    data: (string | string[])[]
     btnSuffix?: string
     collapsible?: boolean
     defaultOpen?: boolean

@@ -4,9 +4,7 @@ import { useMouseMove } from "src/hook/useMouse"
 
 import "./style.scss"
 
-export interface IDescriptionNoteProps {}
-
-const DescriptionNote: React.FC<IDescriptionNoteProps> = (props) => {
+const DescriptionNote: React.FC = () => {
     const [note, setNote] = useState<number>(0)
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { mouseX, mouseY, mouseTargetClassName, onMouseMove } = useMouseMove()

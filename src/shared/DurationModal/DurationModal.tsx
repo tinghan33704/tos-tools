@@ -41,7 +41,7 @@ const DurationModal: React.FC<IDurationModalProps> = (props) => {
                         index={func_index * optionText.length + option_index}
                         text={option}
                         checked={!!durationObj?.[func]?.includes(option)}
-                        callback={(e) => toggleDuration(func, option)}
+                        callback={() => toggleDuration(func, option)}
                         key={`option-${
                             func_index * optionText.length + option_index
                         }`}

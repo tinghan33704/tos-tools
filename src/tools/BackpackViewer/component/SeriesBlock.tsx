@@ -151,7 +151,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                     let notInInventory = true
                     if (_.isArray(id)) {
                         const revIdArr = [...id].reverse()
-                        for (let i in revIdArr) {
+                        for (const i in revIdArr) {
                             _id = revIdArr[i]
                             if (
                                 playerData?.card?.includes(_id) &&

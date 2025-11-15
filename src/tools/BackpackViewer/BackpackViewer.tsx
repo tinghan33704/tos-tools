@@ -37,7 +37,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     const dataContext = useContext(DataContext)
     const { playerData, setPlayerData } = dataContext
 
-    const [currentTab, setCurrentTab] = useState<any>("")
+    const [currentTab, setCurrentTab] = useState<string>("")
     const [currentCardCategory, setCurrentCardCategory] =
         useState<string>("all")
     const [currentSort, setCurrentSort] = useState<string>("default")
@@ -46,7 +46,7 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [isAfterInitLoad, setIsAfterInitLoad] = useState(false)
 
-    const [urlQuery, setUrlQuery] = useSearchParams()
+    const [urlQuery] = useSearchParams()
 
     const { Popover, togglePopover, setPopoverContent } = usePopover()
 

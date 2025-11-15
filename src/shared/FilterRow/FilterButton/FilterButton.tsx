@@ -27,7 +27,7 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
     const buttonChecked =
         checked !== undefined
             ? checked
-            : (context as any)?.[group]?.includes(text)
+            : (context as IObject)?.[group]?.includes(text)
 
     const buttonIcon =
         group === "attribute" ? (

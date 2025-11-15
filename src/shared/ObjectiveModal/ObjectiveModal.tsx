@@ -112,7 +112,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                             <Col
                                                                 className='objective-text'
                                                                 xs={2}
-                                                                onClick={(e) =>
+                                                                onClick={() =>
                                                                     attr !== " "
                                                                         ? toggleObjective(
                                                                               func,
@@ -134,7 +134,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                             <Col
                                                                 className='objective-text'
                                                                 xs={2}
-                                                                onClick={(e) =>
+                                                                onClick={() =>
                                                                     toggleObjective(
                                                                         func,
                                                                         "",
@@ -165,7 +165,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                             index={
                                                                                 index
                                                                             }
-                                                                            text={`　`}
+                                                                            text={`\u3000`}
                                                                             checked={
                                                                                 !!objectiveObj?.[
                                                                                     func
@@ -173,9 +173,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                                     `${attr}${race}`
                                                                                 )
                                                                             }
-                                                                            callback={(
-                                                                                e
-                                                                            ) =>
+                                                                            callback={() =>
                                                                                 toggleObjective(
                                                                                     func,
                                                                                     attr,
@@ -222,7 +220,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                         index={
                                                                             index
                                                                         }
-                                                                        text={`　`}
+                                                                        text={`\u3000`}
                                                                         checked={
                                                                             !!objectiveObj?.[
                                                                                 func
@@ -230,9 +228,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                                 `${object}`
                                                                             )
                                                                         }
-                                                                        callback={(
-                                                                            e
-                                                                        ) =>
+                                                                        callback={() =>
                                                                             toggleObjective(
                                                                                 func,
                                                                                 object,
@@ -291,7 +287,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                     option
                                                                 )
                                                             }
-                                                            callback={(e) =>
+                                                            callback={() =>
                                                                 toggleActivate(
                                                                     func,
                                                                     option

@@ -73,7 +73,7 @@ const Inventory: React.FC<IInventoryProps> = ({
                 (a: IObject, b: IObject) => b?.acquiredAt - a?.acquiredAt
             ) || []
         )
-    }, [])
+    }, [playerData])
 
     useEffect(() => {
         if (currentPage >= totalPage) setCurrentPage(totalPage - 1)
@@ -111,7 +111,8 @@ const Inventory: React.FC<IInventoryProps> = ({
             )
 
         const { sortBy, orderBy } = filters
-        const defaultSort = (a: any, b: any) => a.id - b.id
+        const defaultSort = (a: IObject, b: IObject) => a.id - b.id
+
         setFilteredCards(
             _cards.sort((a: IObject, b: IObject) => {
                 const monsterA = getMonsterById(a?.id)
@@ -293,17 +294,21 @@ const Inventory: React.FC<IInventoryProps> = ({
     )
 
     const renderFilter = useCallback(() => {
+        const isFiltered = ["attribute", "race", "star", "keyword"].some(
+            (key) => key in filters && filters[key].length
+        )
+
         return (
             <div className='filter-row'>
                 <div
-                    className='filter-btn'
+                    className={`filter-btn${isFiltered ? " filtered" : ""}`}
                     onClick={() => setIsFilterModalOpen(true)}
                 >
                     <Icon icon={faFilter} />
                 </div>
                 <div className='filter-icons'>
                     {"attribute" in filters &&
-                        [...filters?.attribute]
+                        [...filters.attribute]
                             .sort((a: string, b: string) => {
                                 const arr = Object.keys(attrZhToEn)
                                 return arr.indexOf(a) - arr.indexOf(b)
@@ -312,7 +317,7 @@ const Inventory: React.FC<IInventoryProps> = ({
                                 <Image path={`icon/icon_${attrZhToEn[attr]}`} />
                             ))}
                     {"race" in filters &&
-                        [...filters?.race]
+                        [...filters.race]
                             .sort((a: string, b: string) => {
                                 const arr = Object.keys(raceZhToEn)
                                 return arr.indexOf(a) - arr.indexOf(b)
@@ -321,7 +326,7 @@ const Inventory: React.FC<IInventoryProps> = ({
                                 <Image path={`icon/icon_${raceZhToEn[race]}`} />
                             ))}
                     {"star" in filters &&
-                        filters?.star
+                        filters.star
                             .sort((a: number, b: number) => a - b)
                             .map((star: number) => (
                                 <Image path={`icon/icon_${star}`} />

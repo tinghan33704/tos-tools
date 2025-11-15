@@ -13,11 +13,9 @@ import { toolConfig } from "src/constant/toolConfig"
 
 import "./style.scss"
 
-export interface IHeaderProps {}
-
 const NA = "---"
 
-const Header: React.FC<IHeaderProps> = (props) => {
+const Header: React.FC = () => {
     const dataContext = useContext(DataContext)
     const { playerData } = dataContext
 
@@ -104,14 +102,14 @@ const Header: React.FC<IHeaderProps> = (props) => {
                             </Col>
                         </Row>
                     </Col>
-                    {"topBtn" in toolConfig?.[toolId] ? (
+                    {"topBtn" in (toolConfig?.[toolId] || {}) ? (
                         <Col xs={12} lg={7} className='tool-top-button'>
                             {renderTopButtons()}
                         </Col>
                     ) : (
                         <></>
                     )}
-                    {"topInfo" in toolConfig?.[toolId] ? (
+                    {"topInfo" in (toolConfig?.[toolId] || {}) ? (
                         <Col xs={12} lg={7} className='tool-top-info'>
                             {renderTopInfo()}
                         </Col>

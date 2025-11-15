@@ -7,7 +7,7 @@ import "./style.scss"
 
 export interface IFilterButtonGroupProps {
     type: string
-    groupData: any
+    groupData: (string | string[])[]
     btnSuffix?: string
     useLazyLoad?: boolean
     isCollapseOpen?: boolean
@@ -30,7 +30,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
     return (
         <Row className='filter-button-group'>
             <Row>
-                {groupData.map((group: any, index: number) => {
+                {groupData.map((group: string | string[], index: number) => {
                     return Array.isArray(group) ? (
                         useLazyLoad ? (
                             <LazyLoad
@@ -52,7 +52,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                 }
                             >
                                 <Row className='gx-0 group-row'>
-                                    {group.map((data: any) => {
+                                    {group.map((data: string) => {
                                         return (
                                             <FilterButton
                                                 group={type}
@@ -68,7 +68,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                             </LazyLoad>
                         ) : (
                             <Row className='gx-0 group-row'>
-                                {group.map((data: any) => {
+                                {group.map((data: string) => {
                                     return (
                                         <FilterButton
                                             group={type}

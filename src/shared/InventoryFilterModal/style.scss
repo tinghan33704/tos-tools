@@ -8,6 +8,7 @@
     background-color: var(--background-color);
 
     .title {
+        display: inline !important;
         text-align: center;
     }
 
@@ -23,6 +24,14 @@
         .field {
             text-align: center;
             margin-bottom: 10px;
+
+            &.button-field {
+                text-align: unset;
+
+                img {
+                    width: 15%;
+                }
+            }
         }
     }
 
@@ -63,10 +72,9 @@
 
     .reset-filters {
         cursor: pointer;
-        color: var(--text-black);
 
-        svg {
-            margin-right: 5px;
+        .btn {
+            width: 100px !important;
         }
     }
 

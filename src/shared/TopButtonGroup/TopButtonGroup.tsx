@@ -8,7 +8,7 @@ import Button from "src/utilities/Button"
 import "./style.scss"
 
 export interface ITopButtonGroupProps {
-    buttonData: any
+    buttonData: string[]
 }
 
 const TopButtonGroup: React.FC<ITopButtonGroupProps> = (props) => {
@@ -51,7 +51,7 @@ const TopButtonGroup: React.FC<ITopButtonGroupProps> = (props) => {
 
     return (
         <Row className='top-button-group'>
-            {buttonData.map((type: Object) => {
+            {buttonData.map((type: string) => {
                 return (
                     <Col xs={6} sm={3} className='top-btn-shell'>
                         {type === "reset-all" ? (

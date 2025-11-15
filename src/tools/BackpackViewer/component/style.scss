@@ -291,7 +291,8 @@
                 align-items: center;
 
                 .filter-btn {
-                    border: 2px #777777 solid;
+                    border: 1px #777777 solid;
+                    background-color: rgba(120, 120, 120, 0.3);
                     border-radius: 5px;
                     width: 36px;
                     height: 36px;
@@ -301,6 +302,11 @@
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+
+                    &.filtered {
+                        background-color: rgba(255, 255, 255, 0.8);
+                        filter: invert(1);
+                    }
                 }
 
                 .filter-icons {

@@ -7,7 +7,8 @@ import {
     Modal,
     Row,
 } from "react-bootstrap"
-import { faRotateLeft } from "@fortawesome/free-solid-svg-icons"
+import { AutoTextSize } from "auto-text-size"
+import { faUndo } from "@fortawesome/free-solid-svg-icons"
 
 import {
     attrZhToEn,
@@ -15,7 +16,7 @@ import {
     raceZhToEn,
 } from "src/constant/filterConstants"
 import Image from "src/utilities/Image"
-import Icon from "src/utilities/Icon"
+import Button from "src/utilities/Button"
 
 import "./style.scss"
 
@@ -91,9 +92,9 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
             <>
                 <Row>
                     <Col className='title' xs={12} sm={2}>
-                        屬性
+                        <AutoTextSize maxFontSizePx={16}>屬性</AutoTextSize>
                     </Col>
-                    <Col className='field' xs={12} sm={10}>
+                    <Col className='field button-field' xs={12} sm={10}>
                         {Object.keys(attrZhToEn).map((attr) => (
                             <Image
                                 path={`icon/icon_${attrZhToEn[attr]}`}
@@ -113,9 +114,9 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                 </Row>
                 <Row>
                     <Col className='title' xs={12} sm={2}>
-                        種族
+                        <AutoTextSize maxFontSizePx={16}>種族</AutoTextSize>
                     </Col>
-                    <Col className='field' xs={12} sm={10}>
+                    <Col className='field button-field' xs={12} sm={10}>
                         {Object.keys(raceZhToEn).map((race) => (
                             <Image
                                 path={`icon/icon_${raceZhToEn[race]}`}
@@ -133,9 +134,9 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                 </Row>
                 <Row>
                     <Col className='title' xs={12} sm={2}>
-                        稀有度
+                        <AutoTextSize maxFontSizePx={16}>稀有度</AutoTextSize>
                     </Col>
-                    <Col className='field' xs={12} sm={10}>
+                    <Col className='field button-field' xs={12} sm={10}>
                         {[...Array(8).keys()].map((star) => (
                             <Image
                                 path={`icon/icon_${star + 1}`}
@@ -153,7 +154,9 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                 </Row>
                 <Row>
                     <Col className='title' xs={12} sm={2}>
-                        名稱/標籤
+                        <AutoTextSize maxFontSizePx={16}>
+                            名稱/標籤
+                        </AutoTextSize>
                     </Col>
                     <Col className='field' xs={12} sm={10}>
                         <Form>
@@ -178,7 +181,7 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                 </Row>
                 <Row>
                     <Col className='title' xs={12} sm={2}>
-                        排序
+                        <AutoTextSize maxFontSizePx={16}>排序</AutoTextSize>
                     </Col>
                     <Col className='field' xs={6} sm={5}>
                         <DropdownButton
@@ -235,7 +238,7 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                 </Row>
             </>
         )
-    }, [filters, onChangeFilter])
+    }, [filters, onChangeFilter, onInputKeyPress])
 
     return (
         <div ref={ref}>
@@ -246,9 +249,13 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                 container={ref}
             >
                 <Modal.Header closeButton>
-                    <div className='reset-filters' onClick={resetFilter}>
-                        <Icon icon={faRotateLeft} />
-                        重置
+                    <div className='reset-filters'>
+                        <Button
+                            className='top-btn reset-btn'
+                            icon={faUndo}
+                            text={"重置"}
+                            onClick={resetFilter}
+                        />
                     </div>
                 </Modal.Header>
                 <Modal.Body>{renderPanel()}</Modal.Body>
