@@ -9,7 +9,7 @@ export interface IButtonProps {
     className?: string
     icon?: IconDefinition
     text?: string
-    style?: Object
+    style?: React.CSSProperties
     onClick?: MouseEventHandler<HTMLButtonElement>
     disabled?: boolean
 }

@@ -50,9 +50,9 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
     const resultRef = useRef<HTMLDivElement>(null)
 
-    const [urlQuery, setUrlQuery] = useSearchParams()
+    const [urlQuery] = useSearchParams()
 
-    const typeMap: Record<string, any[]> = useMemo(() => {
+    const typeMap: IObject = useMemo(() => {
         return {
             functions: [selectedFunctions, setSelectedFunctions],
             activate: [selectedActivate, setSelectedActivate],
@@ -157,7 +157,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
         const isStarSelected = !!selectedStars.length
         const isActivateSelected = !!selectedActivate.length
 
-        let result: IObject[] = []
+        const result: IObject[] = []
 
         for (const monster of monsterData) {
             if (

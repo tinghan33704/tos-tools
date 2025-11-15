@@ -201,7 +201,7 @@ export const fetchPlayerData = async (
                 token = response?.data?.token
             })
             .catch((error: IObject) => {
-                throw new Error("Failed to get token")
+                throw new Error(`Failed to get token: ${JSON.stringify(error)}`)
             })
 
         let inventoryData: any = null
@@ -213,7 +213,9 @@ export const fetchPlayerData = async (
                 inventoryData = response?.data
             })
             .catch((error: IObject) => {
-                throw new Error("Failed to get inventory data")
+                throw new Error(
+                    `Failed to get inventory data: ${JSON.stringify(error)}`
+                )
             })
 
         if (inventoryData) {
@@ -245,8 +247,8 @@ export const fetchPlayerData = async (
                 }
             })
 
-            const sortedCardArr: number[] = [...cardSet].sort(
-                (a: any, b: any) => a - b
+            const sortedCardArr: number[] = ([...cardSet] as number[]).sort(
+                (a: number, b: number) => a - b
             ) as number[]
             const lastUpdateTime: string =
                 inventoryData?.userData?.cardsUpdatedAt

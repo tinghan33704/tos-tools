@@ -107,7 +107,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
     }, [])
 
     const onInputKeyPress = useCallback(
-        (event: any) => {
+        (event: React.KeyboardEvent<HTMLInputElement>) => {
             if (event?.key === "Enter") {
                 // prevent pressing enter cause reload of page
                 event.preventDefault()

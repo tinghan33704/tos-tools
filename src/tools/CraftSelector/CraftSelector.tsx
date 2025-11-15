@@ -71,20 +71,6 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
         initCraftData()
     }, [])
 
-    const getCraftPureName = (name: string) => {
-        return name
-            .replace(/\s|‧/g, "")
-            .replace(/【(.*?)】/g, "")
-            .replace(
-                /龍紋|龍印|龍咒|龍符|龍玉|龍刃|龍璃|龍結|龍丸|龍弦|龍輝/g,
-                ""
-            )
-            .replace(
-                /連鎖|轉動|破碎|映照|疾速|裂空|落影|擴散|鏡像|節奏|援護/g,
-                ""
-            )
-    }
-
     const initCraftData = useCallback(() => {
         const craftDataByName: IObject = {}
         const craftPureName: Set<string> = new Set()
@@ -285,12 +271,15 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
         setCurrentPage(0)
     }, [keyword])
 
-    const onInputKeyPress = useCallback((event: any) => {
-        if (event?.key === "Enter") {
-            // prevent pressing enter cause reload of page
-            event.preventDefault()
-        }
-    }, [])
+    const onInputKeyPress = useCallback(
+        (event: React.KeyboardEvent<HTMLInputElement>) => {
+            if (event?.key === "Enter") {
+                // prevent pressing enter cause reload of page
+                event.preventDefault()
+            }
+        },
+        []
+    )
 
     const changeKeyword = useCallback((value: string) => {
         setKeyword(value)
@@ -397,130 +386,141 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                             4
                                                         }
                                                     >
-                                                        {craftDataByName[name]
-                                                            ?.series ? (
-                                                            <>
-                                                                {craftDataByName[
+                                                        <div>
+                                                            {craftDataByName[
+                                                                name
+                                                            ]?.series ? (
+                                                                <>
+                                                                    {craftDataByName[
+                                                                        name
+                                                                    ]?.series.map(
+                                                                        (
+                                                                            serie: string
+                                                                        ) => (
+                                                                            <Image
+                                                                                width={
+                                                                                    30
+                                                                                }
+                                                                                path={`series/${serie}`}
+                                                                            />
+                                                                        )
+                                                                    )}{" "}
+                                                                    {craftDataByName[
+                                                                        name
+                                                                    ]?.series
+                                                                        .map(
+                                                                            (
+                                                                                serie: string
+                                                                            ) =>
+                                                                                `【${serie}】`
+                                                                        )
+                                                                        .join(
+                                                                            "、"
+                                                                        )}
+                                                                    特性
+                                                                </>
+                                                            ) : craftDataByName[
+                                                                  name
+                                                              ]?.monster ? (
+                                                                craftDataByName[
                                                                     name
-                                                                ]?.series.map(
+                                                                ]?.monster?.map(
                                                                     (
-                                                                        serie: string
-                                                                    ) => (
+                                                                        monster: number
+                                                                    ) => {
+                                                                        return (
+                                                                            <Image
+                                                                                width={
+                                                                                    50
+                                                                                }
+                                                                                path={`monster/${monster}`}
+                                                                            />
+                                                                        )
+                                                                    }
+                                                                )
+                                                            ) : craftDataByName[
+                                                                  name
+                                                              ]?.attribute ||
+                                                              craftDataByName[
+                                                                  name
+                                                              ]?.race ? (
+                                                                <>
+                                                                    {craftDataByName[
+                                                                        name
+                                                                    ]
+                                                                        ?.attribute &&
+                                                                    craftDataByName[
+                                                                        name
+                                                                    ]
+                                                                        ?.attribute !==
+                                                                        "沒有限制" ? (
                                                                         <Image
                                                                             width={
                                                                                 30
                                                                             }
-                                                                            path={`series/${serie}`}
+                                                                            path={`icon/icon_${
+                                                                                attrZhToEn[
+                                                                                    craftDataByName[
+                                                                                        name
+                                                                                    ]
+                                                                                        ?.attribute
+                                                                                ]
+                                                                            }`}
                                                                         />
-                                                                    )
-                                                                )}{" "}
-                                                                {craftDataByName[
-                                                                    name
-                                                                ]?.series
-                                                                    .map(
-                                                                        (
-                                                                            serie: string
-                                                                        ) =>
-                                                                            `【${serie}】`
-                                                                    )
-                                                                    .join("、")}
-                                                                特性
-                                                            </>
-                                                        ) : craftDataByName[
-                                                              name
-                                                          ]?.monster ? (
-                                                            craftDataByName[
-                                                                name
-                                                            ]?.monster?.map(
-                                                                (
-                                                                    monster: number
-                                                                ) => {
-                                                                    return (
+                                                                    ) : (
+                                                                        <></>
+                                                                    )}
+                                                                    {craftDataByName[
+                                                                        name
+                                                                    ]?.race &&
+                                                                    craftDataByName[
+                                                                        name
+                                                                    ]?.race !==
+                                                                        "沒有限制" ? (
                                                                         <Image
                                                                             width={
-                                                                                50
+                                                                                30
                                                                             }
-                                                                            path={`monster/${monster}`}
+                                                                            path={`icon/icon_${
+                                                                                raceZhToEn[
+                                                                                    craftDataByName[
+                                                                                        name
+                                                                                    ]
+                                                                                        ?.race
+                                                                                ]
+                                                                            }`}
                                                                         />
-                                                                    )
-                                                                }
-                                                            )
-                                                        ) : craftDataByName[
-                                                              name
-                                                          ]?.attribute ||
-                                                          craftDataByName[name]
-                                                              ?.race ? (
-                                                            <>
-                                                                {craftDataByName[
-                                                                    name
-                                                                ]?.attribute &&
-                                                                craftDataByName[
-                                                                    name
-                                                                ]?.attribute !==
-                                                                    "沒有限制" ? (
-                                                                    <Image
-                                                                        width={
-                                                                            30
-                                                                        }
-                                                                        path={`icon/icon_${
-                                                                            attrZhToEn[
-                                                                                craftDataByName[
-                                                                                    name
-                                                                                ]
-                                                                                    ?.attribute
-                                                                            ]
-                                                                        }`}
-                                                                    />
-                                                                ) : (
-                                                                    <></>
-                                                                )}
-                                                                {craftDataByName[
-                                                                    name
-                                                                ]?.race &&
-                                                                craftDataByName[
-                                                                    name
-                                                                ]?.race !==
-                                                                    "沒有限制" ? (
-                                                                    <Image
-                                                                        width={
-                                                                            30
-                                                                        }
-                                                                        path={`icon/icon_${
-                                                                            raceZhToEn[
-                                                                                craftDataByName[
-                                                                                    name
-                                                                                ]
-                                                                                    ?.race
-                                                                            ]
-                                                                        }`}
-                                                                    />
-                                                                ) : (
-                                                                    <></>
-                                                                )}{" "}
-                                                                {craftDataByName[
-                                                                    name
-                                                                ]?.attribute &&
-                                                                craftDataByName[
-                                                                    name
-                                                                ]?.attribute !==
-                                                                    "沒有限制"
-                                                                    ? `${craftDataByName[name]?.attribute}屬性`
-                                                                    : ""}
-                                                                {craftDataByName[
-                                                                    name
-                                                                ]?.race &&
-                                                                craftDataByName[
-                                                                    name
-                                                                ]?.race !==
-                                                                    "沒有限制"
-                                                                    ? craftDataByName[
-                                                                          name
-                                                                      ]?.race
-                                                                    : ""}
-                                                            </>
-                                                        ) : (
-                                                            ``
-                                                        )}
+                                                                    ) : (
+                                                                        <></>
+                                                                    )}{" "}
+                                                                    {craftDataByName[
+                                                                        name
+                                                                    ]
+                                                                        ?.attribute &&
+                                                                    craftDataByName[
+                                                                        name
+                                                                    ]
+                                                                        ?.attribute !==
+                                                                        "沒有限制"
+                                                                        ? `${craftDataByName[name]?.attribute}屬性`
+                                                                        : ""}
+                                                                    {craftDataByName[
+                                                                        name
+                                                                    ]?.race &&
+                                                                    craftDataByName[
+                                                                        name
+                                                                    ]?.race !==
+                                                                        "沒有限制"
+                                                                        ? craftDataByName[
+                                                                              name
+                                                                          ]
+                                                                              ?.race
+                                                                        : ""}
+                                                                </>
+                                                            ) : (
+                                                                ``
+                                                            )}
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 {[

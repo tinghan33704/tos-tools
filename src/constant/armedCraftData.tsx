@@ -1,4 +1,4 @@
-// Last modified : 2025.11.13 23:48
+// Last modified : 2025.11.15 13:36
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -1254,7 +1254,7 @@ export const armedCraftData: IObject[] = [
             '龍刃': 3435,
             '龍丸': 3436
         },
-        'monster': [1326, 1327],
+        'monster': [1326, 1327, 2941],
         'star': 3,
         'charge': '發動攻擊',
         'add_hp': 0,
@@ -1276,7 +1276,7 @@ export const armedCraftData: IObject[] = [
             '龍刃': 3442,
             '龍丸': 3443
         },
-        'monster': [1328, 1329],
+        'monster': [1328, 1329, 2942],
         'star': 3,
         'charge': '發動攻擊',
         'add_hp': 0,
@@ -1298,7 +1298,7 @@ export const armedCraftData: IObject[] = [
             '龍刃': 3449,
             '龍丸': 3450
         },
-        'monster': [1330, 1331],
+        'monster': [1330, 1331, 2943],
         'star': 3,
         'charge': '發動攻擊',
         'add_hp': 0,
@@ -1320,7 +1320,7 @@ export const armedCraftData: IObject[] = [
             '龍刃': 3456,
             '龍丸': 3457
         },
-        'monster': [1332, 1333],
+        'monster': [1332, 1333, 2944],
         'star': 3,
         'charge': '發動攻擊',
         'add_hp': 0,
@@ -1342,7 +1342,7 @@ export const armedCraftData: IObject[] = [
             '龍刃': 3463,
             '龍丸': 3464
         },
-        'monster': [1334, 1335],
+        'monster': [1334, 1335, 2945],
         'star': 3,
         'charge': '發動攻擊',
         'add_hp': 0,

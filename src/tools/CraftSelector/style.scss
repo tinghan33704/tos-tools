@@ -123,6 +123,11 @@ $craft-mode-count: 11;
         .craft-objective {
             vertical-align: middle;
 
+            & > div {
+                display: flex;
+                align-items: center;
+            }
+
             img {
                 margin: 3px;
             }

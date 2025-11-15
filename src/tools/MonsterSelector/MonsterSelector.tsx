@@ -35,7 +35,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
 
     const resultRef = useRef<HTMLDivElement>(null)
 
-    const typeMap: Record<string, any[]> = useMemo(() => {
+    const typeMap: IObject = useMemo(() => {
         return {
             tag: [selectedTags, setSelectedTags],
             extraTag: [selectedExtraTags, setSelectedExtraTags],
@@ -97,7 +97,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             return
         }
 
-        let result: IObject[] = []
+        const result: IObject[] = []
 
         const selectedExtraData = extraFilterData
             .flat(1)
@@ -114,7 +114,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             if (isTagSelected) {
                 let hasTag = false
 
-                for (const tag of monster?.monsterTag) {
+                for (const tag of monster?.monsterTag || []) {
                     if (selectedTags.includes(tag)) {
                         hasTag = true
                         break
@@ -138,7 +138,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
 
                 let hasTag = false
 
-                for (const tag of monster?.monsterTag) {
+                for (const tag of monster?.monsterTag || []) {
                     if (tagGroup.includes(tag)) {
                         hasTag = true
                         break

@@ -279,9 +279,11 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                         (index: number) => {
                             const skillTag = getMonsterById(data?.id)?.skill?.[
                                 index
-                            ]?.tag?.map((item: any) => {
-                                return Array.isArray(item) ? item[0] : item
-                            })
+                            ]?.tag?.map(
+                                (item: string | (string | number)[]) => {
+                                    return Array.isArray(item) ? item[0] : item
+                                }
+                            )
                             return skillTag.includes(func)
                         }
                     )
@@ -298,9 +300,11 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                         (index: number) => {
                             const skillTag = getMonsterById(data?.id)?.skill?.[
                                 index
-                            ]?.tag?.map((item: any) => {
-                                return Array.isArray(item) ? item[0] : item
-                            })
+                            ]?.tag?.map(
+                                (item: string | (string | number)[]) => {
+                                    return Array.isArray(item) ? item[0] : item
+                                }
+                            )
                             return skillTag.includes(func)
                         }
                     )

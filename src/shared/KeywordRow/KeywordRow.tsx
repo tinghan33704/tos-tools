@@ -8,17 +8,18 @@ import Button from "src/utilities/Button"
 
 import "./style.scss"
 
-export interface IKeywordRowProps {}
-
-const KeywordRow: React.FC<IKeywordRowProps> = (props) => {
+const KeywordRow: React.FC = () => {
     const { keyword, resetKeyword, changeKeyword } = useContext(Context)
 
-    const onInputKeyPress = useCallback((event: any) => {
-        if (event?.key === "Enter") {
-            // prevent pressing enter cause reload of page
-            event.preventDefault()
-        }
-    }, [])
+    const onInputKeyPress = useCallback(
+        (event: React.KeyboardEvent<HTMLInputElement>) => {
+            if (event?.key === "Enter") {
+                // prevent pressing enter cause reload of page
+                event.preventDefault()
+            }
+        },
+        []
+    )
 
     return (
         <>

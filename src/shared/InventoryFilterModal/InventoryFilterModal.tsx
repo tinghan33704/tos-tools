@@ -76,12 +76,15 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
         [filters]
     )
 
-    const onInputKeyPress = useCallback((event: any) => {
-        if (event?.key === "Enter") {
-            // prevent pressing enter cause reload of page
-            event.preventDefault()
-        }
-    }, [])
+    const onInputKeyPress = useCallback(
+        (event: React.KeyboardEvent<HTMLInputElement>) => {
+            if (event?.key === "Enter") {
+                // prevent pressing enter cause reload of page
+                event.preventDefault()
+            }
+        },
+        []
+    )
 
     const renderPanel = useCallback(() => {
         return (

@@ -79,9 +79,9 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
     const { playerData } = useContext(DataContext)
 
-    const [urlQuery, setUrlQuery] = useSearchParams()
+    const [urlQuery] = useSearchParams()
 
-    const typeMap: Record<string, any[]> = useMemo(() => {
+    const typeMap: IObject = useMemo(() => {
         return {
             functions: [selectedFunctions, setSelectedFunctions],
             tag: [selectedTags, setSelectedTags],
@@ -156,6 +156,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                 []
                             )
                     ) || []
+
             setDurationObj(
                 durationArr?.length
                     ? selectedFunction.reduce((acc, cur, index) => {
@@ -192,9 +193,14 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             }
 
             setDurationObj(
-                Object.fromEntries(
-                    Object.entries(_duration).filter(([_, v]) => v.length)
-                )
+                Object.keys(_duration).reduce((acc, cur) => {
+                    return _duration[cur]?.length
+                        ? {
+                              ...acc,
+                              [cur]: _duration[cur],
+                          }
+                        : acc
+                }, {})
             )
         },
         [durationObj]
@@ -222,7 +228,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             toggleValue(typeAction[0], text, value, typeAction[1])
 
             if (type === "functions" && value) {
-                let _duration = durationObj
+                const _duration = durationObj
                 delete _duration?.[text]
 
                 setDurationObj(_duration)
@@ -259,9 +265,9 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
         const isChargeSelected = !!selectedCharges.length
         const isGenreSelected = !!selectedGenres.length
 
-        let result: IObject[] = []
-        let resultByCharge: IObject[] = []
-        let resultCombine: IObject[] = []
+        const result: IObject[] = []
+        const resultByCharge: IObject[] = []
+        const resultCombine: IObject[] = []
 
         for (const monster of monsterData) {
             if (
@@ -435,7 +441,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                             tag?.[0] === selectedFunction
                                     ))
                             ) {
-                                let charge =
+                                const charge =
                                     "reduce" in monsterSkill
                                         ? monsterSkill.num - monsterSkill.reduce
                                         : monsterSkill.num
@@ -767,8 +773,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                         type: "combine",
                     })
             } else {
-                let skillIndexArray = []
-                let skillIndexArrayCombine = []
+                const skillIndexArray = []
+                const skillIndexArrayCombine = []
 
                 for (const [
                     monsterSkillIndex,
@@ -781,7 +787,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                     )
                         continue
 
-                    let charge =
+                    const charge =
                         "reduce" in monsterSkill
                             ? monsterSkill.num - monsterSkill.reduce
                             : monsterSkill.num

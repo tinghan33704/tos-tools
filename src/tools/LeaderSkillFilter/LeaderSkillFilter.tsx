@@ -70,9 +70,9 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
     const { playerData } = useContext(DataContext)
 
-    const [urlQuery, setUrlQuery] = useSearchParams()
+    const [urlQuery] = useSearchParams()
 
-    const typeMap: Record<string, any[]> = useMemo(() => {
+    const typeMap: IObject = useMemo(() => {
         return {
             functions: [selectedFunctions, setSelectedFunctions],
             tag: [selectedTags, setSelectedTags],
@@ -233,9 +233,9 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             toggleValue(typeAction[0], text, value, typeAction[1])
 
             if (type === "functions" && value) {
-                let _objective = objectiveObj
+                const _objective = objectiveObj
                 delete _objective?.[text]
-                let _activate = activateObj
+                const _activate = activateObj
                 delete _activate?.[text]
 
                 setObjectiveObj(_objective)
@@ -271,7 +271,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         const isRaceSelected = !!selectedRaces.length
         const isStarSelected = !!selectedStars.length
 
-        let result: IObject[] = []
+        const result: IObject[] = []
 
         for (const skill of leaderSkillData) {
             const tagArr = skill?.tag || []
@@ -462,7 +462,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         if (isTagSelected) {
                             let hasTag = false
 
-                            for (const tag of monster?.monsterTag) {
+                            for (const tag of monster?.monsterTag || []) {
                                 if (selectedTags.includes(tag)) {
                                     hasTag = true
                                     break
@@ -679,7 +679,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         if (isTagSelected) {
                             let hasTag = false
 
-                            for (const tag of monster?.monsterTag) {
+                            for (const tag of monster?.monsterTag || []) {
                                 if (selectedTags.includes(tag)) {
                                     hasTag = true
                                     break
@@ -730,7 +730,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                     if (isTagSelected) {
                         let hasTag = false
 
-                        for (const tag of monster?.monsterTag) {
+                        for (const tag of monster?.monsterTag || []) {
                             if (selectedTags.includes(tag)) {
                                 hasTag = true
                                 break

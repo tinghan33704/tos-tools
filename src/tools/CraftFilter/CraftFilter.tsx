@@ -60,9 +60,9 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
 
     const resultRef = useRef<HTMLDivElement>(null)
 
-    const [urlQuery, setUrlQuery] = useSearchParams()
+    const [urlQuery] = useSearchParams()
 
-    const typeMap: Record<string, any[]> = useMemo(() => {
+    const typeMap: IObject = useMemo(() => {
         return {
             skillFunctions: [selectedSkillFunctions, setSelectedSkillFunctions],
             armedFunctions: [selectedArmedFunctions, setSelectedArmedFunctions],
