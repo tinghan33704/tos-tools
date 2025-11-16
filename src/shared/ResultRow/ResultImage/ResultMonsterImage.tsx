@@ -90,6 +90,17 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                 ) : skill?.type === "combine" ||
                                   skill?.changedSkill ? (
                                     <Image path='icon/combine' />
+                                ) : skill?.type === "changed" ||
+                                  skill?.changedSkill ? (
+                                    <Image path='icon/changed' />
+                                ) : skill?.type === "refine-changed" ||
+                                  skill?.changedSkill ? (
+                                    <>
+                                        <Image path='icon/changed' />
+                                        <Image
+                                            path={`icon/refine_${skill?.refine}`}
+                                        />
+                                    </>
                                 ) : (
                                     <></>
                                 )}

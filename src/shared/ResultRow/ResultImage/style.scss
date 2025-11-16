@@ -224,7 +224,9 @@
                 padding: 0;
             }
 
+            &-changed,
             &-refine,
+            &-refine-changed,
             &-recall,
             &-combine {
                 img {
@@ -238,10 +240,12 @@
             }
 
             &-normal,
-            &-combine {
+            &-combine,
+            &-changed {
                 color: var(--popover-skill-name);
             }
-            &-refine {
+            &-refine,
+            &-refine-changed {
                 color: var(--popover-skill-name-refine);
             }
             &-recall {

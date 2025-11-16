@@ -1,4 +1,4 @@
-// Last modified : 2025.11.13 17:38
+// Last modified : 2025.11.16 22:16
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -15,7 +15,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': '',
-				'type': 'normal',
+				'type': 'normal',	// normal, changed, refine, recall, combine, refine-changed
 				'charge': '',
 				'num': 0,
 				'description': `
@@ -1403,7 +1403,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 水',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -1530,7 +1530,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 火',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -1657,7 +1657,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 木',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -1784,7 +1784,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 光',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -1911,7 +1911,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 暗',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -8112,7 +8112,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 水',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -8184,7 +8184,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 火',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -8256,7 +8256,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 木',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -8328,7 +8328,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 光',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -8400,7 +8400,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '舔血為生 ‧ 暗',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -14630,7 +14630,27 @@ export const monsterData: IObject[] = [
 				'description': `
 				額外增加 3 行符石，大幅延長移動符石時間至 10 秒，並提升水屬性攻擊力
 				`,
-				'tag': ['增加符石', '增傷', '延長轉珠時間']
+				'tag': ['增加符石', '延長轉珠時間', '增傷']
+			},
+			{
+				'name': '傾城進迫 ‧ 水',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 12,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 15 秒，可任意移動符石而不會發動消除，並提升水屬性攻擊力
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷']
+			},
+			{
+				'name': '傾城進迫 ‧ 浪濤',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 18 秒，可任意移動符石而不會發動消除，並提升水屬性攻擊力；達成 10 連擊 (Combo) 或以上時，自身以外 6 星主角系列角色 (不包括幻筆師凱瑟琳) 的主動技能 CD 減少 2
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷', '減CD']
 			}
 		],
 		'teamSkill': [
@@ -14705,6 +14725,26 @@ export const monsterData: IObject[] = [
 				額外增加 3 行符石，大幅延長移動符石時間至 10 秒，並提升火屬性攻擊力
 				`,
 				'tag': ['增加符石', '增傷', '延長轉珠時間']
+			},
+			{
+				'name': '傾城進迫 ‧ 火',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 12,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 15 秒，可任意移動符石而不會發動消除，並提升火屬性攻擊力
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷']
+			},
+			{
+				'name': '傾城進迫 ‧ 熾燄',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 18 秒，可任意移動符石而不會發動消除，並提升火屬性攻擊力；達成 10 連擊 (Combo) 或以上時，自身以外 6 星主角系列角色 (不包括幻筆師凱瑟琳) 的主動技能 CD 減少 2
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷', '減CD']
 			}
 		],
 		'teamSkill': [
@@ -14779,6 +14819,26 @@ export const monsterData: IObject[] = [
 				額外增加 3 行符石，大幅延長移動符石時間至 10 秒，並提升木屬性攻擊力
 				`,
 				'tag': ['增加符石', '增傷', '延長轉珠時間']
+			},
+			{
+				'name': '傾城進迫 ‧ 木',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 12,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 15 秒，可任意移動符石而不會發動消除，並提升木屬性攻擊力
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷']
+			},
+			{
+				'name': '傾城進迫 ‧ 藤木',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 18 秒，可任意移動符石而不會發動消除，並提升木屬性攻擊力；達成 10 連擊 (Combo) 或以上時，自身以外 6 星主角系列角色 (不包括幻筆師凱瑟琳) 的主動技能 CD 減少 2
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷', '減CD']
 			}
 		],
 		'teamSkill': [
@@ -14853,6 +14913,26 @@ export const monsterData: IObject[] = [
 				額外增加 3 行符石，大幅延長移動符石時間至 10 秒，並提升光屬性攻擊力
 				`,
 				'tag': ['增加符石', '增傷', '延長轉珠時間']
+			},
+			{
+				'name': '傾城進迫 ‧ 光',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 12,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 15 秒，可任意移動符石而不會發動消除，並提升光屬性攻擊力
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷']
+			},
+			{
+				'name': '傾城進迫 ‧ 玄光',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 18 秒，可任意移動符石而不會發動消除，並提升光屬性攻擊力；達成 10 連擊 (Combo) 或以上時，自身以外 6 星主角系列角色 (不包括幻筆師凱瑟琳) 的主動技能 CD 減少 2
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷', '減CD']
 			}
 		],
 		'teamSkill': [
@@ -14927,6 +15007,26 @@ export const monsterData: IObject[] = [
 				額外增加 3 行符石，大幅延長移動符石時間至 10 秒，並提升暗屬性攻擊力
 				`,
 				'tag': ['增加符石', '增傷', '延長轉珠時間']
+			},
+			{
+				'name': '傾城進迫 ‧ 暗',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 12,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 15 秒，可任意移動符石而不會發動消除，並提升暗屬性攻擊力
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷']
+			},
+			{
+				'name': '傾城進迫 ‧ 幽冥',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 18 秒，可任意移動符石而不會發動消除，並提升暗屬性攻擊力；達成 10 連擊 (Combo) 或以上時，自身以外 6 星主角系列角色 (不包括幻筆師凱瑟琳) 的主動技能 CD 減少 2
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷', '減CD']
 			}
 		],
 		'teamSkill': [
@@ -17127,7 +17227,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '出其不意',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 15,
 				'description': `
@@ -17182,7 +17282,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '出其不意',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 15,
 				'description': `
@@ -17237,7 +17337,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '出其不意',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 15,
 				'description': `
@@ -24244,6 +24344,16 @@ export const monsterData: IObject[] = [
 				完全恢復生命力
 				`,
 				'tag': ['回血']
+			},
+			{
+				'name': '魔王躍舞 ‧ 攻',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 10,
+				'description': `
+				2 回合內，隊伍成員的種族愈多，全隊攻擊力及回復力愈高，5 個種族可達至最大 2 倍
+				`,
+				'tag': [['增傷', 2], ['增回', 2]]
 			}
 		],
 		'teamSkill': [
@@ -25252,6 +25362,16 @@ export const monsterData: IObject[] = [
 				合體後的每回合追打變為 50% 暗屬性傷害 1 次
 				`,
 				'tag': ['合體', '回血', '龍脈儀蓄能']
+			},
+			{
+				'name': '魂附光',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 5,
+				'description': `
+				1 回合內，所有屬性符石兼具光符石效果
+				`,
+				'tag': ['符石兼具光']
 			}
 		],
 		'teamSkill': [
@@ -25322,6 +25442,16 @@ export const monsterData: IObject[] = [
 				合體後的每回合追打變為 50% 暗屬性傷害 1 次
 				`,
 				'tag': ['合體', '回血', '龍脈儀蓄能']
+			},
+			{
+				'name': '魂附暗',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 5,
+				'description': `
+				1 回合內，所有屬性符石兼具暗符石效果
+				`,
+				'tag': ['符石兼具暗']
 			}
 		],
 		'teamSkill': [
@@ -25754,6 +25884,17 @@ export const monsterData: IObject[] = [
 				1 回合內，消除 3 種或以上的符石，全隊攻擊力 3 倍。技能發動回合以攻前炮擊或攻擊傷害擊斃敵人的數量總和，將轉化為效果持續回合技能持續時，全隊攻擊力 2 倍；以攻前炮擊或攻擊傷害擊斃敵人，該回合不會扣減技能持續回合
 				`,
 				'tag': [['增傷', 5]]
+			},
+			{
+				'name': '狂魔暴噬 ‧ 攻',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 12,
+				'reduce': 4,
+				'description': `
+				全隊攻擊力提升 2 倍，單體攻擊轉化為全體攻擊，技能發動回合以攻前炮擊或攻擊傷害擊斃敵人的數量總和，將轉化為效果持續回合
+				`,
+				'tag': [['增傷', 5]]
 			}
 		],
 		'teamSkill': [
@@ -25811,6 +25952,17 @@ export const monsterData: IObject[] = [
 				'num': -1,
 				'description': `
 				1 回合內，消除 3 種或以上的符石，全隊攻擊力 3 倍。技能發動回合以攻前炮擊或攻擊傷害擊斃敵人的數量總和，將轉化為效果持續回合技能持續時，全隊攻擊力 2 倍；以攻前炮擊或攻擊傷害擊斃敵人，該回合不會扣減技能持續回合
+				`,
+				'tag': [['增傷', 5]]
+			},
+			{
+				'name': '狂魔暴噬 ‧ 攻',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 12,
+				'reduce': 4,
+				'description': `
+				全隊攻擊力提升 2 倍，單體攻擊轉化為全體攻擊，技能發動回合以攻前炮擊或攻擊傷害擊斃敵人的數量總和，將轉化為效果持續回合
 				`,
 				'tag': [['增傷', 5]]
 			}
@@ -27325,6 +27477,16 @@ export const monsterData: IObject[] = [
 				3 回合內，心符石的符石掉落率提升至 25%，所掉落的心符石會以心強化符石代替；所有屬性符石兼具心符石效果
 				`,
 				'tag': [['改變掉落機率', 3], ['符石兼具心', 3]]
+			},
+			{
+				'name': '搶天奪日',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				所有符石隨機轉換，並將心符石以心強化符石代替；2 回合內，所有屬性符石兼具 50% 心符石效果
+				`,
+				'tag': ['大幅轉版', '符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉心', '符石轉心強化', ['符石兼具心', 2]]
 			}
 		],
 		'teamSkill': [
@@ -30301,7 +30463,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '神魔共鳴 ‧ 強',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -31581,6 +31743,16 @@ export const monsterData: IObject[] = [
 				回復相當於龍類成員 1.5 倍的生命力
 				`,
 				'tag': ['回血']
+			},
+			{
+				'name': '捨生拚敵',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 10,
+				'description': `
+				消耗現有 75% 生命力；1 回合內，全隊攻擊力 2.5 倍
+				`,
+				'tag': ['我方扣血', '增傷']
 			}
 		],
 		'teamSkill': [
@@ -36909,6 +37081,25 @@ export const monsterData: IObject[] = [
 				2 回合內，敵方全體轉為暗屬性，並大幅提升光屬性對暗屬性目標的攻擊力
 				`,
 				'tag': [['敵方轉暗', 2], ['增傷', 2], ['敵方受傷增加', 2], '敵身狀態']
+			},
+			{
+				'name': '魔力歸一 ‧ 攻',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				1 回合內
+				I. 全隊攻擊力 1.5 倍
+				
+				II. 光屬性成員攻擊力基值
+				⇒ 減至 50%
+				III. 魔族成員攻擊力基值減至 0
+				IV. 將被減去的攻擊力基值
+				⇒ 加入自身攻擊力基值
+				V. 消除光符石才會發動攻擊
+				(效果會在再次發動此技能或死亡後消失)
+				`,
+				'tag': [['增傷', -1], ['我方減攻', -1], ['界王拳', -1], ['我方攻擊力吸收', -1], '頭像狀態']
 			}
 		],
 		'teamSkill': [
@@ -39121,7 +39312,21 @@ export const monsterData: IObject[] = [
 				'description': `
 				所有成員攻擊力提升 2 倍，同時火屬性符石掉落機率提升，但受到的傷害提升 1.5 倍 (效果會在關閉此技能或死亡後消失)。此技能可隨時關閉，關閉時，當前技能 CD 減少 4
 				`,
-				'tag': [['增傷', -1], ['我方受傷增加', -1], ['改變掉落機率', -1], '減CD', '隨時關閉', '頭像狀態']
+				'tag': [['增傷', -1], ['改變掉落機率', -1], ['我方受傷增加', -1], '隨時關閉', '減CD', '頭像狀態']
+			},
+			{
+				'name': '喋血戰意 ‧ 虹',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				I. 所有成員攻擊力提升 2 倍
+				II. 火符石掉落機率提升 (效果會在關閉此技能或死亡後消失)
+				
+				此技能可隨時關閉
+				⇒ 關閉時，當前技能 CD 減少 4
+				`,
+				'tag': [['增傷', -1], ['改變掉落機率', -1], '隨時關閉', '減CD', '頭像狀態']
 			}
 		],
 		'teamSkill': [
@@ -42587,7 +42792,7 @@ export const monsterData: IObject[] = [
 				1 回合內，將所有符石轉化為固定數量的水、火、木、光、暗及心強化符石；所有屬性符石兼具其他屬性符石效果
 				`,
 				'activate': `以「渾天原始神卡俄斯」作隊長及戰友，並以指定 8 星封王系列召喚獸作成員`,
-				'skill_tag': ['主動技改變'],
+				'skill_tag': [],
 				'activate_tag': ['指定成員', '指定稀有度成員'],
 				'relative': [1135, 674, 703, 704, 1309, 1310, 742, 850, 998, 1188, 1716]
 			}
@@ -44217,7 +44422,7 @@ export const monsterData: IObject[] = [
 		'crossOver': false,
 		'skill': [
 			{
-				'name': '引力之勢',
+				'name': '引力之勢 ‧ 強',
 				'type': 'normal',
 				'charge': 'CD',
 				'num': 7,
@@ -44272,6 +44477,16 @@ export const monsterData: IObject[] = [
 				將所有符石轉化為固定數量的水強化、火強化及木強化符石
 				`,
 				'tag': ['符石轉水', '符石轉火', '符石轉木', '符石轉水強化', '符石轉火強化', '符石轉木強化', '大幅轉版']
+			},
+			{
+				'name': '引力之勢 ‧ 元素',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 7,
+				'description': `
+				1 回合內，所有屬性符石兼具自身屬性符石效果
+				`,
+				'tag': ['符石兼具水']
 			}
 		],
 		'teamSkill': [
@@ -44340,7 +44555,18 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['增攻'],
 				'activate_tag': ['指定雙隊長', '指定成員'],
 				'relative': [1188]
-			}
+			},
+			{
+				'description': `
+				◆「世界的平衡 ‧ 法神姬氏」的主動技能「引力之勢 ‧ 強」變為「引力之勢 ‧ 元素」：
+				
+				1 回合內，所有屬性符石兼具自身屬性符石效果
+				`,
+				'activate': `以「渾天原始神卡俄斯」作隊長及戰友`,
+				'skill_tag': ['主動技改變'],
+				'activate_tag': ['指定雙隊長'],
+				'relative': [1188, 1135]
+			},
 		],
 		'maxLevel': 99,
 		'maxSkill': 15,
@@ -48045,6 +48271,16 @@ export const monsterData: IObject[] = [
 				額外增加 3 行符石，並大幅延長移動符石時間至 12 秒
 				`,
 				'tag': ['增加符石', '延長轉珠時間']
+			},
+			{
+				'name': '傾城進迫 ‧ 群主迫力',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 7,
+				'description': `
+				額外增加 3 行符石，大幅延長移動符石時間至 20 秒，可任意移動符石而不會發動消除；達成 10 連擊 (Combo) 或以上時，6 星主角系列角色攻擊力 2 倍
+				`,
+				'tag': ['增加符石', '延長轉珠時間', '排珠', '增傷']
 			}
 		],
 		'teamSkill': [
@@ -48481,7 +48717,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				1 回合內，若生命力全滿：自身生命力扣至 1，並將心符石轉化為自身屬性符石；移動符石前自身生命力愈低，全隊攻擊力愈高，最大 2.5 倍。反之，自身生命力愈低，全隊攻擊力愈高，最大 3.5 倍
 				`,
-				'tag': ['符石轉暗', '心轉其他', '我方扣血', '增傷']
+				'tag': ['我方扣血', '心轉其他', '符石轉暗', '增傷']
 			},
 			{
 				'name': '敕令強化 ‧ 水靈',
@@ -48657,6 +48893,16 @@ export const monsterData: IObject[] = [
 				⇒ 效果的持續時間更改為 3 回合
 				`,
 				'tag': ['移除', '指定符石移除', '移除強制掉落', '強制掉暗', '神族符石製造', '指定符石轉其他', '符石轉暗', '符石轉暗強化', ['增加Ex.Combo', 3], ['增加Combo', 3], ['增傷', 3], ['增回', 3], ['無視二屬盾', 3], ['無視三屬盾', 3], ['無視四屬盾', 3], ['無視五屬盾', 3], ['無視固定連擊盾', 3], ['無視全首消盾', 3], ['無視首殺盾', 3]]
+			},
+			{
+				'name': '終極一擊 ‧ 強攻',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				1 回合內，若生命力全滿：自身生命力扣至 1，並將心符石轉化為自身屬性符石；移動符石前自身生命力愈低，全隊攻擊力愈高，最大 3 倍。反之，自身生命力愈低，全隊攻擊力愈高，最大 4 倍
+				`,
+				'tag': ['我方扣血', '心轉其他', '符石轉暗', '增傷']
 			}
 		],
 		'teamSkill': [
@@ -49029,6 +49275,16 @@ export const monsterData: IObject[] = [
 				⇒ 效果的持續時間更改為 3 回合
 				`,
 				'tag': ['移除', '指定符石移除', '移除強制掉落', '強制掉暗', '神族符石製造', '指定符石轉其他', '符石轉暗', '符石轉暗強化', ['增加Ex.Combo', 3], ['增加Combo', 3], ['增傷', 3], ['增回', 3], ['無視二屬盾', 3], ['無視三屬盾', 3], ['無視四屬盾', 3], ['無視五屬盾', 3], ['無視固定連擊盾', 3], ['無視全首消盾', 3], ['無視首殺盾', 3]]
+			},
+			{
+				'name': '主神之威 ‧ 攻',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				1 回合內，全隊攻擊力 3 倍；若在最左及最右直行各消除 1 組 5 粒或以上符石，下回合全隊攻擊力 3 倍
+				`,
+				'tag': [['增傷', 2]]
 			}
 		],
 		'teamSkill': [
@@ -56921,7 +57177,43 @@ export const monsterData: IObject[] = [
 				此技能可隨時關閉，關閉時：
 				⓵ 當前技能 CD -2
 				`,
-				'tag': [['我方減攻', -1], ['增傷', -1], ['界王拳', -1], ['我方攻擊力吸收', -1], '符石轉暗', '符石轉暗強化', '減CD', '隨時關閉', '頭像狀態']
+				'tag': [['我方減攻', -1], ['增傷', -1], ['界王拳', -1], ['我方攻擊力吸收', -1], '符石轉暗', '符石轉暗強化', '隨時關閉', '減CD', '頭像狀態']
+			},
+			{
+				'name': '天劍三絕 ‧ 強',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 5,
+				'description': `
+				I. 「光及暗屬性」人類成員的攻擊力基值減至 0
+				II. 將被減去攻擊力基值 1.5 倍
+				⇒ 加入自身攻擊力基值
+				(效果會在再次發動此技能或死亡後消失)
+				III. 發動技能首回合，將 6 粒符石轉化為
+				⇒「光及暗」強化符石各 3 粒
+				(水、火及木符石優先轉換)
+				`,
+				'tag': [['我方減攻', -1], ['增傷', -1], ['界王拳', -1], ['我方攻擊力吸收', -1], '符石轉光', '符石轉暗', '符石轉光強化', '符石轉暗強化', '頭像狀態']
+			},
+			{
+				'name': '天劍三絕 ‧ 強極',
+				'type': 'refine-changed',
+				'refine': 4,
+				'charge': 'CD',
+				'num': 5,
+				'description': `
+				I. 「光及暗屬性」人類成員的攻擊力基值減至 0
+				II. 將被減去攻擊力基值 1.5 倍
+				⇒ 加入自身攻擊力基值
+				(效果會在再次發動此技能或死亡後消失)
+				III. 發動技能首回合，將 6 粒符石轉化為
+				⇒「光及暗」強化符石各 3 粒
+				(水、火及木符石優先轉換)
+				
+				此技能可隨時關閉，關閉時：
+				⓵ 當前技能 CD -2
+				`,
+				'tag': [['我方減攻', -1], ['增傷', -1], ['界王拳', -1], ['我方攻擊力吸收', -1], '符石轉光', '符石轉暗', '符石轉光強化', '符石轉暗強化', '隨時關閉', '減CD', '頭像狀態']
 			}
 		],
 		'teamSkill': [
@@ -59018,7 +59310,17 @@ export const monsterData: IObject[] = [
 				'description': `
 				解除所有水屬性成員被鎖的技能 (此技能無視封鎖技能)，並有 75% 機率完全回復生命力
 				`,
-				'tag': ['回血', '解鎖']
+				'tag': ['解鎖', '回血']
+			},
+			{
+				'name': '小心地吃肉饅',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 5,
+				'description': `
+				解除所有水屬性成員被鎖的技能 (此技能無視封鎖技能)，並完全回復生命力
+				`,
+				'tag': ['解鎖', '回血']
 			}
 		],
 		'teamSkill': [
@@ -60816,7 +61118,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '吞噬之花',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -61002,6 +61304,16 @@ export const monsterData: IObject[] = [
 				'num': 10,
 				'description': `
 				1 回合內，隊伍中攻擊力最高 (最左方) 的光屬性成員攻擊力 10 倍
+				`,
+				'tag': ['增傷', '界王拳']
+			},
+			{
+				'name': '深淵殺機',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 10,
+				'description': `
+				1 回合內，隊伍中攻擊力最高 (最左方) 的暗屬性成員攻擊力 10 倍
 				`,
 				'tag': ['增傷', '界王拳']
 			}
@@ -64196,6 +64508,16 @@ export const monsterData: IObject[] = [
 				自身攻擊力減至 0 及人類及魔族攻擊力 2.2 倍，效果持續至全隊沒有發動攻擊
 				`,
 				'tag': [['我方減攻', -1], ['增傷', -1]]
+			},
+			{
+				'name': '喪嬰血仇 ‧ 護',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				所受傷害減少 30%，自身攻擊力減至 0 及人類及魔族攻擊力 2.2 倍，效果持續至全隊沒有發動攻擊
+				`,
+				'tag': [['減傷', -1], ['我方減攻', -1], ['增傷', -1]]
 			}
 		],
 		'teamSkill': [
@@ -64337,7 +64659,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				隨機將 24 粒符石轉化為固定數量的水、火、木、光、暗及心符石；1 回合內，所有屬性符石兼具其他屬性符石效果
 				`,
-				'tag': ['符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉心', '五屬版面', '五屬心版面', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '大幅轉版']
+				'tag': ['符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉心', '五屬版面', '五屬心版面', '大幅轉版', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗']
 			},
 			{
 				'name': '生命約章',
@@ -64348,6 +64670,16 @@ export const monsterData: IObject[] = [
 				發動技能時生命力需為 50% 或以上，自身攻擊力 2.5 倍，場上有其他附加效果時，攻擊力提升至 5 倍，效果持續至我方生命力為 50% 以下
 				`,
 				'tag': [['增傷', -1], ['界王拳', -1]]
+			},
+			{
+				'name': '元素掌控術 ‧ 加冕',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 10,
+				'description': `
+				1 回合內，將所有符石轉化為固定數量的水強化、火強化、木強化、光強化、暗強化及心強化符石；所有屬性符石兼具其他屬性符石效果
+				`,
+				'tag': ['符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉心', '符石轉水強化', '符石轉火強化', '符石轉木強化', '符石轉光強化', '符石轉暗強化', '符石轉心強化', '五屬版面', '五屬心版面', '大幅轉版', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗']
 			}
 		],
 		'teamSkill': [
@@ -69216,6 +69548,22 @@ export const monsterData: IObject[] = [
 				將 5 粒符石轉化為心強化符石 (光及暗符石優先轉換)。1 回合內，心符石兼具 50% 木符石效果；隊伍中每多 1 個木屬性機械族成員，兼具效果額外提升 50%，最多可提升至 300%
 				`,
 				'tag': ['符石轉心', '符石轉心強化', '符石兼具木']
+			},
+			{
+				'name': '森野之光 ‧ 靈念',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 6,
+				'description': `
+				I. 將 5 粒符石轉化為
+				⇒ 心強化符石 (水及暗符石優先轉換)
+				1 回合內
+				II. 心符石兼具 50% 木及光符石效果
+				III. 隊中每多 1 個「木或光屬性」機械族成員
+				⇒ 兼具效果額外提升 50%
+				⇒ 最多可提升至 300%
+				`,
+				'tag': ['符石轉心', '符石轉心強化', '符石兼具木', '符石兼具光']
 			}
 		],
 		'teamSkill': [
@@ -71158,6 +71506,16 @@ export const monsterData: IObject[] = [
 				引爆自身、隊長及戰友直行的符石；1 回合內，若場上有其他附加效果時，全隊攻擊力 2 倍
 				`,
 				'tag': ['引爆', '直行引爆', '增傷']
+			},
+			{
+				'name': '魔劍格拉墨 ‧ 強',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 6,
+				'description': `
+				點擊元素法陣上的 1 粒符石，並將該種符石引爆，以掉落該種符石以外的符石。1 回合內，若場上有其他附加效果時，全隊攻擊力 2.5 倍
+				`,
+				'tag': ['引爆', '指定符石引爆', '引爆強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '增傷']
 			}
 		],
 		'teamSkill': [
@@ -78900,7 +79258,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '三原靈冕化陣 ‧ 神森',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 4,
 				'reduce': 1,
@@ -79702,7 +80060,7 @@ export const monsterData: IObject[] = [
 				◆「罪與責之承諾 ‧ 美狄亞」的主動技能「喋血戰意」變為「喋血戰意 ‧ 虹」，移除「受到的傷害提升 1.5 倍」的效果
 				`,
 				'activate': `以「喵喵大將軍 ‧ 虹伶」作隊長及戰友，並以「罪與責之承諾 ‧ 美狄亞」作隊員`,
-				'skill_tag': ['符石轉火', '人族符石製造', '主動技改變'],
+				'skill_tag': ['符石轉火', '人族符石製造'],
 				'activate_tag': ['指定雙隊長'],
 				'relative': [1047, 2099]
 			},
@@ -83190,7 +83548,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': '大爆炸穿刺',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -83220,7 +83578,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': '斯特比姆炸彈',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -83259,7 +83617,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': '斯派利敖光線',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -83288,7 +83646,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': 'Z 修姆光線',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -84084,7 +84442,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': '強力爆裂光線',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -87145,7 +87503,20 @@ export const monsterData: IObject[] = [
 				<board>將場上所有符石轉化為
 				⇒ 固定數量及位置的「心及火」妖族強化符石</board>
 				`,
-				'tag': ['符石轉火', '符石轉火強化', '符石轉心', '符石轉心強化', '符石強化', '妖族符石製造', '大幅轉版', '固定版面']
+				'tag': ['符石轉火', '符石轉火強化', '符石轉心', '符石轉心強化', '妖族符石製造', '大幅轉版', '固定版面']
+			},
+			{
+				'name': '蟲璧 ‧ 靈動',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				1 回合內
+				I. 2 粒心符石相連即可發動消除 (無視隊長技能的消心禁令)
+				II. <board>將場上所有符石轉化為
+				⇒ 固定數量及位置的「心及火」妖族強化符石</board>
+				`,
+				'tag': ['二消', '符石轉火', '符石轉火強化', '符石轉心', '符石轉心強化', '妖族符石製造', '大幅轉版', '固定版面']
 			}
 		],
 		'teamSkill': [
@@ -88087,6 +88458,30 @@ export const monsterData: IObject[] = [
 				1 回合內
 				⓶ 神族攻擊力及回復力 2 倍
 				⓷「冥魂判守 ‧ 阿努比斯」的技能 CD -2
+				`,
+				'tag': [['增傷', -1], ['改變掉落機率', -1], ['無屬追打', -1], ['自身追打', -1], ['神族符石製造', -1], ['符石強化', -1], ['符石轉暗強化', -1], '隨時關閉', '引爆', '直行引爆', '增回', '減CD', '頭像狀態']
+			},
+			{
+				'name': '斷魂冥淵 ‧ 強',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 5,
+				'description': `
+				I. 全隊攻擊力 1.5 倍
+				II. 自身屬性符石掉落率提升
+				III.「冥魂判守 ‧ 阿努比斯」
+				⇒ 以 50% 攻擊力追打無屬性攻擊 1 次
+				IV. 發動技能及回合結束時
+				⇒ 將自身屬性符石轉化為神族強化符石
+				(效果會在關閉此技能或死亡後消失)
+				
+				此技能可隨時關閉，關閉時：
+				⓵ 引爆自身及身旁成員直行符石
+				⇒ 掉落神族強化符石
+				1 回合內
+				⓶ 全隊攻擊力及回復力 2 倍
+				⓷「冥魂判守 ‧ 阿努比斯」及「究極埃及神」系列成員
+				⇒ 技能 CD -2
 				`,
 				'tag': [['增傷', -1], ['改變掉落機率', -1], ['無屬追打', -1], ['自身追打', -1], ['神族符石製造', -1], ['符石強化', -1], ['符石轉暗強化', -1], '隨時關閉', '引爆', '直行引爆', '增回', '減CD', '頭像狀態']
 			}
@@ -94770,6 +95165,22 @@ export const monsterData: IObject[] = [
 				⇒ 水龍族強化符石
 				`,
 				'tag': ['增傷', '界王拳', '符石轉水', '符石轉水強化', '心轉其他', '龍族符石製造']
+			},
+			{
+				'name': '赤龍殺機',
+				'type': 'changed',
+				'charge': 'EP',
+				'num': 4,
+				'description': `
+				I.「紅鱗值」提升 50 點
+				II. 將心符石轉化為
+				⇒ 火龍族強化符石
+				1 回合內
+				III. 自身攻擊力 3 倍
+				IV. 回合結束時
+				⇒ 將心符石轉化為火強化符石
+				`,
+				'tag': ['心轉其他', '符石轉火', '符石轉火強化', '龍族符石製造', '界王拳', '增傷']
 			}
 		],
 		'teamSkill': [
@@ -96367,7 +96778,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': '人類殲滅系統發動',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -102746,7 +103157,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '給我一雙翅膀',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -116380,7 +116791,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '吞併天下',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 2,
 				'transform': 2753,
@@ -116414,7 +116825,7 @@ export const monsterData: IObject[] = [
 
 				◆「霸權傾軋 ‧ 秦始皇」及「魔身吞佔 ‧ 秦始皇」
 				⓵ 對敵人的傷害 7 倍
-				⓶ 技能 CD 永久 - 2
+				⓶ 技能 CD 永久 -2
 
 				◆ 暗屬性符石兼具 100% 所有符石效果
 
@@ -116433,9 +116844,12 @@ export const monsterData: IObject[] = [
 				◆ 消除符石後
 				⇒ 每首批消除 1 粒 (上限至 30 粒) 水符石、火符石、木符石、光符石或暗符石
 				⇒ 掉落 1 粒 (上限至 30 粒) 暗強化符石
+
+				◆ 隊伍第 2 直行有成員
+				⇒ 隊長獲得主動技能「吞併」
 				`,
 				'activate': `以「霸權傾軋 ‧ 秦始皇」或「魔身吞佔 ‧ 秦始皇」作隊長，並以「霸權傾軋 ‧ 秦始皇」作戰友`,
-				'skill_tag': ['增攻', '增回', '增血', '無視攻前盾', '無視固定連擊盾', '無視反首消盾', '無視燃燒', '防碎裂', '防結界地型', '延長轉珠時間', '敵方受傷增加', '永久減CD', '暗兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具心', '符石效果提升', '龍族符石製造', '意志', '亢奮狀態', '強制掉落'],
+				'skill_tag': ['增攻', '增回', '增血', '無視攻前盾', '無視固定連擊盾', '無視反首消盾', '無視燃燒', '防碎裂', '防結界地型', '延長轉珠時間', '敵方受傷增加', '永久減CD', '暗兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具心', '符石效果提升', '龍族符石製造', '意志', '亢奮狀態', '強制掉落', '主動技改變'],
 				'activate_tag': ['指定隊長戰友'],
 				'relative': [2752, 2753]
 			}
@@ -116505,7 +116919,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '開疆闢土 ‧ 歸一',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 4,
 				'description': `
@@ -119222,6 +119636,29 @@ export const monsterData: IObject[] = [
 				⇒ 人類成員技能 CD -1
 				`,
 				'tag': [['增傷', -1], ['改變掉落機率', -1], ['我方受傷增加', -1], ['界王拳', -1], ['無視五屬盾', -1], '隨時關閉', '減CD', '人族符石製造', '頭像狀態']
+			},
+			{
+				'name': '喋血戰意 ‧ 嗜殺無傷',
+				'type': 'changed',
+				'charge': 'CD',
+				'num': 8,
+				'description': `
+				I. 全隊攻擊力 2.5 倍
+				II. 火符石掉落率提升至 25%
+				III. 人類隊長及自身
+				⓵ 攻擊力額外 2 倍
+				⓶ 無視五屬盾
+				(效果會在關閉此技能或死亡後消失)
+				
+				此技能可隨時關閉，關閉時：
+				⓵ 當前技能 CD -4
+				⓶ 將人類成員直行的符石
+				⇒ 添加為人族符石
+				1 回合內
+				⓷ 首批消除所有火符石
+				⇒ 人類成員技能 CD -1
+				`,
+				'tag': [['增傷', -1], ['改變掉落機率', -1], ['界王拳', -1], ['無視五屬盾', -1], '隨時關閉', '減CD', '人族符石製造', '頭像狀態']
 			}
 		],
 		'teamSkill': [
@@ -123526,7 +123963,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '血戰山河 ‧ 滅暴',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -139935,9 +140372,9 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '廬山亢龍霸！',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
-				'num': 8,
+				'num': 7,
 				'description': `
 				I. 解除自身被封鎖的技能 (此技能無視封鎖技能)
 				II. 將場上的符石變回原始模樣
@@ -140199,7 +140636,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '天馬回旋碎擊拳',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -151757,7 +152194,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '械能狂熱',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -152814,7 +153251,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '元素轉換 ‧ 拾之擊',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -156811,7 +157248,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '暈惑之歷 ‧ 強',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 10,
 				'description': `
@@ -157863,7 +158300,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '吞併',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 1,
 				'transform': [10403, 10404, 10405, 10406, 10407],
@@ -165385,7 +165822,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '<span style=\'color: #2488DF;\'>星</span><span style=\'color: #777777;\'>爆</span><span style=\'color: #2488DF;\'>氣</span><span style=\'color: #777777;\'>流</span><span style=\'color: #2488DF;\'>斬</span>',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -166434,7 +166871,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '聖母聖詠 (亞絲娜)',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -171405,7 +171842,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '特殊十字火焰颶風',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -171872,7 +172309,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '白金之星連打',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -171911,7 +172348,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '白金之指',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -172091,7 +172528,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '西洋劍劍術',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -172179,7 +172616,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '綠寶石之王噴射',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -172289,7 +172726,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '高尚的靈魂',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -173031,7 +173468,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '世界！時間停止',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -173082,7 +173519,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '吃我壓路機',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -173828,7 +174265,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '狂暴烈燄',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -173848,7 +174285,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '炎炙吐息',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -174625,7 +175062,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '慾壑難填',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'EP',
 				'num': 6,
 				'description': `
@@ -174640,7 +175077,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '慾罷不能',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'EP',
 				'num': 6,
 				'description': `
@@ -174653,7 +175090,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '慾海之巔',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'EP',
 				'num': 6,
 				'description': `
@@ -177670,7 +178107,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '元素操控 ‧ 全',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -177684,7 +178121,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '水靈之音 ‧ 固',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -180376,7 +180813,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '忍法 ‧ 蜜牢',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -180401,7 +180838,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '忍法 ‧ 線斬行',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 8,
 				'description': `
@@ -183682,7 +184119,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '覺醒吧！暴食者！',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'transform': [10762, 10763, 10764, 10765, 10766, 10767, 10768],
@@ -188595,7 +189032,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '瘋狂獵殺 ‧ 全',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 7,
 				'description': `
@@ -188614,7 +189051,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '撕裂之爪 ‧ 全',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -190517,7 +190954,7 @@ export const monsterData: IObject[] = [
 		'skill': [
 			{
 				'name': '魅之能量',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -196236,7 +196673,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '第 9 交響曲《歡樂頌》',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -196258,7 +196695,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '第 3 交響曲《英雄》',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -198082,7 +198519,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '石之自由連打',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -198254,7 +198691,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '瘋狂鑽石連打',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 4,
 				'description': `
@@ -198420,7 +198857,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': 'ACT.3 FREEZE',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 4,
 				'description': `
@@ -198557,7 +198994,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '黃金體驗鎮魂曲！！',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'transform': 10899,
@@ -198950,7 +199387,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '空間削除',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 4,
 				'description': `
@@ -199029,7 +199466,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '辣妹連打',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -199128,7 +199565,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '複製貼紙',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -199213,7 +199650,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '鋼鏈手指連打',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 5,
 				'description': `
@@ -200224,7 +200661,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '白金之星 ‧ 世界連打',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'EP',
 				'num': 6,
 				'description': `
@@ -200263,7 +200700,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '白金之星 ‧ 世界！！時間暫停！！',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'EP',
 				'num': 6,
 				'description': `
@@ -200729,7 +201166,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '分裂之魂',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -200828,7 +201265,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '分裂之魂',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -200931,7 +201368,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '分裂之魂',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -201037,7 +201474,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'name': '分裂之魂',
-				'type': 'normal',
+				'type': 'changed',
 				'charge': 'CD',
 				'num': 6,
 				'description': `
@@ -207905,7 +208342,7 @@ export const monsterData: IObject[] = [
             },
             {
                 'name': '神識吞併',
-                'type': 'normal',
+                'type': 'changed',
                 'charge': 'CD',
                 'num': 6,
 				'transform': [11016],
@@ -207917,7 +208354,7 @@ export const monsterData: IObject[] = [
             },
             {
                 'name': '神識吞併',
-                'type': 'normal',
+                'type': 'changed',
                 'charge': 'CD',
                 'num': 6,
 				'transform': [11017],
@@ -207929,7 +208366,7 @@ export const monsterData: IObject[] = [
             },
             {
                 'name': '神識吞併',
-                'type': 'normal',
+                'type': 'changed',
                 'charge': 'CD',
                 'num': 6,
 				'transform': [11018],
@@ -207941,7 +208378,7 @@ export const monsterData: IObject[] = [
             },
             {
                 'name': '神識吞併',
-                'type': 'normal',
+                'type': 'changed',
                 'charge': 'CD',
                 'num': 6,
 				'transform': [11019],
@@ -207953,7 +208390,7 @@ export const monsterData: IObject[] = [
             },
             {
                 'name': '神識吞併',
-                'type': 'normal',
+                'type': 'changed',
                 'charge': 'CD',
                 'num': 6,
 				'transform': [11020],
