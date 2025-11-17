@@ -72,7 +72,7 @@ export const usePopover = () => {
         prevTarget?.setAttribute("style", "")
         target?.setAttribute(
             "style",
-            isOpen ? "outline: 3.5px #FF6666 dashed" : ""
+            isOpen ? "outline: 3px #FF6666 dashed" : ""
         )
 
         prevTarget?.removeAttribute("focused")

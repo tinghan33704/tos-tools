@@ -437,6 +437,34 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                 {children || (
                     <>
                         {searchParam && <ResultTag searchParam={searchParam} />}
+                        {
+                            /***** EASTER EGG *****/
+                            (Array.isArray(searchParam?.functions)
+                                ? searchParam?.functions?.includes("無視紅綠燈")
+                                : Object.keys(searchParam?.functions)?.includes(
+                                      "無視紅綠燈"
+                                  )) && (
+                                <Col
+                                    xs={12}
+                                    style={{
+                                        display: "flex",
+                                        width: "calc(100% - 25px)",
+                                        margin: "0 15px",
+                                        backgroundColor: "rgba(0, 0, 0, 0.15)",
+                                    }}
+                                >
+                                    <Image
+                                        path={`other/neglect_tomori`}
+                                        style={{
+                                            width: "50%",
+                                            margin: "auto",
+                                            objectFit: "contain",
+                                        }}
+                                    />
+                                </Col>
+                            )
+                            /***** EASTER EGG *****/
+                        }
                         <Col xs={12} className='my-2' />
                         {resultView === "table"
                             ? renderTableResult()

@@ -47,15 +47,26 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     )
 
     const renderMonsterName = useCallback(() => {
+        /***** EASTER EGG *****/
+        const specialRaceIcon =
+            id === 10495 ? "kirito" : id === 10444 ? "yao" : null
+        /***** EASTER EGG *****/
+
         const attrStr = attrZhToEn?.[attribute] || "u"
         const raceStr = raceZhToEn?.[race] || "u"
+
+        const attrPath = `icon/icon_${attrStr}`
+        const racePath = specialRaceIcon
+            ? `other/icon_${specialRaceIcon}`
+            : `icon/icon_${raceStr}`
+        const starPath = `icon/icon_${star}`
 
         return (
             <Row className={`result-info-header result-info-header-${attrStr}`}>
                 <Col xs={12} sm={3} className='monster-attr-race-star'>
-                    <Image path={`icon/icon_${attrStr}`} />
-                    <Image path={`icon/icon_${raceStr}`} />
-                    <Image path={`icon/icon_${star}`} />
+                    <Image path={attrPath} />
+                    <Image path={racePath} />
+                    <Image path={starPath} />
                 </Col>
                 <Col
                     xs={12}
@@ -67,7 +78,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 <hr />
             </Row>
         )
-    }, [attribute, name, race, star])
+    }, [attribute, id, name, race, star])
 
     const renderMonsterSkill = useCallback(() => {
         return (skillIndexes || [skillIndex]).map((skillIndex: number) => {
@@ -232,7 +243,11 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             !noImagePopover ? (
                 <Popover
                     id='result-info'
-                    className='result-info-popover'
+                    /***** EASTER EGG *****/
+                    className={`result-info-popover${
+                        id === 10495 ? " kirito" : ""
+                    }`}
+                    /***** EASTER EGG *****/
                     title=''
                 >
                     <>
@@ -246,7 +261,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             ) : (
                 <></>
             ),
-        [noImagePopover, renderMonsterName, renderMonsterSkill]
+        [id, noImagePopover, renderMonsterName, renderMonsterSkill]
     )
 
     const renderIdTag = useCallback(() => {

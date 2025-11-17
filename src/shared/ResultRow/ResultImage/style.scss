@@ -2,7 +2,7 @@
 @import "src/styles/mediaQuery.scss";
 
 [aria-describedby="result-info"] {
-    outline: 3.5px #ff6666 dashed;
+    outline: 3px #ff6666 dashed;
 }
 
 .result-image {
@@ -32,6 +32,24 @@
                 filter: grayscale(100%) opacity(40%);
             }
         }
+
+        /***** EASTER EGG *****/
+        &:has(img[class^="result-image"][src$="10293.png"][focused="true"]) {
+            box-shadow: 0px 0px 5px 4px #87ffbb;
+        }
+
+        img[class^="result-image"][src$="10293.png"][focused="true"] {
+            box-shadow: 0px 0px 5px 4px #87ffbb;
+        }
+
+        &:has(img[class^="result-image"][src$="10296.png"][focused="true"]) {
+            box-shadow: 0px 0px 5px 4px #6dfffc;
+        }
+
+        img[class^="result-image"][src$="10296.png"][focused="true"] {
+            box-shadow: 0px 0px 5px 4px #6dfffc;
+        }
+        /***** EASTER EGG *****/
     }
 
     &-id-tag {
@@ -518,4 +536,27 @@
             }
         }
     }
+
+    /***** EASTER EGG *****/
+    &.kirito .monster-skill-wrapper {
+        .monster-skill {
+            z-index: 1;
+            position: relative;
+        }
+
+        &::after {
+            background-image: url("../../../img/other/starburst.gif");
+            content: "　";
+            position: absolute;
+            display: block;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+        }
+    }
+    /***** EASTER EGG *****/
 }
