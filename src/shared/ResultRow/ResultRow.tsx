@@ -441,9 +441,9 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                             /***** EASTER EGG *****/
                             (Array.isArray(searchParam?.functions)
                                 ? searchParam?.functions?.includes("無視紅綠燈")
-                                : Object.keys(searchParam?.functions)?.includes(
-                                      "無視紅綠燈"
-                                  )) && (
+                                : Object.keys(
+                                      searchParam?.functions || {}
+                                  )?.includes("無視紅綠燈")) && (
                                 <Col
                                     xs={12}
                                     style={{
