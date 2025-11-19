@@ -18,12 +18,21 @@ export interface IResultMonsterImageProps {
     noImagePopover: boolean // Whether information popover should be shown after clicking on image
     togglePopover?: (e: React.MouseEvent) => void
     setPopoverContent?: (content: React.ReactElement) => void
+    searchParam: IObject
+    resultData: IObject[]
 }
 
 export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     props
 ) => {
-    const { data, noImagePopover, togglePopover, setPopoverContent } = props
+    const {
+        data,
+        noImagePopover,
+        togglePopover,
+        setPopoverContent,
+        searchParam,
+        resultData,
+    } = props
     const ref = useRef(null)
     const { toolId } = useContext(Context)
     const { id, skillIndex, skillIndexes, notInInventory, skill } = data
@@ -34,6 +43,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
         attribute = "",
         race = "",
         star = 0,
+        specialImage,
     } = monsterInfo
 
     const skills = useMemo(
@@ -46,8 +56,37 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
         [monsterInfo, skill, toolId]
     )
 
+    const keywordsArr = useMemo(() => searchParam?.keyword, [searchParam])
+    const resultMonsterId = useMemo(
+        () => resultData?.map((data) => data?.id),
+        [resultData]
+    )
+
+    /***** EASTER EGG *****/
+    /* Flags for special image or image change design */
+    const hasSpecialImage = useMemo(() => !!specialImage, [specialImage])
+    const hasImageChange = useMemo(
+        () =>
+            !!(
+                skillIndexes?.length === 1 &&
+                monsterInfo?.skill?.[skillIndexes?.[0]]?.imageChange
+            ),
+        [monsterInfo?.skill, skillIndexes]
+    )
+    const imageChangeArr = useMemo(
+        () => monsterInfo?.skill?.[skillIndexes?.[0]]?.imageChange || [],
+        [monsterInfo?.skill, skillIndexes]
+    )
+
+    /* Reiner sits down when result has Eren */
+    const reinerSitDown =
+        id === 10400 &&
+        resultMonsterId?.some((id) => id === 10383 || id === 10384)
+    /***** EASTER EGG *****/
+
     const renderMonsterName = useCallback(() => {
         /***** EASTER EGG *****/
+        /* Race icon change for Kirito and Maomao */
         const specialRaceIcon =
             id === 10495 ? "kirito" : id === 10444 ? "yao" : null
         /***** EASTER EGG *****/
@@ -244,6 +283,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 <Popover
                     id='result-info'
                     /***** EASTER EGG *****/
+                    /* Popover background change for Kirito */
                     className={`result-info-popover${
                         id === 10495 ? " kirito" : ""
                     }`}
@@ -285,10 +325,58 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     }, [displayId, id, notInInventory])
 
     const renderImage = useCallback(() => {
+        /***** EASTER EGG *****/
+
+        /* Lin Dai-yu changes image at night */
+        const currentTime = new Date(
+            new Date().toLocaleString("en-US", { timeZone: "Asia/Taipei" })
+        )
+        const passedMinutesFromToday =
+            currentTime.getHours() * 60 + currentTime.getMinutes()
+        const isNowNight =
+            id === 10622 &&
+            (passedMinutesFromToday < 6 * 60 ||
+                passedMinutesFromToday >= 18 * 60)
+
+        /* Change digimon image with special keyword */
+        const digimonShinka =
+            [10244, 10245, 10246, 10248, 10249, 10250].includes(id) &&
+            keywordsArr.includes("進化")
+        const digimonChouShinka =
+            [10244, 10245, 10246, 10248, 10249, 10250].includes(id) &&
+            keywordsArr.includes("超進化")
+
+        /* Anya smiles when result has Damian */
+        const anyaSmile =
+            id === 10329 && resultMonsterId?.some((id) => id === 10335)
+
+        const pathId = hasImageChange
+            ? document
+                  .querySelector(
+                      `.result-image[path="monster/${imageChangeArr?.[0]}"]`
+                  )
+                  ?.getAttribute("focused")
+                ? imageChangeArr?.[1]
+                : imageChangeArr?.[0]
+            : (hasSpecialImage &&
+                  document.querySelector(
+                      `.result-image[src$="${id}.png"][focused="true"]`
+                  )) ||
+              anyaSmile
+            ? `${id}_sp`
+            : isNowNight
+            ? `${id}_sp`
+            : digimonChouShinka
+            ? `${id}_sp2`
+            : digimonShinka
+            ? `${id}_sp1`
+            : id
+        /***** EASTER EGG *****/
+
         return (
             <>
                 <Image
-                    path={`monster/${id}`}
+                    path={`monster/${pathId}`}
                     className={`result-image${
                         notInInventory ? " result-image-gray" : ""
                     }${noImagePopover ? " result-image-no-popover" : ""}`}
@@ -304,14 +392,45 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 )}
             </>
         )
-    }, [id, noImagePopover, notInInventory, skillIndex, skillIndexes, skills])
+    }, [
+        hasImageChange,
+        hasSpecialImage,
+        id,
+        imageChangeArr,
+        keywordsArr,
+        noImagePopover,
+        notInInventory,
+        resultMonsterId,
+        skillIndex,
+        skillIndexes,
+        skills,
+    ])
 
     const onClickImage = useCallback(
         (e: React.MouseEvent) => {
-            togglePopover?.(e)
-            setPopoverContent?.(monsterInfoPopover)
+            if (
+                !document
+                    .querySelector(
+                        `.result-image[path="monster/${id}"], .result-image[path^="monster/${id}_sp"]${
+                            hasImageChange
+                                ? `, .result-image[path="monster/${imageChangeArr?.[0]}"], .result-image[path="monster/${imageChangeArr?.[1]}"]`
+                                : ""
+                        }`
+                    )
+                    ?.getAttribute("focused")
+            ) {
+                togglePopover?.(e)
+                setPopoverContent?.(monsterInfoPopover)
+            }
         },
-        [monsterInfoPopover, setPopoverContent, togglePopover]
+        [
+            hasImageChange,
+            id,
+            imageChangeArr,
+            monsterInfoPopover,
+            setPopoverContent,
+            togglePopover,
+        ]
     )
 
     return (
@@ -328,7 +447,12 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 // </OverlayTrigger>
                 <div
                     key={id}
-                    className='result-image-wrapper'
+                    /***** EASTER EGG *****/
+                    /* Reiner sits down when result has Eren */
+                    className={`result-image-wrapper${
+                        reinerSitDown ? " reiner" : ""
+                    }`}
+                    /***** EASTER EGG *****/
                     onClick={onClickImage}
                 >
                     {renderImage()}

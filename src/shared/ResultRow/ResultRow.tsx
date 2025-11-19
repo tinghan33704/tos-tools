@@ -136,6 +136,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                 noImagePopover={noImagePopover}
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
+                                searchParam={searchParam}
                             />
                             {data.length && dataCombine.length ? <hr /> : <></>}
                             {dataCombine.length ? (
@@ -144,6 +145,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                     noImagePopover={noImagePopover}
                                     togglePopover={togglePopover}
                                     setPopoverContent={setPopoverContent}
+                                    searchParam={searchParam}
                                 />
                             ) : (
                                 <></>
@@ -161,6 +163,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         renderNoResult,
         resultDataByAttribute,
         resultDataCombineByAttribute,
+        searchParam,
         setPopoverContent,
         showNoData,
         togglePopover,
@@ -186,6 +189,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                 noImagePopover={noImagePopover}
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
+                                searchParam={searchParam}
                             />
                             {data.length && dataCombine.length ? <hr /> : <></>}
                             {dataCombine.length ? (
@@ -194,6 +198,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                     noImagePopover={noImagePopover}
                                     togglePopover={togglePopover}
                                     setPopoverContent={setPopoverContent}
+                                    searchParam={searchParam}
                                 />
                             ) : (
                                 <></>
@@ -211,6 +216,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         renderNoResult,
         resultDataByRace,
         resultDataCombineByRace,
+        searchParam,
         setPopoverContent,
         showNoData,
         togglePopover,
@@ -256,6 +262,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                             noImagePopover={noImagePopover}
                             togglePopover={togglePopover}
                             setPopoverContent={setPopoverContent}
+                            searchParam={searchParam}
                         />
                     </>
                 )
@@ -267,6 +274,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         noImagePopover,
         renderNoResult,
         resultDataByCharge,
+        searchParam,
         setPopoverContent,
         togglePopover,
     ])
@@ -331,6 +339,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                 noImagePopover={noImagePopover}
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
+                                searchParam={searchParam}
                             />
                             {skillWithFunction.length &&
                             skillWithFunctionCombine.length ? (
@@ -344,6 +353,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                     noImagePopover={noImagePopover}
                                     togglePopover={togglePopover}
                                     setPopoverContent={setPopoverContent}
+                                    searchParam={searchParam}
                                 />
                             ) : (
                                 <></>
@@ -361,6 +371,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         renderNoResult,
         resultData,
         resultDataCombine,
+        searchParam,
         setPopoverContent,
         showNoData,
         togglePopover,
@@ -374,6 +385,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                     noImagePopover={noImagePopover}
                     togglePopover={togglePopover}
                     setPopoverContent={setPopoverContent}
+                    searchParam={searchParam}
                 />
                 {resultData.length > 0 && resultDataCombine.length > 0 ? (
                     <hr />
@@ -386,6 +398,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                         noImagePopover={noImagePopover}
                         togglePopover={togglePopover}
                         setPopoverContent={setPopoverContent}
+                        searchParam={searchParam}
                     />
                 ) : (
                     <></>
@@ -399,6 +412,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         renderNoResult,
         resultData,
         resultDataCombine,
+        searchParam,
         setPopoverContent,
         togglePopover,
     ])
@@ -439,6 +453,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                         {searchParam && <ResultTag searchParam={searchParam} />}
                         {
                             /***** EASTER EGG *****/
+                            /* Show banner if search parameter includes '無視紅綠燈' */
                             (Array.isArray(searchParam?.functions)
                                 ? searchParam?.functions?.includes("無視紅綠燈")
                                 : Object.keys(

@@ -13,11 +13,17 @@ export interface IResultImageGroupProps {
     noImagePopover: boolean
     togglePopover: (e: React.MouseEvent) => void
     setPopoverContent: (content: React.ReactElement) => void
+    searchParam: IObject
 }
 
 const ResultImageGroup: React.FC<IResultImageGroupProps> = (props) => {
-    const { resultData, noImagePopover, togglePopover, setPopoverContent } =
-        props
+    const {
+        resultData,
+        noImagePopover,
+        togglePopover,
+        setPopoverContent,
+        searchParam,
+    } = props
     const { useInventory = false, toolId } = useContext(Context)
     const { playerData } = useContext(DataContext)
 
@@ -58,6 +64,8 @@ const ResultImageGroup: React.FC<IResultImageGroupProps> = (props) => {
                                         noImagePopover={noImagePopover}
                                         togglePopover={togglePopover}
                                         setPopoverContent={setPopoverContent}
+                                        searchParam={searchParam}
+                                        resultData={resultData}
                                     />
                                 )}
                             </LazyLoad>

@@ -207916,11 +207916,11 @@ export const monsterData: IObject[] = [
 	},
     {
         'id': 11003,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '鋼志審結 ‧ 凱撒',
+        'attribute': '木',
+        'race': '獸類',
+		'star': 7,
+		'monsterTag': ['嶄新 ‧ 封王'],
         'crossOver': false,
         'skill': [
             {
