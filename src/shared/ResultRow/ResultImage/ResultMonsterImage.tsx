@@ -2,14 +2,23 @@ import React, { useCallback, useContext, useRef, useMemo } from "react"
 import { Col, Popover, Row } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
+import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
+import ThemeContext from "src/utilities/Context/ThemeContext"
 import {
     descriptionTranslator,
     getMonsterById,
     paddingZeros,
 } from "src/utilities/utils"
-import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
 import Image from "src/utilities/Image"
+import {
+    useChinarashi,
+    useCongratsClicker,
+    useExplode,
+    useGlassBreak,
+    useMangaVoiceText,
+    useMikuDisappear,
+} from "src/hook/EasterEgg/EasterEgg"
 
 import "./style.scss"
 
@@ -82,6 +91,14 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     const reinerSitDown =
         id === 10400 &&
         resultMonsterId?.some((id) => id === 10383 || id === 10384)
+
+    const { setGlassBreak, repairGlass } = useGlassBreak()
+    const { setMangaVoiceText } = useMangaVoiceText()
+    const { setExplode } = useExplode()
+    const { mikuDisappear } = useMikuDisappear()
+    const { repairThemeSwitch } = useContext(ThemeContext)
+    const { setChinarashi } = useChinarashi()
+    const { onClickKirito } = useCongratsClicker()
     /***** EASTER EGG *****/
 
     const renderMonsterName = useCallback(() => {
@@ -350,6 +367,10 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
         const anyaSmile =
             id === 10329 && resultMonsterId?.some((id) => id === 10335)
 
+        /* Cilantro angry when result has Copernicus */
+        const cilantroAngry =
+            id === 2835 && resultMonsterId?.some((id) => id === 2023)
+
         const pathId = hasImageChange
             ? document
                   .querySelector(
@@ -362,7 +383,8 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                   document.querySelector(
                       `.result-image[src$="${id}.png"][focused="true"]`
                   )) ||
-              anyaSmile
+              anyaSmile ||
+              cilantroAngry
             ? `${id}_sp`
             : isNowNight
             ? `${id}_sp`
@@ -422,12 +444,73 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 togglePopover?.(e)
                 setPopoverContent?.(monsterInfoPopover)
             }
+
+            /***** EASTER EGG *****/
+            // Click on Saitama's image breaks the screen
+            if (id === 10294) {
+                setGlassBreak(e.target as HTMLElement, e.pageX, e.pageY)
+            }
+            // Click on Joestars, Dio and Bucciarati's image shows manga voice text
+            if (id === 10581 || id === 10895 || id === 10916) {
+                setMangaVoiceText(
+                    e.target as HTMLElement,
+                    e.pageX,
+                    e.pageY,
+                    "ora"
+                )
+            }
+            if (id === 10598 || id === 10898 || id === 10899) {
+                setMangaVoiceText(
+                    e.target as HTMLElement,
+                    e.pageX,
+                    e.pageY,
+                    "muda"
+                )
+            }
+            if (id === 10903) {
+                setMangaVoiceText(
+                    e.target as HTMLElement,
+                    e.pageX,
+                    e.pageY,
+                    "ari"
+                )
+            }
+            // Click on Kira's image explodes
+            if (id === 10906) {
+                setExplode(e.target as HTMLElement, e.pageX, e.pageY)
+            }
+            // Click on Josuke's image fix the screen and theme switch
+            if (id === 10896) {
+                repairGlass()
+                repairThemeSwitch()
+            }
+            // Click on A Song of Farewell - Hatsune Miku's image she disappears
+            if (id === 10530) {
+                mikuDisappear(e.target as HTMLElement)
+            }
+            // Click on Doomsday Titan's image trigger chinarashi
+            if (id === 10402) {
+                setChinarashi()
+            }
+            // Click on Kirito's image 16 times in 10 seconds show congratulations banner
+            if (id === 10495) {
+                onClickKirito()
+            }
+            /***** EASTER EGG *****/
         },
         [
             hasImageChange,
             id,
             imageChangeArr,
+            mikuDisappear,
             monsterInfoPopover,
+            onClickKirito,
+            repairGlass,
+            repairThemeSwitch,
+            setChinarashi,
+            setExplode,
+            setGlassBreak,
+            setMangaVoiceText,
             setPopoverContent,
             togglePopover,
         ]
@@ -436,15 +519,6 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     return (
         <div ref={ref}>
             {!noImagePopover ? (
-                // <OverlayTrigger
-                //     trigger='click'
-                //     placement='auto-start'
-                //     overlay={monsterInfoPopover}
-                //     container={ref}
-                //     rootClose
-                // >
-                //     <div className='result-image-wrapper' onClick={onClickImage}>{renderImage()}</div>
-                // </OverlayTrigger>
                 <div
                     key={id}
                     /***** EASTER EGG *****/

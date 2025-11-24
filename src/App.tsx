@@ -6,6 +6,11 @@ import { THEMES } from "./constant/toolConfig"
 import { DataContextProvider } from "./utilities/Context/DataContext"
 import { getPlayerStoredData } from "./utilities/utils"
 
+/***** EASTER EGG *****/
+// Theme switch can be broken after clicking too many times
+import { useThemeSwitch } from "./hook/EasterEgg/EasterEgg"
+/***** EASTER EGG *****/
+
 import MainPage from "./page/MainPage"
 import SkillFilter from "./tools/SkillFilter/SkillFilter"
 import TeamSkillFilter from "./tools/TeamSkillFilter"
@@ -20,6 +25,8 @@ import "./styles/themes.scss"
 import "./styles/colors.scss"
 
 const App = () => {
+    const { toggleTheme, repairThemeSwitch } = useThemeSwitch()
+
     const [theme, setTheme] = useState<string>(
         localStorage?.getItem("TOOL_THEME")
             ? THEMES?.includes(localStorage?.getItem("TOOL_THEME") || "")
@@ -35,9 +42,12 @@ const App = () => {
                 ((THEMES?.findIndex((item) => item === theme) || 0) + 1) %
                     THEMES.length
             ]
-        setTheme(_theme)
-        localStorage.setItem("TOOL_THEME", _theme)
-    }, [theme])
+
+        toggleTheme(() => {
+            setTheme(_theme)
+            localStorage.setItem("TOOL_THEME", _theme)
+        })
+    }, [theme, toggleTheme])
 
     useEffect(() => {
         const currentTheme = localStorage.getItem("TOOL_THEME")
@@ -45,7 +55,11 @@ const App = () => {
     }, [])
 
     return (
-        <ThemeContextProvider theme={theme} changeTheme={changeTheme}>
+        <ThemeContextProvider
+            theme={theme}
+            changeTheme={changeTheme}
+            repairThemeSwitch={repairThemeSwitch}
+        >
             <DataContextProvider
                 playerData={playerData}
                 setPlayerData={setPlayerData}
