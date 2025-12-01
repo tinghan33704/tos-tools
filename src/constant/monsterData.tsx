@@ -1,4 +1,4 @@
-// Last modified : 2025.11.30 00:38
+// Last modified : 2025.12.01 20:53
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -214461,7 +214461,7 @@ export const monsterData: IObject[] = [
                 'name': '吞吞漩渦陷阱',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 5,	// TODO: 確認CD
+                'num': 6,
 				'combine': {
 					'member': [11075, 11075, 11075],
 					'out': 11076
@@ -214706,12 +214706,12 @@ export const monsterData: IObject[] = [
 		],
 		'board': [
 			{
-				'board': [	// TODO: 確認版面樣式
-					'-', '-', '-', '-', '-', '-', 
-					'-', '-', '-', '-', '-', '-', 
-					'-', '-', '-', '-', '-', '-', 
-					'-', '-', '-', '-', '-', '-', 
-					'-', '-', '-', '-', '-', '-', 
+				'board': [
+					'1b', '2b', '3b', '1b', '2b', '3b', 
+					'1b', '2b', '3b', '1b', '2b', '3b', 
+					'1b', '2b', '3b', '1b', '2b', '3b', 
+					'1b', '2b', '3b', '1b', '2b', '3b', 
+					'1b', '2b', '3b', '1b', '2b', '3b', 
 				],
 				'note': [
 					'首次點選的種類強化符石',
@@ -214746,16 +214746,14 @@ export const monsterData: IObject[] = [
         'monsterTag': ['貓貓蟲咖波', '素材'],
         'crossOver': true,
         'skill': [
-            {
-                'name': '',
-                'type': 'normal',
-                'charge': 'CD',
-                'num': 0,
-                'description': `
-
-                `,
-                'tag': []
-            }
+			{
+				'name': '沒有技能',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 0,
+				'description': `沒有技能`,
+				'tag': []
+			}
         ],
         'teamSkill': [
 			{
@@ -214824,16 +214822,14 @@ export const monsterData: IObject[] = [
         'monsterTag': ['貓貓蟲咖波', '素材'],
         'crossOver': true,
         'skill': [
-            {
-                'name': '',
-                'type': 'normal',
-                'charge': 'CD',
-                'num': 0,
-                'description': `
-
-                `,
-                'tag': []
-            }
+			{
+				'name': '沒有技能',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 0,
+				'description': `沒有技能`,
+				'tag': []
+			}
         ],
         'teamSkill': [
 			{
@@ -214920,10 +214916,10 @@ export const monsterData: IObject[] = [
 
 				V.「技能關閉」時
 				⇒ 隊長為光屬性獸類或【貓貓蟲咖波】成員
-				⓵ 移除所有符石
-				⇒ 掉落固定版面符石 (五屬及心獸類符石)
+				⓵ <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心獸類符石)</board>
 				▋ 反之，獲得以下效果：
-				⓵ 將所有符石轉化為固定版面符石 (五屬及心獸類符石)
+				⓵ <board>將所有符石轉化為固定版面符石 (五屬及心獸類符石)</board>
                 `,
                 'tag': [['增傷', -1], ['無視紅綠燈', -1], ['符石轉光', -1], ['符石轉光強化', -1], ['獸族符石製造', -1], ['無視符石禁消', -1], '隨時關閉', '移除', '整版移除', '移除強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '五屬版面', '五屬心版面', '固定版面', '符石轉水', '符石轉火', '符石轉木', '符石轉暗', '符石轉心', '符石轉水強化', '符石轉火強化', '符石轉木強化', '符石轉暗強化', '符石轉心強化', '大幅轉版', '頭像狀態']
             }
@@ -214981,6 +214977,15 @@ export const monsterData: IObject[] = [
 				'relative': ['貓貓蟲咖波']
 			}
 		],
+		'board': [
+			[
+				'lb', 'lb', 'lb', 'lb', 'lb', 'lb', 
+				'lb', 'wb', 'fb', 'eb', 'db', 'lb', 
+				'lb', 'wb', 'fb', 'eb', 'db', 'lb', 
+				'lb', 'wb', 'fb', 'eb', 'db', 'lb', 
+				'lb', 'hb', 'hb', 'hb', 'hb', 'lb', 
+			]
+		],
         'maxLevel': 99,
         'maxSkill': 12,
         'maxRefine': 0,
@@ -215002,8 +215007,8 @@ export const monsterData: IObject[] = [
                 'num': 6,
                 'description': `
 				I. 還原所有「碎裂」的位置
-				II. 引爆所有符石
-				⇒ 掉落固定版面符石 (水屬性及心獸類強化符石)
+				II. <board>引爆所有符石
+				⇒ 掉落固定版面符石 (水屬性及心獸類強化符石)</board>
 				1 回合內
 				III.【貓貓蟲咖波】成員無視「步數盾」
 				IV. 隊伍成員無視「步數限制」
@@ -215074,6 +215079,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': ['貓貓蟲咖波']
 			}
+		],
+		'board': [
+			[
+				'Hb', 'Wb', 'Hb', 'Hb', 'Wb', 'Hb', 
+				'Hb', 'Wb', 'Wb', 'Wb', 'Wb', 'Hb', 
+				'Wb', 'Wb', 'Wb', 'Wb', 'Wb', 'Wb', 
+				'Wb', 'Wb', 'Wb', 'Wb', 'Wb', 'Wb', 
+				'Hb', 'Wb', 'Wb', 'Wb', 'Wb', 'Hb', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -215160,22 +215174,22 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11082,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['貓貓蟲咖波'],
+        'name': '兔兔',
+        'attribute': '暗',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['貓貓蟲咖波', '兔兔'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '愛的兔兔',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 5,
                 'description': `
 
                 `,
-                'tag': []
+                'tag': ['符石轉心', '符石轉心強化', '獸族符石製造', '固定版面', '增傷', '無視固定連擊盾', '無視連擊相等盾', '增加Ex.Combo', '增加Combo', '無屬追打', '減CD']
             }
         ],
         'teamSkill': [
@@ -215230,6 +215244,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': ['貓貓蟲咖波']
 			}
+		],
+		'board': [
+			[
+				'-' , '-' , '-' , '-' , '-' , '-' , 
+				'-' , '-' , '-' , '-' , '-' , '-' , 
+				'-' , '-' , '-' , '-' , '-' , '-' , 
+				'-' , '-' , '-' , '-' , '-' , '-' , 
+				'Hb', 'Hb', 'Hb', 'Hb', 'Hb', 'Hb', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -215411,11 +215434,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11085,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['貓貓蟲咖波'],
+        'name': '黑貓蟲與黑貓蟲寶寶',
+        'attribute': '暗',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['貓貓蟲咖波', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {
@@ -215489,11 +215512,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11086,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['貓貓蟲咖波'],
+        'name': '鯊魚貓蟲',
+        'attribute': '水',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['貓貓蟲咖波', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {
@@ -215567,11 +215590,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11087,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['貓貓蟲咖波'],
+        'name': '殭屍貓蟲',
+        'attribute': '木',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['貓貓蟲咖波', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {
@@ -215645,11 +215668,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11088,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['貓貓蟲咖波'],
+        'name': '國王咖波',
+        'attribute': '光',
+        'race': '獸類',
+        'star': 7,
+        'monsterTag': ['貓貓蟲咖波', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {

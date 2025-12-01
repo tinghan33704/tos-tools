@@ -1,4 +1,4 @@
-// Last modified : 2025.11.29 15:46
+// Last modified : 2025.12.01 20:53
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -41201,6 +41201,29 @@ export const leaderSkillData: IObject[] = [
 			}
 		],
 		'monster': [11072]
+	},
+	{
+		'name': '咖波奧義',
+		'description': `
+		I. 【貓貓蟲咖波】成員
+		⓵ 攻擊力 100 倍
+		⓶ 生命力及回復力 4 倍
+		II. 消除隊伍成員屬性符石或種族符石
+		⇒ 隊伍成員攻擊力 1.6 倍
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '增回'],
+				'object': ['特定成員'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': [],
+				'limit': ['消除特定符石', '消除種族符石']
+			}
+		],
+		'monster': [11073, 11074, 11075, 11076, 11079, 11080, 11082, 11084]
 	},
 	{
 		'name': '歷劫之道',
