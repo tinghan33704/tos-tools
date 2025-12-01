@@ -65258,7 +65258,7 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 每移動 1 步
 				⇒【貓貓蟲咖波】成員攻擊力增加 0.1 倍 (上限至 2.5 倍)
-				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11088,name:"國王咖波",attribute:"光",race:"獸類",star:7,monsterTag:["貓貓蟲咖波","地獄魔王"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11088,name:"",attribute:"",race:"",star:0,monsterTag:["貓貓蟲咖波"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[{description:`
 				◆ 獲得「龍脈儀抗性」
@@ -65290,7 +65290,7 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 每移動 1 步
 				⇒【貓貓蟲咖波】成員攻擊力增加 0.1 倍 (上限至 2.5 倍)
-				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11089,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11089,name:"國王咖波",attribute:"光",race:"獸類",star:7,monsterTag:["貓貓蟲咖波","地獄魔王"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11090,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
