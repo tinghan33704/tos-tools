@@ -1,4 +1,4 @@
-// Last modified : 2025.12.01 20:53
+// Last modified : 2025.12.01 21:07
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -215668,11 +215668,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11088,
-        'name': '國王咖波',
-        'attribute': '光',
-        'race': '獸類',
-        'star': 7,
-        'monsterTag': ['貓貓蟲咖波', '地獄魔王'],
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': ['貓貓蟲咖波'],
         'crossOver': true,
         'skill': [
             {
@@ -215746,12 +215746,12 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11089,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '國王咖波',
+        'attribute': '光',
+        'race': '獸類',
+        'star': 7,
+        'monsterTag': ['貓貓蟲咖波', '地獄魔王'],
+        'crossOver': true,
         'skill': [
             {
                 'name': '',
