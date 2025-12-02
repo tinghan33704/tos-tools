@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useRef, useMemo } from "react"
 import { Col, Popover, Row } from "react-bootstrap"
+import _ from "lodash"
 import { AutoTextSize } from "auto-text-size"
 
 import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
@@ -371,6 +372,9 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
         const cilantroAngry =
             id === 2835 && resultMonsterId?.some((id) => id === 2023)
 
+        /* Random images for Capoo */
+        const capooImage = id === 11075
+
         const pathId = hasImageChange
             ? document
                   .querySelector(
@@ -392,6 +396,10 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             ? `${id}_sp2`
             : digimonShinka
             ? `${id}_sp1`
+            : document.querySelector(
+                  `.result-image[src$="${id}.png"][focused="true"]`
+              ) && capooImage
+            ? `${id}_sp${_.random(1, 5)}`
             : id
         /***** EASTER EGG *****/
 

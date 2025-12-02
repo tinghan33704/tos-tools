@@ -1,4 +1,4 @@
-// Last modified : 2025.12.01 21:07
+// Last modified : 2025.12.02 22:19
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -213777,6 +213777,7 @@ export const monsterData: IObject[] = [
         'star': 6,
         'monsterTag': ['貓貓蟲咖波'],
         'crossOver': true,
+		'specialImage': true,
         'skill': [
             {
                 'name': '次元巨口吞食',
@@ -214245,7 +214246,7 @@ export const monsterData: IObject[] = [
                 'num': 6,
                 'description': `
 				I. 移動符石時間延至 20 秒
-				II. <board>增加 3 行固定版面符石 (五屬及心獸類符石)</board>
+				II. <board>增加 3 行固定版面符石 (五屬及心獸類強化符石)</board>
 				1 回合內
 				III. 獸類及【貓貓蟲咖波】成員
 				⓵ 攻擊力 2.5 倍
