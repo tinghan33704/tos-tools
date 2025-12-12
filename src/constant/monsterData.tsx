@@ -1,4 +1,4 @@
-// Last modified : 2025.12.08 23:19
+// Last modified : 2025.12.13 00:38
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -215287,21 +215287,31 @@ export const monsterData: IObject[] = [
     {
         'id': 11083,
         'name': '咖波與兔兔',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['貓貓蟲咖波'],
+        'attribute': '水',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['貓貓蟲咖波', '咖波與兔兔'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '飽足親親逆襲',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 5,
                 'description': `
-
+				I. <board>將第 1 直行轉化為水強化符石</board>
+				II. <board>將第 6 直行轉化為心獸類符石</board>
+				1 回合內
+				III. 增加 8 連擊 (Ex. Combo、Combo)
+				IV. 只能消除首批符石
+				V. 連擊 (Combo) 時攻擊力提升 80%
+				VI. 回合結束時
+				<board>⓵ 將第 1 直行轉化為水強化符石
+				⓶ 將第 6 直行轉化為心獸類符石</board>
+				VII. 發動角色符石或有擊斃敵人
+				⇒ 該回合不會扣減該技能效果的尚餘回合數
                 `,
-                'tag': []
+                'tag': ['符石轉水', '符石轉水強化', '符石轉心', '獸族符石製造', '固定版面', '增加Ex.Combo', '增加Combo', '只能首消符石', 'Combo時增攻', '增傷']
             }
         ],
         'teamSkill': [
@@ -215356,6 +215366,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': ['貓貓蟲咖波']
 			}
+		],
+		'board': [
+			[
+				'W' , '-' , '-' , '-' , '-' , 'hb', 
+				'W' , '-' , '-' , '-' , '-' , 'hb', 
+				'W' , '-' , '-' , '-' , '-' , 'hb', 
+				'W' , '-' , '-' , '-' , '-' , 'hb', 
+				'W' , '-' , '-' , '-' , '-' , 'hb', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -215467,14 +215486,21 @@ export const monsterData: IObject[] = [
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '寶寶毀滅哭嚎',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 解除「結界地型」及「隱身」
+				2 回合內
+				II. 隊長為獸類或【貓貓蟲咖波】成員 (發動技能時)
+				⇒ 隊伍成員無視「反首消符石盾」及「首消組數屬性符石盾」
+				III. 每消除 1 組【貓貓蟲咖波】成員屬性符石
+				⇒ 隊伍成員攻擊力增加 1.3 倍 (上限至 4.9 倍)
+				IV.【貓貓蟲咖波】成員數目 ≥2
+				⇒ 效果的持續時間更改為 3 回合
                 `,
-                'tag': []
+                'tag': ['解除結界地型', '解除隱身', ['無視反首消盾', 3], ['無視首消組數屬性盾', 3], ['增傷', 3]]
             }
         ],
         'teamSkill': [
@@ -215635,14 +215661,24 @@ export const monsterData: IObject[] = [
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '臭臭領域展開',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I.「殭屍貓蟲」進入 6 回合「殞命輪迴倒數」狀態
+				⇒ 自身攻擊力及回復力 5 倍
+				II. 自身對敵人造成 5 億點木屬性的傷害 1 次 (此傷害無視「強化突破」及「防禦力」)
+				1 回合內
+				III. 隊伍成員
+				⓵ 攻擊力及回復力 2 倍
+				⓶ 無視「中毒」
+				⓷ 無視「瘴氣地型」
+				IV. 獸類及【貓貓蟲咖波】成員無視「十字限盾」、「T字限盾」及「L字限盾」
+				V. 隊中每有 1 個【貓貓蟲咖波】成員 (自身除外)
+				⇒ 效果的持續時間增加 1 回合
                 `,
-                'tag': []
+                'tag': [['界王拳', 6], ['增傷', 6], ['增回', 6], '直傷', '破強化直傷', '破防直傷', ['防毒', 6], ['無視瘴氣', 6], ['無視十字盾', 6], ['無視T字盾', 6], ['無視L字盾', 6]]
             }
         ],
         'teamSkill': [
