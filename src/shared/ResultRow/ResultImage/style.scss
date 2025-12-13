@@ -329,6 +329,85 @@
             }
         }
 
+        &-tags {
+            .tag-expander-header {
+                color: var(--table-border);
+                text-align: center;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+            .tag-wrapper {
+                padding: 3px !important;
+
+                .result-tag {
+                    font-size: 1em;
+                    font-weight: bold;
+                    border-radius: 5px;
+                    color: var(--text-white);
+                    padding: 2px;
+                    cursor: default;
+
+                    align-items: center !important;
+                    justify-content: center;
+
+                    &-w {
+                        background: color-mix(
+                            in srgb,
+                            var(--popover-monster-name-water),
+                            var(--popover-bg) 50%
+                        );
+                    }
+                    &-f {
+                        background: color-mix(
+                            in srgb,
+                            var(--popover-monster-name-fire),
+                            var(--popover-bg) 50%
+                        );
+                    }
+                    &-e {
+                        background: color-mix(
+                            in srgb,
+                            var(--popover-monster-name-earth),
+                            var(--popover-bg) 50%
+                        );
+                    }
+                    &-l {
+                        background: color-mix(
+                            in srgb,
+                            var(--popover-monster-name-light),
+                            var(--popover-bg) 50%
+                        );
+                    }
+                    &-d {
+                        background: color-mix(
+                            in srgb,
+                            var(--popover-monster-name-dark),
+                            var(--popover-bg) 50%
+                        );
+                    }
+                    &-o {
+                        background: color-mix(
+                            in srgb,
+                            var(--text-white),
+                            var(--popover-bg) 50%
+                        );
+                    }
+                    &-u {
+                        background: color-mix(
+                            in srgb,
+                            var(--popover-monster-name-undefined),
+                            var(--popover-bg) 50%
+                        );
+                    }
+                }
+                .tag-subtext {
+                    color: #ccccff;
+                    font-size: 0.8em;
+                }
+            }
+        }
+
         &-description {
             &-row {
                 width: 100%;

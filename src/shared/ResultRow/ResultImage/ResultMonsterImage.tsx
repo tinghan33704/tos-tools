@@ -1,7 +1,15 @@
 import React, { useCallback, useContext, useRef, useMemo } from "react"
-import { Col, Popover, Row } from "react-bootstrap"
+import {
+    Accordion,
+    AccordionContext,
+    Col,
+    Popover,
+    Row,
+    useAccordionButton,
+} from "react-bootstrap"
 import _ from "lodash"
 import { AutoTextSize } from "auto-text-size"
+import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons"
 
 import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
@@ -12,6 +20,7 @@ import {
     paddingZeros,
 } from "src/utilities/utils"
 import Image from "src/utilities/Image"
+import Icon from "src/utilities/Icon"
 import {
     useChinarashi,
     useCongratsClicker,
@@ -30,6 +39,18 @@ export interface IResultMonsterImageProps {
     setPopoverContent?: (content: React.ReactElement) => void
     searchParam: IObject
     resultData: IObject[]
+}
+
+const TagExpanderHeader = ({ eventKey }: IObject) => {
+    const { activeEventKey } = useContext(AccordionContext)
+    const onClick = useAccordionButton(eventKey, () => {})
+    const isOpen = activeEventKey === eventKey
+
+    return (
+        <div className='tag-expander-header' onClick={onClick}>
+            <Icon icon={isOpen ? faAngleUp : faAngleDown} />
+        </div>
+    )
 }
 
 export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
@@ -136,6 +157,43 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             </Row>
         )
     }, [attribute, id, name, race, star])
+
+    const renderMonsterTags = useCallback(
+        (tags: [string | [string, number]]) => {
+            return (
+                <Accordion>
+                    <TagExpanderHeader eventKey='0' />
+                    <Accordion.Collapse eventKey='0'>
+                        <Row
+                            style={{
+                                width: "100%",
+                                margin: 0,
+                            }}
+                        >
+                            {tags?.map((tag: string | [string, number]) => {
+                                const tagText = _.isArray(tag) ? tag?.[0] : tag
+                                const attr = attrZhToEn?.[attribute] || "u"
+
+                                return (
+                                    <Col xs={6} sm={4} className='tag-wrapper'>
+                                        <div
+                                            className={`result-tag result-tag-${attr}`}
+                                            title={`${tagText}`}
+                                        >
+                                            <AutoTextSize maxFontSizePx={14}>
+                                                {tagText}
+                                            </AutoTextSize>
+                                        </div>
+                                    </Col>
+                                )
+                            })}
+                        </Row>
+                    </Accordion.Collapse>
+                </Accordion>
+            )
+        },
+        [attribute]
+    )
 
     const renderMonsterSkill = useCallback(() => {
         return (skillIndexes || [skillIndex]).map((skillIndex: number) => {
@@ -277,6 +335,17 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                     <Col xs={12} sm={12} className='monster-skill-hr'>
                         <hr />
                     </Col>
+                    {skill?.tag && (
+                        <>
+                            {/* Currently only support skill filter */}
+                            <Col xs={12} sm={12} className='monster-skill-tags'>
+                                {renderMonsterTags(skill?.tag)}
+                            </Col>
+                            <Col xs={12} sm={12} className='monster-skill-hr'>
+                                <hr />
+                            </Col>
+                        </>
+                    )}
                     <Row className='monster-skill-description-row'>
                         <Col
                             xs={12}
@@ -293,7 +362,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 </Row>
             )
         })
-    }, [id, skillIndex, skillIndexes, skills])
+    }, [id, renderMonsterTags, skillIndex, skillIndexes, skills])
 
     const monsterInfoPopover = useMemo(
         () =>
