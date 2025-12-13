@@ -38,6 +38,7 @@ $--popover-border: --popover-border;
 $--popover-skill-name: --popover-skill-name;
 $--popover-skill-name-refine: --popover-skill-name-refine;
 $--popover-skill-name-recall: --popover-skill-name-recall;
+$--popover-skill-name-changed: --popover-skill-name-changed;
 $--popover-skill-charge: --popover-skill-charge;
 $--popover-skill-description: --popover-skill-description;
 $--popover-skill-description-fixed-board-label: --popover-skill-description-fixed-board-label;
@@ -104,6 +105,7 @@ $theme-light: (
     $--popover-skill-name: yellow,
     $--popover-skill-name-refine: orange,
     $--popover-skill-name-recall: #91dff3,
+    $--popover-skill-name-changed: #35e85c,
     $--popover-skill-charge: #ff6666,
     $--popover-skill-description: var(--text-white),
     $--popover-skill-description-fixed-board-label: #82e8ff,
@@ -170,6 +172,7 @@ $theme-dark: (
     $--popover-skill-name: #9a9a00,
     $--popover-skill-name-refine: #cc8300,
     $--popover-skill-name-recall: #70add1,
+    $--popover-skill-name-changed: #1d9b36,
     $--popover-skill-charge: #aa4444,
     $--popover-skill-description: var(--text-white),
     $--popover-skill-description-fixed-board-label: #2ba4bc,

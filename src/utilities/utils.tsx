@@ -396,7 +396,7 @@ export const descriptionTranslator = (
               )
               .replace(
                   /【連攜魔導式】/g,
-                  `<span class='desc-note-label-0 desc-multiple-label'>【連攜魔導式】</span>`
+                  `<span class='desc-note-label-0 desc-linking-label'>【連攜魔導式】</span>`
               )
               .replace(
                   /亢奮(狀態)?/g,

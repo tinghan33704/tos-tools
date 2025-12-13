@@ -273,9 +273,11 @@
             }
 
             &-normal,
-            &-combine,
-            &-changed {
+            &-combine {
                 color: var(--popover-skill-name);
+            }
+            &-changed {
+                color: var(--popover-skill-name-changed);
             }
             &-refine,
             &-refine-changed {
@@ -355,6 +357,10 @@
             }
             .desc-multiple-label {
                 color: var(--popover-skill-description-multiple-label);
+            }
+            .desc-linking-label {
+                color: var(--popover-skill-description-multiple-label);
+                cursor: pointer;
             }
             .desc-anno-label {
                 opacity: 0.55;
