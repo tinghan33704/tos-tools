@@ -487,6 +487,11 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 description: skill?.description,
                                 changedSkill: skill?.changedSkill || false,
                                 type: "normal",
+                                tag: _.uniq(
+                                    skill?.tag
+                                        ?.map((tag: IObject) => tag?.name)
+                                        .flat()
+                                ),
                             },
                             skillIndex: 0,
                         })
@@ -704,6 +709,11 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 description: skill?.description,
                                 changedSkill: skill?.changedSkill || false,
                                 type: "normal",
+                                tag: _.uniq(
+                                    skill?.tag
+                                        ?.map((tag: IObject) => tag?.name)
+                                        .flat()
+                                ),
                             },
                             skillIndex: 0,
                         })
@@ -755,6 +765,11 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                             description: skill?.description,
                             changedSkill: skill?.changedSkill || false,
                             type: "normal",
+                            tag: _.uniq(
+                                skill?.tag
+                                    ?.map((tag: IObject) => tag?.name)
+                                    .flat()
+                            ),
                         },
                         skillIndex: 0,
                     })

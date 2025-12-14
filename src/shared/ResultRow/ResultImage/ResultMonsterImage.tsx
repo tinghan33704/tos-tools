@@ -160,6 +160,10 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
 
     const renderMonsterTags = useCallback(
         (tags: [string | [string, number]]) => {
+            const noRepeatedTags = _.uniq(
+                tags.map((tag) => (_.isArray(tag) ? tag?.[0] : tag))
+            )
+
             return (
                 <Accordion>
                     <TagExpanderHeader eventKey='0' />
@@ -170,23 +174,30 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                 margin: 0,
                             }}
                         >
-                            {tags?.map((tag: string | [string, number]) => {
-                                const tagText = _.isArray(tag) ? tag?.[0] : tag
-                                const attr = attrZhToEn?.[attribute] || "u"
+                            {noRepeatedTags?.map(
+                                (tag: string | [string, number]) => {
+                                    const attr = attrZhToEn?.[attribute] || "u"
 
-                                return (
-                                    <Col xs={6} sm={4} className='tag-wrapper'>
-                                        <div
-                                            className={`result-tag result-tag-${attr}`}
-                                            title={`${tagText}`}
+                                    return (
+                                        <Col
+                                            xs={6}
+                                            sm={4}
+                                            className='tag-wrapper'
                                         >
-                                            <AutoTextSize maxFontSizePx={14}>
-                                                {tagText}
-                                            </AutoTextSize>
-                                        </div>
-                                    </Col>
-                                )
-                            })}
+                                            <div
+                                                className={`result-tag result-tag-${attr}`}
+                                                title={`${tag}`}
+                                            >
+                                                <AutoTextSize
+                                                    maxFontSizePx={14}
+                                                >
+                                                    {tag}
+                                                </AutoTextSize>
+                                            </div>
+                                        </Col>
+                                    )
+                                }
+                            )}
                         </Row>
                     </Accordion.Collapse>
                 </Accordion>
@@ -337,7 +348,6 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                     </Col>
                     {skill?.tag && (
                         <>
-                            {/* Currently only support skill filter */}
                             <Col xs={12} sm={12} className='monster-skill-tags'>
                                 {renderMonsterTags(skill?.tag)}
                             </Col>
