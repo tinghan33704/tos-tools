@@ -65321,9 +65321,17 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 每移動 1 步
 				⇒【貓貓蟲咖波】成員攻擊力增加 0.1 倍 (上限至 2.5 倍)
-				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11088,name:"咖波與兔兔與狗狗",attribute:"",race:"",star:0,monsterTag:["貓貓蟲咖波"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[{description:`
+				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11088,name:"咖波與兔兔與狗狗",attribute:"火",race:"獸類",star:6,monsterTag:["貓貓蟲咖波","公會任務"],crossOver:!0,skill:[{name:"聖誕大暴擊",type:"normal",charge:"CD",num:6,description:`
+				I. <board 1>將最底 3 橫行轉化為固定版面符石 (水屬性、火屬性及木屬性獸類強化符石)</board>
+				2 回合內
+				II. 隊長為獸類或【貓貓蟲咖波】成員 (發動技能時)
+				⓵ 消除符石後
+				⇒ 自身技能 CD -2
+				⓶ 回合結束時
+				⇒ <board 2>將所有符石轉化為最後放手的種類強化符石</board>
+				III. 首批消除符石種類的數量 ≤3
+				⇒ 隊伍成員攻擊力 3 倍
+                `,tag:[["符石轉水",2],["符石轉火",2],["符石轉木",2],["符石轉水強化",2],["符石轉火強化",2],["符石轉木強化",2],"獸族符石製造",["大幅轉版",2],"固定版面",["減CD",2],["符石轉光",2],["符石轉暗",2],["符石轉心",2],["符石轉光強化",2],["符石轉暗強化",2],["符石轉心強化",2],["增傷",2]]}],teamSkill:[{description:`
 				◆ 獲得「龍脈儀抗性」
 				
 				◆ 獲得龍脈儀能力「咖波友誼」：
@@ -65353,9 +65361,87 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 每移動 1 步
 				⇒【貓貓蟲咖波】成員攻擊力增加 0.1 倍 (上限至 2.5 倍)
-				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11089,name:"國王咖波",attribute:"光",race:"獸類",star:7,monsterTag:["貓貓蟲咖波","地獄魔王"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],board:[["-","-","-","-","-","-","-","-","-","-","-","-","Wb","Fb","Eb","Wb","Fb","Eb","Wb","Fb","Eb","Wb","Fb","Eb","Wb","Fb","Eb","Wb","Fb","Eb"],{board:["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"],note:["最後放手的種類強化符石"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11089,name:"國王咖波",attribute:"光",race:"獸類",star:7,monsterTag:["貓貓蟲咖波","地獄魔王"],crossOver:!0,skill:[{name:"皇家小雞衛隊",type:"normal",charge:"CD",num:3,description:`
+				自身「小雞」數量 ≥1 方可發動此技能
 
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11090,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				I. 自身的「小雞」-1
+				II. 點選場上的符石 1 次
+				⇒ 將點選的種類符石轉化為光強化符石
+				1 回合內
+				III. 自身
+				⓵ 攻擊力 10 倍
+				⓶ 以隊伍成員的總攻擊力對敵人後追打點選的種類攻擊 1 次
+				IV. 獸類及【貓貓蟲咖波】成員無視「血浴地型」及「連擊護盾」
+				V.【貓貓蟲咖波】成員攻擊力跟隨攻擊力最高的【貓貓蟲咖波】成員
+				VI. 使敵人進入「電擊」狀態，持續 1 回合
+				▋ 使敵人無法行動
+				▋ 敵人轉換為光屬性
+                `,tag:["指定符石轉其他","符石轉光","符石轉光強化","界王拳","增傷","水屬追打","火屬追打","木屬追打","光屬追打","暗屬追打","無屬追打","自身追打","無視血浴地型","無視攻擊次數盾","共鳴","電擊敵方","無法行動","敵方轉光","敵身狀態"]}],teamSkill:[{description:`
+				◆ 隊伍成員
+				⓵ 攻擊力 12 倍
+				⓶ 無視「指定形狀盾」、「固定連擊盾」、「反首消符石盾」、「指定連擊法印」及「符石連擊零化」
+				⓷ 無視「燃燒」及「黏腐」
+
+				◆ 移動符石時間必延 8 秒
+
+				◆ 所有符石兼具 180% 光符石效果
+
+				◆ 光符石效果提升 80%
+
+				◆ 每消除 1 粒光符石或心符石 (上限至 12 粒)
+				⇒ 增加 2 連擊 (Combo) (上限增加 24 )
+
+				◆ 首批消除所有光符石
+				⓵ 獲得「強減傷」至 0
+				⓶ 回合結束時
+				⇒「國王咖波」的「小雞」+1
+
+				◆ 發動角色符石
+				⓵ 光符石及心符石首批 1 粒即可發動消除
+				⓶ 回合結束時
+				⇒ 將第 1 及 5 橫行轉化為固定版面符石 (光屬性及心獸類強化符石)
+
+				◆ 我方發動攻擊前
+				⇒ 隊長對敵人造成 2 億點光屬性的傷害 1 次
+				`,activate:"以「國王咖波」作隊長及戰友",skill_tag:["增攻","無視拼圖盾","無視固定連擊盾","無視反首消盾","無視連擊法印","無視追擊零化","無視燃燒","無視黏腐","延長轉珠時間","水兼具其他","火兼具其他","木兼具其他","暗兼具其他","心兼具其他","符石兼具光","符石效果提升","增加Combo","減傷","一消","符石轉光","符石轉心","符石轉光強化","符石轉心強化","獸族符石製造","固定版面","直傷"],activate_tag:["指定雙隊長"],relative:[11089]},{description:`
+				◆「國王咖波」可以持有「小雞」(上限 6)
+				
+				◆ 進場時
+				⇒「國王咖波」的「小雞」+6
+
+				◆【貓貓蟲咖波】成員每次發動主動技能時 (「國王咖波」除外)
+				⇒「國王咖波」的「小雞」+1
+				`,activate:"以「國王咖波」作成員",skill_tag:[],activate_tag:[],relative:[11089]},{description:`
+				◆ 獲得「龍脈儀抗性」
+				
+				◆ 獲得龍脈儀能力「咖波友誼」：
+
+				▋ 消耗 100% 龍脈儀能量
+				▋【貓貓蟲咖波】成員
+				⓵ 技能 CD -1
+				⓶ 技能 EP +1
+				▋ 點選其中 1 個選項，獲得相應效果：
+				【兔兔】
+				將所有符石轉化為固定版面符石 (五屬及心獸類強化符石)
+				【狗狗】
+				引爆所有符石
+				⇒ 掉落固定版面符石 (五屬及心獸類強化符石)
+				【咖波】
+				移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心獸類強化符石)
+				1 回合內
+				▋【貓貓蟲咖波】成員無視「十字限盾」、「T字限盾」及「L字限盾」
+				`,activate:"以【貓貓蟲咖波】角色作隊長及戰友",skill_tag:["龍脈儀抗性","龍脈儀能力"],activate_tag:["指定隊長戰友"],relative:["貓貓蟲咖波"]},{description:`
+				◆【貓貓蟲咖波】成員「三圍」基值 1.8 倍
+				`,activate:"以 ≥3 個【貓貓蟲咖波】角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]},{description:`
+				◆ 發動【貓貓蟲咖波】成員角色符石
+				⇒ 移動符石時
+				⓵ 將觸碰的符石轉化為強化符石
+				⓶ 將觸碰的符石添加為獸類符石
+				
+				◆ 每移動 1 步
+				⇒【貓貓蟲咖波】成員攻擊力增加 0.1 倍 (上限至 2.5 倍)
+				`,activate:"以【貓貓蟲咖波】角色作成員",skill_tag:["符石強化","獸族符石製造","增攻"],activate_tag:["指定成員"],relative:["貓貓蟲咖波"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11090,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11091,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
@@ -75454,7 +75540,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		⓶ 生命力及回復力 4 倍
 		II. 消除隊伍成員屬性符石或種族符石
 		⇒ 隊伍成員攻擊力 1.6 倍
-		`,tag:[{name:["增攻","增血","增回"],object:["特定成員"],limit:[]},{name:"增攻",object:[],limit:["消除特定符石","消除種族符石"]}],monster:[11073,11074,11075,11076,11079,11080,11081,11082,11083,11084,11085,11086,11087]},{name:"歷劫之道",description:`
+		`,tag:[{name:["增攻","增血","增回"],object:["特定成員"],limit:[]},{name:"增攻",object:[],limit:["消除特定符石","消除種族符石"]}],monster:[11073,11074,11075,11076,11079,11080,11081,11082,11083,11084,11085,11086,11087,11088]},{name:"御喵親征",description:`
+		I. 獸類及【貓貓蟲咖波】成員
+		⓵ 攻擊力 100 倍
+		⓶ 生命力及回復力 4.5 倍
+		II. 戰鬥中所獲得的金幣增加 100%
+		III. 消除角色符石或種族符石
+		⇒ 隊伍成員對敵人的傷害 2.8 倍
+		`,tag:[{name:["增攻","增血","增回"],object:["獸","特定成員"],limit:[]},{name:"物品掉落增加",object:[],limit:[]},{name:["敵方受傷增加","增攻"],object:[],limit:["消除角色符石","消除種族符石"]}],monster:[11089]},{name:"歷劫之道",description:`
 		I. 全隊攻擊力 8 倍
 		II. 心符石兼具屬性符石效果
 		III. 隊中有 ≥3 種族成員時
