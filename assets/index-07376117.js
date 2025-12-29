@@ -65494,7 +65494,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒「早安吉祥 ‧ 天照」攻擊力 2 倍
 				`,activate:"以「早安吉祥 ‧ 天照」作成員",skill_tag:["其他減CD","增加Combo","增攻"],activate_tag:[],relative:[11090]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11091,name:"晚安好夢 ‧ 月讀",attribute:"暗",race:"神族",star:6,monsterTag:["元旦祝福"],crossOver:!1,skill:[{name:"懶羊羊詛咒",type:"normal",charge:"CD",num:6,description:`
 				I. 點選元素法陣上的符石 6 次
-				⇒ 將最底 3 橫行轉化為固定版面符石 (點選的符石種類強化符石)
+				⇒ <board>將最底 3 橫行轉化為固定版面符石 (點選的符石種類強化符石)</board>
 
 				II. 光屬性、暗屬性及神族成員無視「% 防禦盾」
 				III. 隊伍成員無視「瘴氣地型」
@@ -65503,7 +65503,7 @@ function print() { __p += __j.call(arguments, '') }
 				VI. 發動角色符石
 				⇒ 可任意移動符石而不會發動消除
 				VII. 回合結束時
-				⇒ 將最底 3 橫行轉化為固定版面符石 (點選的符石種類強化符石)
+				⇒ <board>將最底 3 橫行轉化為固定版面符石 (點選的符石種類強化符石)</board>
 				(此技能可隨時關閉，效果會在此「技能關閉」或死亡後消失)
 
 				VIII.「技能關閉」時
@@ -65543,7 +65543,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒「早安吉祥 ‧ 天照」及「晚安好夢 ‧ 月讀」攻擊力 2 倍
 				▋ 反之，若進場時間 (GMT+8) ≥18:00 且 <06:00
 				⇒「晚安好夢 ‧ 月讀」攻擊力 2 倍
-				`,activate:"以「晚安好夢 ‧ 月讀」作成員",skill_tag:["其他減CD","增加Combo","增攻"],activate_tag:[],relative:[11091]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11092,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以「晚安好夢 ‧ 月讀」作成員",skill_tag:["其他減CD","增加Combo","增攻"],activate_tag:[],relative:[11091]}],board:[{board:["-","-","-","-","-","-","-","-","-","-","-","-","1","2","3","4","5","6","1","2","3","4","5","6","1","2","3","4","5","6"],note:["首次點選的種類強化符石","第 2 次點選的種類強化符石","第 3 次點選的種類強化符石","第 4 次點選的種類強化符石","第 5 次點選的種類強化符石","第 6 次點選的種類強化符石"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2025.61"},{id:11092,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11093,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
