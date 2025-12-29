@@ -127,7 +127,10 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                 )
                     hasTag = true
 
-                if (!hasTag) continue
+                if (hasTag) {
+                    result.push({ id: monster.id })
+                    continue
+                }
             }
 
             if (isExtraTagSelected) {
