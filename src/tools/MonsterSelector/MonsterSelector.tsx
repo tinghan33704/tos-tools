@@ -6,6 +6,9 @@ import {
     tagString,
     versionString,
     extraFilterData,
+    attrTypeString,
+    raceTypeString,
+    starTypeString,
 } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
 
@@ -25,6 +28,9 @@ interface IMonsterSelectorProps {}
 
 const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
     const [input, setInput] = useState<number[]>([])
+    const [selectedAttributes, setSelectedAttributes] = useState<string[]>([])
+    const [selectedRaces, setSelectedRaces] = useState<string[]>([])
+    const [selectedStars, setSelectedStars] = useState<string[]>([])
     const [selectedTags, setSelectedTags] = useState<string[]>([])
     const [selectedExtraTags, setSelectedExtraTags] = useState<string[]>([])
     const [selectedVersions, setSelectedVersions] = useState<string[]>([])
@@ -37,11 +43,21 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
 
     const typeMap: IObject = useMemo(() => {
         return {
+            attribute: [selectedAttributes, setSelectedAttributes],
+            race: [selectedRaces, setSelectedRaces],
+            star: [selectedStars, setSelectedStars],
             tag: [selectedTags, setSelectedTags],
             extraTag: [selectedExtraTags, setSelectedExtraTags],
             version: [selectedVersions, setSelectedVersions],
         }
-    }, [selectedExtraTags, selectedTags, selectedVersions])
+    }, [
+        selectedAttributes,
+        selectedExtraTags,
+        selectedRaces,
+        selectedStars,
+        selectedTags,
+        selectedVersions,
+    ])
 
     useEffect(() => {
         setFavIconAndTitle("monster-selector")
@@ -88,11 +104,21 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
     const startFilter = useCallback(() => {
         setResultPanelClicked(false)
 
+        const isAttrSelected = !!selectedAttributes.length
+        const isRaceSelected = !!selectedRaces.length
+        const isStarSelected = !!selectedStars.length
         const isTagSelected = !!selectedTags.length
         const isExtraTagSelected = !!selectedExtraTags.length
         const isVersionSelected = !!selectedVersions.length
 
-        if (!isTagSelected && !isExtraTagSelected && !isVersionSelected) {
+        if (
+            !isAttrSelected &&
+            !isRaceSelected &&
+            !isStarSelected &&
+            !isTagSelected &&
+            !isExtraTagSelected &&
+            !isVersionSelected
+        ) {
             errorAlert(11)
             return
         }
@@ -108,7 +134,16 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
         const tagGroup = selectedExtraData.map((tagObj) => tagObj?.tags).flat(1)
 
         for (const monster of monsterData) {
-            if (!monster?.star || monster?.star <= 0 || monster?.displayId)
+            if (
+                !monster?.star ||
+                monster?.star <= 0 ||
+                monster?.displayId ||
+                (isAttrSelected &&
+                    !selectedAttributes.includes(monster.attribute)) ||
+                (isRaceSelected && !selectedRaces.includes(monster.race)) ||
+                (isStarSelected &&
+                    !selectedStars.map((s) => +s[0]).includes(monster.star))
+            )
                 continue
 
             if (isTagSelected) {
@@ -159,6 +194,15 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                     result.push({ id: monster.id })
                 }
             }
+
+            if (
+                (isAttrSelected || isRaceSelected || isStarSelected) &&
+                !isTagSelected &&
+                !isExtraTagSelected &&
+                !isVersionSelected
+            ) {
+                result.push({ id: monster.id })
+            }
         }
 
         setResultData(
@@ -172,7 +216,15 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             ])
         )
         setIsAfterFilter(true)
-    }, [input, selectedExtraTags, selectedTags, selectedVersions])
+    }, [
+        input,
+        selectedAttributes,
+        selectedExtraTags,
+        selectedRaces,
+        selectedStars,
+        selectedTags,
+        selectedVersions,
+    ])
 
     const openInputModal = useCallback(() => {
         setInputModalOpen(true)
@@ -224,6 +276,9 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             toolId='monster-selector'
             toggleButton={toggleButton}
             resetAll={resetAll}
+            attribute={selectedAttributes}
+            race={selectedRaces}
+            star={selectedStars}
             tag={selectedTags}
             extraTag={selectedExtraTags}
             version={selectedVersions}
@@ -232,6 +287,22 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             <Header />
             <PageContainer openInputModal={openInputModal}>
                 <>
+                    <FilterRow
+                        title={"召喚獸屬性"}
+                        type={"attribute"}
+                        data={attrTypeString}
+                    />
+                    <FilterRow
+                        title={"召喚獸種族"}
+                        type={"race"}
+                        data={raceTypeString}
+                    />
+                    <FilterRow
+                        title={"召喚獸稀有度"}
+                        type={"star"}
+                        data={starTypeString}
+                        btnSuffix={" ★"}
+                    />
                     <FilterRow
                         title={"官方標籤"}
                         type={"tag"}

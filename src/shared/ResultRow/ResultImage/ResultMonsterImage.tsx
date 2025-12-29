@@ -438,10 +438,10 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
         /* Change digimon image with special keyword */
         const digimonShinka =
             [10244, 10245, 10246, 10248, 10249, 10250].includes(id) &&
-            keywordsArr.includes("進化")
+            keywordsArr?.includes("進化")
         const digimonChouShinka =
             [10244, 10245, 10246, 10248, 10249, 10250].includes(id) &&
-            keywordsArr.includes("超進化")
+            keywordsArr?.includes("超進化")
 
         /* Anya smiles when result has Damian */
         const anyaSmile =
