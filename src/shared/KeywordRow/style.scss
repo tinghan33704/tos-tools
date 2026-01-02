@@ -20,7 +20,7 @@
 
 .keyword-input {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 6px;
     border: var(--filter-btn-border) 1px solid !important;
     color: var(--text-black) !important;
     background-color: var(--background-color) !important;
@@ -32,6 +32,11 @@
     &-wrapper {
         display: flex;
         justify-content: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+        .bottom-col {
+            border-bottom: 1px solid var(--text-black);
+            opacity: 0.2;
+            margin-top: 1rem;
+        }
     }
 }

@@ -962,6 +962,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                         title={"功能"}
                         type={"functions"}
                         data={skillFunctionString}
+                        enableSearch
                     />
                     <KeywordRow />
                     <FilterRow
@@ -969,6 +970,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                         type={"tag"}
                         data={tagString}
                         collapsible
+                        enableSearch
                     />
                     <FilterRow
                         title={"召喚獸屬性"}

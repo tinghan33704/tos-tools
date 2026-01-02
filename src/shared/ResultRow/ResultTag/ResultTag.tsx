@@ -28,7 +28,7 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
     const renderTag = useCallback(
         (type: string, text: string, subText: string = "") => {
             return (
-                <Col xs={12} sm={3} className='tag-wrapper'>
+                <Col xs={6} sm={3} className='tag-wrapper'>
                     <div
                         className={`result-tag ${type}-tag`}
                         title={`${text}${

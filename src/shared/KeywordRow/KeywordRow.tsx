@@ -1,6 +1,7 @@
 import React, { useCallback, useContext } from "react"
 import { faUndo } from "@fortawesome/free-solid-svg-icons"
 import { Col, Form, Row } from "react-bootstrap"
+import { AutoTextSize } from "auto-text-size"
 
 import { inputMaxLength } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
@@ -24,14 +25,18 @@ const KeywordRow: React.FC = () => {
     return (
         <>
             <Row className='keyword-row'>
-                <Col xs={12} className='keyword-row-title'>
-                    <h3>關鍵字搜尋</h3>
+                <Col xs={8} md={9} className='keyword-row-title'>
+                    <h3>
+                        <AutoTextSize maxFontSizePx={26}>
+                            關鍵字搜尋
+                        </AutoTextSize>
+                    </h3>
                 </Col>
-                <Col xs={12} className='keyword-row-reset-button'>
+                <Col xs={4} md={3} className='keyword-row-reset-button'>
                     <Button
                         className={"reset-btn"}
                         icon={faUndo}
-                        text={`重置關鍵字`}
+                        text={`重置`}
                         onClick={resetKeyword}
                     />
                 </Col>
@@ -50,7 +55,7 @@ const KeywordRow: React.FC = () => {
                         />
                     </Form.Group>
                 </Form>
-                <Col xs={12} className='my-2' />
+                <Col xs={12} className='bottom-col' />
             </Row>
         </>
     )

@@ -275,6 +275,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
         <ContextProvider
             toolId='monster-selector'
             toggleButton={toggleButton}
+            resetButton={resetButton}
             resetAll={resetAll}
             attribute={selectedAttributes}
             race={selectedRaces}
@@ -308,7 +309,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         type={"tag"}
                         data={tagString}
                         collapsible
-                        hideReset
+                        enableSearch
                     />
                     <FilterRow
                         title={"其他標籤"}
@@ -318,14 +319,13 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         )}
                         collapsible
                         defaultOpen
-                        hideReset
+                        enableSearch
                     />
                     <FilterRow
                         title={"版本標籤"}
                         type={"version"}
                         data={versionString}
                         collapsible
-                        hideReset
                     />
                     <div ref={resultRef}>
                         {isAfterFilter ? (

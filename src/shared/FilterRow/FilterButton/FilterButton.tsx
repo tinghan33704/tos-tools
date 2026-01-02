@@ -53,8 +53,8 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
     const buttonId = `${group}-${index}`
     return (
         <Col
-            xs={size?.xs || 6}
-            md={size?.md || 4}
+            xs={size?.xs || 4}
+            md={size?.md || 3}
             lg={size?.lg || 2}
             className='btn-shell'
             title={`${text}${suffix}`}

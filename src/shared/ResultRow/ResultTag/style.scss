@@ -17,6 +17,11 @@
             white-space: nowrap;
             padding: 5px;
             cursor: default;
+            background: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.5) 10px,
+                transparent 0
+            );
         }
         .function-tag,
         .skill-function-tag {

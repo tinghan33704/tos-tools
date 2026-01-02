@@ -20,6 +20,9 @@
             font-size: 2rem;
             color: var(--text-black);
         }
+
+        display: flex;
+        justify-content: end;
     }
 
     &-collapsible {
@@ -28,6 +31,37 @@
 
     &-title {
         color: var(--text-black);
+    }
+
+    &-search {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        svg {
+            font-size: 1.2rem;
+            color: var(--text-black);
+            padding-right: 5px;
+        }
+
+        .search-bar {
+            width: 100%;
+            height: 36px;
+            border: none;
+            border-bottom: 1px solid var(--table-border);
+            background-color: transparent;
+            color: var(--text-black);
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 1rem;
+            cursor: pointer;
+        }
     }
 }
 

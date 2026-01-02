@@ -875,6 +875,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         title={"功能"}
                         type={"functions"}
                         data={leaderSkillFunctionString}
+                        enableSearch
                     />
                     <KeywordRow />
                     <FilterRow
@@ -882,6 +883,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         type={"tag"}
                         data={tagString}
                         collapsible
+                        enableSearch
                     />
                     <FilterRow
                         title={"召喚獸屬性"}

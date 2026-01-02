@@ -536,11 +536,13 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         title={"龍脈能力"}
                         type={"skillFunctions"}
                         data={craftSkillTypeString}
+                        enableSearch
                     />
                     <FilterRow
                         title={"武裝能力"}
                         type={"armedFunctions"}
                         data={craftArmedTypeString}
+                        enableSearch
                     />
                     <KeywordRow />
                     <FilterRow

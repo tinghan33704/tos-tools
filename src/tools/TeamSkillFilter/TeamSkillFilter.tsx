@@ -375,6 +375,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         title={"功能"}
                         type={"functions"}
                         data={teamSkillFunctionString}
+                        enableSearch
                     />
                     <KeywordRow />
                     <FilterRow

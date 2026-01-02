@@ -1,14 +1,19 @@
 import React, { useCallback, useContext, useState } from "react"
+import _ from "lodash"
 import { Col, Row, Collapse } from "react-bootstrap"
 import {
     faCaretDown,
     faCaretUp,
+    faCircleXmark,
+    faMagnifyingGlass,
     faUndo,
 } from "@fortawesome/free-solid-svg-icons"
+import { AutoTextSize } from "auto-text-size"
 
 import Context from "src/utilities/Context/Context"
 import Button from "src/utilities/Button"
 import Icon from "src/utilities/Icon"
+import { textSanitizer } from "src/utilities/utils"
 import FilterButtonGroup from "./FilterButtonGroup"
 
 import "./style.scss"
@@ -21,6 +26,7 @@ export interface IFilterRowProps {
     collapsible?: boolean
     defaultOpen?: boolean
     hideReset?: boolean
+    enableSearch?: boolean
 }
 
 const FilterRow: React.FC<IFilterRowProps> = (props) => {
@@ -31,26 +37,35 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
         btnSuffix = "",
         collapsible,
         defaultOpen = false,
+        enableSearch = false,
         hideReset,
     } = props
     const { resetButton } = useContext(Context)
 
     const [isCollapseOpen, setIsCollapseOpen] = useState<boolean>(defaultOpen)
+    const [searchText, setSearchText] = useState<string>("")
+    const [searchDisplayText, setSearchDisplayText] = useState<string>("")
 
     const renderFilterButtonGroupRow = useCallback(() => {
         return (
-            // Do not remove <div /> here, <div /> wrapped here is necessary for <Collapse /> to work
-            <div>
-                <FilterButtonGroup
-                    type={type}
-                    groupData={data}
-                    btnSuffix={btnSuffix}
-                    useLazyLoad={collapsible}
-                    {...(collapsible ? { isCollapseOpen } : {})}
-                />
-            </div>
+            <FilterButtonGroup
+                type={type}
+                groupData={data}
+                btnSuffix={btnSuffix}
+                useLazyLoad={collapsible}
+                {...(collapsible ? { isCollapseOpen } : {})}
+                {...(enableSearch ? { searchText } : {})}
+            />
         )
-    }, [btnSuffix, collapsible, data, isCollapseOpen, type])
+    }, [
+        btnSuffix,
+        collapsible,
+        data,
+        enableSearch,
+        isCollapseOpen,
+        searchText,
+        type,
+    ])
 
     const toggleCollapse = useCallback(() => {
         setIsCollapseOpen(!isCollapseOpen)
@@ -60,20 +75,57 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
         resetButton(type)
     }, [resetButton, type])
 
+    const onSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchDisplayText(e?.target?.value)
+        _.debounce(() => setSearchText(textSanitizer(e?.target?.value)), 500)()
+    }, [])
+
+    const renderSearchRow = useCallback(() => {
+        return (
+            <Col xs={12} className='filter-row-search'>
+                <Icon icon={faMagnifyingGlass} />
+                <input
+                    type='text'
+                    className='search-bar'
+                    placeholder=''
+                    value={searchDisplayText}
+                    onChange={onSearch}
+                />
+                {!!searchDisplayText?.length && (
+                    <Icon
+                        className='clear-search'
+                        icon={faCircleXmark}
+                        style={{ fontSize: "14px", opacity: 0.6 }}
+                        onClick={() => {
+                            setSearchText("")
+                            setSearchDisplayText("")
+                        }}
+                    />
+                )}
+            </Col>
+        )
+    }, [onSearch, searchDisplayText])
+
     return (
         <>
             <Row className='filter-row'>
                 {collapsible ? (
                     <>
                         <Col
-                            xs={11}
+                            xs={hideReset ? 11 : 7}
+                            md={hideReset ? 11 : 8}
                             className='filter-row-collapsible filter-row-title'
                             onClick={toggleCollapse}
                         >
-                            <h3>{title}</h3>
+                            <h3>
+                                <AutoTextSize maxFontSizePx={26}>
+                                    {title}
+                                </AutoTextSize>
+                            </h3>
                         </Col>
                         <Col
                             xs={1}
+                            md={1}
                             className='filter-row-collapsible filter-row-trigger'
                             onClick={toggleCollapse}
                         >
@@ -83,28 +135,42 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
                         </Col>
                     </>
                 ) : (
-                    <Col xs={12} className='filter-row-title'>
-                        <h3>{title}</h3>
-                    </Col>
+                    <>
+                        <Col
+                            xs={hideReset ? 12 : 8}
+                            md={hideReset ? 12 : 9}
+                            className='filter-row-title'
+                        >
+                            <h3>
+                                <AutoTextSize maxFontSizePx={26}>
+                                    {title}
+                                </AutoTextSize>
+                            </h3>
+                        </Col>
+                    </>
                 )}
                 {!hideReset && (
                     <>
-                        <Col xs={12} className='filter-row-reset-button'>
+                        <Col xs={4} md={3} className='filter-row-reset-button'>
                             <Button
                                 className={"reset-btn"}
                                 icon={faUndo}
-                                text={`重置${title}`}
+                                text={`重置`}
                                 onClick={resetAll}
                             />
                         </Col>
-                        <Col xs={12} className='my-2' />
                     </>
                 )}
+                {!collapsible && enableSearch && renderSearchRow()}
             </Row>
             <Row className={`${type}-row filter-button-group-wrapper`}>
                 {collapsible ? (
                     <Collapse in={isCollapseOpen}>
-                        {renderFilterButtonGroupRow()}
+                        {/* Do not remove <div /> here, <div /> wrapped here is necessary for <Collapse /> to work */}
+                        <div>
+                            {enableSearch && renderSearchRow()}
+                            {renderFilterButtonGroupRow()}
+                        </div>
                     </Collapse>
                 ) : (
                     renderFilterButtonGroupRow()
