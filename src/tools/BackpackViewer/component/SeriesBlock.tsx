@@ -33,6 +33,7 @@ const showFirstStageAsEmptyPreview = [
     "偶像光環",
     "棋盤上的革命",
     "魔法學習之路",
+    "無限升級",
 ]
 const showFinalStageEvenNotExist = [
     "強力武裝",
