@@ -1,4 +1,4 @@
-// Last modified : 2026.01.06 22:09
+// Last modified : 2026.01.08 18:22
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -216455,7 +216455,7 @@ export const monsterData: IObject[] = [
 				◆ 進場時或回合結束時
 				⇒ 將所有符石轉化為人類強化符石
 
-				◆ 每進入下一層數 (Wave) 時
+				◆ 進場時或每進入下一層數 (Wave) 時
 				⇒ 使敵人進入「點燃」狀態，持續 1 回合
 				▋ 敵人轉換為火屬性
 
@@ -216982,7 +216982,7 @@ export const monsterData: IObject[] = [
 				⓵ 攻擊力 3 倍
 				⓶ 以攻擊力的 50% 對敵人追打五屬及無屬性攻擊各 1 次
 				III. 隊長為【我獨自升級】成員 (發動技能時)
-				⇒ 消除符石後自身技能 CD -4
+				⇒ 消除符石後，自身技能 CD -4
 				IV. 以右方 3 直行首次起手
 				⓵ 隊伍成員攻擊傷害無視「指定形狀盾」
 				⓶ 移動符石時
@@ -217266,10 +217266,10 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11103,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
+        'name': '艾希 ‧ 拉迪勒',
+        'attribute': '火',
+        'race': '魔族',
+        'star': 6,
         'monsterTag': ['我獨自升級'],
         'crossOver': true,
         'skill': [
@@ -217305,22 +217305,29 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11104,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['我獨自升級'],
+        'name': '巴魯卡',
+        'attribute': '水',
+        'race': '妖精類',
+        'star': 6,
+        'monsterTag': ['我獨自升級', '巴魯卡'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '狂獵衝鋒',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 妖精類及【我獨自升級】成員進入 2 回合「亢奮」狀態
+				II. 隊伍成員解除「技能封鎖」狀態 (此技能無視「技能封鎖」狀態)
+				2 回合內
+				III. 妖精類及【我獨自升級】成員無視「全版消除盾」
+				IV. 隊伍成員對人類敵人的傷害 2 倍
+				V. 掉落的水符石及心符石添加為「加護」符石
+				VI. 隊中只有妖精類成員或隊長為【我獨自升級】成員
+				⇒ 消除符石後，隊伍成員技能 CD -1 (「巴魯卡」除外)
                 `,
-                'tag': []
+                'tag': [['亢奮狀態', 2], ['增傷', 2], '解鎖', ['無視首消全版盾', 2], ['對人類增傷', 2], ['敵方受傷增加', 2], ['加護符石製造', 2], ['減CD', 2]]
             }
         ],
         'teamSkill': [
@@ -217596,22 +217603,32 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11110,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['我獨自升級'],
+        'name': '卡勒凱坎',
+        'attribute': '火',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['我獨自升級', '闇影士兵', '地獄魔王'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '巨人頌歌',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 解除「結界地型」
+				II. 點選場上的符石 1 次
+				1 回合內
+				III. 隊伍成員
+				⓵ 攻擊力及回復力 2.5 倍
+				⓶ 無視「灼熱地型」
+				IV. 魔族及【我獨自升級】成員無視「全消盾」
+				V. 發動角色符石
+				⇒ 我方發動攻擊前，自身對敵人造成 100% 點選的種類的傷害總共 30 次
+				VI. 消除符石後
+				⇒ 首 2 批符石掉落點選的種類魔族強化符石
                 `,
-                'tag': []
+                'tag': ['解除結界地型', '增傷', '增回', '無視灼熱地型', '無視全首消盾', '直傷', '天降強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '魔族符石製造']
             }
         ],
         'teamSkill': [
@@ -217674,22 +217691,27 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11112,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['我獨自升級'],
+        'name': '金哲',
+        'attribute': '光',
+        'race': '人類',
+        'star': 6,
+        'monsterTag': ['我獨自升級', '獵人', '闇影士兵', '金哲'],
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '橫掃斧擊',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 將所有符石轉化為強化符石
+				2 回合內
+				II. 人類及【我獨自升級】成員無視「連擊相等盾」
+				III. 每回合「再爆發」150% 自身屬性及無屬性傷害各 1 次
+				IV. 回合結束時
+				⇒ 將所有符石轉化為強化符石
                 `,
-                'tag': []
+                'tag': [['符石強化', 2], ['無視連擊相等盾', 2], ['再爆發', 2]]
             }
         ],
         'teamSkill': [
