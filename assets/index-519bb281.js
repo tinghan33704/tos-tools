@@ -66086,7 +66086,7 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 進場時
 				⇒【我獨自升級】成員技能 CD -2
-				`,activate:"以 ≥2 個【我獨自升級】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["我獨自升級"]}],board:[["Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.10"},{id:11103,name:"艾希 ‧ 拉迪勒",attribute:"火",race:"魔族",star:6,monsterTag:["我獨自升級"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以 ≥2 個【我獨自升級】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["我獨自升級"]}],board:[["Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh","Wh","-","-","-","-","Wh"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.10"},{id:11103,name:"艾希 ‧ 拉迪勒",attribute:"火",race:"魔族",star:6,monsterTag:["我獨自升級"],crossOver:!0,skill:[{name:"烈焰劍舞",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[{description:`
 				◆【我獨自升級】成員「三圍」基值 1.4 倍
@@ -66189,6 +66189,8 @@ function print() { __p += __j.call(arguments, '') }
 				VI. 消除符石後
 				⇒ 首 2 批符石掉落點選的種類魔族強化符石
                 `,tag:["解除結界地型","增傷","增回","無視灼熱地型","無視全首消盾","直傷","天降強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗","強制掉心","魔族符石製造"]}],teamSkill:[{description:`
+				◆【闇影士兵】成員轉換為暗屬性
+				`,activate:"以「闇影君主 ‧ 成振宇」作隊長及戰友，並以【闇影士兵】角色作成員",skill_tag:["召喚獸轉暗"],activate_tag:["指定雙隊長","指定成員"],relative:[11096,"闇影士兵"]},{description:`
 				◆【我獨自升級】成員「三圍」基值 1.4 倍
 				
 				◆ 進場時
@@ -66208,6 +66210,8 @@ function print() { __p += __j.call(arguments, '') }
 				IV. 回合結束時
 				⇒ 將所有符石轉化為強化符石
                 `,tag:[["符石強化",2],["無視連擊相等盾",2],["再爆發",2]]}],teamSkill:[{description:`
+				◆【闇影士兵】成員轉換為暗屬性
+				`,activate:"以「闇影君主 ‧ 成振宇」作隊長及戰友，並以【闇影士兵】角色作成員",skill_tag:["召喚獸轉暗"],activate_tag:["指定雙隊長","指定成員"],relative:[11096,"闇影士兵"]},{description:`
 				◆【我獨自升級】成員「三圍」基值 1.4 倍
 				
 				◆ 進場時
