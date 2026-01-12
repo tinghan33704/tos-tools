@@ -1,4 +1,4 @@
-// Last modified : 2026.01.08 18:22
+// Last modified : 2026.01.12 15:58
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -217274,7 +217274,7 @@ export const monsterData: IObject[] = [
         'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '烈焰劍舞',
                 'type': 'normal',
                 'charge': 'CD',
                 'num': 0,
@@ -217634,6 +217634,15 @@ export const monsterData: IObject[] = [
         'teamSkill': [
 			{
 				'description': `
+				◆【闇影士兵】成員轉換為暗屬性
+				`,
+				'activate': `以「闇影君主 ‧ 成振宇」作隊長及戰友，並以【闇影士兵】角色作成員`,
+				'skill_tag': ['召喚獸轉暗'],
+				'activate_tag': ['指定雙隊長', '指定成員'],
+				'relative': [11096, '闇影士兵']
+			},
+			{
+				'description': `
 				◆【我獨自升級】成員「三圍」基值 1.4 倍
 				
 				◆ 進場時
@@ -217715,6 +217724,15 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [
+			{
+				'description': `
+				◆【闇影士兵】成員轉換為暗屬性
+				`,
+				'activate': `以「闇影君主 ‧ 成振宇」作隊長及戰友，並以【闇影士兵】角色作成員`,
+				'skill_tag': ['召喚獸轉暗'],
+				'activate_tag': ['指定雙隊長', '指定成員'],
+				'relative': [11096, '闇影士兵']
+			},
 			{
 				'description': `
 				◆【我獨自升級】成員「三圍」基值 1.4 倍
