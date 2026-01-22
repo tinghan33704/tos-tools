@@ -56,7 +56,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
     let curIndex = 0
 
     return (
-        <Row className='filter-button-group'>
+        <Row className='filter-button-group' key={`button_group_${type}`}>
             <Row>
                 {_groupData.map((group: string | string[], index: number) => {
                     return Array.isArray(group) ? (
@@ -78,6 +78,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                         載入中...
                                     </span>
                                 }
+                                key={`group_row_${index}_${curIndex}`}
                             >
                                 <Row className='gx-0 group-row'>
                                     {group.map((data: string) => {
@@ -86,6 +87,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                                 group={type}
                                                 index={curIndex++}
                                                 text={`${data}${btnSuffix}`}
+                                                key={`${data}_${curIndex}`}
                                             />
                                         )
                                     })}
@@ -95,13 +97,17 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                 </Row>
                             </LazyLoad>
                         ) : (
-                            <Row className='gx-0 group-row'>
+                            <Row
+                                className='gx-0 group-row'
+                                key={`group_row_${index}_${curIndex}`}
+                            >
                                 {group.map((data: string) => {
                                     return (
                                         <FilterButton
                                             group={type}
                                             index={curIndex++}
                                             text={`${data}${btnSuffix}`}
+                                            key={`${data}_${curIndex}`}
                                         />
                                     )
                                 })}
@@ -115,6 +121,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                             group={type}
                             index={curIndex++}
                             text={`${group}${btnSuffix}`}
+                            key={`${group}_${curIndex}`}
                         />
                     )
                 })}

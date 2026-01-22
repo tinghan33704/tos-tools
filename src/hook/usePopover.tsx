@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { createPortal } from "react-dom"
 import { useState, useCallback, useEffect } from "react"
+import _ from "lodash"
 
 import "./style.scss"
 
@@ -20,8 +21,8 @@ export const usePopover = () => {
     useEffect(() => {
         setIsDomReady(true)
 
-        window.addEventListener("scroll", onScroll)
-        window.addEventListener("resize", onResize)
+        window.addEventListener("scroll", _.debounce(onScroll, 500))
+        window.addEventListener("resize", _.debounce(onResize, 500))
         window.addEventListener("click", onClick as any)
         return () => {
             window.removeEventListener("scroll", onScroll)
@@ -47,7 +48,7 @@ export const usePopover = () => {
                 closePopover()
             }
         },
-        [closePopover, isOpen, target]
+        [closePopover, isOpen, target],
     )
 
     useEffect(() => {
@@ -72,7 +73,7 @@ export const usePopover = () => {
         prevTarget?.setAttribute("style", "")
         target?.setAttribute(
             "style",
-            isOpen ? "outline: 3px #FF6666 dashed" : ""
+            isOpen ? "outline: 3px #FF6666 dashed" : "",
         )
 
         prevTarget?.removeAttribute("focused")
@@ -122,12 +123,15 @@ export const usePopover = () => {
                 overlayLeft + overlayWidth / 2 - popoverWidth / 2 - offset <= 0
                     ? offset
                     : overlayRight -
-                          overlayWidth / 2 +
-                          popoverWidth / 2 +
-                          offset >=
-                      pageWidth
-                    ? pageWidth - offset - popoverWidth
-                    : overlayLeft + pageX + overlayWidth / 2 - popoverWidth / 2
+                            overlayWidth / 2 +
+                            popoverWidth / 2 +
+                            offset >=
+                        pageWidth
+                      ? pageWidth - offset - popoverWidth
+                      : overlayLeft +
+                        pageX +
+                        overlayWidth / 2 -
+                        popoverWidth / 2
 
             const position = {
                 top,
@@ -158,7 +162,7 @@ export const usePopover = () => {
                 setTarget(e?.target)
             }
         },
-        [target]
+        [target],
     )
 
     const renderPopoverContent = useCallback(() => {
@@ -182,7 +186,7 @@ export const usePopover = () => {
                 {isDomReady ? (
                     createPortal(
                         renderPopoverContent(),
-                        document.getElementsByClassName("App")?.[0]
+                        document.getElementsByClassName("App")?.[0],
                     )
                 ) : (
                     <></>
