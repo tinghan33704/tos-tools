@@ -63,6 +63,11 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
     const [useInventory, setUseInventory] = useState<boolean>(false)
     const [objectiveModalOpen, setObjectiveModalOpen] = useState<boolean>(false)
     const [userDataModalOpen, setUserDataModalOpen] = useState<boolean>(false)
+    const [showSkillIcon, setShowSkillIcon] = useState<boolean>(
+        "SHOW_SKILL_ICON" in localStorage
+            ? JSON.parse(localStorage?.getItem("SHOW_SKILL_ICON") || "true")
+            : true,
+    )
     const [currentSearchParam, setCurrentSearchParam] = useState<IObject>({})
     const [loadingParams, setLoadingParams] = useState(false)
 
@@ -108,14 +113,14 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
         if (!_.isEmpty(params)) {
             setSelectedFunctions(
-                decodeMapping(leaderSkillFunctionString, params?.search)
+                decodeMapping(leaderSkillFunctionString, params?.search),
             )
             setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
             setSelectedRaces(decodeMapping(raceTypeString, params?.race))
             setSelectedStars(
                 decodeMapping(starTypeString, params?.star).map(
-                    (star) => `${star} ★`
-                )
+                    (star) => `${star} ★`,
+                ),
             )
             setSelectedTags(decodeMapping(tagString, params?.tag))
             setKeyword(unicodeToString(params?.keyword || ""))
@@ -146,7 +151,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                     ? _objective[func].includes(objectiveStr)
                                         ? _objective[func].filter(
                                               (dur: string) =>
-                                                  dur !== objectiveStr
+                                                  dur !== objectiveStr,
                                           )
                                         : [..._objective[func], objectiveStr]
                                     : [objectiveStr],
@@ -162,7 +167,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                     ? _objective[func].includes(objectiveStr)
                                         ? _objective[func].filter(
                                               (dur: string) =>
-                                                  dur !== objectiveStr
+                                                  dur !== objectiveStr,
                                           )
                                         : [..._objective[func], objectiveStr]
                                     : [objectiveStr],
@@ -178,7 +183,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         func in _objective
                             ? _objective[func].includes(objectiveStr)
                                 ? _objective[func].filter(
-                                      (dur: string) => dur !== objectiveStr
+                                      (dur: string) => dur !== objectiveStr,
                                   )
                                 : [..._objective[func], objectiveStr]
                             : [objectiveStr],
@@ -187,7 +192,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
             setObjectiveObj(_objective)
         },
-        [objectiveObj]
+        [objectiveObj],
     )
 
     const toggleActivate = useCallback(
@@ -200,7 +205,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                     func in _activate
                         ? activateObj[func].includes(activate)
                             ? activateObj[func].filter(
-                                  (dur: string) => dur !== activate
+                                  (dur: string) => dur !== activate,
                               )
                             : [...activateObj[func], activate]
                         : [activate],
@@ -208,7 +213,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
             setActivateObj(_activate)
         },
-        [activateObj]
+        [activateObj],
     )
 
     const toggleValue = useCallback(
@@ -216,15 +221,15 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             selected: string[],
             text: string,
             value: boolean,
-            callback: (value: string[]) => void
+            callback: (value: string[]) => void,
         ) => {
             callback(
                 value
                     ? [...selected, text]
-                    : selected.filter((item) => item !== text)
+                    : selected.filter((item) => item !== text),
             )
         },
-        []
+        [],
     )
 
     const toggleButton = useCallback(
@@ -242,7 +247,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                 setActivateObj(_activate)
             }
         },
-        [activateObj, objectiveObj, toggleValue, typeMap]
+        [activateObj, objectiveObj, toggleValue, typeMap],
     )
 
     const resetButton = useCallback(
@@ -250,7 +255,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
         },
-        [typeMap]
+        [typeMap],
     )
 
     const resetAll = useCallback(() => {
@@ -286,7 +291,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                             tagArr.some(
                                 (tag: IObject) =>
                                     tag?.name === func ||
-                                    tag?.name.includes(func)
+                                    tag?.name.includes(func),
                             )
                         ) {
                             if (
@@ -296,44 +301,46 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 const funcArr = tagArr.filter(
                                     (tag: IObject) =>
                                         tag?.name === func ||
-                                        tag?.name.includes(func)
+                                        tag?.name.includes(func),
                                 )
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
                                         (!leaderSkillObjectString.includes(
-                                            attrRace
+                                            attrRace,
                                         ) &&
                                             funcArr.some(
                                                 (feat: IObject) =>
                                                     !feat?.object?.length ||
                                                     feat?.object?.includes(
-                                                        attrRace
+                                                        attrRace,
                                                     ) ||
                                                     feat?.object?.includes(
-                                                        attrRace?.[0]
+                                                        attrRace?.[0],
                                                     ) ||
                                                     feat?.object?.includes(
-                                                        attrRace?.[1]
-                                                    )
+                                                        attrRace?.[1],
+                                                    ),
                                             )) ||
                                         (leaderSkillObjectString?.includes(
-                                            attrRace
+                                            attrRace,
                                         ) &&
                                             funcArr.some((feat: IObject) =>
-                                                feat?.object?.includes(attrRace)
+                                                feat?.object?.includes(
+                                                    attrRace,
+                                                ),
                                             ))
                                     ) {
                                         const targetItems = funcArr.filter(
                                             (feat: IObject) =>
                                                 feat?.object?.includes(
-                                                    attrRace
+                                                    attrRace,
                                                 ) ||
                                                 feat?.object?.includes(
-                                                    attrRace?.[0]
+                                                    attrRace?.[0],
                                                 ) ||
                                                 feat?.object?.includes(
-                                                    attrRace?.[1]
-                                                )
+                                                    attrRace?.[1],
+                                                ),
                                         )
 
                                         for (const activateOption of activateObj[
@@ -346,8 +353,8 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                                             ? !item?.limit
                                                                   ?.length
                                                             : item?.limit?.includes(
-                                                                  activateOption
-                                                              )
+                                                                  activateOption,
+                                                              ),
                                                 )
                                             ) {
                                                 isSkillMatch = true
@@ -361,32 +368,34 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 const funcArr = tagArr.filter(
                                     (tag: IObject) =>
                                         tag?.name === func ||
-                                        tag?.name?.includes(func)
+                                        tag?.name?.includes(func),
                                 )
 
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
                                         (!leaderSkillObjectString.includes(
-                                            attrRace
+                                            attrRace,
                                         ) &&
                                             funcArr.some(
                                                 (feat: IObject) =>
                                                     !feat?.object?.length ||
                                                     feat?.object?.includes(
-                                                        attrRace
+                                                        attrRace,
                                                     ) ||
                                                     feat?.object?.includes(
-                                                        attrRace?.[0]
+                                                        attrRace?.[0],
                                                     ) ||
                                                     feat?.object?.includes(
-                                                        attrRace?.[1]
-                                                    )
+                                                        attrRace?.[1],
+                                                    ),
                                             )) ||
                                         (leaderSkillObjectString.includes(
-                                            attrRace
+                                            attrRace,
                                         ) &&
                                             funcArr.some((feat: IObject) =>
-                                                feat?.object?.includes(attrRace)
+                                                feat?.object?.includes(
+                                                    attrRace,
+                                                ),
                                             ))
                                     ) {
                                         isSkillMatch = true
@@ -397,7 +406,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 const funcArr = tagArr.filter(
                                     (tag: IObject) =>
                                         tag?.name === func ||
-                                        tag?.name?.includes(func)
+                                        tag?.name?.includes(func),
                                 )
 
                                 for (const activateOption of activateObj[
@@ -408,8 +417,8 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                             activateOption === "無"
                                                 ? !feat?.limit?.length
                                                 : feat?.limit?.includes(
-                                                      activateOption
-                                                  )
+                                                      activateOption,
+                                                  ),
                                         )
                                     ) {
                                         isSkillMatch = true
@@ -448,7 +457,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                             monster?.star <= 0 ||
                             (isAttrSelected &&
                                 !selectedAttributes.includes(
-                                    monster?.attribute
+                                    monster?.attribute,
                                 )) ||
                             (isRaceSelected &&
                                 !selectedRaces.includes(monster?.race)) ||
@@ -490,7 +499,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 tag: _.uniq(
                                     skill?.tag
                                         ?.map((tag: IObject) => tag?.name)
-                                        .flat()
+                                        .flat(),
                                 ),
                             },
                             skillIndex: 0,
@@ -504,7 +513,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                             !tagArr.some(
                                 (tag: IObject) =>
                                     tag?.name === func ||
-                                    tag?.name.includes(func)
+                                    tag?.name.includes(func),
                             )
                         ) {
                             isSkillMatch = false
@@ -517,44 +526,46 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 const funcArr = tagArr.filter(
                                     (tag: IObject) =>
                                         tag?.name === func ||
-                                        tag?.name.includes(func)
+                                        tag?.name.includes(func),
                                 )
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
                                         (!leaderSkillObjectString.includes(
-                                            attrRace
+                                            attrRace,
                                         ) &&
                                             funcArr.some(
                                                 (feat: IObject) =>
                                                     !feat?.object?.length ||
                                                     feat?.object?.includes(
-                                                        attrRace
+                                                        attrRace,
                                                     ) ||
                                                     feat?.object?.includes(
-                                                        attrRace?.[0]
+                                                        attrRace?.[0],
                                                     ) ||
                                                     feat?.object?.includes(
-                                                        attrRace?.[1]
-                                                    )
+                                                        attrRace?.[1],
+                                                    ),
                                             )) ||
                                         (leaderSkillObjectString?.includes(
-                                            attrRace
+                                            attrRace,
                                         ) &&
                                             funcArr.some((feat: IObject) =>
-                                                feat?.object?.includes(attrRace)
+                                                feat?.object?.includes(
+                                                    attrRace,
+                                                ),
                                             ))
                                     ) {
                                         const targetItems = funcArr.filter(
                                             (feat: IObject) =>
                                                 feat?.object?.includes(
-                                                    attrRace
+                                                    attrRace,
                                                 ) ||
                                                 feat?.object?.includes(
-                                                    attrRace?.[0]
+                                                    attrRace?.[0],
                                                 ) ||
                                                 feat?.object?.includes(
-                                                    attrRace?.[1]
-                                                )
+                                                    attrRace?.[1],
+                                                ),
                                         )
 
                                         for (const activateOption of activateObj[
@@ -564,8 +575,8 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                                 !targetItems.some(
                                                     (item: IObject) =>
                                                         item?.limit?.includes(
-                                                            activateOption
-                                                        )
+                                                            activateOption,
+                                                        ),
                                                 )
                                             ) {
                                                 isSkillMatch = false
@@ -579,35 +590,35 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 const funcArr = tagArr.filter(
                                     (tag: IObject) =>
                                         tag?.name === func ||
-                                        tag?.name?.includes(func)
+                                        tag?.name?.includes(func),
                                 )
 
                                 for (const attrRace of objectiveObj[func]) {
                                     if (
                                         !(
                                             (!leaderSkillObjectString.includes(
-                                                attrRace
+                                                attrRace,
                                             ) &&
                                                 funcArr.some(
                                                     (feat: IObject) =>
                                                         !feat?.object?.length ||
                                                         feat?.object?.includes(
-                                                            attrRace
+                                                            attrRace,
                                                         ) ||
                                                         feat?.object?.includes(
-                                                            attrRace?.[0]
+                                                            attrRace?.[0],
                                                         ) ||
                                                         feat?.object?.includes(
-                                                            attrRace?.[1]
-                                                        )
+                                                            attrRace?.[1],
+                                                        ),
                                                 )) ||
                                             (leaderSkillObjectString.includes(
-                                                attrRace
+                                                attrRace,
                                             ) &&
                                                 funcArr.some((feat: IObject) =>
                                                     feat?.object?.includes(
-                                                        attrRace
-                                                    )
+                                                        attrRace,
+                                                    ),
                                                 ))
                                         )
                                     ) {
@@ -619,7 +630,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 const funcArr = tagArr.filter(
                                     (tag: IObject) =>
                                         tag?.name === func ||
-                                        tag?.name?.includes(func)
+                                        tag?.name?.includes(func),
                                 )
 
                                 for (const activateOption of activateObj[
@@ -630,8 +641,8 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                             activateOption === "無"
                                                 ? !feat?.limit?.length
                                                 : feat?.limit?.includes(
-                                                      activateOption
-                                                  )
+                                                      activateOption,
+                                                  ),
                                         )
                                     ) {
                                         isSkillMatch = false
@@ -670,7 +681,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                             monster?.star <= 0 ||
                             (isAttrSelected &&
                                 !selectedAttributes.includes(
-                                    monster?.attribute
+                                    monster?.attribute,
                                 )) ||
                             (isRaceSelected &&
                                 !selectedRaces.includes(monster?.race)) ||
@@ -712,7 +723,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 tag: _.uniq(
                                     skill?.tag
                                         ?.map((tag: IObject) => tag?.name)
-                                        .flat()
+                                        .flat(),
                                 ),
                             },
                             skillIndex: 0,
@@ -768,7 +779,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                             tag: _.uniq(
                                 skill?.tag
                                     ?.map((tag: IObject) => tag?.name)
-                                    .flat()
+                                    .flat(),
                             ),
                         },
                         skillIndex: 0,
@@ -779,7 +790,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
         setResultData(result.filter((skill) => !skill?.skill?.changedSkill))
         setResultDataChange(
-            result.filter((skill) => skill?.skill?.changedSkill)
+            result.filter((skill) => skill?.skill?.changedSkill),
         )
         setIsAfterFilter(true)
 
@@ -799,7 +810,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
                 starTypeString,
-                selectedStars.map((s) => s[0])
+                selectedStars.map((s) => s[0]),
             ),
             tag: encodeMapping(tagString, selectedTags),
             keyword: textSanitizer(keyword).length
@@ -863,6 +874,15 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             toggleUseInventory={() => {
                 if (playerData?.uid) setUseInventory(!useInventory)
                 else errorAlert(6)
+            }}
+            showSkillIcon={showSkillIcon}
+            toggleShowSkillIcon={() => {
+                const _showSkillIcon = !showSkillIcon
+                setShowSkillIcon(_showSkillIcon)
+                localStorage?.setItem(
+                    "SHOW_SKILL_ICON",
+                    JSON.stringify(_showSkillIcon),
+                )
             }}
         >
             <Header />

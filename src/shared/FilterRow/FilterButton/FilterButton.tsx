@@ -1,8 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext, useMemo } from "react"
 import { Col } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
 import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
+import { skillIconMapping } from "src/constant/skillIcon"
 import Context from "src/utilities/Context/Context"
 import Image from "src/utilities/Image"
 
@@ -22,35 +23,59 @@ export interface IFilterButtonProps {
 
 const FilterButton: React.FC<IFilterButtonProps> = (props) => {
     const context = useContext(Context)
+    const { showSkillIcon } = context
     const { group, index, text, suffix = "", checked, callback, size } = props
 
-    const buttonChecked =
-        checked !== undefined
-            ? checked
-            : (context as IObject)?.[group]?.includes(text)
+    const buttonChecked = useMemo(
+        () =>
+            checked !== undefined
+                ? checked
+                : (context as IObject)?.[group]?.includes(text),
+        [checked, context, group, text],
+    )
 
-    const buttonIcon =
-        group === "attribute" ? (
-            attrZhToEn?.[text] ? (
-                <Image
-                    className='btn-icon'
-                    path={`icon/icon_${attrZhToEn[text]}`}
-                />
-            ) : (
-                <></>
-            )
-        ) : group === "race" ? (
-            raceZhToEn?.[text] ? (
-                <Image
-                    className='btn-icon'
-                    path={`icon/icon_${raceZhToEn[text]}`}
-                />
-            ) : (
-                <></>
-            )
-        ) : null
+    const buttonIcon = useMemo(
+        () =>
+            group === "attribute" ? (
+                attrZhToEn?.[text] ? (
+                    <Image
+                        className='btn-icon'
+                        path={`icon/icon_${attrZhToEn[text]}`}
+                    />
+                ) : (
+                    <></>
+                )
+            ) : group === "race" ? (
+                raceZhToEn?.[text] ? (
+                    <Image
+                        className='btn-icon'
+                        path={`icon/icon_${raceZhToEn[text]}`}
+                    />
+                ) : (
+                    <></>
+                )
+            ) : null,
+        [group, text],
+    )
 
-    const buttonId = `${group}-${index}`
+    const skillIcon = useMemo(
+        () =>
+            ["functions", "skillFunctions", "armedFunctions"].includes(group) &&
+            skillIconMapping?.[text]?.length
+                ? skillIconMapping?.[text]
+                      ?.filter((name: string) => name?.length)
+                      ?.map((name: string, index: number) => (
+                          <Image
+                              path={`icon/skill_${name}`}
+                              key={`${name}_${index}`}
+                          />
+                      ))
+                : null,
+        [group, text],
+    )
+
+    const buttonId = useMemo(() => `${group}-${index}`, [group, index])
+
     return (
         <Col
             xs={size?.xs || 4}
@@ -58,6 +83,7 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
             lg={size?.lg || 2}
             className='btn-shell'
             title={`${text}${suffix}`}
+            key={`${text}${suffix}`}
         >
             <input
                 type='checkbox'
@@ -75,19 +101,15 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
                 htmlFor={buttonId}
                 key={buttonId}
             >
-                {buttonIcon ? (
-                    <>
-                        {buttonIcon}
-                        {text}
-                        {suffix}
-                    </>
-                ) : (
-                    <AutoTextSize maxFontSizePx={20}>
-                        {text}
-                        {suffix}
-                    </AutoTextSize>
-                )}
+                <AutoTextSize className='content-wrapper' maxFontSizePx={20}>
+                    {buttonIcon}
+                    {text}
+                    {suffix}
+                </AutoTextSize>
             </label>
+            {showSkillIcon && skillIcon && (
+                <div className='skill-icon'>{skillIcon}</div>
+            )}
         </Col>
     )
 }

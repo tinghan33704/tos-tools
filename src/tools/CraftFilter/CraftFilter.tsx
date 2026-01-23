@@ -53,6 +53,11 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
     const [selectedCharges, setSelectedCharges] = useState<string[]>([])
     const [selectedGenres, setSelectedGenres] = useState<string[]>([])
     const [andOr, setAndOr] = useState<string>("or")
+    const [showSkillIcon, setShowSkillIcon] = useState<boolean>(
+        "SHOW_SKILL_ICON" in localStorage
+            ? JSON.parse(localStorage?.getItem("SHOW_SKILL_ICON") || "true")
+            : true,
+    )
     const [resultData, setResultData] = useState<IObject[]>([])
     const [isAfterFilter, setIsAfterFilter] = useState<boolean>(false)
     const [currentSearchParam, setCurrentSearchParam] = useState<IObject>({})
@@ -104,26 +109,26 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
 
         if (!_.isEmpty(params)) {
             setSelectedSkillFunctions(
-                decodeMapping(craftSkillTypeString, params?.skill)
+                decodeMapping(craftSkillTypeString, params?.skill),
             )
             setSelectedArmedFunctions(
-                decodeMapping(craftArmedTypeString, params?.armed)
+                decodeMapping(craftArmedTypeString, params?.armed),
             )
             setSelectedModes(decodeMapping(craftModeTypeString, params?.mode))
             setSelectedAttributes(
-                decodeMapping(craftAttrTypeString, params?.attr)
+                decodeMapping(craftAttrTypeString, params?.attr),
             )
             setSelectedRaces(decodeMapping(craftRaceTypeString, params?.race))
             setSelectedStars(
                 decodeMapping(craftStarTypeString, params?.star).map(
-                    (star) => `${star} ★`
-                )
+                    (star) => `${star} ★`,
+                ),
             )
             setSelectedCharges(
-                decodeMapping(craftChargeTypeString, params?.charge)
+                decodeMapping(craftChargeTypeString, params?.charge),
             )
             setSelectedGenres(
-                decodeMapping(craftGenreTypeString, params?.genre)
+                decodeMapping(craftGenreTypeString, params?.genre),
             )
             setKeyword(unicodeToString(params?.keyword || ""))
             setAndOr(["or", "and", "m-and"][+params?.or || 0])
@@ -137,15 +142,15 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             selected: string[],
             text: string,
             value: boolean,
-            callback: (value: string[]) => void
+            callback: (value: string[]) => void,
         ) => {
             callback(
                 value
                     ? [...selected, text]
-                    : selected.filter((item) => item !== text)
+                    : selected.filter((item) => item !== text),
             )
         },
-        []
+        [],
     )
 
     const toggleButton = useCallback(
@@ -153,7 +158,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             const typeAction = typeMap?.[type]
             toggleValue(typeAction[0], text, value, typeAction[1])
         },
-        [toggleValue, typeMap]
+        [toggleValue, typeMap],
     )
 
     const resetButton = useCallback(
@@ -161,7 +166,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
         },
-        [typeMap]
+        [typeMap],
     )
 
     const resetAll = useCallback(() => {
@@ -195,7 +200,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                 if (
                     (isModeSelected &&
                         !_selectedModes.some((mode) =>
-                            Object.keys(craft.mode)?.includes(mode)
+                            Object.keys(craft.mode)?.includes(mode),
                         )) ||
                     (isAttrSelected &&
                         !selectedAttributes.includes(craft.attribute)) ||
@@ -283,10 +288,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         isModeSelected
                             ? Object.keys(craft?.mode)
                                   ?.filter((mode) =>
-                                      _selectedModes.includes(mode)
+                                      _selectedModes.includes(mode),
                                   )
                                   ?.map((mode) => craft?.mode?.[mode])
-                            : Object.values(craft?.mode)
+                            : Object.values(craft?.mode),
                     )
             }
         }
@@ -303,7 +308,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                 if (
                     (isModeSelected &&
                         !_selectedModes.some((mode) =>
-                            Object.keys(craft.mode)?.includes(mode)
+                            Object.keys(craft.mode)?.includes(mode),
                         )) ||
                     (isAttrSelected &&
                         !(
@@ -311,8 +316,8 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                             craft?.monster?.some((m: number) =>
                                 selectedAttributes.includes(
                                     monsterData.find((md) => m === md.id)
-                                        ?.attribute
-                                )
+                                        ?.attribute,
+                                ),
                             )
                         )) ||
                     (isRaceSelected &&
@@ -320,8 +325,8 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                             selectedRaces.includes(craft.race) ||
                             craft?.monster?.some((m: number) =>
                                 selectedRaces.includes(
-                                    monsterData.find((md) => m === md.id)?.race
-                                )
+                                    monsterData.find((md) => m === md.id)?.race,
+                                ),
                             )
                         )) ||
                     (isStarSelected && !selectedStars.includes(craft.star)) ||
@@ -443,10 +448,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         isModeSelected
                             ? Object.keys(craft?.mode)
                                   ?.filter((mode) =>
-                                      _selectedModes.includes(mode)
+                                      _selectedModes.includes(mode),
                                   )
                                   ?.map((mode) => craft?.mode?.[mode])
-                            : Object.values(craft?.mode)
+                            : Object.values(craft?.mode),
                     )
             }
         }
@@ -475,7 +480,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             race: encodeMapping(craftRaceTypeString, selectedRaces),
             star: encodeMapping(
                 craftStarTypeString,
-                selectedStars.map((s) => s[0])
+                selectedStars.map((s) => s[0]),
             ),
             charge: encodeMapping(craftChargeTypeString, selectedCharges),
             genre: encodeMapping(craftGenreTypeString, selectedGenres),
@@ -528,6 +533,15 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             andOr={andOr}
             changeAndOr={(value: string) => setAndOr(value)}
             startFilter={startFilter}
+            showSkillIcon={showSkillIcon}
+            toggleShowSkillIcon={() => {
+                const _showSkillIcon = !showSkillIcon
+                setShowSkillIcon(_showSkillIcon)
+                localStorage?.setItem(
+                    "SHOW_SKILL_ICON",
+                    JSON.stringify(_showSkillIcon),
+                )
+            }}
         >
             <Header />
             <PageContainer>

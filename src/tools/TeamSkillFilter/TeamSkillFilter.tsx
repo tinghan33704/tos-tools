@@ -46,6 +46,11 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
     const [isAfterFilter, setIsAfterFilter] = useState<boolean>(false)
     const [currentSearchParam, setCurrentSearchParam] = useState<IObject>({})
     const [resultView, setResultView] = useState<string>("table")
+    const [showSkillIcon, setShowSkillIcon] = useState<boolean>(
+        "SHOW_SKILL_ICON" in localStorage
+            ? JSON.parse(localStorage?.getItem("SHOW_SKILL_ICON") || "true")
+            : true,
+    )
     const [loadingParams, setLoadingParams] = useState(false)
 
     const resultRef = useRef<HTMLDivElement>(null)
@@ -88,17 +93,17 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
         if (!_.isEmpty(params)) {
             setSelectedFunctions(
-                decodeMapping(teamSkillFunctionString, params?.search)
+                decodeMapping(teamSkillFunctionString, params?.search),
             )
             setSelectedActivate(
-                decodeMapping(teamSkillActivateString, params?.act)
+                decodeMapping(teamSkillActivateString, params?.act),
             )
             setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
             setSelectedRaces(decodeMapping(raceTypeString, params?.race))
             setSelectedStars(
                 decodeMapping(starTypeString, params?.star).map(
-                    (star) => `${star} ★`
-                )
+                    (star) => `${star} ★`,
+                ),
             )
             setKeyword(unicodeToString(params?.keyword || ""))
             setAndOr(["or", "and"][+params?.or || 0])
@@ -112,15 +117,15 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             selected: string[],
             text: string,
             value: boolean,
-            callback: (value: string[]) => void
+            callback: (value: string[]) => void,
         ) => {
             callback(
                 value
                     ? [...selected, text]
-                    : selected.filter((item) => item !== text)
+                    : selected.filter((item) => item !== text),
             )
         },
-        []
+        [],
     )
 
     const toggleButton = useCallback(
@@ -128,7 +133,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             const typeAction = typeMap?.[type]
             toggleValue(typeAction[0], text, value, typeAction[1])
         },
-        [toggleValue, typeMap]
+        [toggleValue, typeMap],
     )
 
     const resetButton = useCallback(
@@ -136,7 +141,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
         },
-        [typeMap]
+        [typeMap],
     )
 
     const resetAll = useCallback(() => {
@@ -181,7 +186,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                     if (
                         isActivateSelected &&
                         !selectedActivate.some((actv) =>
-                            monsterSkill.activate_tag.includes(actv)
+                            monsterSkill.activate_tag.includes(actv),
                         )
                     )
                         continue
@@ -194,7 +199,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         for (const selectedFunction of functionArr) {
                             if (
                                 monsterSkill.skill_tag.includes(
-                                    selectedFunction
+                                    selectedFunction,
                                 )
                             ) {
                                 isSkillMatch = true
@@ -209,7 +214,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         if (!isSkillMatch && keywordArr.length > 0) {
                             let isKeywordChecked = false
                             const skillDesc = textSanitizer(
-                                monsterSkill.description
+                                monsterSkill.description,
                             )
 
                             for (const keyword of keywordArr) {
@@ -229,7 +234,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         for (const selectedFunction of functionArr) {
                             if (
                                 !monsterSkill.skill_tag.includes(
-                                    selectedFunction
+                                    selectedFunction,
                                 )
                             ) {
                                 isSkillMatch = false
@@ -243,7 +248,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         if (keywordArr.length > 0) {
                             let isKeywordChecked = true
                             const skillDesc = textSanitizer(
-                                monsterSkill.description
+                                monsterSkill.description,
                             )
 
                             for (const keyword of keywordArr) {
@@ -261,7 +266,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
                 skillIndexArray = _.sortBy(
                     [...new Set(skillIndexArray)],
-                    (val) => val
+                    (val) => val,
                 )
 
                 if (skillIndexArray?.length)
@@ -281,7 +286,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                     if (
                         isActivateSelected &&
                         !selectedActivate.some((actv) =>
-                            monsterSkill.activate_tag.includes(actv)
+                            monsterSkill.activate_tag.includes(actv),
                         )
                     )
                         continue
@@ -318,7 +323,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
                 starTypeString,
-                selectedStars.map((s) => s[0])
+                selectedStars.map((s) => s[0]),
             ),
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
@@ -367,6 +372,15 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             toggleResultView={() =>
                 setResultView(resultView === "table" ? "summary" : "table")
             }
+            showSkillIcon={showSkillIcon}
+            toggleShowSkillIcon={() => {
+                const _showSkillIcon = !showSkillIcon
+                setShowSkillIcon(_showSkillIcon)
+                localStorage?.setItem(
+                    "SHOW_SKILL_ICON",
+                    JSON.stringify(_showSkillIcon),
+                )
+            }}
         >
             <Header />
             <PageContainer>

@@ -1,6 +1,7 @@
 @import "src/styles/colors.scss";
 
 .btn-shell {
+    position: relative;
     padding: 6px 3px !important;
     height: 50px;
 
@@ -8,6 +9,7 @@
         display: none;
 
         & + label.btn {
+            position: relative;
             display: flex !important;
             justify-content: center;
             align-items: center !important;
@@ -25,6 +27,11 @@
             border-radius: 5px;
             cursor: pointer;
             transition: 0.5s;
+
+            & .content-wrapper {
+                display: flex !important;
+                align-items: center;
+            }
         }
 
         &:checked + label.btn {
@@ -56,6 +63,19 @@
 
     .btn-icon {
         height: 1em;
-        margin-right: 10px;
+        margin-right: 0.4rem;
+    }
+
+    .skill-icon {
+        position: absolute;
+        left: 6px;
+        top: -9px;
+
+        opacity: 1;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
     }
 }

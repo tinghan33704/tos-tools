@@ -40,6 +40,8 @@ const Context = React.createContext({
     toggleSort: () => {},
     hideHadMonster: false,
     toggleHideHadMonster: () => {},
+    showSkillIcon: true,
+    toggleShowSkillIcon: () => {},
 })
 
 export const ContextProvider = (props: any) => {

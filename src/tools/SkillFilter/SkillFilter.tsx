@@ -69,6 +69,11 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
     const [resultDataCombine, setResultDataCombine] = useState<IObject[]>([])
     const [isAfterFilter, setIsAfterFilter] = useState<boolean>(false)
     const [showNoData, setShowNoData] = useState<boolean>(true)
+    const [showSkillIcon, setShowSkillIcon] = useState<boolean>(
+        "SHOW_SKILL_ICON" in localStorage
+            ? JSON.parse(localStorage?.getItem("SHOW_SKILL_ICON") || "true")
+            : true,
+    )
     const [useInventory, setUseInventory] = useState<boolean>(false)
     const [durationModalOpen, setDurationModalOpen] = useState<boolean>(false)
     const [userDataModalOpen, setUserDataModalOpen] = useState<boolean>(false)
@@ -124,15 +129,15 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
         if (!_.isEmpty(params)) {
             const selectedFunction = decodeMapping(
                 skillFunctionString,
-                params?.search
+                params?.search,
             )
             setSelectedFunctions(selectedFunction)
             setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
             setSelectedRaces(decodeMapping(raceTypeString, params?.race))
             setSelectedStars(
                 decodeMapping(starTypeString, params?.star).map(
-                    (star) => `${star} ★`
-                )
+                    (star) => `${star} ★`,
+                ),
             )
             setSelectedTags(decodeMapping(tagString, params?.tag))
             setSelectedCharges(decodeMapping(chargeTypeString, params?.charge))
@@ -153,8 +158,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                     }
                                     return acc
                                 },
-                                []
-                            )
+                                [],
+                            ),
                     ) || []
 
             setDurationObj(
@@ -165,7 +170,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                               [cur]: durationArr?.[index],
                           }
                       }, {})
-                    : {}
+                    : {},
             )
 
             setLoadingParams(true)
@@ -181,7 +186,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                     ...durationObj,
                     [func]: durationObj[func].includes(duration)
                         ? durationObj[func].filter(
-                              (dur: string) => dur !== duration
+                              (dur: string) => dur !== duration,
                           )
                         : [...durationObj[func], duration],
                 }
@@ -200,10 +205,10 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                               [cur]: _duration[cur],
                           }
                         : acc
-                }, {})
+                }, {}),
             )
         },
-        [durationObj]
+        [durationObj],
     )
 
     const toggleValue = useCallback(
@@ -211,15 +216,15 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             selected: string[],
             text: string,
             value: boolean,
-            callback: (value: string[]) => void
+            callback: (value: string[]) => void,
         ) => {
             callback(
                 value
                     ? [...selected, text]
-                    : selected.filter((item) => item !== text)
+                    : selected.filter((item) => item !== text),
             )
         },
-        []
+        [],
     )
 
     const toggleButton = useCallback(
@@ -234,7 +239,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                 setDurationObj(_duration)
             }
         },
-        [durationObj, toggleValue, typeMap]
+        [durationObj, toggleValue, typeMap],
     )
 
     const resetButton = useCallback(
@@ -242,7 +247,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
         },
-        [typeMap]
+        [typeMap],
     )
 
     const resetAll = useCallback(() => {
@@ -310,21 +315,21 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                         (acc: IObject[], cur: IObject) => {
                             return acc.concat(cur.tag)
                         },
-                        []
+                        [],
                     )
 
                     const allSkillCharge = monster.skill.map(
-                        (skill: IObject) => skill.charge
+                        (skill: IObject) => skill.charge,
                     )
 
                     const allSkillDescription = monster.skill.map(
-                        (skill: IObject) => skill.description
+                        (skill: IObject) => skill.description,
                     )
 
                     if (
                         isChargeSelected &&
                         !selectedCharges.some((charge) =>
-                            allSkillCharge.includes(charge)
+                            allSkillCharge.includes(charge),
                         )
                     )
                         continue
@@ -363,16 +368,16 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         selectedFunction
                                                     ].includes(optionText[2])))
                                         )
-                                    }
+                                    },
                                 )
                             } else {
                                 return allSkillTags.some(
                                     (tag: (string | number)[] | string) =>
                                         tag === selectedFunction ||
-                                        tag?.[0] === selectedFunction
+                                        tag?.[0] === selectedFunction,
                                 )
                             }
-                        }
+                        },
                     )
                     if (!isMonsterMatch) continue
 
@@ -380,7 +385,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                     if (keywordArr.length) {
                         isMonsterMatch = keywordArr.every((keyword) => {
                             return allSkillDescription.some((desc: string) =>
-                                textSanitizer(desc).includes(keyword)
+                                textSanitizer(desc).includes(keyword),
                             )
                         })
 
@@ -424,21 +429,21 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[1]
+                                                            optionText[1],
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[2]
+                                                            optionText[2],
                                                         )))
                                             )
-                                        }
+                                        },
                                     )) ||
                                 (!(selectedFunction in durationObj) &&
                                     monsterSkill.tag.some(
                                         (tag: (string | number)[] | string) =>
                                             tag === selectedFunction ||
-                                            tag?.[0] === selectedFunction
+                                            tag?.[0] === selectedFunction,
                                     ))
                             ) {
                                 const charge =
@@ -448,7 +453,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                                 if (monsterSkill.type === "combine")
                                     skillIndexArrayCombine.push(
-                                        monsterSkillIndex
+                                        monsterSkillIndex,
                                     )
                                 else skillIndexArray.push(monsterSkillIndex)
 
@@ -467,8 +472,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                             if (
                                 keywordArr.some((keyword) =>
                                     textSanitizer(
-                                        monsterSkill.description
-                                    ).includes(keyword)
+                                        monsterSkill.description,
+                                    ).includes(keyword),
                                 )
                             ) {
                                 const charge =
@@ -478,7 +483,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                                 if (monsterSkill.type === "combine")
                                     skillIndexArrayCombine.push(
-                                        monsterSkillIndex
+                                        monsterSkillIndex,
                                     )
                                 else skillIndexArray.push(monsterSkillIndex)
 
@@ -521,19 +526,19 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[0]
+                                                            optionText[0],
                                                         )) ||
                                                     (tag[1] > 1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[1]
+                                                            optionText[1],
                                                         )) ||
                                                     (tag[1] === -1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[2]
+                                                            optionText[2],
                                                         )) ||
                                                     (!durationObj[
                                                         selectedFunction
@@ -541,12 +546,12 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[1]
+                                                            optionText[1],
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[2]
+                                                            optionText[2],
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -569,12 +574,12 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[1]
+                                                            optionText[1],
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[2]
+                                                            optionText[2],
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -597,7 +602,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                             if (!isSkillMatch && keywordArr.length > 0) {
                                 let isKeywordChecked = false
                                 const skillDesc = textSanitizer(
-                                    monsterSkill.description
+                                    monsterSkill.description,
                                 )
 
                                 for (const keyword of keywordArr) {
@@ -627,19 +632,19 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[0]
+                                                            optionText[0],
                                                         )) ||
                                                     (tag[1] > 1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[1]
+                                                            optionText[1],
                                                         )) ||
                                                     (tag[1] === -1 &&
                                                         durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[2]
+                                                            optionText[2],
                                                         )) ||
                                                     (!durationObj[
                                                         selectedFunction
@@ -647,12 +652,12 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[1]
+                                                            optionText[1],
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[2]
+                                                            optionText[2],
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -678,12 +683,12 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[1]
+                                                            optionText[1],
                                                         ) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
-                                                            optionText[2]
+                                                            optionText[2],
                                                         ))
                                                 ) {
                                                     isTagChecked = true
@@ -708,7 +713,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                             if (keywordArr.length > 0) {
                                 let isKeywordChecked = true
                                 const skillDesc = textSanitizer(
-                                    monsterSkill.description
+                                    monsterSkill.description,
                                 )
 
                                 for (const keyword of keywordArr) {
@@ -741,11 +746,11 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                 skillIndexArray = _.sortBy(
                     [...new Set(skillIndexArray)],
-                    (val) => val
+                    (val) => val,
                 )
                 skillIndexArrayCombine = _.sortBy(
                     [...new Set(skillIndexArrayCombine)],
-                    (val) => val
+                    (val) => val,
                 )
 
                 if (
@@ -857,7 +862,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
                 starTypeString,
-                selectedStars.map((s) => s[0])
+                selectedStars.map((s) => s[0]),
             ),
             tag: encodeMapping(tagString, selectedTags),
             charge: encodeMapping(chargeTypeString, selectedCharges),
@@ -876,15 +881,15 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                     .map((opt) =>
                                         durationObj[cur].includes(opt)
                                             ? "1"
-                                            : "0"
+                                            : "0",
                                     )
-                                    .join("")
+                                    .join(""),
                             )
                         } else if (selectedFunctions.includes(cur)) {
                             return acc + "000"
                         }
                         return acc
-                    }, "")
+                    }, ""),
             ),
         })
 
@@ -950,6 +955,15 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             toggleUseInventory={() => {
                 if (playerData?.uid) setUseInventory(!useInventory)
                 else errorAlert(6)
+            }}
+            showSkillIcon={showSkillIcon}
+            toggleShowSkillIcon={() => {
+                const _showSkillIcon = !showSkillIcon
+                setShowSkillIcon(_showSkillIcon)
+                localStorage?.setItem(
+                    "SHOW_SKILL_ICON",
+                    JSON.stringify(_showSkillIcon),
+                )
             }}
         >
             <Header />

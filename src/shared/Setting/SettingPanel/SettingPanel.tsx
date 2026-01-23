@@ -9,6 +9,7 @@ import {
     faAdjust,
     faArchive,
     faArrowUpShortWide,
+    faCircleInfo,
     faCompress,
     faDatabase,
     faExpand,
@@ -105,8 +106,8 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
                     config?.category === "crossover"
                         ? "合作"
                         : config?.category === "non-crossover"
-                        ? "自家"
-                        : "全部"
+                          ? "自家"
+                          : "全部"
                 }角色`,
                 callback: config?.toggleCategory,
             },
@@ -120,26 +121,33 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
                 text: `${config?.hideHadMonster ? "隱藏" : "顯示"}已持有角色`,
                 callback: config?.toggleHideHadMonster,
             },
+            show_skill_icon: {
+                icon: faCircleInfo,
+                text: `${config?.showSkillIcon ? "顯示" : "隱藏"}技能圖示`,
+                callback: config?.toggleShowSkillIcon,
+            },
         }
     }, [
+        theme,
         changeTheme,
-        config?.category,
-        config?.hideHadMonster,
-        config?.resultView,
-        config?.showNoData,
-        config?.sort,
-        config?.toggleCategory,
-        config?.toggleResultView,
-        config?.toggleHideHadMonster,
-        config?.toggleShowNoData,
-        config?.toggleSort,
-        config?.toggleUseInventory,
-        config?.useInventory,
         openDurationModal,
-        openInputModal,
         openObjectiveModal,
         openUserDataModal,
-        theme,
+        config?.showNoData,
+        config?.toggleShowNoData,
+        config?.useInventory,
+        config?.toggleUseInventory,
+        config?.resultView,
+        config?.toggleResultView,
+        config?.category,
+        config?.toggleCategory,
+        config?.sort,
+        config?.toggleSort,
+        config?.hideHadMonster,
+        config?.toggleHideHadMonster,
+        config?.showSkillIcon,
+        config?.toggleShowSkillIcon,
+        openInputModal,
     ])
 
     const onClick = useCallback(
@@ -152,7 +160,7 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
                 onClosePanel()
             }
         },
-        [iconRef, onClosePanel, panelOpen]
+        [iconRef, onClosePanel, panelOpen],
     )
 
     useEffect(() => {

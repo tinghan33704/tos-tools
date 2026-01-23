@@ -75,14 +75,14 @@ const Image: React.FC<IImageProps> = (props) => {
                 isLoaded
                     ? srcPath
                     : path.startsWith("monster")
-                    ? `./src/img/monster/noname.png`
-                    : path.startsWith("craft")
-                    ? `./src/img/craft/noname.png`
-                    : path.startsWith("rune")
-                    ? `./src/img/rune/rune_none.png`
-                    : path.startsWith("icon")
-                    ? `./src/img/icon/icon_undefined.png`
-                    : `./src/img/other/loading.png`
+                      ? `./src/img/monster/noname.png`
+                      : path.startsWith("craft")
+                        ? `./src/img/craft/noname.png`
+                        : path.startsWith("rune")
+                          ? `./src/img/rune/rune_none.png`
+                          : path.startsWith("icon")
+                            ? `./src/img/icon/icon_null.png`
+                            : `./src/img/other/loading.png`
             }
             alt={alt}
             tabIndex={0}

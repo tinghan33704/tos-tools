@@ -11,6 +11,7 @@ export const toolConfig: IObject = {
             "show_no_data",
             "backpack",
             "duration_option",
+            "show_skill_icon",
             "theme",
         ],
         toolPath: "tos-skill-filter",
@@ -20,7 +21,7 @@ export const toolConfig: IObject = {
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=3778158",
         icon: "team_favicon",
         topBtn: ["reset-all", "and-or", "start-filter"],
-        setting: ["result_view", "theme"],
+        setting: ["result_view", "show_skill_icon", "theme"],
         toolPath: "tos-team-skill-filter",
     },
     "leader-skill-filter": {
@@ -28,7 +29,13 @@ export const toolConfig: IObject = {
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=4011262",
         icon: "leader_favicon",
         topBtn: ["reset-all", "and-or", "start-filter"],
-        setting: ["use_inventory", "backpack", "objective_option", "theme"],
+        setting: [
+            "use_inventory",
+            "backpack",
+            "objective_option",
+            "show_skill_icon",
+            "theme",
+        ],
         toolPath: "tos-leader-skill-filter",
     },
     "craft-filter": {
@@ -36,7 +43,7 @@ export const toolConfig: IObject = {
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=3623648",
         icon: "craft_favicon",
         topBtn: ["reset-all", "and-or", "start-filter"],
-        setting: ["theme"],
+        setting: ["show_skill_icon", "theme"],
         toolPath: "tos-craft-filter",
     },
     "monster-selector": {
