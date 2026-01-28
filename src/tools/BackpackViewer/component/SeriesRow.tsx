@@ -51,7 +51,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
             const onlyCrossOver = cardCategory === "crossover"
 
             const isCardCrossOver = monsterData.find(
-                (monster) => monster.id === id
+                (monster) => monster.id === id,
             )?.crossOver
 
             return tab === "其他卡片"
@@ -60,18 +60,20 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                       (onlyCrossOver && isCardCrossOver)
                 : true
         },
-        [cardCategory, tab]
+        [cardCategory, tab],
     )
 
-    const allMaxCardNumber = Object.values(sealContent["All Max 自選"]).flat()
-        .length
-    const allMaxCardHadNumber = Object.values(sealContent["All Max 自選"])
-        .flat()
-        .filter((item) =>
-            _.isArray(item)
-                ? item?.some((m) => playerData?.card?.includes(m))
-                : playerData?.card?.includes(item)
-        ).length
+    const allMaxCardNumber =
+        Object.values(sealContent["All Max 自選"]).flat()?.length || 0
+    const allMaxCardHadNumber =
+        Object.values(sealContent["All Max 自選"])
+            .flat()
+            .filter((item) =>
+                _.isArray(item)
+                    ? item?.some((m) => playerData?.card?.includes(m))
+                    : playerData?.card?.includes(item),
+            )?.length || 0
+    const allMaxCardNotHaveNumber = allMaxCardNumber - allMaxCardHadNumber
 
     return (
         <Row>
@@ -79,14 +81,18 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                 <Col xs={12} md={12} lg={12}>
                     <div
                         className={`had-count-container had-count-container-${
-                            allMaxCardHadNumber >= allMaxCardNumber
-                                ? "all"
-                                : "partial"
+                            hideHadMonster
+                                ? "reverse"
+                                : allMaxCardHadNumber >= allMaxCardNumber
+                                  ? "all"
+                                  : "partial"
                         }`}
                     >
                         <span>
                             <span className='had-count'>
-                                {allMaxCardHadNumber}
+                                {!hideHadMonster
+                                    ? allMaxCardHadNumber
+                                    : allMaxCardNotHaveNumber}
                             </span>{" "}
                             <span className='all-count'>
                                 / {allMaxCardNumber}
@@ -106,7 +112,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                                     return element?.monsterTag.includes(item)
                                 })
                                 .filter((element) =>
-                                    isCardInCorrectCategory(element.id)
+                                    isCardInCorrectCategory(element.id),
                                 )
                                 ?.map((info) => info.id)
 
@@ -117,7 +123,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                                     if (
                                         tab === "其他卡片" &&
                                         !doNotIgnoreIndependentItem.includes(
-                                            title
+                                            title,
                                         ) &&
                                         _data.includes(c)
                                     )
@@ -125,7 +131,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                                 })
                                 if (
                                     item.every((c) =>
-                                        isCardInCorrectCategory(c)
+                                        isCardInCorrectCategory(c),
                                     )
                                 ) {
                                     _data = _.uniq([..._data, item])
@@ -141,7 +147,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                                 }
                             }
                         }
-                    }
+                    },
                 )
 
                 if (sortBy === "by-number") {
@@ -153,7 +159,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                                           acc +
                                           (playerData?.info?.[cur]?.number ||
                                               0),
-                                      0
+                                      0,
                                   )
                                 : playerData?.info?.[a]?.number || 0
                             const totalNumberB = _.isArray(b)
@@ -162,11 +168,11 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                                           acc +
                                           (playerData?.info?.[cur]?.number ||
                                               0),
-                                      0
+                                      0,
                                   )
                                 : playerData?.info?.[b]?.number || 0
                             return totalNumberB - totalNumberA
-                        }
+                        },
                     )
                 } else if (
                     tab === "其他卡片" &&
@@ -175,7 +181,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                     _data = _data.sort(
                         (a: number[] | number, b: number[] | number) =>
                             (_.isArray(a) ? a?.[0] : a) -
-                            (_.isArray(b) ? b?.[0] : b)
+                            (_.isArray(b) ? b?.[0] : b),
                     )
                 }
 
@@ -183,7 +189,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                     _data = _data.filter((item) =>
                         _.isArray(item)
                             ? item?.every((m) => !playerData?.card?.includes(m))
-                            : !playerData?.card?.includes(item)
+                            : !playerData?.card?.includes(item),
                     )
                 }
 
@@ -194,7 +200,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                             title={title}
                             data={_data}
                             key={`${Object.keys(sealContent).indexOf(
-                                tab
+                                tab,
                             )}-${index}`}
                             togglePopover={togglePopover}
                             setPopoverContent={setPopoverContent}
