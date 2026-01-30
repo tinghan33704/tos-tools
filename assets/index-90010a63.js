@@ -66565,8 +66565,8 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以【紋龍】角色作成員",skill_tag:["回血"],activate_tag:["指定成員"],relative:["紋龍"]}],maxLevel:99,maxSkill:70,maxRefine:0,version:"v2026.11"},{id:11120,name:"神創耀 ‧ 零覓",attribute:"暗",race:"神族",star:8,monsterTag:["聖武靈智"],crossOver:!1,skill:[{name:"神禦壁",type:"normal",charge:"EP",num:6,description:`
 				I. 解除「結界地型」及「亡命爆擊」
 				II. 隊伍成員解除「疲憊」、「休眠」、「風壓」、「麻痺」、「沉默」及「技能封鎖」狀態 (此技能無視「休眠」、「風壓」、「沉默」及「技能封鎖」狀態)
-				III. 移除所有符石
-				⇒ 掉落固定版面符石 (五屬及心神族強化符石)
+				III. <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心神族強化符石)</board>
 				IV. 將心符石及暗符石添加為「加護」符石
 				1 回合內
 				V. 隊伍成員
@@ -66646,7 +66646,7 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 召喚師死亡後
 				⓵ 重置累計消除符石數量
 				⓶「神創耀 ‧ 零覓」轉換為初始模式
-				`,activate:"以「神創耀 ‧ 零覓」作成員",skill_tag:["增攻","破防","減傷"],activate_tag:[],relative:[11120]}],maxLevel:99,maxSkill:10,maxRefine:4,version:"v2026.11"},{id:11121,name:"魔滅燼 ‧ 一願",attribute:"光",race:"魔族",star:8,monsterTag:["聖武靈智"],crossOver:!1,skill:[{name:"魔刃殲",type:"normal",charge:"EP",num:3,description:`
+				`,activate:"以「神創耀 ‧ 零覓」作成員",skill_tag:["增攻","破防","減傷"],activate_tag:[],relative:[11120]}],board:[["Dg","Hg","Wg","Wg","Wg","Dg","Dg","Hg","Fg","Eg","Hg","Dg","Dg","Hg","Fg","Eg","Hg","Dg","Dg","Hg","Fg","Eg","Hg","Dg","Dg","Lg","Lg","Lg","Hg","Dg"]],maxLevel:99,maxSkill:10,maxRefine:4,version:"v2026.11"},{id:11121,name:"魔滅燼 ‧ 一願",attribute:"光",race:"魔族",star:8,monsterTag:["聖武靈智"],crossOver:!1,skill:[{name:"魔刃殲",type:"normal",charge:"EP",num:3,description:`
 				I. 還原所有「碎裂」的位置
 				II. 使敵人進入「刀傷」狀態，持續至敵人死亡
 				▋ 隊伍成員對敵人的傷害 4 倍
