@@ -1,4 +1,4 @@
-// Last modified : 2026.01.31 01:34
+// Last modified : 2026.01.31 05:29
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -218392,8 +218392,8 @@ export const monsterData: IObject[] = [
                 'description': `
 				I. 解除「結界地型」及「亡命爆擊」
 				II. 隊伍成員解除「疲憊」、「休眠」、「風壓」、「麻痺」、「沉默」及「技能封鎖」狀態 (此技能無視「休眠」、「風壓」、「沉默」及「技能封鎖」狀態)
-				III. 移除所有符石
-				⇒ 掉落固定版面符石 (五屬及心神族強化符石)
+				III. <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心神族強化符石)</board>
 				IV. 將心符石及暗符石添加為「加護」符石
 				1 回合內
 				V. 隊伍成員
@@ -218507,6 +218507,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': [],
 				'relative': [11120]
 			}
+		],
+		'board': [
+			[
+				'Dg', 'Hg', 'Wg', 'Wg', 'Wg', 'Dg', 
+				'Dg', 'Hg', 'Fg', 'Eg', 'Hg', 'Dg', 
+				'Dg', 'Hg', 'Fg', 'Eg', 'Hg', 'Dg', 
+				'Dg', 'Hg', 'Fg', 'Eg', 'Hg', 'Dg', 
+				'Dg', 'Lg', 'Lg', 'Lg', 'Hg', 'Dg',
+			]
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
