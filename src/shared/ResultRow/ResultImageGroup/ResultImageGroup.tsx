@@ -34,7 +34,12 @@ const ResultImageGroup: React.FC<IResultImageGroupProps> = (props) => {
                     const notInInventory =
                         useInventory && !playerData?.card?.includes(data?.id)
                     return (
-                        <Col xs={3} md={2} lg={1} key={`result_${data?.id}`}>
+                        <Col
+                            xs={3}
+                            md={2}
+                            lg={1}
+                            key={`result_${data?.id}_${data?.skillIndex || data?.skillIndexes?.join("_")}`}
+                        >
                             <LazyLoad
                                 once
                                 offset={500}
