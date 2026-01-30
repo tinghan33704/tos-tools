@@ -56,11 +56,11 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                 return {
                     ...acc,
                     [cur]: resultData.filter(
-                        (data) => getMonsterById(data?.id)?.attribute === cur
+                        (data) => getMonsterById(data?.id)?.attribute === cur,
                     ),
                 }
             }, {}),
-        [resultData]
+        [resultData],
     )
 
     const resultDataCombineByAttribute: Record<string, []> = useMemo(
@@ -69,11 +69,11 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                 return {
                     ...acc,
                     [cur]: resultDataCombine.filter(
-                        (data) => getMonsterById(data?.id)?.attribute === cur
+                        (data) => getMonsterById(data?.id)?.attribute === cur,
                     ),
                 }
             }, {}),
-        [resultDataCombine]
+        [resultDataCombine],
     )
 
     const resultDataByRace: Record<string, []> = useMemo(
@@ -82,11 +82,11 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                 return {
                     ...acc,
                     [cur]: resultData.filter(
-                        (data) => getMonsterById(data?.id)?.race === cur
+                        (data) => getMonsterById(data?.id)?.race === cur,
                     ),
                 }
             }, {}),
-        [resultData]
+        [resultData],
     )
 
     const resultDataCombineByRace: Record<string, []> = useMemo(
@@ -95,11 +95,11 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                 return {
                     ...acc,
                     [cur]: resultDataCombine.filter(
-                        (data) => getMonsterById(data?.id)?.race === cur
+                        (data) => getMonsterById(data?.id)?.race === cur,
                     ),
                 }
             }, {}),
-        [resultDataCombine]
+        [resultDataCombine],
     )
 
     const renderNoResult = useCallback(() => {
@@ -290,10 +290,10 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                             ]?.tag?.map(
                                 (item: string | (string | number)[]) => {
                                     return Array.isArray(item) ? item[0] : item
-                                }
+                                },
                             )
                             return skillTag.includes(func)
-                        }
+                        },
                     )
                     return {
                         ...data,
@@ -311,10 +311,10 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                             ]?.tag?.map(
                                 (item: string | (string | number)[]) => {
                                     return Array.isArray(item) ? item[0] : item
-                                }
+                                },
                             )
                             return skillTag.includes(func)
-                        }
+                        },
                     )
                     return {
                         ...data,
@@ -457,7 +457,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                             (Array.isArray(searchParam?.functions)
                                 ? searchParam?.functions?.includes("無視紅綠燈")
                                 : Object.keys(
-                                      searchParam?.functions || {}
+                                      searchParam?.functions || {},
                                   )?.includes("無視紅綠燈")) && (
                                 <Col
                                     xs={12}
@@ -484,16 +484,16 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                         {resultView === "table"
                             ? renderTableResult()
                             : sortBy === "id"
-                            ? renderResult()
-                            : sortBy === "charge"
-                            ? renderResultByCharge()
-                            : sortBy === "attribute"
-                            ? renderResultByAttribute()
-                            : sortBy === "race"
-                            ? renderResultByRace()
-                            : sortBy === "function"
-                            ? renderResultByFunction()
-                            : renderResult()}
+                              ? renderResult()
+                              : sortBy === "charge"
+                                ? renderResultByCharge()
+                                : sortBy === "attribute"
+                                  ? renderResultByAttribute()
+                                  : sortBy === "race"
+                                    ? renderResultByRace()
+                                    : sortBy === "function"
+                                      ? renderResultByFunction()
+                                      : renderResult()}
                     </>
                 )}
 

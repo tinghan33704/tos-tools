@@ -54,7 +54,7 @@ const TagExpanderHeader = ({ eventKey }: IObject) => {
 }
 
 export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
-    props
+    props,
 ) => {
     const {
         data,
@@ -82,15 +82,15 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             toolId === "team-skill-filter"
                 ? monsterInfo?.teamSkill
                 : toolId === "leader-skill-filter"
-                ? [skill]
-                : monsterInfo?.skill,
-        [monsterInfo, skill, toolId]
+                  ? [skill]
+                  : monsterInfo?.skill,
+        [monsterInfo, skill, toolId],
     )
 
     const keywordsArr = useMemo(() => searchParam?.keyword, [searchParam])
     const resultMonsterId = useMemo(
         () => resultData?.map((data) => data?.id),
-        [resultData]
+        [resultData],
     )
 
     /***** EASTER EGG *****/
@@ -102,11 +102,11 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 skillIndexes?.length === 1 &&
                 monsterInfo?.skill?.[skillIndexes?.[0]]?.imageChange
             ),
-        [monsterInfo?.skill, skillIndexes]
+        [monsterInfo?.skill, skillIndexes],
     )
     const imageChangeArr = useMemo(
         () => monsterInfo?.skill?.[skillIndexes?.[0]]?.imageChange || [],
-        [monsterInfo?.skill, skillIndexes]
+        [monsterInfo?.skill, skillIndexes],
     )
 
     /* Reiner sits down when result has Eren */
@@ -161,7 +161,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
     const renderMonsterTags = useCallback(
         (tags: [string | [string, number]]) => {
             const noRepeatedTags = _.uniq(
-                tags.map((tag) => (_.isArray(tag) ? tag?.[0] : tag))
+                tags.map((tag) => (_.isArray(tag) ? tag?.[0] : tag)),
             )
 
             return (
@@ -196,14 +196,14 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                             </div>
                                         </Col>
                                     )
-                                }
+                                },
                             )}
                         </Row>
                     </Accordion.Collapse>
                 </Accordion>
             )
         },
-        [attribute]
+        [attribute],
     )
 
     const renderMonsterSkill = useCallback(() => {
@@ -245,7 +245,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                     dangerouslySetInnerHTML={{
                                         __html: descriptionTranslator(
                                             id,
-                                            skill?.name
+                                            skill?.name,
                                         ),
                                     }}
                                 ></div>
@@ -258,8 +258,8 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                       skill?.num - skill?.reduce
                                   }`
                                 : skill?.num <= 0
-                                ? "-"
-                                : skill?.num || ""}
+                                  ? "-"
+                                  : skill?.num || ""}
                         </Col>
                     </Row>
                     {"combine" in skill && (
@@ -281,7 +281,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                                     ? " + "
                                                     : ""}
                                             </>
-                                        )
+                                        ),
                                     )}
                                     {" → "}
                                     {
@@ -312,7 +312,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                                 <Image
                                                     path={`monster/${transformed}`}
                                                 />
-                                            )
+                                            ),
                                         )
                                     )}
                                 </Col>
@@ -337,7 +337,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                                                     ? " + "
                                                     : ""}
                                             </>
-                                        )
+                                        ),
                                     )}
                                 </Col>
                             </Row>
@@ -364,7 +364,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                             dangerouslySetInnerHTML={{
                                 __html: descriptionTranslator(
                                     id,
-                                    skill.description
+                                    skill.description,
                                 ),
                             }}
                         ></Col>
@@ -398,7 +398,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             ) : (
                 <></>
             ),
-        [id, noImagePopover, renderMonsterName, renderMonsterSkill]
+        [id, noImagePopover, renderMonsterName, renderMonsterSkill],
     )
 
     const renderIdTag = useCallback(() => {
@@ -426,7 +426,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
 
         /* Lin Dai-yu changes image at night */
         const currentTime = new Date(
-            new Date().toLocaleString("en-US", { timeZone: "Asia/Taipei" })
+            new Date().toLocaleString("en-US", { timeZone: "Asia/Taipei" }),
         )
         const passedMinutesFromToday =
             currentTime.getHours() * 60 + currentTime.getMinutes()
@@ -457,29 +457,29 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
         const pathId = hasImageChange
             ? document
                   .querySelector(
-                      `.result-image[path="monster/${imageChangeArr?.[0]}"]`
+                      `.result-image[path="monster/${imageChangeArr?.[0]}"]`,
                   )
                   ?.getAttribute("focused")
                 ? imageChangeArr?.[1]
                 : imageChangeArr?.[0]
             : (hasSpecialImage &&
-                  document.querySelector(
-                      `.result-image[src$="${id}.png"][focused="true"]`
-                  )) ||
-              anyaSmile ||
-              cilantroAngry
-            ? `${id}_sp`
-            : isNowNight
-            ? `${id}_sp`
-            : digimonChouShinka
-            ? `${id}_sp2`
-            : digimonShinka
-            ? `${id}_sp1`
-            : document.querySelector(
-                  `.result-image[src$="${id}.png"][focused="true"]`
-              ) && capooImage
-            ? `${id}_sp${_.random(1, 5)}`
-            : id
+                    document.querySelector(
+                        `.result-image[src$="${id}.png"][focused="true"]`,
+                    )) ||
+                anyaSmile ||
+                cilantroAngry
+              ? `${id}_sp`
+              : isNowNight
+                ? `${id}_sp`
+                : digimonChouShinka
+                  ? `${id}_sp2`
+                  : digimonShinka
+                    ? `${id}_sp1`
+                    : document.querySelector(
+                            `.result-image[src$="${id}.png"][focused="true"]`,
+                        ) && capooImage
+                      ? `${id}_sp${_.random(1, 5)}`
+                      : id
         /***** EASTER EGG *****/
 
         return (
@@ -524,7 +524,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                             hasImageChange
                                 ? `, .result-image[path="monster/${imageChangeArr?.[0]}"], .result-image[path="monster/${imageChangeArr?.[1]}"]`
                                 : ""
-                        }`
+                        }`,
                     )
                     ?.getAttribute("focused")
             ) {
@@ -543,7 +543,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                     e.target as HTMLElement,
                     e.pageX,
                     e.pageY,
-                    "ora"
+                    "ora",
                 )
             }
             if (id === 10598 || id === 10898 || id === 10899) {
@@ -551,7 +551,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                     e.target as HTMLElement,
                     e.pageX,
                     e.pageY,
-                    "muda"
+                    "muda",
                 )
             }
             if (id === 10903) {
@@ -559,7 +559,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                     e.target as HTMLElement,
                     e.pageX,
                     e.pageY,
-                    "ari"
+                    "ari",
                 )
             }
             // Click on Kira's image explodes
@@ -600,7 +600,7 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             setMangaVoiceText,
             setPopoverContent,
             togglePopover,
-        ]
+        ],
     )
 
     return (

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback, useContext } from "react"
 import { useSearchParams } from "react-router-dom"
 import { Dropdown, DropdownButton } from "react-bootstrap"
+import { forceCheck } from "react-lazyload"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 
 import { sealContent, sealOpenPeriod } from "src/constant/filterConstants"
@@ -30,7 +31,7 @@ const availablePages = Object.keys(sealContent).filter(
         (new Date().getTime() >=
             new Date(sealOpenPeriod?.[page]?.start).getTime() &&
             new Date().getTime() <=
-                new Date(sealOpenPeriod?.[page]?.end).getTime())
+                new Date(sealOpenPeriod?.[page]?.end).getTime()),
 )
 
 const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
@@ -65,6 +66,10 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     useEffect(() => {
         getInitData()
     }, [urlQuery])
+
+    useEffect(() => {
+        forceCheck()
+    }, [hideHadMonster, currentCardCategory])
 
     const setInitPage = useCallback(() => {
         const _page = localStorage?.getItem("CURRENT_PAGE") || ""
@@ -142,18 +147,20 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                 setCurrentSort(
                     sortTypes[
                         (sortTypes.indexOf(currentSort) + 1) % sortTypes.length
-                    ]
+                    ],
                 )
             }
-            toggleCategory={() =>
+            toggleCategory={() => {
                 setCurrentCardCategory(
                     cardCategories[
                         (cardCategories.indexOf(currentCardCategory) + 1) %
                             cardCategories.length
-                    ]
+                    ],
                 )
-            }
-            toggleHideHadMonster={() => setHideHadMonster(!hideHadMonster)}
+            }}
+            toggleHideHadMonster={() => {
+                setHideHadMonster(!hideHadMonster)
+            }}
         >
             <Header />
             <PageContainer

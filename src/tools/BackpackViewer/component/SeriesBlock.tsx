@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from "react"
+import React, { useRef, useState, useCallback, useEffect } from "react"
 import LazyLoad from "react-lazyload"
 import _ from "lodash"
 import { Accordion, Col, Row } from "react-bootstrap"
@@ -104,7 +104,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                 </div>
             )
         },
-        [playerData]
+        [playerData],
     )
 
     const renderHeader = useCallback(() => {
@@ -113,9 +113,9 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
             data?.filter((series) =>
                 _.isArray(series)
                     ? series.some((monster) =>
-                          playerData?.card?.includes(monster)
+                          playerData?.card?.includes(monster),
                       )
-                    : playerData?.card?.includes(series)
+                    : playerData?.card?.includes(series),
             )?.length || 0
 
         const isAllCollected = collected >= total && total > 0
@@ -125,7 +125,9 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                 className={`monster-series-header${
                     isAllCollected ? " all-collected" : ""
                 }`}
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                    setIsOpen(!isOpen)
+                }}
             >
                 <span className='title-expander'>
                     <Icon icon={isOpen ? faCaretUp : faCaretDown} />
@@ -141,7 +143,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
             togglePopover(e)
             setPopoverContent(renderSeriesInfoPopover(ids))
         },
-        [renderSeriesInfoPopover, setPopoverContent, togglePopover]
+        [renderSeriesInfoPopover, setPopoverContent, togglePopover],
     )
 
     const renderContent = useCallback(() => {

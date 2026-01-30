@@ -1,6 +1,7 @@
-import React, { useCallback, useContext, useState } from "react"
+import React, { useCallback, useContext, useEffect, useState } from "react"
 import _ from "lodash"
 import { Col, Row, Collapse } from "react-bootstrap"
+import { forceCheck } from "react-lazyload"
 import {
     faCaretDown,
     faCaretUp,
@@ -45,6 +46,10 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
     const [isCollapseOpen, setIsCollapseOpen] = useState<boolean>(defaultOpen)
     const [searchText, setSearchText] = useState<string>("")
     const [searchDisplayText, setSearchDisplayText] = useState<string>("")
+
+    useEffect(() => {
+        forceCheck()
+    }, [isCollapseOpen])
 
     const renderFilterButtonGroupRow = useCallback(() => {
         return (

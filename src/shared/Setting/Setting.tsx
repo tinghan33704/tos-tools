@@ -41,7 +41,7 @@ const Setting: React.FC<ISettingProps> = (props) => {
             window.scrollY <
                 document.documentElement.offsetHeight -
                     window.innerHeight -
-                    offset
+                    offset,
         )
 
         window.addEventListener("scroll", () => {
@@ -50,7 +50,7 @@ const Setting: React.FC<ISettingProps> = (props) => {
                 window.scrollY <
                     document.documentElement.offsetHeight -
                         window.innerHeight -
-                        offset
+                        offset,
             )
         })
     }, [])

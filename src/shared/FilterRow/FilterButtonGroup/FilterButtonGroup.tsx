@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Row } from "react-bootstrap"
-import LazyLoad, { forceCheck } from "react-lazyload"
+import LazyLoad from "react-lazyload"
 
 import { skillAlias } from "src/constant/filterConstants"
 import FilterButton from "../FilterButton/FilterButton"
@@ -22,13 +22,8 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
         groupData,
         btnSuffix = "",
         useLazyLoad,
-        isCollapseOpen,
         searchText = "",
     } = props
-
-    useEffect(() => {
-        if (useLazyLoad && isCollapseOpen) forceCheck()
-    }, [isCollapseOpen])
 
     const _groupData = searchText?.length
         ? groupData
@@ -40,15 +35,17 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                     ?.toLowerCase()
                                     ?.includes(searchText?.toLowerCase()) ||
                                 skillAlias?.[item]?.includes(
-                                    searchText?.toLowerCase()
-                                )
+                                    searchText?.toLowerCase(),
+                                ),
                         )
                       : group
-                            ?.toLowerCase()
-                            ?.includes(searchText?.toLowerCase()) ||
-                        skillAlias?.[group]?.includes(searchText?.toLowerCase())
-                      ? group
-                      : ""
+                              ?.toLowerCase()
+                              ?.includes(searchText?.toLowerCase()) ||
+                          skillAlias?.[group]?.includes(
+                              searchText?.toLowerCase(),
+                          )
+                        ? group
+                        : ""
               })
               ?.filter((group) => group?.length)
         : groupData
@@ -60,10 +57,10 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
             <Row>
                 {_groupData.map((group: string | string[], index: number) => {
                     return Array.isArray(group) ? (
-                        useLazyLoad ? (
+                        useLazyLoad && index >= 2 ? ( // workaround for forceCheck not working for accordion open
                             <LazyLoad
                                 once
-                                offset={100}
+                                offset={500}
                                 placeholder={
                                     <span
                                         style={{
