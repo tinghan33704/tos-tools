@@ -1,4 +1,4 @@
-// Last modified : 2026.01.31 05:29
+// Last modified : 2026.01.31 20:35
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -218210,29 +218210,27 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11115,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '璀虹慶生 ‧ 點點',
+        'attribute': '光',
+        'race': '強化素材',
+        'star': 6,
+        'monsterTag': ['素材'],
         'crossOver': false,
         'skill': [
-            {
-                'name': '',
-                'type': 'normal',
-                'charge': 'CD',
-                'num': 0,
-                'description': `
-
-                `,
-                'tag': []
-            }
+			{
+				'name': '沒有技能',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 0,
+				'description': `沒有技能`,
+				'tag': []
+			}
         ],
         'teamSkill': [],
-        'maxLevel': 0,
+        'maxLevel': 99,
         'maxSkill': 0,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.11'
     },
     {
         'id': 11116,
@@ -218292,7 +218290,7 @@ export const monsterData: IObject[] = [
 		'attribute': '暗',
 		'race': '神族',
 		'star': 6,
-		'monsterTag': [],
+		'monsterTag': ['塔之魔神'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -218328,7 +218326,7 @@ export const monsterData: IObject[] = [
 		'attribute': '光',
 		'race': '龍類',
 		'star': 6,
-		'monsterTag': ['紋龍'],
+		'monsterTag': ['紋龍', '熟練奧義'],
 		'crossOver': false,
 		'skill': [
 			{
