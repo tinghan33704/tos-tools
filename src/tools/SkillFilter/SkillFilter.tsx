@@ -542,7 +542,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                                         )) ||
                                                     (!durationObj[
                                                         selectedFunction
-                                                    ].includes(optionText[1]) &&
+                                                    ].includes(optionText[0]) &&
                                                         !durationObj[
                                                             selectedFunction
                                                         ].includes(
