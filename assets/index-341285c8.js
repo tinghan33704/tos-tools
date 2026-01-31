@@ -66523,13 +66523,11 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 進場時
 				⇒【我獨自升級】成員技能 CD -2
-				`,activate:"以 ≥2 個【我獨自升級】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["我獨自升級"]}],maxLevel:99,maxSkill:0,maxRefine:0,version:"v2026.10"},{id:11115,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11116,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以 ≥2 個【我獨自升級】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["我獨自升級"]}],maxLevel:99,maxSkill:0,maxRefine:0,version:"v2026.10"},{id:11115,name:"璀虹慶生 ‧ 點點",attribute:"光",race:"強化素材",star:6,monsterTag:["素材"],crossOver:!1,skill:[{name:"沒有技能",type:"normal",charge:"CD",num:0,description:"沒有技能",tag:[]}],teamSkill:[],maxLevel:99,maxSkill:0,maxRefine:0,version:"v2026.11"},{id:11116,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11117,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11118,name:"忠誠侍奉 ‧ 普羅米修斯",attribute:"暗",race:"神族",star:6,monsterTag:[],crossOver:!1,skill:[{name:"黑曜侍奉",type:"normal",charge:"CD",num:6,description:`
+                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11118,name:"忠誠侍奉 ‧ 普羅米修斯",attribute:"暗",race:"神族",star:6,monsterTag:["塔之魔神"],crossOver:!1,skill:[{name:"黑曜侍奉",type:"normal",charge:"CD",num:6,description:`
 				I. 解除「亡命爆擊」
 				II. 自身對敵人造成 1111 萬點暗屬性的傷害總共 11 次 (此傷害無視「強化突破」及「防禦力」)
 				1 回合內
@@ -66541,7 +66539,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 將觸碰的首 11 粒符石轉化為暗神族強化符石
 				VII. 發動角色符石或擊斃敵人
 				⇒ 該回合不會扣減該技能效果的尚餘回合數
-				`,tag:["解除自爆","直傷","破強化直傷","破防直傷","界王拳","增傷","無視血浴地型","固定Ex.Combo","固定Combo","符石轉暗","符石轉暗強化","神族符石製造","軌跡轉化"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.11"},{id:11119,name:"天際攀升 ‧ 白琥",attribute:"光",race:"龍類",star:6,monsterTag:["紋龍"],crossOver:!1,skill:[{name:"耀世龍吟",type:"normal",charge:"CD",num:6,description:`
+				`,tag:["解除自爆","直傷","破強化直傷","破防直傷","界王拳","增傷","無視血浴地型","固定Ex.Combo","固定Combo","符石轉暗","符石轉暗強化","神族符石製造","軌跡轉化"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.11"},{id:11119,name:"天際攀升 ‧ 白琥",attribute:"光",race:"龍類",star:6,monsterTag:["紋龍","熟練奧義"],crossOver:!1,skill:[{name:"耀世龍吟",type:"normal",charge:"CD",num:6,description:`
 				I.【紋龍】成員攻擊力 2 倍
 				II. 龍類成員
 				⓵ 無視「二屬盾」、「三屬盾」、「四屬盾」、「五屬盾」及「首殺盾」
