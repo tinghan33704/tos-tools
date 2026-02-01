@@ -54,14 +54,14 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
             (name) =>
                 !keywordArr.length ||
                 keywordArr.some((keyword) =>
-                    name.replace(" ", "").includes(keyword)
-                )
+                    name.replace(" ", "").includes(keyword),
+                ),
         )
     }, [craftPureName, keywordArr])
 
     const totalPage = useMemo(
         () => Math.ceil(filteredCraftPureName.length / PAGE_SIZE),
-        [filteredCraftPureName]
+        [filteredCraftPureName],
     )
 
     const resultRef = useRef<HTMLDivElement>(null)
@@ -109,7 +109,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
 
                 craftDataByName[pureName].duplicateCount = Math.max(
                     craftDataByName[pureName].duplicateCount,
-                    craftDataByName[pureName][mode].length
+                    craftDataByName[pureName][mode].length,
                 )
             })
         })
@@ -186,7 +186,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
             })
             setSelectedCrafts(_result)
         },
-        [selectedCrafts]
+        [selectedCrafts],
     )
 
     const movePage = useCallback(
@@ -196,11 +196,11 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                 newPage >= totalPage - 1
                     ? totalPage - 1
                     : newPage < 0
-                    ? 0
-                    : newPage
+                      ? 0
+                      : newPage,
             )
         },
-        [currentPage, totalPage]
+        [currentPage, totalPage],
     )
 
     const renderHeader = useCallback(() => {
@@ -278,7 +278,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                 event.preventDefault()
             }
         },
-        []
+        [],
     )
 
     const changeKeyword = useCallback((value: string) => {
@@ -351,7 +351,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                 filteredCraftPureName
                                     .slice(
                                         currentPage * 10,
-                                        (currentPage + 1) * 10
+                                        (currentPage + 1) * 10,
                                     )
                                     .map((name: string) => {
                                         const allCrafts = craftModeTypeString
@@ -369,7 +369,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                     className='craft-info-tr'
                                                     onClick={() =>
                                                         onSelectCrafts(
-                                                            allCrafts
+                                                            allCrafts,
                                                         )
                                                     }
                                                 >
@@ -395,7 +395,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                         name
                                                                     ]?.series.map(
                                                                         (
-                                                                            serie: string
+                                                                            serie: string,
                                                                         ) => (
                                                                             <Image
                                                                                 width={
@@ -403,19 +403,19 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                                 }
                                                                                 path={`series/${serie}`}
                                                                             />
-                                                                        )
+                                                                        ),
                                                                     )}{" "}
                                                                     {craftDataByName[
                                                                         name
                                                                     ]?.series
                                                                         .map(
                                                                             (
-                                                                                serie: string
+                                                                                serie: string,
                                                                             ) =>
-                                                                                `【${serie}】`
+                                                                                `【${serie}】`,
                                                                         )
                                                                         .join(
-                                                                            "、"
+                                                                            "、",
                                                                         )}
                                                                     特性
                                                                 </>
@@ -426,7 +426,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                     name
                                                                 ]?.monster?.map(
                                                                     (
-                                                                        monster: number
+                                                                        monster: number,
                                                                     ) => {
                                                                         return (
                                                                             <Image
@@ -436,7 +436,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                                 path={`monster/${monster}`}
                                                                             />
                                                                         )
-                                                                    }
+                                                                    },
                                                                 )
                                                             ) : craftDataByName[
                                                                   name
@@ -526,7 +526,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                 {[
                                                     ...Array(
                                                         craftDataByName?.[name]
-                                                            ?.duplicateCount
+                                                            ?.duplicateCount,
                                                     ),
                                                 ].map((item, index) => {
                                                     return (
@@ -538,7 +538,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                             name
                                                                         ]?.[
                                                                             mode.slice(
-                                                                                -2
+                                                                                -2,
                                                                             )
                                                                         ]?.[
                                                                             index
@@ -548,7 +548,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                         <td
                                                                             className={`craft-image craft-have-mode${
                                                                                 selectedCrafts.includes(
-                                                                                    id
+                                                                                    id,
                                                                                 )
                                                                                     ? " craft-image-selected"
                                                                                     : ""
@@ -557,7 +557,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                                 onSelectCrafts(
                                                                                     [
                                                                                         id,
-                                                                                    ]
+                                                                                    ],
                                                                                 )
                                                                             }
                                                                         >
@@ -573,7 +573,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                     ) : (
                                                                         <td className='craft-image'></td>
                                                                     )
-                                                                }
+                                                                },
                                                             )}
                                                         </tr>
                                                     )
@@ -621,12 +621,8 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
     }, [isAfterFilter, resultData])
 
     return (
-        <ContextProvider
-            toolId='craft-selector'
-            resetAll={resetAll}
-            startFilter={startFilter}
-        >
-            <Header />
+        <ContextProvider toolId='craft-selector'>
+            <Header resetAll={resetAll} startFilter={startFilter} />
             <PageContainer openInputModal={openInputModal}>
                 <div className='craft-selector'>
                     {renderHeader()}
@@ -652,7 +648,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                         input
                             .split(/\s+/)
                             .filter((str) => str.length)
-                            .map((str) => parseInt(str))
+                            .map((str) => parseInt(str)),
                     ).filter((id) => !_.isEmpty(getCraftById(id)))
                     resetAll()
                     setSelectedCrafts(inputArr)

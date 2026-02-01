@@ -514,81 +514,98 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
     }, [isAfterFilter, resultData])
 
     return (
-        <ContextProvider
-            toolId='craft-filter'
-            toggleButton={toggleButton}
-            resetButton={resetButton}
-            resetAll={resetAll}
-            skillFunctions={selectedSkillFunctions}
-            armedFunctions={selectedArmedFunctions}
-            keyword={keyword}
-            changeKeyword={(value: string) => setKeyword(value)}
-            resetKeyword={() => setKeyword("")}
-            mode={selectedModes}
-            attribute={selectedAttributes}
-            race={selectedRaces}
-            star={selectedStars}
-            charge={selectedCharges}
-            genre={selectedGenres}
-            andOr={andOr}
-            changeAndOr={(value: string) => setAndOr(value)}
-            startFilter={startFilter}
-            showSkillIcon={showSkillIcon}
-            toggleShowSkillIcon={() => {
-                const _showSkillIcon = !showSkillIcon
-                setShowSkillIcon(_showSkillIcon)
-                localStorage?.setItem(
-                    "SHOW_SKILL_ICON",
-                    JSON.stringify(_showSkillIcon),
-                )
-            }}
-        >
-            <Header />
-            <PageContainer>
+        <ContextProvider toolId='craft-filter'>
+            <Header
+                resetAll={resetAll}
+                andOr={andOr}
+                changeAndOr={(value: string) => setAndOr(value)}
+                startFilter={startFilter}
+            />
+            <PageContainer
+                showSkillIcon={showSkillIcon}
+                toggleShowSkillIcon={() => {
+                    const _showSkillIcon = !showSkillIcon
+                    setShowSkillIcon(_showSkillIcon)
+                    localStorage?.setItem(
+                        "SHOW_SKILL_ICON",
+                        JSON.stringify(_showSkillIcon),
+                    )
+                }}
+            >
                 <>
                     <FilterRow
                         title={"龍脈能力"}
                         type={"skillFunctions"}
                         data={craftSkillTypeString}
+                        selectedData={selectedSkillFunctions}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         enableSearch
+                        showSkillIcon={showSkillIcon}
                     />
                     <FilterRow
                         title={"武裝能力"}
                         type={"armedFunctions"}
                         data={craftArmedTypeString}
+                        selectedData={selectedArmedFunctions}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         enableSearch
+                        showSkillIcon={showSkillIcon}
                     />
-                    <KeywordRow />
+                    <KeywordRow
+                        keyword={keyword}
+                        changeKeyword={(value: string) => setKeyword(value)}
+                        resetKeyword={() => setKeyword("")}
+                    />
                     <FilterRow
                         title={"龍刻模式"}
                         type={"mode"}
                         data={craftModeTypeString}
+                        selectedData={selectedModes}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"裝備屬性"}
                         type={"attribute"}
                         data={craftAttrTypeString}
+                        selectedData={selectedAttributes}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"裝備種族"}
                         type={"race"}
                         data={craftRaceTypeString}
+                        selectedData={selectedRaces}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"龍刻稀有度"}
                         type={"star"}
                         data={craftStarTypeString}
+                        selectedData={selectedStars}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         btnSuffix={" ★"}
                     />
                     <FilterRow
                         title={"龍刻充能條件"}
                         type={"charge"}
                         data={craftChargeTypeString}
+                        selectedData={selectedCharges}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"龍刻種類"}
                         type={"genre"}
                         data={craftGenreTypeString}
+                        selectedData={selectedGenres}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <div ref={resultRef}>
                         {isAfterFilter ? (

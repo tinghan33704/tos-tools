@@ -9,7 +9,6 @@ import {
     skillFunctionString,
 } from "src/constant/filterConstants"
 import { getMonsterById } from "src/utilities/utils"
-import Context from "src/utilities/Context/Context"
 import DataContext from "src/utilities/Context/DataContext"
 import Image from "src/utilities/Image"
 import ResultTag from "./ResultTag"
@@ -28,6 +27,10 @@ export interface IResultRowProps {
     children?: React.ReactNode
     togglePopover?: (e: React.MouseEvent) => void
     setPopoverContent?: (content: React.ReactElement) => void
+    sortBy?: string
+    resultView?: string
+    showNoData?: boolean
+    useInventory?: boolean
 }
 
 const ResultRow: React.FC<IResultRowProps> = (props) => {
@@ -41,13 +44,11 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         children,
         togglePopover = () => {},
         setPopoverContent = () => {},
-    } = props
-    const {
-        sortBy,
+        sortBy = "",
+        resultView = "summary",
         showNoData,
         useInventory,
-        resultView = "summary",
-    } = useContext(Context)
+    } = props
     const { playerData } = useContext(DataContext)
 
     const resultDataByAttribute: Record<string, []> = useMemo(
@@ -137,6 +138,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
                                 searchParam={searchParam}
+                                useInventory={useInventory}
                             />
                             {data.length && dataCombine.length ? <hr /> : <></>}
                             {dataCombine.length ? (
@@ -146,6 +148,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                     togglePopover={togglePopover}
                                     setPopoverContent={setPopoverContent}
                                     searchParam={searchParam}
+                                    useInventory={useInventory}
                                 />
                             ) : (
                                 <></>
@@ -167,6 +170,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         setPopoverContent,
         showNoData,
         togglePopover,
+        useInventory,
     ])
 
     const renderResultByRace = useCallback(() => {
@@ -190,6 +194,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
                                 searchParam={searchParam}
+                                useInventory={useInventory}
                             />
                             {data.length && dataCombine.length ? <hr /> : <></>}
                             {dataCombine.length ? (
@@ -199,6 +204,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                     togglePopover={togglePopover}
                                     setPopoverContent={setPopoverContent}
                                     searchParam={searchParam}
+                                    useInventory={useInventory}
                                 />
                             ) : (
                                 <></>
@@ -220,6 +226,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         setPopoverContent,
         showNoData,
         togglePopover,
+        useInventory,
     ])
 
     const renderResultByCharge = useCallback(() => {
@@ -263,6 +270,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                             togglePopover={togglePopover}
                             setPopoverContent={setPopoverContent}
                             searchParam={searchParam}
+                            useInventory={useInventory}
                         />
                     </>
                 )
@@ -277,6 +285,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         searchParam,
         setPopoverContent,
         togglePopover,
+        useInventory,
     ])
 
     const renderResultByFunction = useCallback(() => {
@@ -340,6 +349,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
                                 searchParam={searchParam}
+                                useInventory={useInventory}
                             />
                             {skillWithFunction.length &&
                             skillWithFunctionCombine.length ? (
@@ -354,6 +364,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                                     togglePopover={togglePopover}
                                     setPopoverContent={setPopoverContent}
                                     searchParam={searchParam}
+                                    useInventory={useInventory}
                                 />
                             ) : (
                                 <></>
@@ -375,6 +386,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         setPopoverContent,
         showNoData,
         togglePopover,
+        useInventory,
     ])
 
     const renderResult = useCallback(() => {
@@ -386,6 +398,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                     togglePopover={togglePopover}
                     setPopoverContent={setPopoverContent}
                     searchParam={searchParam}
+                    useInventory={useInventory}
                 />
                 {resultData.length > 0 && resultDataCombine.length > 0 ? (
                     <hr />
@@ -399,6 +412,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
                         togglePopover={togglePopover}
                         setPopoverContent={setPopoverContent}
                         searchParam={searchParam}
+                        useInventory={useInventory}
                     />
                 ) : (
                     <></>
@@ -415,6 +429,7 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         searchParam,
         setPopoverContent,
         togglePopover,
+        useInventory,
     ])
 
     const renderTableResult = useCallback(() => {

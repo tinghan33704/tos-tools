@@ -352,65 +352,75 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
     }, [isAfterFilter, resultData])
 
     return (
-        <ContextProvider
-            toolId='team-skill-filter'
-            toggleButton={toggleButton}
-            resetButton={resetButton}
-            resetAll={resetAll}
-            functions={selectedFunctions}
-            keyword={keyword}
-            changeKeyword={(value: string) => setKeyword(value)}
-            resetKeyword={() => setKeyword("")}
-            attribute={selectedAttributes}
-            activate={selectedActivate}
-            race={selectedRaces}
-            star={selectedStars}
-            andOr={andOr}
-            changeAndOr={(value: string) => setAndOr(value)}
-            startFilter={startFilter}
-            resultView={resultView}
-            toggleResultView={() =>
-                setResultView(resultView === "table" ? "summary" : "table")
-            }
-            showSkillIcon={showSkillIcon}
-            toggleShowSkillIcon={() => {
-                const _showSkillIcon = !showSkillIcon
-                setShowSkillIcon(_showSkillIcon)
-                localStorage?.setItem(
-                    "SHOW_SKILL_ICON",
-                    JSON.stringify(_showSkillIcon),
-                )
-            }}
-        >
-            <Header />
-            <PageContainer>
+        <ContextProvider toolId='team-skill-filter'>
+            <Header
+                resetAll={resetAll}
+                andOr={andOr}
+                changeAndOr={(value: string) => setAndOr(value)}
+                startFilter={startFilter}
+            />
+            <PageContainer
+                showSkillIcon={showSkillIcon}
+                toggleShowSkillIcon={() => {
+                    const _showSkillIcon = !showSkillIcon
+                    setShowSkillIcon(_showSkillIcon)
+                    localStorage?.setItem(
+                        "SHOW_SKILL_ICON",
+                        JSON.stringify(_showSkillIcon),
+                    )
+                }}
+                resultView={resultView}
+                toggleResultView={() =>
+                    setResultView(resultView === "table" ? "summary" : "table")
+                }
+            >
                 <>
                     <FilterRow
                         title={"功能"}
                         type={"functions"}
                         data={teamSkillFunctionString}
+                        selectedData={selectedFunctions}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         enableSearch
+                        showSkillIcon={showSkillIcon}
                     />
-                    <KeywordRow />
+                    <KeywordRow
+                        keyword={keyword}
+                        changeKeyword={(value: string) => setKeyword(value)}
+                        resetKeyword={() => setKeyword("")}
+                    />
                     <FilterRow
                         title={"發動條件"}
                         type={"activate"}
                         data={teamSkillActivateString}
+                        selectedData={selectedActivate}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"召喚獸屬性"}
                         type={"attribute"}
                         data={attrTypeString}
+                        selectedData={selectedAttributes}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"召喚獸種族"}
                         type={"race"}
                         data={raceTypeString}
+                        selectedData={selectedRaces}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"召喚獸稀有度"}
                         type={"star"}
                         data={starTypeString}
+                        selectedData={selectedStars}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         btnSuffix={" ★"}
                     />
                     <div ref={resultRef}>
@@ -421,6 +431,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                                 noImagePopover={true}
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
+                                resultView={resultView}
                             />
                         ) : (
                             <></>

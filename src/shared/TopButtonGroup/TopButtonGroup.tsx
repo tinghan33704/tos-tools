@@ -9,10 +9,24 @@ import "./style.scss"
 
 export interface ITopButtonGroupProps {
     buttonData: string[]
+    resetAll?: () => void
+    sortBy?: string
+    changeSortBy?: (value: string) => void
+    andOr?: string
+    changeAndOr?: (value: string) => void
+    startFilter?: () => void
 }
 
 const TopButtonGroup: React.FC<ITopButtonGroupProps> = (props) => {
-    const { buttonData } = props
+    const {
+        buttonData,
+        resetAll,
+        sortBy = "",
+        changeSortBy: _changeSortBy,
+        andOr = "",
+        changeAndOr: _changeAndOr,
+        startFilter,
+    } = props
     const context = useContext(Context)
 
     const sortByMapping: Record<string, string> = useMemo(() => {
@@ -33,21 +47,17 @@ const TopButtonGroup: React.FC<ITopButtonGroupProps> = (props) => {
         }
     }, [context])
 
-    const resetAll = useCallback(() => {
-        context.resetAll()
-    }, [context])
-
     const changeSortBy = useCallback(() => {
         const sortByKeys = Object.keys(sortByMapping)
-        const index = sortByKeys.findIndex((item) => item === context.sortBy)
-        context.changeSortBy(sortByKeys[(index + 1) % sortByKeys.length])
-    }, [context, sortByMapping])
+        const index = sortByKeys.findIndex((item) => item === sortBy)
+        _changeSortBy?.(sortByKeys[(index + 1) % sortByKeys.length])
+    }, [_changeSortBy, sortBy, sortByMapping])
 
     const changeAndOr = useCallback(() => {
         const andOrKeys = Object.keys(andOrMapping)
-        const index = andOrKeys.findIndex((item) => item === context.andOr)
-        context.changeAndOr(andOrKeys[(index + 1) % andOrKeys.length])
-    }, [andOrMapping, context])
+        const index = andOrKeys.findIndex((item) => item === andOr)
+        _changeAndOr?.(andOrKeys[(index + 1) % andOrKeys.length])
+    }, [_changeAndOr, andOr, andOrMapping])
 
     return (
         <Row className='top-button-group'>
@@ -64,13 +74,13 @@ const TopButtonGroup: React.FC<ITopButtonGroupProps> = (props) => {
                         ) : type === "sort" ? (
                             <Button
                                 className='top-btn sort-btn'
-                                text={sortByMapping[context.sortBy]}
+                                text={sortByMapping[sortBy]}
                                 onClick={changeSortBy}
                             />
                         ) : type === "and-or" ? (
                             <Button
-                                className={`top-btn and-or-btn ${context.andOr}-btn`}
-                                text={andOrMapping[context.andOr]}
+                                className={`top-btn and-or-btn ${andOr}-btn`}
+                                text={andOrMapping[andOr]}
                                 onClick={changeAndOr}
                             />
                         ) : type === "start-filter" ? (
@@ -78,14 +88,14 @@ const TopButtonGroup: React.FC<ITopButtonGroupProps> = (props) => {
                                 className='top-btn start-btn'
                                 icon={faPlayCircle}
                                 text={"搜尋"}
-                                onClick={context.startFilter}
+                                onClick={startFilter}
                             />
                         ) : type === "start-generate" ? (
                             <Button
                                 className='top-btn start-btn'
                                 icon={faPlayCircle}
                                 text={"生成編號"}
-                                onClick={context.startFilter}
+                                onClick={startFilter}
                             />
                         ) : (
                             <></>

@@ -1,8 +1,7 @@
-import React, { useCallback, useContext, useRef } from "react"
+import React, { useCallback, useRef } from "react"
 import { Col, Modal, Row } from "react-bootstrap"
 
 import { optionText, skillFunctionString } from "src/constant/filterConstants"
-import Context from "src/utilities/Context/Context"
 import FilterButton from "../FilterRow/FilterButton"
 
 import "./style.scss"
@@ -11,13 +10,13 @@ export interface IDurationModalProps {
     open: boolean
     onClose: () => void
     durationObj: IObject
+    functions: string[]
     toggleDuration: (func: string, duration: string) => void
 }
 
 const DurationModal: React.FC<IDurationModalProps> = (props) => {
-    const { open, onClose, durationObj, toggleDuration } = props
+    const { open, onClose, durationObj, toggleDuration, functions } = props
     const ref = useRef(null)
-    const { functions } = useContext(Context)
 
     const renderOptionRows = useCallback(() => {
         const selectedFunctions = skillFunctionString
@@ -25,7 +24,7 @@ const DurationModal: React.FC<IDurationModalProps> = (props) => {
             .filter((skill_function: string) => {
                 return (
                     !["多重左上狀態", "頭像狀態", "敵身狀態"].includes(
-                        skill_function
+                        skill_function,
                     ) && (functions as string[]).includes(skill_function)
                 )
             })

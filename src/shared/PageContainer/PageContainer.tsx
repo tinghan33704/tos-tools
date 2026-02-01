@@ -25,6 +25,21 @@ export interface IPageContainerProps {
     openObjectiveModal?: () => void
     openInputModal?: () => void
     backpackViewerPage?: string
+
+    showNoData?: boolean
+    toggleShowNoData?: () => void
+    useInventory?: boolean
+    toggleUseInventory?: () => void
+    showSkillIcon?: boolean
+    toggleShowSkillIcon?: () => void
+    resultView?: string
+    toggleResultView?: () => void
+    sort?: string
+    toggleSort?: () => void
+    category?: string
+    toggleCategory?: () => void
+    hideHadMonster?: boolean
+    toggleHideHadMonster?: () => void
 }
 
 const PageContainer: React.FC<IPageContainerProps> = (props) => {
@@ -35,6 +50,20 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
         openObjectiveModal,
         openInputModal,
         backpackViewerPage = "",
+        showNoData,
+        toggleShowNoData,
+        useInventory,
+        toggleUseInventory,
+        showSkillIcon,
+        toggleShowSkillIcon,
+        resultView,
+        toggleResultView,
+        sort,
+        toggleSort,
+        category,
+        toggleCategory,
+        hideHadMonster,
+        toggleHideHadMonster,
     } = props
     const { toolId } = useContext(Context)
 
@@ -65,20 +94,20 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
         const message = allToolBroadcastNotification?.length
             ? allToolBroadcastNotification
             : toolId === "skill-filter"
-            ? skillFilterNotification
-            : toolId === "team-skill-filter"
-            ? teamSkillFilterNotification
-            : toolId === "leader-skill-filter"
-            ? leaderSkillFilterNotification
-            : toolId === "craft-filter"
-            ? craftFilterNotification
-            : toolId === "craft-selector"
-            ? craftSelectorNotification
-            : toolId === "monster-selector"
-            ? monsterSelectorNotification
-            : toolId === "backpack-viewer"
-            ? backpackViewerNotification
-            : ""
+              ? skillFilterNotification
+              : toolId === "team-skill-filter"
+                ? teamSkillFilterNotification
+                : toolId === "leader-skill-filter"
+                  ? leaderSkillFilterNotification
+                  : toolId === "craft-filter"
+                    ? craftFilterNotification
+                    : toolId === "craft-selector"
+                      ? craftSelectorNotification
+                      : toolId === "monster-selector"
+                        ? monsterSelectorNotification
+                        : toolId === "backpack-viewer"
+                          ? backpackViewerNotification
+                          : ""
 
         return isNotificationOpen && message?.length ? (
             <Alert
@@ -105,13 +134,13 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
             toolId === "skill-filter" || toolId === "craft-filter"
                 ? "2019"
                 : toolId === "team-skill-filter"
-                ? "2020"
-                : toolId === "backpack-viewer" || toolId === "craft-selector"
-                ? "2021"
-                : toolId === "monster-selector" ||
-                  toolId === "leader-skill-filter"
-                ? "2022"
-                : ""
+                  ? "2020"
+                  : toolId === "backpack-viewer" || toolId === "craft-selector"
+                    ? "2021"
+                    : toolId === "monster-selector" ||
+                        toolId === "leader-skill-filter"
+                      ? "2022"
+                      : ""
 
         return (
             <div className='author-info'>
@@ -165,6 +194,20 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
                 openObjectiveModal={openObjectiveModal}
                 openInputModal={openInputModal}
                 backpackViewerPage={backpackViewerPage}
+                showNoData={showNoData}
+                toggleShowNoData={toggleShowNoData}
+                useInventory={useInventory}
+                toggleUseInventory={toggleUseInventory}
+                showSkillIcon={showSkillIcon}
+                toggleShowSkillIcon={toggleShowSkillIcon}
+                resultView={resultView}
+                toggleResultView={toggleResultView}
+                sort={sort}
+                toggleSort={toggleSort}
+                category={category}
+                toggleCategory={toggleCategory}
+                hideHadMonster={hideHadMonster}
+                toggleHideHadMonster={toggleHideHadMonster}
             />
             {renderFooter()}
         </Container>

@@ -14,6 +14,9 @@ export interface IFilterButtonGroupProps {
     useLazyLoad?: boolean
     isCollapseOpen?: boolean
     searchText?: string
+    selectedData?: string[]
+    toggleButton?: (type: string, text: string, value: boolean) => void
+    showSkillIcon?: boolean
 }
 
 const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
@@ -23,6 +26,9 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
         btnSuffix = "",
         useLazyLoad,
         searchText = "",
+        selectedData = [],
+        toggleButton,
+        showSkillIcon,
     } = props
 
     const _groupData = searchText?.length
@@ -85,6 +91,9 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                                 index={curIndex++}
                                                 text={`${data}${btnSuffix}`}
                                                 key={`${data}_${curIndex}`}
+                                                selectedData={selectedData}
+                                                toggleButton={toggleButton}
+                                                showSkillIcon={showSkillIcon}
                                             />
                                         )
                                     })}
@@ -105,6 +114,9 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                             index={curIndex++}
                                             text={`${data}${btnSuffix}`}
                                             key={`${data}_${curIndex}`}
+                                            selectedData={selectedData}
+                                            toggleButton={toggleButton}
+                                            showSkillIcon={showSkillIcon}
                                         />
                                     )
                                 })}
@@ -119,6 +131,9 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                             index={curIndex++}
                             text={`${group}${btnSuffix}`}
                             key={`${group}_${curIndex}`}
+                            selectedData={selectedData}
+                            toggleButton={toggleButton}
+                            showSkillIcon={showSkillIcon}
                         />
                     )
                 })}

@@ -138,34 +138,33 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
     }, [currentTab])
 
     return (
-        <ContextProvider
-            toolId='backpack-viewer'
-            sort={currentSort}
-            category={currentCardCategory}
-            hideHadMonster={hideHadMonster}
-            toggleSort={() =>
-                setCurrentSort(
-                    sortTypes[
-                        (sortTypes.indexOf(currentSort) + 1) % sortTypes.length
-                    ],
-                )
-            }
-            toggleCategory={() => {
-                setCurrentCardCategory(
-                    cardCategories[
-                        (cardCategories.indexOf(currentCardCategory) + 1) %
-                            cardCategories.length
-                    ],
-                )
-            }}
-            toggleHideHadMonster={() => {
-                setHideHadMonster(!hideHadMonster)
-            }}
-        >
+        <ContextProvider toolId='backpack-viewer'>
             <Header />
             <PageContainer
                 openUserDataModal={openUserDataModal}
                 backpackViewerPage={currentTab}
+                sort={currentSort}
+                toggleSort={() =>
+                    setCurrentSort(
+                        sortTypes[
+                            (sortTypes.indexOf(currentSort) + 1) %
+                                sortTypes.length
+                        ],
+                    )
+                }
+                category={currentCardCategory}
+                toggleCategory={() => {
+                    setCurrentCardCategory(
+                        cardCategories[
+                            (cardCategories.indexOf(currentCardCategory) + 1) %
+                                cardCategories.length
+                        ],
+                    )
+                }}
+                hideHadMonster={hideHadMonster}
+                toggleHideHadMonster={() => {
+                    setHideHadMonster(!hideHadMonster)
+                }}
             >
                 {isLoading ? (
                     <div

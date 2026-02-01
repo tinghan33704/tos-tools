@@ -17,7 +17,6 @@ import {
     leaderSkillTypeNoObject,
     raceTypeString,
 } from "src/constant/filterConstants"
-import Context from "src/utilities/Context/Context"
 import Icon from "src/utilities/Icon"
 import FilterButton from "../FilterRow/FilterButton"
 
@@ -27,11 +26,12 @@ export interface IObjectiveModalProps {
     open: boolean
     onClose: () => void
     objectiveObj: IObject
+    functions: string[]
     toggleObjective: (
         func: string,
         attribute: string,
         race: string,
-        all?: boolean
+        all?: boolean,
     ) => void
     activateObj: IObject
     toggleActivate: (func: string, activate: string) => void
@@ -63,12 +63,12 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
         open,
         onClose,
         objectiveObj,
+        functions,
         toggleObjective,
         activateObj,
         toggleActivate,
     } = props
     const ref = useRef(null)
-    const { functions } = useContext(Context)
 
     const attrTypeStr = attrTypeString
     const raceTypeStr = raceTypeString.slice(0, 7).map((str) => str[0])
@@ -118,14 +118,14 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                               func,
                                                                               attr,
                                                                               "",
-                                                                              true
+                                                                              true,
                                                                           )
                                                                         : null
                                                                 }
                                                             >
                                                                 {attr}
                                                             </Col>
-                                                        )
+                                                        ),
                                                     )}
                                                 </Row>
                                                 {raceTypeStr.map(
@@ -139,7 +139,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                         func,
                                                                         "",
                                                                         race,
-                                                                        true
+                                                                        true,
                                                                     )
                                                                 }
                                                             >
@@ -148,7 +148,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                             {attrTypeStr.map(
                                                                 (
                                                                     attr,
-                                                                    attr_index
+                                                                    attr_index,
                                                                 ) => {
                                                                     const index =
                                                                         (attrTypeStr.length *
@@ -170,14 +170,14 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                                 !!objectiveObj?.[
                                                                                     func
                                                                                 ]?.includes(
-                                                                                    `${attr}${race}`
+                                                                                    `${attr}${race}`,
                                                                                 )
                                                                             }
                                                                             callback={() =>
                                                                                 toggleObjective(
                                                                                     func,
                                                                                     attr,
-                                                                                    race
+                                                                                    race,
                                                                                 )
                                                                             }
                                                                             size={{
@@ -188,16 +188,16 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                             key={`objective-${index}`}
                                                                         />
                                                                     )
-                                                                }
+                                                                },
                                                             )}
                                                         </Row>
-                                                    )
+                                                    ),
                                                 )}
                                                 <Row className='mt-4'>
                                                     {leaderSkillObjectString.map(
                                                         (
                                                             object,
-                                                            object_index
+                                                            object_index,
                                                         ) => {
                                                             const index =
                                                                 (attrTypeStr.length *
@@ -225,14 +225,14 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                             !!objectiveObj?.[
                                                                                 func
                                                                             ]?.includes(
-                                                                                `${object}`
+                                                                                `${object}`,
                                                                             )
                                                                         }
                                                                         callback={() =>
                                                                             toggleObjective(
                                                                                 func,
                                                                                 object,
-                                                                                ""
+                                                                                "",
                                                                             )
                                                                         }
                                                                         size={{
@@ -244,7 +244,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                     />
                                                                 </>
                                                             )
-                                                        }
+                                                        },
                                                     )}
                                                 </Row>
                                             </Accordion.Body>
@@ -284,13 +284,13 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                 !!activateObj?.[
                                                                     func
                                                                 ]?.includes(
-                                                                    option
+                                                                    option,
                                                                 )
                                                             }
                                                             callback={() =>
                                                                 toggleActivate(
                                                                     func,
-                                                                    option
+                                                                    option,
                                                                 )
                                                             }
                                                             size={{
@@ -304,7 +304,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                                                 option_index
                                                             }`}
                                                         />
-                                                    )
+                                                    ),
                                                 )}
                                             </Row>
                                         </Accordion.Body>

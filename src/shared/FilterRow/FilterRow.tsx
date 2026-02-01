@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import _ from "lodash"
 import { Col, Row, Collapse } from "react-bootstrap"
 import { forceCheck } from "react-lazyload"
@@ -11,7 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { AutoTextSize } from "auto-text-size"
 
-import Context from "src/utilities/Context/Context"
 import Button from "src/utilities/Button"
 import Icon from "src/utilities/Icon"
 import { textSanitizer } from "src/utilities/utils"
@@ -23,11 +22,15 @@ export interface IFilterRowProps {
     title: string
     type: string
     data: (string | string[])[]
+    selectedData?: string[]
     btnSuffix?: string
     collapsible?: boolean
     defaultOpen?: boolean
     hideReset?: boolean
     enableSearch?: boolean
+    toggleButton?: (type: string, text: string, value: boolean) => void
+    resetButton?: (type: string) => void
+    showSkillIcon?: boolean
 }
 
 const FilterRow: React.FC<IFilterRowProps> = (props) => {
@@ -40,8 +43,11 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
         defaultOpen = false,
         enableSearch = false,
         hideReset,
+        selectedData = [],
+        toggleButton,
+        resetButton,
+        showSkillIcon,
     } = props
-    const { resetButton } = useContext(Context)
 
     const [isCollapseOpen, setIsCollapseOpen] = useState<boolean>(defaultOpen)
     const [searchText, setSearchText] = useState<string>("")
@@ -58,6 +64,9 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
                 groupData={data}
                 btnSuffix={btnSuffix}
                 useLazyLoad={collapsible}
+                selectedData={selectedData}
+                toggleButton={toggleButton}
+                showSkillIcon={showSkillIcon}
                 {...(collapsible ? { isCollapseOpen } : {})}
                 {...(enableSearch ? { searchText } : {})}
             />
@@ -69,6 +78,9 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
         enableSearch,
         isCollapseOpen,
         searchText,
+        selectedData,
+        showSkillIcon,
+        toggleButton,
         type,
     ])
 
@@ -77,7 +89,7 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
     }, [isCollapseOpen])
 
     const resetAll = useCallback(() => {
-        resetButton(type)
+        resetButton?.(type)
     }, [resetButton, type])
 
     const onSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

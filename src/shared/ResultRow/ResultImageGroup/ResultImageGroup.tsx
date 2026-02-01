@@ -15,6 +15,7 @@ export interface IResultImageGroupProps {
     togglePopover: (e: React.MouseEvent) => void
     setPopoverContent: (content: React.ReactElement) => void
     searchParam: IObject
+    useInventory?: boolean
 }
 
 const CHUNK_SIZE = 48
@@ -26,8 +27,9 @@ const ResultImageGroup: React.FC<IResultImageGroupProps> = (props) => {
         togglePopover,
         setPopoverContent,
         searchParam,
+        useInventory = false,
     } = props
-    const { useInventory = false, toolId } = useContext(Context)
+    const { toolId } = useContext(Context)
     const { playerData } = useContext(DataContext)
 
     const resultChunk = useMemo(

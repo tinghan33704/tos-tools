@@ -1,10 +1,9 @@
-import React, { useContext, useMemo } from "react"
+import React, { useMemo } from "react"
 import { Col } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
 import { attrZhToEn, raceZhToEn } from "src/constant/filterConstants"
 import { skillIconMapping } from "src/constant/skillIcon"
-import Context from "src/utilities/Context/Context"
 import Image from "src/utilities/Image"
 
 import "./style.scss"
@@ -14,6 +13,9 @@ export interface IFilterButtonProps {
     index: number
     text: string
     suffix?: string
+    selectedData?: string[]
+    toggleButton?: (type: string, text: string, value: boolean) => void
+    showSkillIcon?: boolean
 
     // for custom
     checked?: boolean
@@ -22,16 +24,22 @@ export interface IFilterButtonProps {
 }
 
 const FilterButton: React.FC<IFilterButtonProps> = (props) => {
-    const context = useContext(Context)
-    const { showSkillIcon } = context
-    const { group, index, text, suffix = "", checked, callback, size } = props
+    const {
+        group,
+        index,
+        text,
+        suffix = "",
+        checked,
+        callback,
+        size,
+        selectedData = [],
+        toggleButton,
+        showSkillIcon,
+    } = props
 
     const buttonChecked = useMemo(
-        () =>
-            checked !== undefined
-                ? checked
-                : (context as IObject)?.[group]?.includes(text),
-        [checked, context, group, text],
+        () => (checked !== undefined ? checked : selectedData?.includes(text)),
+        [checked, selectedData, text],
     )
 
     const buttonIcon = useMemo(
@@ -93,7 +101,7 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
                 onChange={(e) =>
                     callback
                         ? callback(e)
-                        : context.toggleButton(group, text, !buttonChecked)
+                        : toggleButton?.(group, text, !buttonChecked)
                 }
             />
             <label

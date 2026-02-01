@@ -13,9 +13,21 @@ import { toolConfig } from "src/constant/toolConfig"
 
 import "./style.scss"
 
+export interface IHeaderProps {
+    resetAll?: () => void
+    sortBy?: string
+    changeSortBy?: (value: string) => void
+    andOr?: string
+    changeAndOr?: (value: string) => void
+    startFilter?: () => void
+}
+
 const NA = "---"
 
-const Header: React.FC = () => {
+const Header: React.FC<IHeaderProps> = (props) => {
+    const { resetAll, sortBy, changeSortBy, andOr, changeAndOr, startFilter } =
+        props
+
     const dataContext = useContext(DataContext)
     const { playerData } = dataContext
 
@@ -54,8 +66,26 @@ const Header: React.FC = () => {
     const renderTopButtons = useCallback(() => {
         const config = toolConfig?.[toolId]
 
-        return <TopButtonGroup buttonData={config.topBtn} />
-    }, [toolId])
+        return (
+            <TopButtonGroup
+                buttonData={config.topBtn}
+                resetAll={resetAll}
+                sortBy={sortBy}
+                changeSortBy={changeSortBy}
+                andOr={andOr}
+                changeAndOr={changeAndOr}
+                startFilter={startFilter}
+            />
+        )
+    }, [
+        andOr,
+        changeAndOr,
+        changeSortBy,
+        resetAll,
+        sortBy,
+        startFilter,
+        toolId,
+    ])
 
     const renderTopInfo = useCallback(() => {
         const config = toolConfig?.[toolId]

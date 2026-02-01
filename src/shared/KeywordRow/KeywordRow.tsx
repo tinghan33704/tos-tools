@@ -1,16 +1,21 @@
-import React, { useCallback, useContext } from "react"
+import React, { useCallback } from "react"
 import { faUndo } from "@fortawesome/free-solid-svg-icons"
 import { Col, Form, Row } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
 import { inputMaxLength } from "src/constant/filterConstants"
-import Context from "src/utilities/Context/Context"
 import Button from "src/utilities/Button"
 
 import "./style.scss"
 
-const KeywordRow: React.FC = () => {
-    const { keyword, resetKeyword, changeKeyword } = useContext(Context)
+export interface IKeywordRowProps {
+    keyword: string
+    resetKeyword?: () => void
+    changeKeyword?: (value: string) => void
+}
+
+const KeywordRow: React.FC<IKeywordRowProps> = (props) => {
+    const { keyword, resetKeyword, changeKeyword } = props
 
     const onInputKeyPress = useCallback(
         (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -19,7 +24,7 @@ const KeywordRow: React.FC = () => {
                 event.preventDefault()
             }
         },
-        []
+        [],
     )
 
     return (
@@ -50,7 +55,7 @@ const KeywordRow: React.FC = () => {
                             placeholder='輸入技能關鍵字'
                             value={keyword}
                             maxLength={inputMaxLength}
-                            onChange={(e) => changeKeyword(e.target.value)}
+                            onChange={(e) => changeKeyword?.(e.target.value)}
                             onKeyDown={onInputKeyPress}
                         />
                     </Form.Group>

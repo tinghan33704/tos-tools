@@ -68,15 +68,15 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             selected: string[],
             text: string,
             value: boolean,
-            callback: (value: string[]) => void
+            callback: (value: string[]) => void,
         ) => {
             callback(
                 value
                     ? [...selected, text]
-                    : selected.filter((item) => item !== text)
+                    : selected.filter((item) => item !== text),
             )
         },
-        []
+        [],
     )
 
     const toggleButton = useCallback(
@@ -84,7 +84,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             const typeAction = typeMap?.[type]
             toggleValue(typeAction[0], text, value, typeAction[1])
         },
-        [toggleValue, typeMap]
+        [toggleValue, typeMap],
     )
 
     const resetButton = useCallback(
@@ -92,7 +92,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
         },
-        [typeMap]
+        [typeMap],
     )
 
     const resetAll = useCallback(() => {
@@ -213,7 +213,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                     }
                 }),
                 ...result,
-            ])
+            ]),
         )
         setIsAfterFilter(true)
     }, [
@@ -272,42 +272,42 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
     }, [isAfterFilter, resultData])
 
     return (
-        <ContextProvider
-            toolId='monster-selector'
-            toggleButton={toggleButton}
-            resetButton={resetButton}
-            resetAll={resetAll}
-            attribute={selectedAttributes}
-            race={selectedRaces}
-            star={selectedStars}
-            tag={selectedTags}
-            extraTag={selectedExtraTags}
-            version={selectedVersions}
-            startFilter={startFilter}
-        >
-            <Header />
+        <ContextProvider toolId='monster-selector'>
+            <Header resetAll={resetAll} startFilter={startFilter} />
             <PageContainer openInputModal={openInputModal}>
                 <>
                     <FilterRow
                         title={"召喚獸屬性"}
                         type={"attribute"}
                         data={attrTypeString}
+                        selectedData={selectedAttributes}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"召喚獸種族"}
                         type={"race"}
                         data={raceTypeString}
+                        selectedData={selectedRaces}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"召喚獸稀有度"}
                         type={"star"}
                         data={starTypeString}
+                        selectedData={selectedStars}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         btnSuffix={" ★"}
                     />
                     <FilterRow
                         title={"官方標籤"}
                         type={"tag"}
                         data={tagString}
+                        selectedData={selectedTags}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         collapsible
                         enableSearch
                     />
@@ -315,8 +315,11 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         title={"其他標籤"}
                         type={"extraTag"}
                         data={extraFilterData.map((group) =>
-                            group.map((item: IObject) => item.name)
+                            group.map((item: IObject) => item.name),
                         )}
+                        selectedData={selectedExtraTags}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         collapsible
                         defaultOpen
                         enableSearch
@@ -325,6 +328,9 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         title={"版本標籤"}
                         type={"version"}
                         data={versionString}
+                        selectedData={selectedVersions}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         collapsible
                     />
                     <div ref={resultRef}>
@@ -353,7 +359,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         input
                             .split(/\s+/)
                             .filter((str) => str.length)
-                            .map((str) => parseInt(str))
+                            .map((str) => parseInt(str)),
                     ).filter((id) => !_.isEmpty(getMonsterById(id)))
                     resetAll()
                     setInput(inputArr)
@@ -362,7 +368,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                             return {
                                 id,
                             }
-                        })
+                        }),
                     )
                     setResultPanelClicked(false)
                     setIsAfterFilter(true)

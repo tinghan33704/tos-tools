@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback, useEffect } from "react"
+import React, { useRef, useState, useCallback } from "react"
 import LazyLoad from "react-lazyload"
 import _ from "lodash"
 import { Accordion, Col, Row } from "react-bootstrap"

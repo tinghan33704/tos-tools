@@ -37,6 +37,21 @@ export interface ISettingPanelProps {
     openInputModal?: () => void
     iconRef: React.RefObject<HTMLDivElement>
     backpackViewerPage?: string
+
+    showNoData?: boolean
+    toggleShowNoData?: () => void
+    useInventory?: boolean
+    toggleUseInventory?: () => void
+    showSkillIcon?: boolean
+    toggleShowSkillIcon?: () => void
+    resultView?: string
+    toggleResultView?: () => void
+    sort?: string
+    toggleSort?: () => void
+    category?: string
+    toggleCategory?: () => void
+    hideHadMonster?: boolean
+    toggleHideHadMonster?: () => void
 }
 
 const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
@@ -49,6 +64,20 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
         panelOpen,
         iconRef,
         backpackViewerPage = Object.keys(sealContent)[1],
+        showNoData,
+        toggleShowNoData,
+        useInventory,
+        toggleUseInventory,
+        showSkillIcon,
+        toggleShowSkillIcon,
+        resultView,
+        toggleResultView,
+        sort,
+        toggleSort,
+        category,
+        toggleCategory,
+        hideHadMonster,
+        toggleHideHadMonster,
     } = props
     const config = useContext(Context)
     const ref = useRef<HTMLDivElement>(null)
@@ -79,20 +108,19 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
                 autoClose: true,
             },
             show_no_data: {
-                icon: config?.showNoData ? faExpand : faCompress,
-                text: `${config?.showNoData ? "顯示" : "隱藏"}查無結果`,
-                callback: config?.toggleShowNoData,
+                icon: showNoData ? faExpand : faCompress,
+                text: `${showNoData ? "顯示" : "隱藏"}查無結果`,
+                callback: toggleShowNoData,
             },
             use_inventory: {
-                icon: config?.useInventory ? faArchive : faDatabase,
-                text: config?.useInventory ? "我的背包" : "全部結果",
-                callback: config?.toggleUseInventory,
+                icon: useInventory ? faArchive : faDatabase,
+                text: useInventory ? "我的背包" : "全部結果",
+                callback: toggleUseInventory,
             },
             result_view: {
-                icon:
-                    config?.resultView === "table" ? faList : faTableCellsLarge,
-                text: config?.resultView === "table" ? "表格檢視" : "簡略檢視",
-                callback: config?.toggleResultView,
+                icon: resultView === "table" ? faList : faTableCellsLarge,
+                text: resultView === "table" ? "表格檢視" : "簡略檢視",
+                callback: toggleResultView,
             },
             input_id: {
                 icon: faInbox,
@@ -103,28 +131,28 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
             category: {
                 icon: faUser,
                 text: `顯示${
-                    config?.category === "crossover"
+                    category === "crossover"
                         ? "合作"
-                        : config?.category === "non-crossover"
+                        : category === "non-crossover"
                           ? "自家"
                           : "全部"
                 }角色`,
-                callback: config?.toggleCategory,
+                callback: toggleCategory,
             },
             sort: {
                 icon: faArrowUpShortWide,
-                text: config?.sort === "default" ? "預設排序" : "按持有數排序",
-                callback: config?.toggleSort,
+                text: sort === "default" ? "預設排序" : "按持有數排序",
+                callback: toggleSort,
             },
             hide_had_monster: {
-                icon: config?.hideHadMonster ? faCompress : faExpand,
-                text: `${config?.hideHadMonster ? "隱藏" : "顯示"}已持有角色`,
-                callback: config?.toggleHideHadMonster,
+                icon: hideHadMonster ? faCompress : faExpand,
+                text: `${hideHadMonster ? "隱藏" : "顯示"}已持有角色`,
+                callback: toggleHideHadMonster,
             },
             show_skill_icon: {
                 icon: faCircleInfo,
-                text: `${config?.showSkillIcon ? "顯示" : "隱藏"}技能圖示`,
-                callback: config?.toggleShowSkillIcon,
+                text: `${showSkillIcon ? "顯示" : "隱藏"}技能圖示`,
+                callback: toggleShowSkillIcon,
             },
         }
     }, [
@@ -133,21 +161,21 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
         openDurationModal,
         openObjectiveModal,
         openUserDataModal,
-        config?.showNoData,
-        config?.toggleShowNoData,
-        config?.useInventory,
-        config?.toggleUseInventory,
-        config?.resultView,
-        config?.toggleResultView,
-        config?.category,
-        config?.toggleCategory,
-        config?.sort,
-        config?.toggleSort,
-        config?.hideHadMonster,
-        config?.toggleHideHadMonster,
-        config?.showSkillIcon,
-        config?.toggleShowSkillIcon,
+        showNoData,
+        toggleShowNoData,
+        useInventory,
+        toggleUseInventory,
+        resultView,
+        toggleResultView,
         openInputModal,
+        category,
+        toggleCategory,
+        sort,
+        toggleSort,
+        hideHadMonster,
+        toggleHideHadMonster,
+        showSkillIcon,
+        toggleShowSkillIcon,
     ])
 
     const onClick = useCallback(

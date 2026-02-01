@@ -854,54 +854,54 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
     }, [isAfterFilter, resultData])
 
     return (
-        <ContextProvider
-            toolId='leader-skill-filter'
-            toggleButton={toggleButton}
-            resetButton={resetButton}
-            resetAll={resetAll}
-            functions={selectedFunctions}
-            keyword={keyword}
-            changeKeyword={(value: string) => setKeyword(value)}
-            resetKeyword={() => setKeyword("")}
-            tag={selectedTags}
-            attribute={selectedAttributes}
-            race={selectedRaces}
-            star={selectedStars}
-            andOr={andOr}
-            changeAndOr={(value: string) => setAndOr(value)}
-            startFilter={startFilter}
-            useInventory={useInventory}
-            toggleUseInventory={() => {
-                if (playerData?.uid) setUseInventory(!useInventory)
-                else errorAlert(6)
-            }}
-            showSkillIcon={showSkillIcon}
-            toggleShowSkillIcon={() => {
-                const _showSkillIcon = !showSkillIcon
-                setShowSkillIcon(_showSkillIcon)
-                localStorage?.setItem(
-                    "SHOW_SKILL_ICON",
-                    JSON.stringify(_showSkillIcon),
-                )
-            }}
-        >
-            <Header />
+        <ContextProvider toolId='leader-skill-filter'>
+            <Header
+                resetAll={resetAll}
+                andOr={andOr}
+                changeAndOr={(value: string) => setAndOr(value)}
+                startFilter={startFilter}
+            />
             <PageContainer
                 openObjectiveModal={openObjectiveModal}
                 openUserDataModal={openUserDataModal}
+                useInventory={useInventory}
+                toggleUseInventory={() => {
+                    if (playerData?.uid) setUseInventory(!useInventory)
+                    else errorAlert(6)
+                }}
+                showSkillIcon={showSkillIcon}
+                toggleShowSkillIcon={() => {
+                    const _showSkillIcon = !showSkillIcon
+                    setShowSkillIcon(_showSkillIcon)
+                    localStorage?.setItem(
+                        "SHOW_SKILL_ICON",
+                        JSON.stringify(_showSkillIcon),
+                    )
+                }}
             >
                 <>
                     <FilterRow
                         title={"功能"}
                         type={"functions"}
                         data={leaderSkillFunctionString}
+                        selectedData={selectedFunctions}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         enableSearch
+                        showSkillIcon={showSkillIcon}
                     />
-                    <KeywordRow />
+                    <KeywordRow
+                        keyword={keyword}
+                        changeKeyword={(value: string) => setKeyword(value)}
+                        resetKeyword={() => setKeyword("")}
+                    />
                     <FilterRow
                         title={"召喚獸標籤"}
                         type={"tag"}
                         data={tagString}
+                        selectedData={selectedTags}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         collapsible
                         enableSearch
                     />
@@ -909,16 +909,25 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         title={"召喚獸屬性"}
                         type={"attribute"}
                         data={attrTypeString}
+                        selectedData={selectedAttributes}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"召喚獸種族"}
                         type={"race"}
                         data={raceTypeString}
+                        selectedData={selectedRaces}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                     />
                     <FilterRow
                         title={"召喚獸稀有度"}
                         type={"star"}
                         data={starTypeString}
+                        selectedData={selectedStars}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
                         btnSuffix={" ★"}
                     />
                     <div ref={resultRef}>
@@ -929,6 +938,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                                 searchParam={currentSearchParam}
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
+                                useInventory={useInventory}
                             />
                         ) : (
                             <></>
@@ -940,6 +950,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                 open={objectiveModalOpen}
                 onClose={() => setObjectiveModalOpen(false)}
                 objectiveObj={objectiveObj}
+                functions={selectedFunctions}
                 toggleObjective={toggleObjective}
                 activateObj={activateObj}
                 toggleActivate={toggleActivate}
