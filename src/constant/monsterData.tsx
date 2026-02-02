@@ -1,4 +1,4 @@
-// Last modified : 2026.01.31 20:35
+// Last modified : 2026.02.02 22:07
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -130864,7 +130864,7 @@ export const monsterData: IObject[] = [
 				'num': 6,
 				'description': `
 				I. 點選場上的符石 2 次
-				⇒ 將所有符石轉化為固定版面符石 (點選的符石種類、五屬及心魔族強化符石)
+				⇒ <board>將所有符石轉化為固定版面符石 (點選的符石種類、五屬及心魔族強化符石)</board>
 				1 回合內
 				II. 隊伍成員攻擊力 2 倍
 				III. 隊長為水屬性魔族成員 (發動技能時)
@@ -130880,6 +130880,21 @@ export const monsterData: IObject[] = [
 			}
 		],
 		'teamSkill': [],
+		'board': [
+			{
+				'board': [
+					'1d', '1d', '1d', '1d', '1d', '1d', 
+					'Wd', 'Fd', 'Ed', 'Ld', 'Dd', 'Hd', 
+					'Wd', 'Fd', 'Ed', 'Ld', 'Dd', 'Hd', 
+					'Wd', 'Fd', 'Ed', 'Ld', 'Dd', 'Hd', 
+					'2d', '2d', '2d', '2d', '2d', '2d', 
+				],
+				'note': [
+					'首次點選的種類強化符石', 
+					'第 2 次點選的種類強化符石', 
+				]
+			}
+		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 0,
