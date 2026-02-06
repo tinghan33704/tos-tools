@@ -1,4 +1,4 @@
-// Last modified : 2026.02.02 22:07
+// Last modified : 2026.02.07 03:43
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -76774,7 +76774,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -76814,7 +76814,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -76840,7 +76840,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -76866,7 +76866,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -76892,7 +76892,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -76928,7 +76928,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -76954,7 +76954,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -76980,7 +76980,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77006,7 +77006,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77042,7 +77042,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77068,7 +77068,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77094,7 +77094,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77120,7 +77120,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77159,7 +77159,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77185,7 +77185,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 50,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77211,7 +77211,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [],
 		'maxLevel': 99,
 		'maxSkill': 12,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.00'
 	},
 	{
@@ -77227,11 +77227,18 @@ export const monsterData: IObject[] = [
 				'name': '機械化的紀錄',
 				'type': 'normal',
 				'charge': 'CD',
-				'num': 6,
+				'num': 5,
 				'description': `
-				2 回合內，將火、木及暗符石轉化為機械族強化符石；發動技能時若「道德反詰法 ‧ 蘇格拉底」及「乙太紛裂 ‧ 亞里士多德」的行動值達至 100% 時，所有符石轉化為機械族強化符石
+				I. 解除「移形換影」
+				2 回合內
+				II.「火焰地型」及「反饋」傷害轉化為生命力
+				III. 機械族及【科研敍論】成員無視「指定形狀盾」及「反首消符石盾」
+				IV. 消除符石後
+				⇒ 機械族及【科研敍論】成員直行掉落「加護」符石
+				V. 發動技能時或回合結束時
+				⇒ 將所有符石轉化為機械族強化符石
 				`,
-				'tag': [['符石強化', 2], ['機械族符石製造', 2]]
+				'tag': ['無視移形換影', ['無視火焰地型', 2], ['防反饋', 2], ['無視拼圖盾', 2], ['無視反首消盾', 2], ['加護符石製造', 2], ['機械族符石製造', 2], ['符石強化', 2]]
 			}
 		],
 		'teamSkill': [
@@ -77246,6 +77253,18 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['行動值提升', '增攻'],
 				'activate_tag': ['指定成員'],
 				'relative': [2019, 2022, 2024]
+			},
+			{
+				'description': `
+				◆「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」「三圍」基值 2 倍
+
+				◆ 進場時
+				⇒【科研敍論】成員的「行動值」提升 100%
+				`,
+				'activate': `以「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '行動值提升'],
+				'activate_tag': ['指定成員'],
+				'relative': [2956, 2022, 2024]
 			}
 		],
 		'maxLevel': 99,
@@ -77266,23 +77285,20 @@ export const monsterData: IObject[] = [
 				'name': '日心說',
 				'type': 'normal',
 				'charge': 'CD',
-				'num': 10,
+				'num': 4,
 				'description': `
-				引爆所有符石，並<board>將所有符石轉化為固定數量及位置的光強化符石及暗符石</board>
+				I. 移除所有符石
+				⇒ 掉落固定版面符石 (光屬性及暗屬性人類及機械族強化符石)
+				1 回合內
+				II. 人類、機械族及【科研敍論】成員無視「首消粒數盾」
+				III. 所有種族符石兼具 100% 所有種族符石效果
+				IV. 首批消除符石種類 ≤2
+				⇒ 回合結束時，自身技能 CD -3
 				`,
-				'tag': ['符石轉光', '符石轉光強化', '符石轉暗', '引爆', '整版引爆', '固定版面']
+				'tag': ['移除', '移除強制掉落', '強制掉光', '強制掉暗', '人族符石製造', '機械族符石製造', '固定版面', '無視數字盾', '減CD']
 			}
 		],
 		'teamSkill': [],
-		'board': [
-			[
-				'L', 'L', 'L', 'L', 'L', 'L', 
-				'L', 'd', 'd', 'd', 'd', 'L', 
-				'L', 'd', 'd', 'd', 'd', 'L', 
-				'L', 'd', 'd', 'd', 'd', 'L', 
-				'L', 'L', 'L', 'L', 'L', 'L'
-			]
-		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 0,
@@ -77301,11 +77317,18 @@ export const monsterData: IObject[] = [
 				'name': '極樂之魅',
 				'type': 'normal',
 				'charge': 'CD',
-				'num': 7,
+				'num': 4,
 				'description': `
-				1 回合內，自身攻擊力 5 倍 (攻擊力不可與其他成員共享)；發動技能時若「道德反詰法 ‧ 蘇格拉底」及「理想世界 ‧ 柏拉圖」的行動值達至 100% 時，自身攻擊力則提升至 10 倍
+				I. 自身對敵人造成 100% 暗屬性的傷害總共 50 次 (此傷害無視「強化突破」及「防禦力」)
+				II. 使敵人進入「冥控」狀態，持續 1 回合
+				▋ 使敵人無法行動
+				▋ 敵人轉換為暗屬性
+				1 回合內
+				III. 自身攻擊力 10 倍
+				IV. 機械族及【科研敍論】成員無視「指定減傷抗性敵技」及「減傷狀態」
+				V. 隊伍成員對敵人的傷害 2.5 倍
 				`,
-				'tag': ['增傷', '界王拳']
+				'tag': ['直傷', '破強化直傷', '破防直傷', '冥控敵方', '無法行動', '敵方轉暗', '界王拳', '增傷', '無視減傷抗性', '無視敵身減傷', '敵方受傷增加', '敵身狀態']
 			}
 		],
 		'teamSkill': [
@@ -77320,6 +77343,18 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['行動值提升', '增攻'],
 				'activate_tag': ['指定成員'],
 				'relative': [2019, 2022, 2024]
+			},
+			{
+				'description': `
+				◆「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」「三圍」基值 2 倍
+
+				◆ 進場時
+				⇒【科研敍論】成員的「行動值」提升 100%
+				`,
+				'activate': `以「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '行動值提升'],
+				'activate_tag': ['指定成員'],
+				'relative': [2956, 2022, 2024]
 			}
 		],
 		'maxLevel': 99,
@@ -77444,14 +77479,16 @@ export const monsterData: IObject[] = [
 				'name': '烈焰功績',
 				'type': 'normal',
 				'charge': 'CD',
-				'num': 8,
+				'num': 5,
 				'description': `
-				I. 自身不能發動攻擊
-				II. 火屬性隊長及火屬性戰友
-				⇒ 隨機追打 4 至 8 次
-				效果會在進入下一層數 (Wave) 時消失
+				在本層數 (Wave) 內
+				I. 隊長及戰友
+				⓵ 攻擊力 4 倍
+				⓶ 無視「全版消除盾」
+				⓷ 以攻擊力的 100% 對敵人追打火屬性攻擊 8 次
+				II. 隊伍成員攻擊力變為 0 (隊長及戰友除外)
 				`,
-				'tag': [['限制成員攻擊', -1], ['火屬追打', -1]]
+				'tag': [['界王拳', -1], ['增傷', -1], ['無視首消全版盾', -1], ['火屬追打', -1], ['我方減攻', -1]]
 			}
 		],
 		'teamSkill': [],
@@ -130902,30 +130939,1613 @@ export const monsterData: IObject[] = [
 	},
 	{
 		'id': 2950,
-		'name': '',
-		'attribute': '',
-		'race': '',
-		'star': 0,
-		'monsterTag': [],
+		'name': '時空曲率 ‧ 愛因斯坦',
+		'attribute': '水',
+		'race': '機械族',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
 		'crossOver': false,
 		'skill': [
 			{
-				'name': '',
+				'name': '水流扭曲場域',
 				'type': 'normal',
 				'charge': 'CD',
-				'num': 0,
+				'num': 6,
 				'description': `
-
+				3 回合內
+				I. 隊伍成員攻擊力 3 倍
+				II. 機械族及【科研敍論】成員無視「全消盾」及「首消組數屬性符石盾」
+				III. 發動角色符石
+				⓵ 自身攻擊力 10 倍
+				⓶ 隊伍成員攻擊力變為 0 (機械族及【科研敍論】成員除外)
+				⓷ 機械族及【科研敍論】成員進入 1 回合「亢奮」狀態
+				IV. 消除符石後
+				⇒ 首 2 批符石掉落水機械族強化符石
 				`,
-				'tag': []
+				'tag': [['增傷', 3], ['無視全首消盾', 3], ['無視首消組數屬性盾', 3], ['界王拳', 3], ['我方減攻', 3], ['亢奮狀態', 3], ['天降強制掉落', 3], ['強制掉水', 3], ['機械族符石製造', 3]]
 			}
 		],
-		'teamSkill': [],
-		'maxLevel': 0,
-		'maxSkill': 0,
-		'maxRefine': 0,
-		'version': ''
+		'teamSkill': [
+			{
+				'description': `
+				◆ 機械族及【科研敍論】成員
+				⓵ 攻擊力 10 倍
+				⓶ 無視「攻前盾」、「固定連擊盾」及「首消粒數盾」
+
+				◆ 隊伍成員無視「燃燒」及「黏腐」
+
+				◆ 解除「碎裂」及「結界地型」
+
+				◆ 移動符石時間必延 8 秒
+
+				◆ 所有符石兼具 200% 所有符石效果
+
+				◆ 消除水符石或心符石
+				⇒ 機械族及【科研敍論】成員技能 CD -1
+
+				◆ 以【十】形消除 1 組≥ 5 粒水符石
+				⓵ 隊伍成員攻擊力 5 倍
+				⓶ 機械族及【科研敍論】成員攻擊傷害無視「十字限盾」、「T字限盾」及「L字限盾」
+
+				◆ 發動角色符石
+				⓵【科研敍論】成員進入 2 回合「亢奮」狀態
+				⓶ 符石消除階段後
+				⇒ 點選場上的符石 2 次
+				⇒ 將第 1 及 2 次點選的符石及其四周符石轉化為水機械族強化符石
+
+				◆ 進場時
+				⇒ 機械族及【科研敍論】成員技能 CD -8
+				`,
+				'activate': `以「時空曲率 ‧ 愛因斯坦」作隊長及戰友`,
+				'skill_tag': ['增攻', '無視攻前盾', '無視固定連擊盾', '無視數字盾', '無視燃燒', '無視黏腐', '碎裂還原', '解除結界地型', '延長轉珠時間', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '符石兼具心', '其他減CD', '無視十字盾', '無視T字盾', '無視L字盾', '亢奮狀態', '符石轉水', '符石轉水強化', '機械族符石製造', '進場減CD'],
+				'activate_tag': ['指定雙隊長'],
+				'relative': [2950]
+			},
+			{
+				'description': `
+				◆ 機械族及【科研敍論】成員「三圍」基值 1.5 倍
+				
+				◆ 隊伍成員無視「起結有序」
+
+				◆ 機械族及【科研敍論】成員每次發動主動技能時
+				⇒「時空曲率 ‧ 愛因斯坦」技能 CD -1 (每回合最多觸發 1 次)
+				`,
+				'activate': `以「時空曲率 ‧ 愛因斯坦」作成員，並以 ≥3 個【科研敍論】或機械族角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '無視紅綠燈', '開技減CD'],
+				'activate_tag': ['指定成員', '指定種族成員'],
+				'relative': [2950, '科研敍論']
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
 	},
+    {
+        'id': 2951,
+        'name': '萬有引力 ‧ 牛頓',
+        'attribute': '火',
+        'race': '人類',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
+		'crossOver': false,
+		'skill': [
+			{
+				'name': '重力火焰漩渦',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 5,
+				'description': `
+				I. 點選場上的符石 2 次
+				II. <board>移除所有符石
+				⇒ 掉落第 1 次點選的種類強化符石</board>
+				1 回合內
+				III. 人類及機械族成員無視「連擊相等盾」
+				IV. 消除符石後
+				⓵ 掉落 30 粒第 2 次點選的種類強化符石
+				⓶ 掉落的第 1 及 2 次點選的種類符石必定相連
+				V. 消除符石數量 ≥60
+				⇒ 回合結束時，自身技能 CD -3
+				`,
+				'tag': ['移除', '整版移除', '移除強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '無視連擊相等盾', '天降強制掉落', '減CD']
+			}
+		],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'board': [
+			{
+				'board': [
+					'1', '1', '1', '1', '1', '1', 
+					'1', '1', '1', '1', '1', '1', 
+					'1', '1', '1', '1', '1', '1', 
+					'1', '1', '1', '1', '1', '1', 
+					'1', '1', '1', '1', '1', '1', 
+				],
+				'note': [
+					'首次點選的種類強化符石'
+				]
+			}
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
+    },
+    {
+        'id': 2952,
+        'name': '漸進基因 ‧ 達爾文',
+        'attribute': '木',
+        'race': '機械族',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
+		'crossOver': false,
+		'skill': [
+			{
+				'name': '基因螺旋脈衝炮',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 6,
+				'description': `
+				I. 解除「結界地型」
+				II. 還原所有「碎裂」的位置
+				III. <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬機械族強化符石)</board>
+				1 回合內
+				IV. 自身攻擊力 6 倍
+				V. 機械族及【科研敍論】成員無視「血浴地型」及「連擊護盾」
+				VI. 單體攻擊改為全體攻擊
+				VII. 隊長為機械族或【科研敍論】成員 (發動技能時)
+				⇒ 消除符石後，自身技能 CD -5
+				`,
+				'tag': ['解除結界地型', '碎裂還原', '移除', '整版移除', '移除強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '機械族符石製造', '五屬版面', '固定版面', '界王拳', '增傷', '無視血浴地型', '無視攻擊次數盾', '減CD']
+			}
+		],
+		'teamSkill': [
+			{
+				'description': `
+				◆ 機械族成員無視「指定形狀盾」及「固定連擊盾」
+				
+				◆ 隊伍成員無視「燃燒」及「黏腐」
+
+				◆ 移動符石時間必延 10 秒
+
+				◆ 所有符石兼具 100% 隊伍成員屬性符石效果
+
+				◆ 所有符石效果提升 100%
+
+				◆ 隊中每有 1 個【科研敍論】成員
+				⓵ 隊伍成員攻擊力增加 1.8 倍
+				⓶ 增加 5 連擊 (Ex. Combo、Combo)
+
+				◆ 每首批消除 1 粒屬性符石
+				⇒ 機械族及【科研敍論】成員的「行動值」提升 2%
+
+				◆ 移動符石時
+				⓵ 將觸碰的符石轉化為強化符石
+				⓶ 將觸碰的符石添加為機械族符石
+				`,
+				'activate': `以「漸進基因 ‧ 達爾文」或「力學幻構 ‧ 伽利略」作隊長及戰友`,
+				'skill_tag': ['無視拼圖盾', '無視固定連擊盾', '無視燃燒', '無視黏腐', '延長轉珠時間', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '符石效果提升', '增攻', '增加Ex.Combo', '增加Combo', '行動值提升', '符石強化', '機械族符石製造'],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': [2952, 2954]
+			},
+			{
+				'description': `
+				◆ 解除「移形換影」
+				
+				◆ 強化符石的效果提升 50%
+				`,
+				'activate': `以「漸進基因 ‧ 達爾文」作成員，並以 ≥3 個【科研敍論】或機械族角色作成員`,
+				'skill_tag': ['無視移形換影', '強化珠效果提升'],
+				'activate_tag': ['指定成員', '指定種族成員'],
+				'relative': [2952, '科研敍論']
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'board': [
+			[
+				'Em', 'Em', 'Em', 'Dm', 'Dm', 'Dm', 
+				'Wm', 'Fm', 'Lm', 'Wm', 'Fm', 'Lm', 
+				'Wm', 'Fm', 'Lm', 'Wm', 'Fm', 'Lm', 
+				'Wm', 'Fm', 'Lm', 'Wm', 'Fm', 'Lm', 
+				'Em', 'Em', 'Em', 'Dm', 'Dm', 'Dm', 
+			]
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
+    },
+    {
+        'id': 2953,
+        'name': '電流逆溯 ‧ 愛迪生',
+        'attribute': '光',
+        'race': '人類',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
+		'crossOver': false,
+		'skill': [
+			{
+				'name': '逆電星芒陣',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 6,
+				'description': `
+				I. 將隊伍成員直行轉化為該直行成員屬性強化符石
+				II. 將隊伍成員直行添加為該直行成員種族符石
+				2 回合內
+				III. 自身攻擊力 8 倍
+				IV. 增加 10 連擊 (Combo)
+				V. 發動角色符石
+				⇒ 隊伍成員以攻擊力的 100% 對敵人追打五屬及無屬性攻擊各 1 次
+				▋ 反之
+				⇒ 自身以攻擊力的 100% 對敵人追打五屬及無屬性攻擊各 1 次
+				`,
+				'tag': ['符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉水強化', '符石轉火強化', '符石轉木強化', '符石轉光強化', '符石轉暗強化', '人族符石製造', '獸族符石製造', '妖族符石製造', '龍族符石製造', '神族符石製造', '魔族符石製造', '機械族符石製造', ['界王拳', 2], ['增傷', 2], ['增加Combo', 2], ['水屬追打', 2], ['火屬追打', 2], ['木屬追打', 2], ['光屬追打', 2], ['暗屬追打', 2], ['無屬追打', 2], ['五屬追打', 2], ['全隊追打', 2], ['自身追打', 2]]
+			}
+		],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
+    },
+    {
+        'id': 2954,
+        'name': '力學幻構 ‧ 伽利略',
+        'attribute': '暗',
+        'race': '機械族',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
+		'crossOver': false,
+		'skill': [
+			{
+				'name': '崩解方程式',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 6,
+				'description': `
+				I. 機械族及【科研敍論】成員
+				⓵ 以「亢奮」狀態取代「疲憊」、「休眠」、「風壓」、「麻痺」、「沉默」及「技能封鎖」狀態 (此技能無視「休眠」、「風壓」、「沉默」及「技能封鎖」狀態)
+				⓶ 進入 3 回合「亢奮」狀態
+				3 回合內
+				II. 機械族成員攻擊力及回復力 2.5 倍
+				III. 移動符石時間延至 15 秒
+				IV. 只能消除首批符石
+				V. 連擊 (Ex. Combo、Combo) 時攻擊力提升 100%
+				VI. 發動角色符石或有擊斃敵人
+				⇒ 該回合不會扣減該技能效果的尚餘回合數
+				`,
+				'tag': [['亢奮狀態', 3], ['增傷', 3], '解除疲憊', '解除休眠', '解除風壓', '解除麻痺', '解除沉默', '解鎖', ['增回', 3], ['延長轉珠時間', 3], ['只能首消符石', 3], ['Combo時增攻', 3]]
+			}
+		],
+		'teamSkill': [
+			{
+				'description': `
+				◆ 機械族成員無視「指定形狀盾」及「固定連擊盾」
+				
+				◆ 隊伍成員無視「燃燒」及「黏腐」
+
+				◆ 移動符石時間必延 10 秒
+
+				◆ 所有符石兼具 100% 隊伍成員屬性符石效果
+
+				◆ 所有符石效果提升 100%
+
+				◆ 隊中每有 1 個【科研敍論】成員
+				⓵ 隊伍成員攻擊力增加 1.8 倍
+				⓶ 增加 5 連擊 (Ex. Combo、Combo)
+
+				◆ 每首批消除 1 粒屬性符石
+				⇒ 機械族及【科研敍論】成員的「行動值」提升 2%
+
+				◆ 移動符石時
+				⓵ 將觸碰的符石轉化為強化符石
+				⓶ 將觸碰的符石添加為機械族符石
+				`,
+				'activate': `以「漸進基因 ‧ 達爾文」或「力學幻構 ‧ 伽利略」作隊長及戰友`,
+				'skill_tag': ['無視拼圖盾', '無視固定連擊盾', '無視燃燒', '無視黏腐', '延長轉珠時間', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '符石效果提升', '增攻', '增加Ex.Combo', '增加Combo', '行動值提升', '符石強化', '機械族符石製造'],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': [2952, 2954]
+			},
+			{
+				'description': `
+				◆「一步一傷」傷害減至 1
+								
+				◆ 機械族及【科研敍論】成員每次發動主動技能時
+				⇒ 隊伍成員進入 1 回合「暴怒」狀態 (每回合最多觸發 1 次)
+				`,
+				'activate': `以「力學幻構 ‧ 伽利略」作成員，並以 ≥3 個【科研敍論】或機械族角色作成員`,
+				'skill_tag': ['無視一步一傷', '暴怒狀態', '增攻'],
+				'activate_tag': ['指定成員', '指定種族成員'],
+				'relative': [2954, '科研敍論']
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
+    },
+    {
+        'id': 2955,
+        'name': '藥素解密 ‧ 瑪麗居禮',
+        'attribute': '水',
+        'race': '人類',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
+		'crossOver': false,
+		'skill': [
+			{
+				'name': '藥劑析合',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 4,
+				'description': `
+				I. 水屬性及【科研敍論】成員解除「疲憊」、「休眠」、「風壓」、「麻痺」、「沉默」及「技能封鎖」狀態 (此技能無視「休眠」、「風壓」、「沉默」及「技能封鎖」狀態)
+				II. 隊中只有【科研敍論】成員
+				⇒ 使敵人進入「中毒」狀態，持續至敵人死亡
+				└ 回合結束時，扣除敵人 10% 總生命力 (此傷害無視「加乘及敵人技能」)
+				▋ 反之
+				⇒ 使敵人進入「中毒」狀態，持續至敵人死亡
+				└ 回合結束時，扣除敵人 10% 現有生命力
+				`,
+				'tag': ['解除疲憊', '解除休眠', '解除風壓', '解除麻痺', '解除沉默', '解鎖', ['敵方中毒', -1], '敵身狀態']
+			}
+		],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
+    },
+    {
+        'id': 2956,
+        'name': '至理審思 ‧ 蘇格拉底',
+        'attribute': '木',
+        'race': '機械族',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
+		'crossOver': false,
+		'skill': [
+			{
+				'name': '重臂真理',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 6,
+				'description': `
+				1 回合內
+				I. 機械族及【科研敍論】成員
+				⓵ 攻擊力及回復力 2.5 倍
+				⓶ 無視「指定連擊法印」及「符石連擊零化」
+				II. 隊中有「理想世界 ‧ 柏拉圖」(發動技能時)
+				⇒ 火符石首批 1 粒即可發動消除
+				III. 隊中有「乙太紛裂 ‧ 亞里士多德」(發動技能時)
+				⇒ 暗符石首批 1 粒即可發動消除
+				IV. 隊中有「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」(發動技能時)
+				⓵ 自身以隊伍成員的總攻擊力的 1.5 倍對敵人後追打無屬性攻擊 1 次
+				⓶ 回合結束時，自身技能 CD -5
+				`,
+				'tag': ['增傷', '增回', '無視連擊法印', '無視追擊零化', '一消', '無屬追打', '自身追打', '界王拳', '減CD']
+			}
+		],
+		'teamSkill': [
+			{
+				'description': `
+				◆「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」「三圍」基值 2 倍
+
+				◆ 進場時
+				⇒【科研敍論】成員的「行動值」提升 100%
+				`,
+				'activate': `以「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '行動值提升'],
+				'activate_tag': ['指定成員'],
+				'relative': [2956, 2022, 2024]
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
+    },
+    {
+        'id': 2957,
+        'name': '資訊星圖 ‧ 妮可',
+        'attribute': '暗',
+        'race': '人類',
+		'star': 7,
+		'monsterTag': ['科研敍論'],
+		'crossOver': false,
+		'skill': [
+			{
+				'name': '星辰編碼',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 6,
+				'description': `
+				I. 解除「亡命爆擊」
+				II. 記錄場上符石分佈
+				2 回合內
+				III. 人類及機械族成員無視「二屬盾」、「三屬盾」、「四屬盾」及「五屬盾」
+				IV. 回合結束時
+				⇒ 將所有符石轉化為所記錄的符石
+				V. 隊中每有 1 個【科研敍論】成員 (自身除外)
+				⇒ 效果的持續時間增加 1 回合 (上限增加 4 回合)
+				`,
+				'tag': ['解除自爆', '記錄版面', ['無視二屬盾', 6], ['無視三屬盾', 6], ['無視四屬盾', 6], ['無視五屬盾', 6], ['大幅轉版', 6]]
+			}
+		],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'maxLevel': 99,
+		'maxSkill': 12,
+		'maxRefine': 4,
+		'version': 'v2026.11'
+    },
+    {
+        'id': 2958,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2959,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2960,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2961,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2962,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2963,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2964,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2965,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2966,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2967,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2968,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2969,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2970,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2971,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2972,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2973,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2974,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2975,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2976,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2977,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2978,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2979,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2980,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2981,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2982,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2983,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2984,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2985,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2986,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2987,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2988,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2989,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2990,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2991,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2992,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2993,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2994,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2995,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2996,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2997,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2998,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
+    {
+        'id': 2999,
+        'name': '',
+        'attribute': '',
+        'race': '',
+        'star': 0,
+        'monsterTag': [],
+        'crossOver': false,
+        'skill': [
+            {
+                'name': '',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 0,
+                'description': `
+
+                `,
+                'tag': []
+            }
+        ],
+        'teamSkill': [],
+        'maxLevel': 0,
+        'maxSkill': 0,
+        'maxRefine': 0,
+        'version': ''
+    },
 	{
 		'id': 3001,
 		'name': '野望滅絕 ‧ 薩魯曼',
@@ -218275,29 +219895,43 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11117,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '傳情玫瑰 ‧ 梅蘭妮',
+        'attribute': '火',
+        'race': '機械族',
+        'star': 6,
+        'monsterTag': ['傳情玫瑰'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '心動連線',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				2 回合內
+				I. 發動技能或回合結束時
+				⓵ <board>將所有符石轉化為心機械族強化符石</board>
+				⓶ 回復 2.14 億點生命力
+				II. 隊長為機械族成員 (發動技能時)
+				⇒ 回血溢出時，對敵方造成 214 倍的回血溢出無屬性傷害 (此傷害無視「強化突破」及「防禦力」)
                 `,
-                'tag': []
+                'tag': [['符石轉心', 2], ['符石轉心強化', 2], ['機械族符石製造', 2], ['大幅轉版', 2], ['固定版面', 2], ['回血', 2], ['溢補攻擊', 2]]
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+		'board': [
+			[
+				'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 
+				'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 
+				'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 
+				'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 
+				'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 'Hm', 
+			]
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.11'
     },
     {
 		'id': 11118,
@@ -218901,29 +220535,46 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11131,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '開運祝舞 ‧ 夏彥',
+        'attribute': '水',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['地獄魔王'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '福舞生輝',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 5,
                 'description': `
-
+				I. 此技能無視「開技消耗代價」
+				II. 解除「亡命爆擊」
+				III. <board>將所有符石轉化為固定版面符石 (水屬性及心強化符石)</board>
+				IV. 將所有符石添加為魔族符石
+				V. 當前生命力變為 1 點
+				1 回合內
+				VI. 將被減去生命力的 10% 加入自身攻擊力基值
+				VII. 隊伍成員無視「連擊相等盾」及「全消盾」
+				VIII. 增加 16 連擊 (Ex. Combo、Combo)
                 `,
-                'tag': []
+                'tag': ['無視開技扣血', '解除自爆', '符石轉水', '符石轉水強化', '符石轉心強化', '符石轉心', '大幅轉版', '固定版面', '魔族符石製造', '我方扣血', '界王拳', '增傷', '無視連擊相等盾', '無視全首消盾', '增加Ex.Combo', '增加Combo']
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+		'board': [
+			[
+				'Wd', 'Wd', 'Wd', 'Wd', 'Wd', 'Wd', 
+				'Hd', 'Hd', 'Hd', 'Hd', 'Hd', 'Hd', 
+				'Wd', 'Wd', 'Wd', 'Wd', 'Wd', 'Wd', 
+				'Hd', 'Hd', 'Hd', 'Hd', 'Hd', 'Hd', 
+				'Wd', 'Wd', 'Wd', 'Wd', 'Wd', 'Wd', 
+			]
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.11'
     },
     {
         'id': 11132,
