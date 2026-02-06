@@ -220457,10 +220457,10 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11128,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
+        'name': '萬法根念 ‧ 阿賴耶識',
+        'attribute': '水',
+        'race': '魔族',
+        'star': 7,
         'monsterTag': [],
         'crossOver': false,
         'skill': [
@@ -220476,17 +220476,17 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 10,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.11'
     },
     {
         'id': 11129,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
+        'name': '最勝龍雷 ‧ 帝釋天',
+        'attribute': '光',
+        'race': '龍類',
+        'star': 7,
         'monsterTag': [],
         'crossOver': false,
         'skill': [
@@ -220502,10 +220502,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 10,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.11'
     },
     {
         'id': 11130,
