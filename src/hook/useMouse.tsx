@@ -9,9 +9,17 @@ export const useMouseMove = () => {
         setMouseX(e.pageX)
         setMouseY(e.pageY)
         setMouseTargetClassName(
-            (e.target as HTMLElement).className?.toString() || ""
+            (e.target as HTMLElement).className?.toString() || "",
         )
     }, [])
 
-    return { mouseX, mouseY, mouseTargetClassName, onMouseMove }
+    const onTouch = useCallback((e: TouchEvent) => {
+        setMouseX(e.touches?.[0]?.pageX)
+        setMouseY(e.touches?.[0]?.pageY)
+        setMouseTargetClassName(
+            (e.target as HTMLElement).className?.toString() || "",
+        )
+    }, [])
+
+    return { mouseX, mouseY, mouseTargetClassName, onMouseMove, onTouch }
 }

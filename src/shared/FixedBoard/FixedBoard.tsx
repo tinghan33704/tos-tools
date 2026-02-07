@@ -18,18 +18,23 @@ const FixedBoard: React.FC<IFixedBoardProps> = (props) => {
     const [boardXOffset, setBoardXOffset] = useState<number>(20)
     const [boardYOffset, setBoardYOffset] = useState<number>(20)
 
-    const { mouseX, mouseY, mouseTargetClassName, onMouseMove } = useMouseMove()
+    const { mouseX, mouseY, mouseTargetClassName, onMouseMove, onTouch } =
+        useMouseMove()
 
     useEffect(() => {
         window.addEventListener("mousemove", onMouseMove)
-        return () => window.removeEventListener("mousemove", onMouseMove)
-    }, [onMouseMove])
+        window.addEventListener("touchend", onTouch)
+        return () => {
+            window.removeEventListener("mousemove", onMouseMove)
+            window.removeEventListener("touchend", onTouch)
+        }
+    }, [onMouseMove, onTouch])
 
     useEffect(() => {
         if (mouseTargetClassName?.toString().startsWith("fixed-board-label")) {
             const boardInfo: string = mouseTargetClassName.replace(
                 "fixed-board-label-",
-                ""
+                "",
             )
             const monsterId = parseInt(boardInfo.split("-")[0])
             const boardId = parseInt(boardInfo?.split("-")?.[1]) - 1 || 0
@@ -47,14 +52,33 @@ const FixedBoard: React.FC<IFixedBoardProps> = (props) => {
                 const pageY = window?.scrollY || window?.pageYOffset
                 const offset = 20
 
-                const left =
-                    mouseX + width + offset > pageWidth
-                        ? mouseX - width - offset
-                        : mouseX + offset
-                const top =
-                    mouseY - pageY + height / 2 + offset > window.innerHeight
-                        ? window.innerHeight - height - offset + pageY
-                        : mouseY - height / 2
+                let left = 0
+                let top = 0
+
+                if (mouseX > 0 && mouseX < pageWidth - width - offset) {
+                    left = mouseX + offset
+                    top =
+                        mouseY - pageY + height / 2 + offset >
+                        window.innerHeight
+                            ? window.innerHeight - height - offset + pageY
+                            : mouseY - height / 2
+                } else if (mouseX >= width + offset && mouseX < pageWidth) {
+                    left = mouseX - width - offset
+                    top =
+                        mouseY - pageY + height / 2 + offset >
+                        window.innerHeight
+                            ? window.innerHeight - height - offset + pageY
+                            : mouseY - height / 2
+                } else {
+                    left = Math.min(
+                        Math.max(mouseX - width / 2, 0),
+                        pageWidth - width - offset,
+                    )
+                    top =
+                        mouseY - pageY + height + offset < window.innerHeight
+                            ? mouseY + offset
+                            : mouseY - height - offset
+                }
 
                 setBoardXOffset(left)
                 setBoardYOffset(top)
@@ -109,15 +133,15 @@ const FixedBoard: React.FC<IFixedBoardProps> = (props) => {
                         {renderRow(
                             board?.slice(
                                 row * columnCount,
-                                (row + 1) * columnCount
-                            ) || []
+                                (row + 1) * columnCount,
+                            ) || [],
                         )}
-                    </tr>
+                    </tr>,
                 )
             }
             return rows
         },
-        [renderRow]
+        [renderRow],
     )
 
     const renderNote = useCallback((notes: string[]) => {
