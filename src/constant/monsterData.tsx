@@ -1,4 +1,4 @@
-// Last modified : 2026.02.07 22:44
+// Last modified : 2026.02.09 13:30
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -76771,7 +76771,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -76810,7 +76820,17 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['增攻', '引爆', '水兼具其他', '符石兼具心', '進場減CD'],
 				'activate_tag': ['指定雙隊長'],
 				'relative': [2007]
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
 			}
+		
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
@@ -76837,7 +76857,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -76863,7 +76893,17 @@ export const monsterData: IObject[] = [
 				'tag': ['天降強制掉落', '強制掉火']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 4,
@@ -76889,7 +76929,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -76924,7 +76974,17 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['行動值提升'],
 				'activate_tag': ['指定隊長戰友'],
 				'relative': [2011, 2015]
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
 			}
+		
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
@@ -76951,7 +77011,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -76977,7 +77047,17 @@ export const monsterData: IObject[] = [
 				'tag': ['符石強化', '人族符石製造', '獸族符石製造', '妖族符石製造', '龍族符石製造', '神族符石製造', '魔族符石製造', '機械族符石製造']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 4,
@@ -77003,7 +77083,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -77038,7 +77128,17 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['行動值提升'],
 				'activate_tag': ['指定隊長戰友'],
 				'relative': [2011, 2015]
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
 			}
+		
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
@@ -77065,7 +77165,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -77091,7 +77201,17 @@ export const monsterData: IObject[] = [
 				'tag': ['解鎖', ['敵方中毒', -1], '敵身狀態']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 4,
@@ -77117,7 +77237,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -77155,7 +77285,17 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['行動值提升', '增攻'],
 				'activate_tag': ['指定成員'],
 				'relative': [2019, 2022, 2024]
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
 			}
+		
 		],
 		'maxLevel': 99,
 		'maxSkill': 12,
@@ -77182,7 +77322,17 @@ export const monsterData: IObject[] = [
 				'tag': ['直傷']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 50,
 		'maxSkill': 10,
 		'maxRefine': 4,
@@ -77208,7 +77358,17 @@ export const monsterData: IObject[] = [
 				'tag': [['記錄版面', 2], ['大幅轉版', 2]]
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 4,
@@ -77220,7 +77380,7 @@ export const monsterData: IObject[] = [
 		'attribute': '火',
 		'race': '機械族',
 		'star': 6,
-		'monsterTag': ['地獄魔王'],
+		'monsterTag': ['科研敍論', '地獄魔王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -77265,6 +77425,15 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['增攻', '增回', '增血', '行動值提升'],
 				'activate_tag': ['指定成員'],
 				'relative': [2956, 2022, 2024]
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
 			}
 		],
 		'maxLevel': 99,
@@ -77278,7 +77447,7 @@ export const monsterData: IObject[] = [
 		'attribute': '光',
 		'race': '人類',
 		'star': 6,
-		'monsterTag': ['地獄魔王'],
+		'monsterTag': ['科研敍論', '地獄魔王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -77287,8 +77456,8 @@ export const monsterData: IObject[] = [
 				'charge': 'CD',
 				'num': 4,
 				'description': `
-				I. 移除所有符石
-				⇒ 掉落固定版面符石 (光屬性及暗屬性人類及機械族強化符石)
+				I. <board>移除所有符石
+				⇒ 掉落固定版面符石 (光屬性及暗屬性人類及機械族強化符石)</board>
 				1 回合內
 				II. 人類、機械族及【科研敍論】成員無視「首消粒數盾」
 				III. 所有種族符石兼具 100% 所有種族符石效果
@@ -77298,7 +77467,26 @@ export const monsterData: IObject[] = [
 				'tag': ['移除', '整版移除', '移除強制掉落', '強制掉光', '強制掉暗', '人族符石製造', '機械族符石製造', '固定版面', '無視數字盾', '減CD']
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
+		'board': [
+			[
+				'Lh', 'Lh', 'Lh', 'Lh', 'Lh', 'Lh', 
+				'Lh', 'Dm', 'Dm', 'Dm', 'Dm', 'Lh', 
+				'Lh', 'Dm', 'Dm', 'Dm', 'Dm', 'Lh', 
+				'Lh', 'Dm', 'Dm', 'Dm', 'Dm', 'Lh', 
+				'Lh', 'Lh', 'Lh', 'Lh', 'Lh', 'Lh', 
+			]
+		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 0,
@@ -77310,7 +77498,7 @@ export const monsterData: IObject[] = [
 		'attribute': '暗',
 		'race': '機械族',
 		'star': 6,
-		'monsterTag': ['地獄魔王'],
+		'monsterTag': ['科研敍論', '地獄魔王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -77355,6 +77543,15 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['增攻', '增回', '增血', '行動值提升'],
 				'activate_tag': ['指定成員'],
 				'relative': [2956, 2022, 2024]
+			},
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
 			}
 		],
 		'maxLevel': 99,
@@ -77472,7 +77669,7 @@ export const monsterData: IObject[] = [
 		'attribute': '火',
 		'race': '人類',
 		'star': 6,
-		'monsterTag': ['地獄魔王'],
+		'monsterTag': ['科研敍論', '地獄魔王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -77491,7 +77688,17 @@ export const monsterData: IObject[] = [
 				'tag': [['界王拳', -1], ['增傷', -1], ['無視首消全版盾', -1], ['火屬追打', -1], ['我方減攻', -1]]
 			}
 		],
-		'teamSkill': [],
+		'teamSkill': [
+			{
+				'description': `
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,
+				'activate': `以【科研敍論】角色作隊長及戰友`,
+				'skill_tag': [],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': ['科研敍論']
+			}
+		],
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 0,
