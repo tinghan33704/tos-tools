@@ -12266,7 +12266,9 @@ function print() { __p += __j.call(arguments, '') }
 				V. 所有符石兼具 100% 隊長屬性符石效果
 				`,activate:"以相同的「究極北歐神」系列的角色作隊長及戰友",skill_tag:["龍脈儀能力"],activate_tag:["指定雙隊長"],relative:[2001,2002,2003,2004,2005]}],maxLevel:99,maxSkill:12,maxRefine:5,version:"v17.00"},{id:2006,name:"愛因斯坦",attribute:"水",race:"機械族",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"水波攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍水屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2007,name:"時空相對論 ‧ 愛因斯坦",attribute:"水",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"流水定律",type:"normal",charge:"CD",num:6,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2007,name:"時空相對論 ‧ 愛因斯坦",attribute:"水",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"流水定律",type:"normal",charge:"CD",num:6,description:`
 				3 回合內，首批掉落的 8 粒符石必定為水強化符石；技能持續時若所有機械族成員的行動值達至 100%，自身攻擊力 3 倍
 				`,tag:[["天降強制掉落",3],["強制掉水",3],["增傷",3],["界王拳",3]]}],teamSkill:[{description:`
 				◆ 若當前回合總傷害大於敵方總生命力 2.5 倍等值，下回合全隊攻擊力提升 2 倍
@@ -12274,44 +12276,74 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 回合結束時，引爆水符石四周的水以外符石
 				
 				◆ 進入關卡後，機械族成員的主動技能 CD 減少 3。水符石兼具 50% 心符石效果
-				`,activate:"以「時空相對論 ‧ 愛因斯坦」作隊長及戰友",skill_tag:["增攻","引爆","水兼具其他","符石兼具心","進場減CD"],activate_tag:["指定雙隊長"],relative:[2007]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2008,name:"牛頓",attribute:"火",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"火焰攻擊",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「時空相對論 ‧ 愛因斯坦」作隊長及戰友",skill_tag:["增攻","引爆","水兼具其他","符石兼具心","進場減CD"],activate_tag:["指定雙隊長"],relative:[2007]},{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2008,name:"牛頓",attribute:"火",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"火焰攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍火屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2009,name:"自然律變奏 ‧ 牛頓",attribute:"火",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"焰火引力",type:"normal",charge:"CD",num:7,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2009,name:"自然律變奏 ‧ 牛頓",attribute:"火",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"焰火引力",type:"normal",charge:"CD",num:7,description:`
 				1 回合內，首批掉落的 15 粒符石必定為火強化符石；所有掉落的火符石必定相連
-				`,tag:["天降強制掉落","強制掉火"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2010,name:"達爾文",attribute:"木",race:"機械族",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"大地攻擊",type:"normal",charge:"CD",num:5,description:`
+				`,tag:["天降強制掉落","強制掉火"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2010,name:"達爾文",attribute:"木",race:"機械族",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"大地攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍木屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2011,name:"生物多樣性 ‧ 達爾文",attribute:"木",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"元素探研",type:"normal",charge:"CD",num:6,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2011,name:"生物多樣性 ‧ 達爾文",attribute:"木",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"元素探研",type:"normal",charge:"CD",num:6,description:`
 				引爆所有符石以掉落強化符石，每引爆 1 種屬性符石，1 回合內自身攻擊力額外提升 1 倍，最多可提升至 6 倍；消除 5 種屬性符石時，自身主動技能 CD 減少 3
 				`,tag:["引爆","整版引爆","增傷","界王拳","減CD"]}],teamSkill:[{description:`
 				◆ 每首批消除 1 粒火、木或暗符石，額外提升機械族成員的行動值 1%
-				`,activate:"以「生物多樣性 ‧ 達爾文」或「超新星序曲 ‧ 伽利略」作隊長及戰友",skill_tag:["行動值提升"],activate_tag:["指定隊長戰友"],relative:[2011,2015]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2012,name:"愛迪生",attribute:"光",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"閃光攻擊",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「生物多樣性 ‧ 達爾文」或「超新星序曲 ‧ 伽利略」作隊長及戰友",skill_tag:["行動值提升"],activate_tag:["指定隊長戰友"],relative:[2011,2015]},{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2012,name:"愛迪生",attribute:"光",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"閃光攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍光屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2013,name:"無界限發明 ‧ 愛迪生",attribute:"光",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"雷電流竄",type:"normal",charge:"CD",num:6,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2013,name:"無界限發明 ‧ 愛迪生",attribute:"光",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"雷電流竄",type:"normal",charge:"CD",num:6,description:`
 				隨機 2 直行的符石轉化為該直行成員的種族強化符石；若隊伍中有 2 個或以上種族，所有符石轉化為該直行成員的種族強化符石
-				`,tag:["符石強化","人族符石製造","獸族符石製造","妖族符石製造","龍族符石製造","神族符石製造","魔族符石製造","機械族符石製造"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2014,name:"伽利略",attribute:"暗",race:"機械族",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"暗影攻擊",type:"normal",charge:"CD",num:5,description:`
+				`,tag:["符石強化","人族符石製造","獸族符石製造","妖族符石製造","龍族符石製造","神族符石製造","魔族符石製造","機械族符石製造"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2014,name:"伽利略",attribute:"暗",race:"機械族",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"暗影攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍暗屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2015,name:"超新星序曲 ‧ 伽利略",attribute:"暗",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"機械解密",type:"normal",charge:"CD",num:6,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2015,name:"超新星序曲 ‧ 伽利略",attribute:"暗",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"機械解密",type:"normal",charge:"CD",num:6,description:`
 				解除機械族成員被封鎖的技能 (此技能無視封鎖技能)。3 回合內，機械族成員的攻擊力及回復力 1.8 倍；發動技能時若所有機械族成員的行動值達至 100%，延長移動符石時間至 15 秒
 				`,tag:["解鎖",["增傷",3],["增回",3],["延長轉珠時間",3]]}],teamSkill:[{description:`
 				◆ 每首批消除 1 粒火、木或暗符石，額外提升機械族成員的行動值 1%
-				`,activate:"以「生物多樣性 ‧ 達爾文」或「超新星序曲 ‧ 伽利略」作隊長及戰友",skill_tag:["行動值提升"],activate_tag:["指定隊長戰友"],relative:[2011,2015]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2016,name:"瑪麗居禮",attribute:"水",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"水波攻擊",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「生物多樣性 ‧ 達爾文」或「超新星序曲 ‧ 伽利略」作隊長及戰友",skill_tag:["行動值提升"],activate_tag:["指定隊長戰友"],relative:[2011,2015]},{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2016,name:"瑪麗居禮",attribute:"水",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"水波攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍水屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2017,name:"同位素放射 ‧ 瑪麗居禮",attribute:"水",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"冷豔吐毒",type:"normal",charge:"CD",num:6,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2017,name:"同位素放射 ‧ 瑪麗居禮",attribute:"水",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"冷豔吐毒",type:"normal",charge:"CD",num:6,description:`
 				解除水屬性成員被封鎖的技能 (此技能無視封鎖技能)。敵方全體中毒，每回合將受到施技者攻擊力 10 倍的傷害，此傷害無視防禦力及屬性並持續到死亡
-				`,tag:["解鎖",["敵方中毒",-1],"敵身狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2018,name:"蘇格拉底",attribute:"木",race:"機械族",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"大地攻擊",type:"normal",charge:"CD",num:5,description:`
+				`,tag:["解鎖",["敵方中毒",-1],"敵身狀態"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2018,name:"蘇格拉底",attribute:"木",race:"機械族",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"大地攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍木屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2019,name:"道德反詰法 ‧ 蘇格拉底",attribute:"木",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"機械重臂",type:"normal",charge:"CD",num:6,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2019,name:"道德反詰法 ‧ 蘇格拉底",attribute:"木",race:"機械族",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"機械重臂",type:"normal",charge:"CD",num:6,description:`
 				1 回合內，機械族攻擊力及回復力 1.6 倍；回合結束時若「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」的行動值達至 100% 時，自身主動技能 CD 減少 5
 				`,tag:["增傷","增回","減CD"]}],teamSkill:[{description:`
 				◆ 進入關卡後，最左方的「道德反詰法 ‧ 蘇格拉底」、最左方的「理想世界 ‧ 柏拉圖」及最左方的「乙太紛裂 ‧ 亞里士多德」，其行動值提升至 30%
 				
 				◆ 最左方的「道德反詰法 ‧ 蘇格拉底」、最左方的「理想世界 ‧ 柏拉圖」及最左方的「乙太紛裂 ‧ 亞里士多德」
 				⇒ 攻擊力基值 1.5 倍
-				`,activate:"以「道德反詰法 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員",skill_tag:["行動值提升","增攻"],activate_tag:["指定成員"],relative:[2019,2022,2024]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2020,name:"妮可",attribute:"暗",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"暗影攻擊",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「道德反詰法 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員",skill_tag:["行動值提升","增攻"],activate_tag:["指定成員"],relative:[2019,2022,2024]},{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2020,name:"妮可",attribute:"暗",race:"人類",star:5,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"暗影攻擊",type:"normal",charge:"CD",num:5,description:`
 				對敵方全體造成 3 倍暗屬性傷害
-				`,tag:["直傷"]}],teamSkill:[],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2021,name:"歸回星哈雷 ‧ 妮可",attribute:"暗",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"過目不忘",type:"normal",charge:"CD",num:8,description:`
+				`,tag:["直傷"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:50,maxSkill:10,maxRefine:4,version:"v17.00"},{id:2021,name:"歸回星哈雷 ‧ 妮可",attribute:"暗",race:"人類",star:6,monsterTag:["科研敍論"],crossOver:!1,skill:[{name:"過目不忘",type:"normal",charge:"CD",num:8,description:`
 				於下回合開始時將場上的符石變回發動技能時的分佈 (包括強化符石、種族符石)，效果持續 2 回合
-				`,tag:[["記錄版面",2],["大幅轉版",2]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2022,name:"理想世界 ‧ 柏拉圖",attribute:"火",race:"機械族",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"機械化的紀錄",type:"normal",charge:"CD",num:5,description:`
+				`,tag:[["記錄版面",2],["大幅轉版",2]]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.00"},{id:2022,name:"理想世界 ‧ 柏拉圖",attribute:"火",race:"機械族",star:6,monsterTag:["科研敍論","地獄魔王"],crossOver:!1,skill:[{name:"機械化的紀錄",type:"normal",charge:"CD",num:5,description:`
 				I. 解除「移形換影」
 				2 回合內
 				II.「火焰地型」及「反饋」傷害轉化為生命力
@@ -12330,15 +12362,19 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時
 				⇒【科研敍論】成員的「行動值」提升 100%
-				`,activate:"以「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員",skill_tag:["增攻","增回","增血","行動值提升"],activate_tag:["指定成員"],relative:[2956,2022,2024]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2023,name:"引力牽繫 ‧ 哥白尼",attribute:"光",race:"人類",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"日心說",type:"normal",charge:"CD",num:4,description:`
-				I. 移除所有符石
-				⇒ 掉落固定版面符石 (光屬性及暗屬性人類及機械族強化符石)
+				`,activate:"以「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員",skill_tag:["增攻","增回","增血","行動值提升"],activate_tag:["指定成員"],relative:[2956,2022,2024]},{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2023,name:"引力牽繫 ‧ 哥白尼",attribute:"光",race:"人類",star:6,monsterTag:["科研敍論","地獄魔王"],crossOver:!1,skill:[{name:"日心說",type:"normal",charge:"CD",num:4,description:`
+				I. <board>移除所有符石
+				⇒ 掉落固定版面符石 (光屬性及暗屬性人類及機械族強化符石)</board>
 				1 回合內
 				II. 人類、機械族及【科研敍論】成員無視「首消粒數盾」
 				III. 所有種族符石兼具 100% 所有種族符石效果
 				IV. 首批消除符石種類 ≤2
 				⇒ 回合結束時，自身技能 CD -3
-				`,tag:["移除","整版移除","移除強制掉落","強制掉光","強制掉暗","人族符石製造","機械族符石製造","固定版面","無視數字盾","減CD"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2024,name:"乙太紛裂 ‧ 亞里士多德",attribute:"暗",race:"機械族",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"極樂之魅",type:"normal",charge:"CD",num:4,description:`
+				`,tag:["移除","整版移除","移除強制掉落","強制掉光","強制掉暗","人族符石製造","機械族符石製造","固定版面","無視數字盾","減CD"]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],board:[["Lh","Lh","Lh","Lh","Lh","Lh","Lh","Dm","Dm","Dm","Dm","Lh","Lh","Dm","Dm","Dm","Dm","Lh","Lh","Dm","Dm","Dm","Dm","Lh","Lh","Lh","Lh","Lh","Lh","Lh"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2024,name:"乙太紛裂 ‧ 亞里士多德",attribute:"暗",race:"機械族",star:6,monsterTag:["科研敍論","地獄魔王"],crossOver:!1,skill:[{name:"極樂之魅",type:"normal",charge:"CD",num:4,description:`
 				I. 自身對敵人造成 100% 暗屬性的傷害總共 50 次 (此傷害無視「強化突破」及「防禦力」)
 				II. 使敵人進入「冥控」狀態，持續 1 回合
 				▋ 使敵人無法行動
@@ -12357,7 +12393,9 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時
 				⇒【科研敍論】成員的「行動值」提升 100%
-				`,activate:"以「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員",skill_tag:["增攻","增回","增血","行動值提升"],activate_tag:["指定成員"],relative:[2956,2022,2024]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2025,name:"新大陸展航 ‧ 哥倫布",attribute:"水",race:"機械族",star:7,monsterTag:["討伐戰"],crossOver:!1,skill:[{name:"全速航行",type:"normal",charge:"CD",num:8,description:`
+				`,activate:"以「至理審思 ‧ 蘇格拉底」、「理想世界 ‧ 柏拉圖」及「乙太紛裂 ‧ 亞里士多德」作成員",skill_tag:["增攻","增回","增血","行動值提升"],activate_tag:["指定成員"],relative:[2956,2022,2024]},{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2025,name:"新大陸展航 ‧ 哥倫布",attribute:"水",race:"機械族",star:7,monsterTag:["討伐戰"],crossOver:!1,skill:[{name:"全速航行",type:"normal",charge:"CD",num:8,description:`
 				1 回合內，機械族成員追打水、火及木屬性攻擊各 1 次；回合結束時，將水、火及木符石轉化為強化符石
 				`,tag:["水屬追打","火屬追打","木屬追打","符石強化","符石轉水強化","符石轉火強化","符石轉木強化"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2026,name:"最後的審判 ‧ 米開朗基羅",attribute:"木",race:"人類",star:7,monsterTag:["修羅場"],crossOver:!1,skill:[{name:"傲雅之森",type:"normal",charge:"CD",num:6,description:`
 				心符石兼具木符石效果，隊長及戰友攻擊力 1.5 倍，效果持續至沒有達成 6 連擊 (Combo) 或以上
@@ -12365,14 +12403,16 @@ function print() { __p += __j.call(arguments, '') }
 				引爆隊伍中攻擊力基值最高的 3 個機械族成員直行的符石，以掉落該直行成員屬性的符石；若發動技能時我方生命力為 1，機械族成員的主動技能 CD 減少 2
 				`,tag:["引爆","直行引爆","引爆強制掉落","強制掉直行屬性","減CD"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2028,name:"鍊合化光 ‧ 佩脫拉",attribute:"光",race:"魔族",star:6,monsterTag:["競技場"],crossOver:!1,skill:[{name:"不老魔法",type:"normal",charge:"CD",num:6,description:`
 				隊伍中有 3 個或以上魔族成員時：連擊 (Combo) 時攻擊力提升 30%；回合結束時，將 3 粒符石轉化為魔族強化符石 (隊伍成員屬性符石優先轉換)，效果持續至沒有消除魔族符石
-				`,tag:[["增傷",-1],["Combo時增攻",-1],["符石強化",-1],["魔族符石製造",-1]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2029,name:"神聖比例 ‧ 達文西",attribute:"火",race:"人類",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"烈焰功績",type:"normal",charge:"CD",num:5,description:`
+				`,tag:[["增傷",-1],["Combo時增攻",-1],["符石強化",-1],["魔族符石製造",-1]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2029,name:"神聖比例 ‧ 達文西",attribute:"火",race:"人類",star:6,monsterTag:["科研敍論","地獄魔王"],crossOver:!1,skill:[{name:"烈焰功績",type:"normal",charge:"CD",num:5,description:`
 				在本層數 (Wave) 內
 				I. 隊長及戰友
 				⓵ 攻擊力 4 倍
 				⓶ 無視「全版消除盾」
 				⓷ 以攻擊力的 100% 對敵人追打火屬性攻擊 8 次
 				II. 隊伍成員攻擊力變為 0 (隊長及戰友除外)
-				`,tag:[["界王拳",-1],["增傷",-1],["無視首消全版盾",-1],["火屬追打",-1],["我方減攻",-1]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2030,name:"我思故我在 ‧ 笛卡兒",attribute:"水",race:"機械族",star:6,monsterTag:["科學與哲理"],crossOver:!1,skill:[{name:"鑽探激濤",type:"normal",charge:"CD",num:8,description:`
+				`,tag:[["界王拳",-1],["增傷",-1],["無視首消全版盾",-1],["火屬追打",-1],["我方減攻",-1]]}],teamSkill:[{description:`
+				◆【科研敍論】成員獲得【機械動力】特性
+				`,activate:"以【科研敍論】角色作隊長及戰友",skill_tag:[],activate_tag:["指定隊長戰友"],relative:["科研敍論"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2030,name:"我思故我在 ‧ 笛卡兒",attribute:"水",race:"機械族",star:6,monsterTag:["科學與哲理"],crossOver:!1,skill:[{name:"鑽探激濤",type:"normal",charge:"CD",num:8,description:`
 				15 秒內，可任意移動符石而不會發動消除；發動技能時，若我方生命力為 1，本回合發動技能的機械族成員的技能 CD 減少 2
 				`,tag:["排珠","減CD"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.00"},{id:2031,name:"經驗匯聚 ‧ 培根",attribute:"火",race:"人類",star:6,monsterTag:["科學與哲理"],crossOver:!1,skill:[{name:"靜守突擊",type:"normal",charge:"CD",num:7,description:`
 				發動技能時記錄火符石的分佈；此技能可隨時關閉，關閉時，引爆所記錄位置的符石造成敵方全體無屬性傷害
