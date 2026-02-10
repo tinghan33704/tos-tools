@@ -1542,7 +1542,7 @@ export const leaderSkillFilterNotification = ""
 export const craftFilterNotification = ""
 export const craftSelectorNotification = ""
 export const monsterSelectorNotification = ""
-export const backpackViewerNotification = ""
+export const backpackViewerNotification = "來同學們，看上面<br>嘿對，跟我念一次：「上次更新」<br>這裡顯示的就會只有<font color='red'>那個時間點之前的資料</font><br>在那之後的卡片變化是沒法從這看到的<br>這重點畫起來下次會考哈"
 
 export const allToolBroadcastNotification = ""
 

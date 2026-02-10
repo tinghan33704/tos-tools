@@ -115,7 +115,11 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
                 key={`${toolId}-notification`}
                 variant={"primary"}
             >
-                {message}
+                <span
+                    dangerouslySetInnerHTML={{
+                        __html: message,
+                    }}
+                ></span>
                 <span
                     className='close-notification'
                     onClick={() => setIsNotificationOpen(false)}
