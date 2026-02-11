@@ -34680,7 +34680,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓵ 將所有符石轉化為固定數量及位置的「水、火、木、心」魔族強化符石
 				⓶ 增加 10 連擊 (Combo)
 				⓷ 所有成員進入 2 回合暴怒狀態
-				`,activate:"以「夢域飛馳 ‧ 斑」作隊長",skill_tag:["進場減CD","無視燃燒","無視瘴氣","魔族符石製造","護盾","無視拼圖盾","無視二屬盾","無視三屬盾","無視四屬盾","無視五屬盾","增攻","無視連擊相等盾","其他減CD","符石轉木","符石轉光","符石轉暗","符石轉心","符石轉木強化","符石轉光強化","符石轉暗強化","符石轉心強化","固定版面","增加Combo","亢奮狀態","符石轉水","符石轉火","符石轉水強化","符石轉火強化","暴怒狀態"],activate_tag:["指定隊長"],relative:[10137]}],board:[["Ed","Ed","Ed","Ed","Ed","Ed","Wd","Wd","Wd","Fd","Fd","Fd","Ld","Ld","Ld","Dd","Dd","Dd","Ed","Ed","Ed","Hd","Hd","Hd","Hd","Hd","Hd","Ed","Ed","Ed"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2022.10"},{id:10138,name:"雛型倒轉 ‧ 歐幾里得",attribute:"水",race:"機械族",star:6,monsterTag:["堅毅氣魄"],crossOver:!1,skill:[{name:"實驗領域",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「夢域飛馳 ‧ 斑」作隊長",skill_tag:["進場減CD","無視燃燒","無視瘴氣","魔族符石製造","護盾","無視拼圖盾","無視二屬盾","無視三屬盾","無視四屬盾","無視五屬盾","增攻","無視連擊相等盾","其他減CD","符石轉木","符石轉光","符石轉暗","符石轉心","符石轉木強化","符石轉光強化","符石轉暗強化","符石轉心強化","固定版面","增加Combo","亢奮狀態","符石轉水","符石轉火","符石轉水強化","符石轉火強化","暴怒狀態"],activate_tag:["指定隊長"],relative:[10137]}],board:[["Ed","Ed","Ed","Ed","Ed","Ed","Wd","Wd","Wd","Fd","Fd","Fd","Ld","Ld","Ld","Dd","Dd","Dd","Ed","Ed","Ed","Hd","Hd","Hd","Hd","Hd","Hd","Ed","Ed","Ed"]],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2022.10"},{id:10138,name:"雛型倒轉 ‧ 歐幾里得",attribute:"水",race:"機械族",star:6,monsterTag:["堅毅氣魄"],crossOver:!1,skill:[{name:"實驗領域",type:"normal",charge:"CD",num:6,description:`
 				I. 將所有符石轉化為
 				⇒ 固定數量及位置的「五屬及心」機械族強化符石
 				II. 儲滿龍脈儀
@@ -34720,7 +34720,7 @@ function print() { __p += __j.call(arguments, '') }
 				◆「雛型倒轉 ‧ 歐幾里得」
 				⓵ 進場技能 CD -6
 				⓶ 生命力基值 2.5 倍
-				`,activate:"以機械族成員作隊長及戰友，並以「雛型倒轉 ‧ 歐幾里得」作成員",skill_tag:["龍脈儀蓄能","進場減CD","增血"],activate_tag:["指定隊長戰友","指定種族成員"],relative:[10138]}],board:[["Fm","Fm","Hm","Hm","Em","Em","Lm","Lm","Wm","Wm","Dm","Dm","Wm","Wm","Hm","Hm","Wm","Wm","Lm","Lm","Wm","Wm","Dm","Dm","Fm","Fm","Hm","Hm","Em","Em"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2022.10"},{id:10139,name:"純粹美麗的水精女王 忒琪菈",attribute:"水",race:"妖精類",star:7,monsterTag:["怪物彈珠 ‧ 英雄","怪物彈珠"],crossOver:!0,specialImage:!0,skill:[{name:"絕對之水",type:"normal",charge:"CD",num:4,description:`
+				`,activate:"以機械族成員作隊長及戰友，並以「雛型倒轉 ‧ 歐幾里得」作成員",skill_tag:["龍脈儀蓄能","進場減CD","增血"],activate_tag:["指定隊長戰友","指定種族成員"],relative:[10138]}],board:[["Fm","Fm","Hm","Hm","Em","Em","Lm","Lm","Wm","Wm","Dm","Dm","Wm","Wm","Hm","Hm","Wm","Wm","Lm","Lm","Wm","Wm","Dm","Dm","Fm","Fm","Hm","Hm","Em","Em"]],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2022.10"},{id:10139,name:"純粹美麗的水精女王 忒琪菈",attribute:"水",race:"妖精類",star:7,monsterTag:["怪物彈珠 ‧ 英雄","怪物彈珠"],crossOver:!0,specialImage:!0,skill:[{name:"絕對之水",type:"normal",charge:"CD",num:4,description:`
 				【階段 1】
 				I. <board>將最底 1 橫行的符石
 				⇒ 轉化為水妖族強化符石</board>
@@ -35006,7 +35006,7 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 消除「殺虐天性 ‧ 鮑威」或「蹦跳獵食 ‧ 波特」的角色符石
 				⇒ 不受「只能消除首批符石」技能影響 (不包括「結界地型」)
-				`,activate:"以「屹立獸衛 ‧ 克洛怡」作隊長，並以「殺虐天性 ‧ 鮑威」或「蹦跳獵食 ‧ 波特」作成員",skill_tag:["增血","增攻","增回"],activate_tag:["指定隊長","指定成員"],relative:[10146,10156,10157]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2022.10"},{id:10147,name:"龍火爆發 ‧ 彌爾頓",attribute:"火",race:"龍類",star:6,monsterTag:["堅毅氣魄"],crossOver:!1,skill:[{name:"灼龍之燄",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「屹立獸衛 ‧ 克洛怡」作隊長，並以「殺虐天性 ‧ 鮑威」或「蹦跳獵食 ‧ 波特」作成員",skill_tag:["增血","增攻","增回"],activate_tag:["指定隊長","指定成員"],relative:[10146,10156,10157]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2022.10"},{id:10147,name:"龍火爆發 ‧ 彌爾頓",attribute:"火",race:"龍類",star:6,monsterTag:["堅毅氣魄"],crossOver:!1,skill:[{name:"灼龍之燄",type:"normal",charge:"CD",num:5,description:`
 				【連攜魔導式】
 				I. 解除全隊被封鎖的技能 (此技能無視封鎖技能)
 				2 回合內
@@ -35048,7 +35048,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒「龍火爆發 ‧ 彌爾頓」及「迷失者的聖炎 ‧ 巴哈姆特」技能 CD -1
 				`,activate:"以龍類成員作隊長，並以「龍火爆發 ‧ 彌爾頓」作成員",skill_tag:["增血","增攻","開技減CD"],activate_tag:["指定隊長","指定種族成員"],relative:[10147,1868]},{description:`
 				◆「悖狂護衛 ‧ 彌爾頓」轉為火屬性
-				`,activate:"以「龍火爆發 ‧ 彌爾頓」及「悖狂護衛 ‧ 彌爾頓」作成員",skill_tag:[],activate_tag:["指定成員"],relative:[10147,10562]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2022.10"},{id:10148,name:"透心女孩",attribute:"水",race:"強化素材",star:3,monsterTag:["素材"],crossOver:!1,skill:[{name:"沒有技能",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以「龍火爆發 ‧ 彌爾頓」及「悖狂護衛 ‧ 彌爾頓」作成員",skill_tag:[],activate_tag:["指定成員"],relative:[10147,10562]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2022.10"},{id:10148,name:"透心女孩",attribute:"水",race:"強化素材",star:3,monsterTag:["素材"],crossOver:!1,skill:[{name:"沒有技能",type:"normal",charge:"CD",num:0,description:`
 				沒有技能
 				`,tag:[]}],teamSkill:[],maxLevel:1,maxSkill:0,maxRefine:0,version:"v2022.10"},{id:10149,name:"點點",attribute:"光",race:"獸類",star:6,monsterTag:["活力盟友"],crossOver:!1,skill:[{name:"元素多變",type:"normal",charge:"CD",num:6,description:`
 				發動技能及每回合結束時
