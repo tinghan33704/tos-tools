@@ -204,6 +204,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                             )}-${index}`}
                             togglePopover={togglePopover}
                             setPopoverContent={setPopoverContent}
+                            hideHadMonster={hideHadMonster}
                         />
                     </Col>
                 ) : (

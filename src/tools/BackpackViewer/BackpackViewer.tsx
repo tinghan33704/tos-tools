@@ -117,6 +117,8 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                 }
                 onSelect={(value) => {
                     setCurrentTab(value as string)
+                    setCurrentCardCategory(cardCategories[0])
+                    setHideHadMonster(false)
                     localStorage.setItem("CURRENT_PAGE", value as string)
                 }}
             >

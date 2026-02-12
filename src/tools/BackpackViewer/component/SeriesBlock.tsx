@@ -18,6 +18,7 @@ interface ISeriesBlockProps {
     key: string | number
     togglePopover: (e: React.MouseEvent) => void
     setPopoverContent: (content: React.ReactElement) => void
+    hideHadMonster?: boolean
 }
 
 const showFirstStageAsEmptyPreview = [
@@ -50,6 +51,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
     key,
     togglePopover,
     setPopoverContent,
+    hideHadMonster = false,
 }) => {
     const ref = useRef(null)
 
@@ -192,6 +194,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                                 playerData={playerData}
                                 id={_id}
                                 notInInventory={notInInventory}
+                                hideHadMonster={hideHadMonster}
                                 onClick={(e) =>
                                     onClickImage(e, _.isArray(id) ? id : [id])
                                 }
@@ -201,7 +204,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                 })}
             </Row>
         )
-    }, [data, onClickImage, playerData, title])
+    }, [data, hideHadMonster, onClickImage, playerData, title])
 
     return (
         <LazyLoad

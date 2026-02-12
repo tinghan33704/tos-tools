@@ -11,6 +11,7 @@ interface IMonsterImageProps {
     notInInventory: boolean
     onClick: (e: React.MouseEvent) => void
     cardData?: IObject
+    hideHadMonster?: boolean
 }
 
 const MonsterImage: React.FC<IMonsterImageProps> = ({
@@ -19,6 +20,7 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
     notInInventory,
     onClick,
     cardData,
+    hideHadMonster = false,
 }) => {
     const renderInfoTag = useCallback(
         (id: number) => {
@@ -69,7 +71,7 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
                 </>
             )
         },
-        [cardData, playerData]
+        [cardData, playerData],
     )
 
     const renderImage = useCallback(() => {
@@ -82,13 +84,15 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
                 <Image
                     path={`monster/${id}`}
                     className={`result-image${
-                        notInInventory ? " result-image-gray" : ""
+                        notInInventory && !hideHadMonster
+                            ? " result-image-gray"
+                            : ""
                     }`}
                 />
                 {!notInInventory && renderInfoTag(id)}
             </div>
         )
-    }, [id, notInInventory, onClick, renderInfoTag])
+    }, [hideHadMonster, id, notInInventory, onClick, renderInfoTag])
 
     return <>{renderImage()}</>
 }
