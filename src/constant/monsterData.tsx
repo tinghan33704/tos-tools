@@ -1,4 +1,4 @@
-// Last modified : 2026.02.13 02:16
+// Last modified : 2026.02.14 02:15
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -220512,7 +220512,7 @@ export const monsterData: IObject[] = [
         'attribute': '木',
         'race': '妖精類',
         'star': 7,
-        'monsterTag': ['地獄魔王', '終焉梵域'],
+        'monsterTag': ['終焉梵域', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
@@ -220578,7 +220578,7 @@ export const monsterData: IObject[] = [
         'attribute': '木',
         'race': '魔族',
         'star': 7,
-        'monsterTag': ['地獄魔王', '終焉梵域'],
+        'monsterTag': ['終焉梵域', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
@@ -220644,7 +220644,7 @@ export const monsterData: IObject[] = [
         'attribute': '光',
         'race': '魔族',
         'star': 6,
-        'monsterTag': ['業報教化', '終焉梵域'],
+        'monsterTag': ['終焉梵域', '滅寂信徒'],
         'crossOver': false,
         'skill': [
             {
@@ -220654,7 +220654,7 @@ export const monsterData: IObject[] = [
                 'num': 7,
                 'description': `
 				I. 解除「亡命爆擊」
-				II. 將隊長及戰友直行轉化為該直行成員屬性強化符石
+				II. <board>將隊長及戰友直行轉化為該直行成員屬性強化符石</board>
 				1 回合內
 				III. 魔族及【終焉梵域】成員無視「角色符石地型盾」
 				IV. 連擊 (Combo) 數目固定為 7
@@ -220685,6 +220685,21 @@ export const monsterData: IObject[] = [
 				'relative': [11128, 11129, '終焉梵域']
 			}
 		],
+		'board': [
+			{
+				'board': [
+					'1', '-', '-', '-', '-', '2', 
+					'1', '-', '-', '-', '-', '2', 
+					'1', '-', '-', '-', '-', '2', 
+					'1', '-', '-', '-', '-', '2', 
+					'1', '-', '-', '-', '-', '2', 
+				],
+				'note': [
+					'隊長屬性強化符石',
+					'戰友屬性強化符石',
+				]
+			}
+		],
         'maxLevel': 99,
         'maxSkill': 12,
         'maxRefine': 0,
@@ -220692,11 +220707,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11125,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '絞斷腐障 ‧ 安息',
+        'attribute': '火',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['終焉梵域', '滅寂信徒'],
         'crossOver': false,
         'skill': [
             {
@@ -220710,19 +220725,37 @@ export const monsterData: IObject[] = [
                 'tag': []
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【終焉梵域】成員「三圍」基值 2 倍
+				
+				◆ 進場及首回合結束時
+				⇒【終焉梵域】成員
+				⓵ 技能 CD 變為 0
+				⓶ 技能 EP 回滿
+
+				◆ 進場時或回合結束時
+				⇒【終焉梵域】成員進入 2 回合「亢奮」狀態
+				`,
+				'activate': `以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '進場減CD', '其他減CD', '進場回EP', '其他回EP', '亢奮狀態'],
+				'activate_tag': ['指定成員'],
+				'relative': [11128, 11129, '終焉梵域']
+			}
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+		'version': 'v2026.11'
     },
     {
         'id': 11126,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '惡果龍鳴 ‧ 般若',
+        'attribute': '暗',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['終焉梵域', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
@@ -220736,19 +220769,37 @@ export const monsterData: IObject[] = [
                 'tag': []
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【終焉梵域】成員「三圍」基值 2 倍
+				
+				◆ 進場及首回合結束時
+				⇒【終焉梵域】成員
+				⓵ 技能 CD 變為 0
+				⓶ 技能 EP 回滿
+
+				◆ 進場時或回合結束時
+				⇒【終焉梵域】成員進入 2 回合「亢奮」狀態
+				`,
+				'activate': `以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '進場減CD', '其他減CD', '進場回EP', '其他回EP', '亢奮狀態'],
+				'activate_tag': ['指定成員'],
+				'relative': [11128, 11129, '終焉梵域']
+			}
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+		'version': 'v2026.11'
     },
     {
         'id': 11127,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '諸惡行滅 ‧ 涅槃',
+        'attribute': '暗',
+        'race': '魔族',
+        'star': 7,
+        'monsterTag': ['終焉梵域', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
@@ -220762,11 +220813,29 @@ export const monsterData: IObject[] = [
                 'tag': []
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【終焉梵域】成員「三圍」基值 2 倍
+				
+				◆ 進場及首回合結束時
+				⇒【終焉梵域】成員
+				⓵ 技能 CD 變為 0
+				⓶ 技能 EP 回滿
+
+				◆ 進場時或回合結束時
+				⇒【終焉梵域】成員進入 2 回合「亢奮」狀態
+				`,
+				'activate': `以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '進場減CD', '其他減CD', '進場回EP', '其他回EP', '亢奮狀態'],
+				'activate_tag': ['指定成員'],
+				'relative': [11128, 11129, '終焉梵域']
+			}
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+		'version': 'v2026.11'
     },
     {
         'id': 11128,
@@ -220774,7 +220843,7 @@ export const monsterData: IObject[] = [
         'attribute': '水',
         'race': '魔族',
         'star': 7,
-        'monsterTag': ['終焉梵域'],
+        'monsterTag': ['終焉梵域', '因果之契'],
         'crossOver': false,
         'skill': [
             {
@@ -220785,8 +220854,8 @@ export const monsterData: IObject[] = [
                 'description': `
 				I. 隊伍成員進入 2 回合「亢奮」狀態
 				II. 點選元素法陣上的符石 6 次
-				⇒ 移除所有符石
-				⇒ 掉落固定版面符石 (點選的符石種類魔族及龍類強化符石)
+				⇒ <board>移除所有符石
+				⇒ 掉落固定版面符石 (點選的符石種類魔族及龍類強化符石)</board>
 				2 回合內
 				III. 隊伍成員
 				⓵ 攻擊力 4 倍
@@ -220953,6 +221022,25 @@ export const monsterData: IObject[] = [
 				'relative': [11128]
 			}
 		],
+		'board': [
+			{
+				'board': [
+					'1d', '2r', '3d', '4r', '5d', '6r', 
+					'1d', '2r', '3d', '4r', '5d', '6r', 
+					'1d', '2r', '3d', '4r', '5d', '6r', 
+					'1d', '2r', '3d', '4r', '5d', '6r', 
+					'1d', '2r', '3d', '4r', '5d', '6r', 
+				],
+				'note': [
+					'首次點選的種類強化符石', 
+					'第 2 次點選的種類強化符石', 
+					'第 3 次點選的種類強化符石', 
+					'第 4 次點選的種類強化符石', 
+					'第 5 次點選的種類強化符石', 
+					'第 6 次點選的種類強化符石', 
+				]
+			}
+		],
         'maxLevel': 99,
         'maxSkill': 10,
         'maxRefine': 0,
@@ -220964,7 +221052,7 @@ export const monsterData: IObject[] = [
         'attribute': '光',
         'race': '龍類',
         'star': 7,
-        'monsterTag': ['終焉梵域'],
+        'monsterTag': ['終焉梵域', '因果之契'],
         'crossOver': false,
         'skill': [
             {
@@ -220990,8 +221078,8 @@ export const monsterData: IObject[] = [
                 'charge': 'EP',
                 'num': 5,
                 'description': `
-				I. 移除所有符石
-				⇒ 掉落固定版面符石 (五屬及心龍類強化符石)
+				I. <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心龍類強化符石)</board>
 				1 回合內
 				II. 魔族、龍類及【終焉梵域】成員無視「指定連擊法印」及「符石連擊零化」
 				III. 每移動 1 步
@@ -221153,6 +221241,15 @@ export const monsterData: IObject[] = [
 				'relative': [11129]
 			}
 		],
+		'board': [
+			[
+				'Lr', 'Lr', 'Lr', 'Lr', 'Lr', 'Lr', 
+				'Lr', 'Fr', 'Wr', 'Er', 'Dr', 'Hr', 
+				'Lr', 'Fr', 'Wr', 'Er', 'Dr', 'Hr', 
+				'Lr', 'Fr', 'Wr', 'Er', 'Dr', 'Hr', 
+				'Hr', 'Hr', 'Hr', 'Hr', 'Hr', 'Hr', 
+			]
+		],
         'maxLevel': 99,
         'maxSkill': 10,
         'maxRefine': 0,
@@ -221193,7 +221290,7 @@ export const monsterData: IObject[] = [
 				VI.「技能關閉」時
 				⇒ 木屬性及神族成員技能 CD -2
                 `,
-                'tag': [['增傷', -1], ['無視反首消盾', -1], ['無視首消組數屬性盾', -1], ['解除暴風', -1], ['解除結界地型', -1], ['只能首消符石', -1], ['增加Combo', -1], ['移除', -1], ['整版移除', -1], ['移除強制掉落', -1], ['強制掉直行屬性', -1], ['人族符石製造', -1], ['獸族符石製造', -1], ['妖族符石製造', -1], ['龍族符石製造', -1], ['神族符石製造', -1], ['魔族符石製造', -1], ['機械族符石製造', -1], ['加護符石製造', -1], ['無視只能首消符石', -1], ['符石轉水', -1], ['符石轉火', -1], ['符石轉木', -1], ['符石轉光', -1], ['符石轉暗', -1], ['符石轉心', -1], ['符石轉水強化', -1], ['符石轉火強化', -1], ['符石轉木強化', -1], ['符石轉光強化', -1], ['符石轉暗強化', -1], ['符石轉心強化', -1], ['五屬版面', -1], ['五屬心版面', -1], ['固定版面', -1], '隨時關閉', '減CD', '頭像狀態']
+                'tag': [['增傷', -1], ['無視反首消盾', -1], ['無視首消組數屬性盾', -1], ['解除暴風', -1], ['解除結界地型', -1], ['只能首消符石', -1], ['增加Combo', -1], ['移除', -1], ['整版移除', -1], ['移除強制掉落', -1], ['強制掉直行屬性', -1], ['人族符石製造', -1], ['獸族符石製造', -1], ['妖族符石製造', -1], ['龍族符石製造', -1], ['神族符石製造', -1], ['魔族符石製造', -1], ['機械族符石製造', -1], ['加護符石製造', -1], ['無視只能首消符石', -1], ['符石轉水', -1], ['符石轉火', -1], ['符石轉木', -1], ['符石轉光', -1], ['符石轉暗', -1], ['符石轉心', -1], ['符石轉水強化', -1], ['符石轉火強化', -1], ['符石轉木強化', -1], ['符石轉光強化', -1], ['符石轉暗強化', -1], ['符石轉心強化', -1], ['五屬版面', -1], ['五屬心版面', -1], ['固定版面', -1], ['大幅轉版', -1], '隨時關閉', '減CD', '頭像狀態']
             }
         ],
         'teamSkill': [
@@ -221294,7 +221391,7 @@ export const monsterData: IObject[] = [
         'attribute': '光',
         'race': '獸類',
         'star': 6,
-        'monsterTag': [],
+        'monsterTag': ['蹄踏春風'],
         'crossOver': false,
         'skill': [
             {
