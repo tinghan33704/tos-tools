@@ -1,4 +1,4 @@
-// Last modified : 2026.02.14 02:15
+// Last modified : 2026.02.15 02:17
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -221261,7 +221261,7 @@ export const monsterData: IObject[] = [
         'attribute': '木',
         'race': '神族',
         'star': 6,
-        'monsterTag': [],
+        'monsterTag': ['悠久繽紛'],
         'crossOver': false,
         'skill': [
             {
@@ -221284,7 +221284,7 @@ export const monsterData: IObject[] = [
 				⓶ 消除首批符石後
 				⇒ 隊伍成員無視「只能消除首批符石」
 				▋ 反之
-				⇒ 回合結束時，將所有符石轉化為固定版面符石 (五屬及心神族強化符石)
+				⇒ 回合結束時，<board>將所有符石轉化為固定版面符石 (五屬及心神族強化符石)</board>
 				(此技能可隨時關閉，效果會在此「技能關閉」或死亡後消失)
 
 				VI.「技能關閉」時
@@ -221310,6 +221310,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': [],
 				'relative': [11129]
 			}
+		],
+		'board': [
+			[
+				'Eg', 'Eg', 'Eg', 'Eg', 'Eg', 'Eg', 
+				'Eg', 'Wg', 'Fg', 'Lg', 'Dg', 'Hg', 
+				'Eg', 'Wg', 'Fg', 'Lg', 'Dg', 'Hg', 
+				'Eg', 'Wg', 'Fg', 'Lg', 'Dg', 'Hg', 
+				'Eg', 'Eg', 'Eg', 'Eg', 'Eg', 'Eg', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
