@@ -98,6 +98,13 @@ const DescriptionNote: React.FC = () => {
                         <br />⓷ 自身以 50% 攻擊力追打自身原屬性攻擊 2 次
                     </span>
                 )
+            case 10:
+                return (
+                    <span className='positive-note-label'>
+                        ⓵ 自身攻擊力 4 倍<br />⓶
+                        自身無視「連擊護盾」及「連擊相等盾」
+                    </span>
+                )
             default:
                 return <></>
         }

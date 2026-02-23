@@ -119,6 +119,7 @@ export const skillIconMapping: IObject = {
     再爆發: ["break_out"],
     軌跡轉化: ["trail_conversion"],
     直傷: ["direct_damage"],
+    回合初直傷: ["direct_damage", "first_strike"],
     破防直傷: ["direct_damage", "break_def"],
     破強化直傷: ["direct_damage", "enchanted_shield"],
     無視技能直傷: ["direct_damage", "no_skill"],

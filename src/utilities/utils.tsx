@@ -28,14 +28,14 @@ export const getMonsterById = (id: number) => {
 export const getCraftById = (id: number) => {
     const craftSerie =
         [...craftData, ...armedCraftData].find((craft) =>
-            Object.values(craft?.mode).includes(id)
+            Object.values(craft?.mode).includes(id),
         ) || {}
 
     const craftObj: IObject = {
         ...craftSerie,
         id,
         mode: (Object.keys(craftSerie?.mode || {}) || []).find(
-            (key) => craftSerie?.mode[key] === id
+            (key) => craftSerie?.mode[key] === id,
         ),
     }
 
@@ -138,7 +138,7 @@ export const errorAlert = (index: number) => {
             break
         case 10:
             alert(
-                `${errorPrefix}無法取得背包資料\n請確認是否已於官方健檢中心的個人資料勾選「公開背包」`
+                `${errorPrefix}無法取得背包資料\n請確認是否已於官方健檢中心的個人資料勾選「公開背包」`,
             )
             break
         case 11:
@@ -159,7 +159,7 @@ export const fetchPlayerData = async (
     veri: string,
     action: string,
     setInputDisabled?: (disable: boolean) => void,
-    setDataStatus?: (status: string, text: string) => void
+    setDataStatus?: (status: string, text: string) => void,
 ) => {
     const playerId = uid.trim()
     const playerVeri = veri.trim()
@@ -195,7 +195,7 @@ export const fetchPlayerData = async (
         let token: string = ""
         await axios
             .post(
-                `https://website-api.tosgame.com/api/checkup/login?token=&uid=${userId}&auth=${userAuth}`
+                `https://website-api.tosgame.com/api/checkup/login?token=&uid=${userId}&auth=${userAuth}`,
             )
             .then((response: IObject) => {
                 token = response?.data?.token
@@ -207,14 +207,14 @@ export const fetchPlayerData = async (
         let inventoryData: any = null
         await axios
             .get(
-                `https://website-api.tosgame.com/api/checkup/getUserProfile?targetUid=${playerId}&token=${token}`
+                `https://website-api.tosgame.com/api/checkup/getUserProfile?targetUid=${playerId}&token=${token}`,
             )
             .then((response: IObject) => {
                 inventoryData = response?.data
             })
             .catch((error: IObject) => {
                 throw new Error(
-                    `Failed to get inventory data: ${JSON.stringify(error)}`
+                    `Failed to get inventory data: ${JSON.stringify(error)}`,
                 )
             })
 
@@ -248,7 +248,7 @@ export const fetchPlayerData = async (
             })
 
             const sortedCardArr: number[] = ([...cardSet] as number[]).sort(
-                (a: number, b: number) => a - b
+                (a: number, b: number) => a - b,
             ) as number[]
             const lastUpdateTime: string =
                 inventoryData?.userData?.cardsUpdatedAt
@@ -256,13 +256,13 @@ export const fetchPlayerData = async (
                 uid: playerId,
                 name: inventoryData?.userData?.displayName || "",
                 card: addCombinedCard(
-                    addTransformedCard(addVirtualRebirthCard(sortedCardArr))
+                    addTransformedCard(addVirtualRebirthCard(sortedCardArr)),
                 ),
                 info: cardInfo,
                 lastUpdated: lastUpdateTime
                     ? new Date(
                           new Date(lastUpdateTime).valueOf() -
-                              new Date().getTimezoneOffset().valueOf()
+                              new Date().getTimezoneOffset().valueOf(),
                       ).toLocaleString()
                     : null,
                 wholeData: inventoryData?.userData?.cards,
@@ -284,7 +284,7 @@ export const fetchPlayerData = async (
                 ? `本工具不支援此帳號`
                 : `${verb}失敗${
                       action === "import" ? "，請嘗試使用更新背包功能" : ""
-                  }`
+                  }`,
         )
         setInputDisabled?.(false)
         errorAlert(isBlackList ? 12 : 10)
@@ -368,7 +368,7 @@ export const addCombinedCard = (allCard: number[]) => {
 export const descriptionTranslator = (
     monsterId: number,
     description: string,
-    simple?: boolean
+    simple?: boolean,
 ) => {
     return !simple
         ? description
@@ -376,71 +376,75 @@ export const descriptionTranslator = (
               .replace(/<br \/>/, "")
               .replace(
                   /<board\s*(\d*)>(.*?)<\/board>/g,
-                  `<span class='fixed-board-label-${monsterId}-$1' >$2</span>`
+                  `<span class='fixed-board-label-${monsterId}-$1' >$2</span>`,
               )
               .replace(
                   /<anno>(.*?)<\/anno>/g,
-                  `<font class='desc-anno-label'>$1</font>`
+                  `<font class='desc-anno-label'>$1</font>`,
               )
               .replace(
                   /【階段 (\d*)】/g,
-                  `<font class='desc-multiple-label'>【階段 $1】</font>`
+                  `<font class='desc-multiple-label'>【階段 $1】</font>`,
               )
               .replace(
                   /效果(\d+)：/g,
-                  `<font class='desc-multiple-label'>效果$1：</font>`
+                  `<font class='desc-multiple-label'>效果$1：</font>`,
               )
               .replace(
                   /<meff>(.*?)<\/meff>/g,
-                  `<font class='desc-multiple-label'>$1</font>`
+                  `<font class='desc-multiple-label'>$1</font>`,
               )
               .replace(
                   /【連攜魔導式】/g,
-                  `<span class='desc-note-label-0 desc-linking-label'>【連攜魔導式】</span>`
+                  `<span class='desc-note-label-0 desc-linking-label'>【連攜魔導式】</span>`,
               )
               .replace(
                   /亢奮(狀態)?/g,
-                  `<span class='desc-note-label-1 desc-positive-label'>亢奮$1</span>`
+                  `<span class='desc-note-label-1 desc-positive-label'>亢奮$1</span>`,
               )
               .replace(
                   /疲憊(狀態)?/g,
-                  `<span class='desc-note-label-2 desc-negative-label'>疲憊$1</span>`
+                  `<span class='desc-note-label-2 desc-negative-label'>疲憊$1</span>`,
               )
               .replace(
                   /暴擊(狀態)?/g,
-                  `<span class='desc-note-label-1 desc-positive-label'>暴擊$1</span>`
+                  `<span class='desc-note-label-1 desc-positive-label'>暴擊$1</span>`,
               )
               .replace(
                   /暴怒(狀態)?/g,
-                  `<span class='desc-note-label-3 desc-positive-label'>暴怒$1</span>`
+                  `<span class='desc-note-label-3 desc-positive-label'>暴怒$1</span>`,
               )
               .replace(
                   /神選(狀態)?/g,
-                  `<span class='desc-note-label-4 desc-positive-label'>神選$1</span>`
+                  `<span class='desc-note-label-4 desc-positive-label'>神選$1</span>`,
               )
               .replace(
                   /風壓(狀態)?/g,
-                  `<span class='desc-note-label-5 desc-negative-label'>風壓$1</span>`
+                  `<span class='desc-note-label-5 desc-negative-label'>風壓$1</span>`,
               )
               .replace(
                   /休眠(狀態)?/g,
-                  `<span class='desc-note-label-6 desc-negative-label'>休眠$1</span>`
+                  `<span class='desc-note-label-6 desc-negative-label'>休眠$1</span>`,
               )
               .replace(
                   /麻痺(狀態)?/g,
-                  `<span class='desc-note-label-7 desc-negative-label'>麻痺$1</span>`
+                  `<span class='desc-note-label-7 desc-negative-label'>麻痺$1</span>`,
               )
               .replace(
                   /沉默(狀態)?/g,
-                  `<span class='desc-note-label-8 desc-negative-label'>沉默$1</span>`
+                  `<span class='desc-note-label-8 desc-negative-label'>沉默$1</span>`,
               )
               .replace(
                   /「道」狀態?/g,
-                  `<span class='desc-note-label-9 desc-positive-label'>「道」狀態</span>`
+                  `<span class='desc-note-label-9 desc-positive-label'>「道」狀態</span>`,
               )
               .replace(
                   /GEASS 狀態?/g,
-                  `<span class='desc-note-label-3 desc-positive-label'>GEASS 狀態</span>`
+                  `<span class='desc-note-label-3 desc-positive-label'>GEASS 狀態</span>`,
+              )
+              .replace(
+                  /冥綻(狀態)?/g,
+                  `<span class='desc-note-label-10 desc-positive-label'>冥綻$1</span>`,
               )
         : (description || "")
               ?.replace(/\n[^\S\n]*/g, "<br>")
@@ -500,7 +504,7 @@ export const encode = (input: string) => {
         input.length % base === 0
             ? input.length
             : (Math.floor(input.length / base) + 1) * base,
-        "0"
+        "0",
     )
     const inputArr = paddedInput.match(/.{1,6}/g) || []
 
