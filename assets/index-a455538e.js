@@ -67072,7 +67072,7 @@ function print() { __p += __j.call(arguments, '') }
 				I. 自身種族及【終焉梵域】成員進入 13 回合「亢奮」狀態
 				II. 點選元素法陣上的符石 3 次
 				⓵ 將所有符石添加為自身種族符石
-				⓶ 將所有符石轉化為第 1 、 2 及 3 次點選的種類強化符石
+				⓶ <board>將所有符石轉化為第 1 、 2 及 3 次點選的種類強化符石</board>
 				⓷ 隊長為妖精類、魔族或【終焉梵域】成員
 				⇒ 以上轉化改為移除
 				3 回合內
@@ -67095,11 +67095,11 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時或回合結束時
 				⇒【終焉梵域】成員進入 2 回合「亢奮」狀態
-				`,activate:"以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員",skill_tag:["增攻","增回","增血","進場減CD","其他減CD","進場回EP","其他回EP","亢奮狀態"],activate_tag:["指定成員"],relative:[11128,11129,"終焉梵域"]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2026.11"},{id:11123,name:"三苦厄劫 ‧ 菩提樹 (魔)",attribute:"木",race:"魔族",star:7,monsterTag:["終焉梵域","地獄魔王"],crossOver:!1,skill:[{name:"靈藤法陣",type:"normal",charge:"CD",num:13,description:`
+				`,activate:"以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員",skill_tag:["增攻","增回","增血","進場減CD","其他減CD","進場回EP","其他回EP","亢奮狀態"],activate_tag:["指定成員"],relative:[11128,11129,"終焉梵域"]}],board:[{board:["1e","2e","3e","1e","2e","3e","1e","2e","3e","1e","2e","3e","1e","2e","3e","1e","2e","3e","1e","2e","3e","1e","2e","3e","1e","2e","3e","1e","2e","3e"],note:["首次點選的種類強化符石","第 2 次點選的種類強化符石","第 3 次點選的種類強化符石"]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2026.11"},{id:11123,name:"三苦厄劫 ‧ 菩提樹 (魔)",attribute:"木",race:"魔族",star:7,monsterTag:["終焉梵域","地獄魔王"],crossOver:!1,skill:[{name:"靈藤法陣",type:"normal",charge:"CD",num:13,description:`
 				I. 自身種族及【終焉梵域】成員進入 13 回合「亢奮」狀態
 				II. 點選元素法陣上的符石 3 次
 				⓵ 將所有符石添加為自身種族符石
-				⓶ 將所有符石轉化為第 1 、 2 及 3 次點選的種類強化符石
+				⓶ <board>將所有符石轉化為第 1 、 2 及 3 次點選的種類強化符石</board>
 				⓷ 隊長為妖精類、魔族或【終焉梵域】成員
 				⇒ 以上轉化改為移除
 				3 回合內
@@ -67122,7 +67122,7 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時或回合結束時
 				⇒【終焉梵域】成員進入 2 回合「亢奮」狀態
-				`,activate:"以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員",skill_tag:["增攻","增回","增血","進場減CD","其他減CD","進場回EP","其他回EP","亢奮狀態"],activate_tag:["指定成員"],relative:[11128,11129,"終焉梵域"]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2026.11"},{id:11124,name:"業報教化 ‧ 哀律",attribute:"光",race:"魔族",star:6,monsterTag:["終焉梵域","滅寂信徒"],crossOver:!1,skill:[{name:"咒音繚繞",type:"normal",charge:"CD",num:7,description:`
+				`,activate:"以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員",skill_tag:["增攻","增回","增血","進場減CD","其他減CD","進場回EP","其他回EP","亢奮狀態"],activate_tag:["指定成員"],relative:[11128,11129,"終焉梵域"]}],board:[{board:["1d","2d","3d","1d","2d","3d","1d","2d","3d","1d","2d","3d","1d","2d","3d","1d","2d","3d","1d","2d","3d","1d","2d","3d","1d","2d","3d","1d","2d","3d"],note:["首次點選的種類強化符石","第 2 次點選的種類強化符石","第 3 次點選的種類強化符石"]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2026.11"},{id:11124,name:"業報教化 ‧ 哀律",attribute:"光",race:"魔族",star:6,monsterTag:["終焉梵域","滅寂信徒"],crossOver:!1,skill:[{name:"咒音繚繞",type:"normal",charge:"CD",num:7,description:`
 				I. 解除「亡命爆擊」
 				II. <board>將隊長及戰友直行轉化為該直行成員屬性強化符石</board>
 				1 回合內
@@ -67152,7 +67152,7 @@ function print() { __p += __j.call(arguments, '') }
 				V. 掉落的隊長屬性符石添加為「加護」符石
 				VI. 隊長為獸類或【終焉梵域】成員
 				⇒ 消除符石後，自身技能 CD –7
-                `,tag:["引爆","引爆強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗","獸族符石製造","五屬版面","固定版面","無視首殺盾","固定Combo","固定Ex.Combo","加護符石製造","減CD"]}],teamSkill:[{description:`
+                `,tag:["引爆","整版引爆","引爆強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗","獸族符石製造","五屬版面","固定版面","無視首殺盾","固定Combo","固定Ex.Combo","加護符石製造","減CD"]}],teamSkill:[{description:`
 				◆【終焉梵域】成員「三圍」基值 2 倍
 				
 				◆ 進場及首回合結束時
