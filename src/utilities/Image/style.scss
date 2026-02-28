@@ -1,0 +1,7 @@
+@import "src/styles/colors.scss";
+
+.img-theme {
+    &-dark {
+        filter: brightness(80%) !important;
+    }
+}

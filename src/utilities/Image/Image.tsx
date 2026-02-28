@@ -1,7 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useContext, useEffect, useState } from "react"
 
 import { attrZhToEn } from "src/constant/filterConstants"
+import ThemeContext from "src/utilities/Context/ThemeContext"
 import { getCraftById, getMonsterById } from "../utils"
+
+import "./style.scss"
 
 export interface IImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     path: string
@@ -11,6 +14,8 @@ export interface IImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 const Image: React.FC<IImageProps> = (props) => {
     const { path, alt, noTitle = false } = props
+
+    const { theme } = useContext(ThemeContext)
 
     const [isFocused, setIsFocused] = useState(false)
     const [srcPath, setSrcPath] = useState("")
@@ -93,6 +98,7 @@ const Image: React.FC<IImageProps> = (props) => {
             onLoad={() => setIsLoaded(true)}
             onError={handleImageError}
             {...props}
+            class={`img-theme-${theme} ${props?.className || ""}`} // place at last to override className
         />
     )
 }

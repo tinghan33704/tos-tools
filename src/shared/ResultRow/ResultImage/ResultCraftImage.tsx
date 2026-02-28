@@ -148,6 +148,10 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                     sm={12}
                                     className={`craft-enhance-title craft-enhance-title-hp`}
                                 >
+                                    <Image
+                                        path={`icon/skill_hp`}
+                                        style={{ width: 20 }}
+                                    />
                                     生命力
                                 </Col>
                                 <Col
@@ -166,6 +170,10 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                     sm={12}
                                     className={`craft-enhance-title craft-enhance-title-atk`}
                                 >
+                                    <Image
+                                        path={`icon/skill_attack`}
+                                        style={{ width: 20 }}
+                                    />
                                     攻擊力
                                 </Col>
                                 <Col
@@ -184,6 +192,10 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                                     sm={12}
                                     className={`craft-enhance-title craft-enhance-title-rec`}
                                 >
+                                    <Image
+                                        path={`icon/skill_recover`}
+                                        style={{ width: 20 }}
+                                    />
                                     回復力
                                 </Col>
                                 <Col
@@ -298,7 +310,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
             ) : (
                 <></>
             ),
-        [noImagePopover, renderCraftInfo]
+        [noImagePopover, renderCraftInfo],
     )
 
     const renderIdTag = useCallback(() => {
@@ -311,7 +323,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                 <a
                     href={`https://tos.fandom.com/zh/wiki/C${paddingZeros(
                         id,
-                        2
+                        2,
                     )}`}
                     target='_blank'
                     rel='noreferrer noopener'
@@ -342,7 +354,7 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
             togglePopover?.(e)
             setPopoverContent?.(craftInfoPopover)
         },
-        [craftInfoPopover, setPopoverContent, togglePopover]
+        [craftInfoPopover, setPopoverContent, togglePopover],
     )
 
     return (

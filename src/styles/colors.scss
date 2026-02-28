@@ -139,17 +139,17 @@ $theme-dark: (
     $--btn-danger: #661823,
     $--btn-success: #145323,
 
-    $--text-white: #aaaaaa,
-    $--text-black: #aaaaaa,
+    $--text-white: #afafaf,
+    $--text-black: #afafaf,
 
     $--background-color: #363636,
     $--header-footer-bg: #0b0b0b,
 
-    $--water: #1f599c,
-    $--fire: #a9211c,
-    $--earth: #0a5f0c,
+    $--water: #3474bc,
+    $--fire: #cc201a,
+    $--earth: #318e33,
     $--light: #c29e1c,
-    $--dark: #5f057d,
+    $--dark: #9a2dbf,
 
     $--filter-btn-checked-blue-bg: rgba(100, 100, 255, 0.6),
     $--filter-btn-checked-green-bg: rgba(50, 155, 50, 0.4),
@@ -169,7 +169,7 @@ $theme-dark: (
     $--popover-monster-name-light: var(--light),
     $--popover-monster-name-dark: var(--dark),
     $--popover-monster-name-undefined: var(--text-white),
-    $--popover-skill-name: #9a9a00,
+    $--popover-skill-name: #bfbf0f,
     $--popover-skill-name-refine: #cc8300,
     $--popover-skill-name-recall: #70add1,
     $--popover-skill-name-changed: #1d9b36,
@@ -191,9 +191,9 @@ $theme-dark: (
 
     $--close-button-filter: invert(1) grayscale(100%) brightness(200%),
     $--result-number-panel-background: rgba(236, 255, 255, 0.5),
-    $--result-number-panel-success-background: rgba(226, 255, 233, 0.5),
-    $--all-collect-bg: rgba(224, 204, 139, 0.3),
-    $--all-collect: rgba(234, 141, 88, 0.6),
+    $--result-number-panel-success-background: rgba(180, 240, 194, 0.15),
+    $--all-collect-bg: rgba(224, 204, 139, 0.4),
+    $--all-collect: rgba(234, 181, 88, 0.8),
     $--notification: #8caecc,
     $--notification-bg: #355e84,
 );

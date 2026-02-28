@@ -539,8 +539,10 @@
         }
 
         &-title {
+            display: flex;
             justify-content: center;
             text-align: center;
+            align-items: center;
 
             &-hp {
                 color: var(--popover-monster-name-earth);
@@ -554,6 +556,10 @@
 
             @media (max-width: 576px) {
                 border-right: 1px solid var(--popover-border);
+            }
+
+            img {
+                margin-right: 5px;
             }
         }
 
