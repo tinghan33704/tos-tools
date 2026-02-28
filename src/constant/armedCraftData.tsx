@@ -1,4 +1,4 @@
-// Last modified : 2026.02.14 02:15
+// Last modified : 2026.02.27 03:52
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -10758,6 +10758,23 @@ export const armedCraftData: IObject[] = [
         'armed_tag': ['進場減CD', '延長轉珠時間', '自身增傷', '增傷']
     },
     {
+        'name': '怦然心動',
+        'mode': {
+            '龍輝': 8015
+        },
+        'attribute': '沒有限制',
+        'race': '魔族',
+        'star': 3,
+        'charge': '消除符石',
+        'add_hp': 10,
+        'add_atk': 10,
+        'add_rec': 10,
+        'skill_description': ['1 回合內，魔族成員的攻擊力提升 30%', '1 回合內，所受傷害不會使你死亡', '	隨機 4 個技能 CD 冷卻中的魔族成員的技能 CD 減少 3'],
+        'skill_tag': ['增傷', '意志', '減CD'],
+        'armed_description': ['進入關卡後，自身主動技能 CD 減少 3', '此召喚獸發動技能的回合，自身攻擊力 2 倍', '消除魔族符石時，自身攻擊力 1.5 倍'],
+        'armed_tag': ['進場減CD', '自身增傷', '增傷']
+    },
+    {
         'name': '絢光折射',
         'mode': {
             '龍輝': 8039
@@ -10977,6 +10994,23 @@ export const armedCraftData: IObject[] = [
         'skill_tag': ['增傷', '無視二屬盾', '無視三屬盾', '無視四屬盾', '無視五屬盾', '延遲'],
         'armed_description': ['進入關卡後，自身主動技能 CD 減少 3', '消除 ≥2 種符石，自身攻擊力額外 2.5 倍', '魔族攻擊力基值 1.05 倍'],
         'armed_tag': ['進場減CD', '自身增傷', '增傷', '魔族增傷']
+    },
+    {
+        'name': '朽爛烏蠅',
+        'mode': {
+            '龍輝': 8052
+        },
+        'attribute': '沒有限制',
+        'race': '魔族',
+        'star': 3,
+        'charge': '消除符石',
+        'add_hp': 10,
+        'add_atk': 10,
+        'add_rec': 10,
+        'skill_description': ['1 回合內，魔族成員的攻擊力提升 30%', '1 回合內，無視「連擊相等盾」', '魔族成員進入 2 回合亢奮狀態'],
+        'skill_tag': ['增傷', '無視連擊相等盾', '亢奮狀態'],
+        'armed_description': ['進入關卡後，自身主動技能 CD 減少 3', '消除魔族符石時，自身攻擊力 1.5 倍', '消除 30 粒或以上符石，自身攻擊力 2.5 倍'],
+        'armed_tag': ['進場減CD', '自身增傷', '增傷']
     },
     {
         'name': '時計',
