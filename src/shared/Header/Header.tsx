@@ -90,12 +90,18 @@ const Header: React.FC<IHeaderProps> = (props) => {
     const renderTopInfo = useCallback(() => {
         const config = toolConfig?.[toolId]
         const topInfo = config?.topInfo || {}
+        const dateString = playerData?.lastUpdated
+            ? new Date(
+                  new Date(playerData?.lastUpdated).valueOf() -
+                      new Date().getTimezoneOffset().valueOf(),
+              ).toLocaleString()
+            : NA
 
         return (
             <Row>
                 <Col xs={12} md={6} lg={8} className='last-update-banner'>
                     {topInfo?.includes("last-update") ? (
-                        <>上次更新: {playerData?.lastUpdated || NA}</>
+                        <>上次更新: {dateString}</>
                     ) : (
                         <></>
                     )}

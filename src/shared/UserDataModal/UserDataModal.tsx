@@ -55,7 +55,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                 setDataStatus({})
             }
         },
-        [action]
+        [action],
     )
 
     const importData = useCallback(async () => {
@@ -66,7 +66,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
             veri,
             action,
             setInputDisabled,
-            onChangeDataStatus
+            onChangeDataStatus,
         )
 
         if (data) {
@@ -114,7 +114,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                 dataStatus.status === "success" ? saveBackpack() : importData()
             }
         },
-        [dataStatus.status, importData, saveBackpack]
+        [dataStatus.status, importData, saveBackpack],
     )
 
     const renderSubPanel = useCallback(
@@ -197,7 +197,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
             saveBackpack,
             uid,
             veri,
-        ]
+        ],
     )
 
     const renderPanel = useCallback(() => {

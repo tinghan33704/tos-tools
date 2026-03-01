@@ -5,6 +5,7 @@ import { armedCraftData } from "src/constant/armedCraftData"
 import { craftData } from "src/constant/craftData"
 import {
     inputMaxLength,
+    lastUpdateExpiration,
     myAuth,
     skillAlias,
 } from "src/constant/filterConstants"
@@ -150,6 +151,9 @@ export const errorAlert = (index: number) => {
         case 13:
             alert(`${errorPrefix}請輸入編號`)
             break
+        case 14:
+            alert(`${errorPrefix}背包資料過舊\n請使用更新背包功能`)
+            break
         default:
     }
 }
@@ -189,7 +193,7 @@ export const fetchPlayerData = async (
 
     try {
         if (isBlackList) {
-            throw new Error("black list detected")
+            throw "BlackList"
         }
 
         let token: string = ""
@@ -200,8 +204,8 @@ export const fetchPlayerData = async (
             .then((response: IObject) => {
                 token = response?.data?.token
             })
-            .catch((error: IObject) => {
-                throw new Error(`Failed to get token: ${JSON.stringify(error)}`)
+            .catch(() => {
+                throw "GetTokenFailed"
             })
 
         let inventoryData: any = null
@@ -212,15 +216,21 @@ export const fetchPlayerData = async (
             .then((response: IObject) => {
                 inventoryData = response?.data
             })
-            .catch((error: IObject) => {
-                throw new Error(
-                    `Failed to get inventory data: ${JSON.stringify(error)}`,
-                )
+            .catch(() => {
+                throw "GetInventoryFailed"
             })
 
         if (inventoryData) {
             const cardSet = new Set()
             const cardInfo: IObject = {}
+
+            const lastUpdateTime: string =
+                inventoryData?.userData?.cardsUpdatedAt
+
+            const lastUpdateTimeStamp = new Date(lastUpdateTime).valueOf()
+            if (Date.now() - lastUpdateTimeStamp > lastUpdateExpiration) {
+                throw "DataTooOld"
+            }
 
             inventoryData?.userData?.cards.forEach((card: IObject) => {
                 cardSet.add(card.id)
@@ -250,8 +260,6 @@ export const fetchPlayerData = async (
             const sortedCardArr: number[] = ([...cardSet] as number[]).sort(
                 (a: number, b: number) => a - b,
             ) as number[]
-            const lastUpdateTime: string =
-                inventoryData?.userData?.cardsUpdatedAt
             const playerData = {
                 uid: playerId,
                 name: inventoryData?.userData?.displayName || "",
@@ -259,12 +267,7 @@ export const fetchPlayerData = async (
                     addTransformedCard(addVirtualRebirthCard(sortedCardArr)),
                 ),
                 info: cardInfo,
-                lastUpdated: lastUpdateTime
-                    ? new Date(
-                          new Date(lastUpdateTime).valueOf() -
-                              new Date().getTimezoneOffset().valueOf(),
-                      ).toLocaleString()
-                    : null,
+                lastUpdated: lastUpdateTimeStamp || null,
                 wholeData: inventoryData?.userData?.cards,
             }
 
@@ -276,18 +279,29 @@ export const fetchPlayerData = async (
 
         return {}
     } catch (e) {
-        console.error(e)
+        console.error(`Error: ${e}`)
 
-        setDataStatus?.(
-            "error",
-            isBlackList
-                ? `本工具不支援此帳號`
-                : `${verb}失敗${
-                      action === "import" ? "，請嘗試使用更新背包功能" : ""
-                  }`,
-        )
+        switch (e) {
+            case "BlackList":
+                setDataStatus?.("error", `本工具不支援此帳號`)
+                errorAlert(12)
+                break
+            case "DataTooOld":
+                setDataStatus?.("error", `背包資料過舊，請使用更新背包功能`)
+                errorAlert(14)
+                break
+            default:
+                setDataStatus?.(
+                    "error",
+                    `${verb}失敗${
+                        action === "import" ? "，請嘗試使用更新背包功能" : ""
+                    }`,
+                )
+                errorAlert(10)
+                break
+        }
+
         setInputDisabled?.(false)
-        errorAlert(isBlackList ? 12 : 10)
 
         return null
 

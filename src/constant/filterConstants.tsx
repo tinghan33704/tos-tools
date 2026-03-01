@@ -1536,6 +1536,7 @@ export const raceZhToEn: Record<string, string> = {
 export const inputMaxLength = 50
 export const uidMaxLength = 11
 export const veriMaxLength = 6
+export const lastUpdateExpiration = 14 * 24 * 60 * 60 * 1000
 
 export const skillFilterNotification = ""
 export const teamSkillFilterNotification = ""

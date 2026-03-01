@@ -4,8 +4,13 @@ import { Dropdown, DropdownButton } from "react-bootstrap"
 import { forceCheck } from "react-lazyload"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 
-import { sealContent, sealOpenPeriod } from "src/constant/filterConstants"
 import {
+    lastUpdateExpiration,
+    sealContent,
+    sealOpenPeriod,
+} from "src/constant/filterConstants"
+import {
+    errorAlert,
     fetchPlayerData,
     getPlayerStoredData,
     getUrlParams,
@@ -53,19 +58,18 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
 
     useEffect(() => {
         setFavIconAndTitle("backpack-viewer")
-        getInitData()
         setInitPage()
     }, [])
+
+    useEffect(() => {
+        getInitData()
+    }, [urlQuery])
 
     useEffect(() => {
         if (isAfterInitLoad && !playerData?.uid) {
             openUserDataModal()
         }
     }, [isAfterInitLoad, currentTab])
-
-    useEffect(() => {
-        getInitData()
-    }, [urlQuery])
 
     useEffect(() => {
         forceCheck()
@@ -101,8 +105,17 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
         } else if (!getPlayerStoredData()?.uid && !params?.uid) {
             openUserDataModal()
             setIsAfterInitLoad(true)
+        } else if (
+            playerData?.lastUpdated &&
+            (isNaN(playerData?.lastUpdated) ||
+                Date.now() - playerData?.lastUpdated > lastUpdateExpiration)
+        ) {
+            errorAlert(14)
+            openUserDataModal()
+            setPlayerData({})
+            // setIsAfterInitLoad(true)
         }
-    }, [openUserDataModal, setPlayerData])
+    }, [openUserDataModal, playerData?.lastUpdated, setPlayerData])
 
     const renderSeriesSelector = useCallback(() => {
         return (
