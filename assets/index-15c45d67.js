@@ -67563,7 +67563,7 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時或回合結束時
 				⇒【終焉梵域】成員進入 2 回合「亢奮」狀態
-				`,activate:"以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員",skill_tag:["增攻","增回","增血","進場減CD","其他減CD","進場回EP","其他回EP","亢奮狀態"],activate_tag:["指定成員"],relative:[11128,11129,"終焉梵域"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.11"},{id:11138,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以「萬法根念 ‧ 阿賴耶識」或「最勝龍雷 ‧ 帝釋天」作成員，並以 ≥2 個【終焉梵域】角色作成員",skill_tag:["增攻","增回","增血","進場減CD","其他減CD","進場回EP","其他回EP","亢奮狀態"],activate_tag:["指定成員"],relative:[11128,11129,"終焉梵域"]}],board:[{row:8,column:6,board:["Wg","Fd","Eg","Ld","Dg","Hd","Wg","Fd","Eg","Ld","Dg","Hd","Wg","Fd","Eg","Ld","Dg","Hd","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.11"},{id:11138,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11139,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
@@ -76562,11 +76562,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		⇒ 最多可增加 9 連擊 (Combo)
 		`,tag:[{name:["增攻","增血","增回"],object:["魔"],limit:["成員種族"]},{name:["增血","增攻","增回"],object:["特定成員"],limit:["成員種族"]},{name:"增攻",object:["特定成員"],limit:["成員種族","消除數量"]},{name:"增加Combo",object:[],limit:["成員種族","消除特定符石","消除數量"]}],monster:[10598]},{name:"十刑之怒 ‧ 神",description:`
 		神族成員攻擊力 10 倍
-		`,tag:[{name:"增攻",object:["神"],limit:[]}],monster:[2925,2939,10601,10788,10793,10843,10844,10848,10849,10850,10881,10882,10883,10885,10894,10923,10960,10964,11011,11012,11013,11014,11023,11118,11130]},{name:"十刑之怒 ‧ 獸",description:`
+		`,tag:[{name:"增攻",object:["神"],limit:[]}],monster:[2925,2939,10601,10788,10793,10843,10844,10848,10849,10850,10881,10882,10883,10885,10894,10923,10960,10964,11011,11012,11013,11014,11023,11118,11130,11137]},{name:"十刑之怒 ‧ 獸",description:`
 		獸類成員攻擊力 10 倍
 		`,tag:[{name:"增攻",object:["獸"],limit:[]}],monster:[10602,10674,10675,10676,10677,10723,10731,10786,10796,10824,10835,10836,10838,10851,10927,10928,10929,11021,11022,11059,11064,11109,11125,11133]},{name:"十刑之怒 ‧ 龍",description:`
 		龍類成員攻擊力 10 倍
-		`,tag:[{name:"增攻",object:["龍"],limit:[]}],monster:[2926,2940,10603,10719,10735,10736,10792,10840,10888,10893,10920,10957,10963,10966,11063,11111,11119,11126,11132]},{name:"瑰麗魔法",description:`
+		`,tag:[{name:"增攻",object:["龍"],limit:[]}],monster:[2926,2940,10603,10719,10735,10736,10792,10840,10888,10893,10920,10957,10963,10966,11063,11111,11119,11126,11132,11136]},{name:"瑰麗魔法",description:`
 		I. 全隊攻擊力 9 倍、生命力及回復力 1.7 倍
 		II. 人類成員
 		⓵ 攻擊力額外 4.5 倍
