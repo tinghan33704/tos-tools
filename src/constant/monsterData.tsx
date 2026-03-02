@@ -1,4 +1,4 @@
-// Last modified : 2026.03.02 16:32
+// Last modified : 2026.03.02 19:26
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -131693,7 +131693,7 @@ export const monsterData: IObject[] = [
 		'maxLevel': 99,
 		'maxSkill': 12,
 		'maxRefine': 0,
-		'version': 'v2026.11'
+		'version': 'v2026.20'
     },
     {
         'id': 2959,
@@ -220121,7 +220121,7 @@ export const monsterData: IObject[] = [
         'maxLevel': 99,
         'maxSkill': 12,
         'maxRefine': 0,
-        'version': 'v2026.11'
+        'version': 'v2026.20'
     },
     {
         'id': 11117,
@@ -221571,7 +221571,7 @@ export const monsterData: IObject[] = [
         'maxLevel': 99,
         'maxSkill': 12,
         'maxRefine': 0,
-        'version': 'v2026.11'
+        'version': 'v2026.20'
     },
     {
         'id': 11135,
@@ -221652,7 +221652,7 @@ export const monsterData: IObject[] = [
         'maxLevel': 99,
         'maxSkill': 70,
         'maxRefine': 0,
-        'version': 'v2026.11'
+        'version': 'v2026.20'
     },
     {
         'id': 11137,
@@ -221721,7 +221721,7 @@ export const monsterData: IObject[] = [
         'maxLevel': 99,
         'maxSkill': 12,
         'maxRefine': 0,
-        'version': 'v2026.11'
+        'version': 'v2026.20'
     },
     {
         'id': 11138,
