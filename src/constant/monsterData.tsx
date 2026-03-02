@@ -1,4 +1,4 @@
-// Last modified : 2026.03.01 01:19
+// Last modified : 2026.03.02 16:32
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -221700,6 +221700,22 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['增攻', '增回', '增血', '進場減CD', '其他減CD', '進場回EP', '其他回EP', '亢奮狀態'],
 				'activate_tag': ['指定成員'],
 				'relative': [11128, 11129, '終焉梵域']
+			}
+		],
+		'board': [
+			{
+				'row': 8,
+				'column': 6,
+				'board': [
+					'Wg', 'Fd', 'Eg', 'Ld', 'Dg', 'Hd', 
+					'Wg', 'Fd', 'Eg', 'Ld', 'Dg', 'Hd', 
+					'Wg', 'Fd', 'Eg', 'Ld', 'Dg', 'Hd', 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+				],
 			}
 		],
         'maxLevel': 99,
