@@ -67508,7 +67508,19 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 隊伍成員無視「回復顛倒」
 				VII. 五屬符石首批 1 粒即可發動消除
                 `,tag:["附加消除",["亢奮狀態",2],["增傷",2],"移除","指定符石移除","移除強制掉落","強制掉心","獸族符石製造","無視反首消盾","無視連擊法印","無視追擊零化","加護符石製造","無視回復顛倒","一消"]}],teamSkill:[],maxLevel:99,maxSkill:70,maxRefine:0,version:"v2026.11"},{id:11134,name:"心庭暖芽 ‧ 曼陀羅",attribute:"木",race:"妖精類",star:7,monsterTag:["萬千心界","地獄魔王"],crossOver:!1,skill:[{name:"懲罰誘導",type:"normal",charge:"CD",num:5,description:`
-
+				I. 回復 10 萬倍生命力
+				II. <board>將所有符石轉化為固定版面符石 (五屬及心妖精類強化符石)</board>
+				▋ 隊長為【萬千心界】成員
+				⇒ 以上轉化改為移除
+				1 回合內
+				III. 妖精類及【萬千心界】成員
+				⓵ 攻擊力及回復力 2 倍
+				⓶ 無視「攻前盾」
+				IV. 隊伍成員無視「起結有序」
+				V. 隊中只有【萬千心界】成員
+				⓵【萬千心界】成員無視「首消相同種類盾」及「首消不同種類盾」
+				⓶ 消除符石後
+				⇒ 自身技能 CD -4
                 `,tag:["回血","符石轉水","符石轉火","符石轉木","符石轉光","符石轉暗","符石轉心","符石轉水強化","符石轉火強化","符石轉木強化","符石轉光強化","符石轉暗強化","符石轉心強化","妖族符石製造","五屬版面","五屬心版面","大幅轉版","固定版面","移除","整版移除","移除強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗","強制掉心","增傷","增回","無視攻前盾","無視紅綠燈","無視首消相同種類盾","無視首消不同種類盾","減CD"]}],teamSkill:[{description:`
 				◆【萬千心界】成員「三圍」基值 2.2 倍
 				
@@ -67517,9 +67529,14 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 發動【萬千心界】成員角色符石
 				⓵【萬千心界】成員進入 2 回合「亢奮」狀態
 				⓶ 移動符石後，增加 8 連擊 (Ex. Combo、Combo)
-				`,activate:"以「凜潔心界 ‧ 曼陀羅」作成員，並以 ≥3 個【萬千心界】角色作成員",skill_tag:["增攻","增回","增血","亢奮狀態","增加Ex.Combo","增加Combo"],activate_tag:["指定成員"],relative:[11055,"萬千心界"]}],board:[["Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.20"},{id:11135,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11136,name:"抗命龍骸 ‧ 無垢",attribute:"光",race:"龍類",star:6,monsterTag:["終焉梵域","熟練奧義"],crossOver:!1,skill:[{name:"聖脈淨光",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「凜潔心界 ‧ 曼陀羅」作成員，並以 ≥3 個【萬千心界】角色作成員",skill_tag:["增攻","增回","增血","亢奮狀態","增加Ex.Combo","增加Combo"],activate_tag:["指定成員"],relative:[11055,"萬千心界"]}],board:[["Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He","Fe","We","Ee","Le","De","He"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.20"},{id:11135,name:"白色回禮 ‧ 鑽石",attribute:"暗",race:"妖精類",star:6,monsterTag:["公會任務"],crossOver:!1,skill:[{name:"甜魅告白",type:"normal",charge:"CD",num:6,description:`
+				I. 將所有符石添加為妖精類符石
+				II. 妖精類成員解除「休眠」、「風壓」、「麻痺」、「沉默」及「技能封鎖」狀態 (此技能無視「休眠」、「風壓」、「沉默」及「技能封鎖」狀態)
+				1 回合內
+				III. 獲得「強減傷」至 0
+				IV. 若有受到敵人攻擊
+				⇒ 回合結束時，自身技能 CD -3
+                `,tag:["妖族符石製造","解除休眠","解除風壓","解除麻痺","解除沉默","解鎖","硬減傷","減傷","減CD"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.20"},{id:11136,name:"抗命龍骸 ‧ 無垢",attribute:"光",race:"龍類",star:6,monsterTag:["終焉梵域","熟練奧義"],crossOver:!1,skill:[{name:"聖脈淨光",type:"normal",charge:"CD",num:5,description:`
 				I. 解除「幽閉空間」及「移形換影」
 				II. 將所有符石添加為龍類符石
 				III.「逆鱗焚脈等級」+10
@@ -76773,7 +76790,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		⇒ 最多可增加 9 連擊 (Combo)
 		`,tag:[{name:["增攻","增血","增回"],object:["特定成員","水","妖"],limit:[]},{name:"增攻",object:[],limit:["消除特定符石"]},{name:"增加Combo",object:[],limit:["特定成員","成員種族","成員數量"]}],monster:[10683]},{name:"十刑之怒 ‧ 妖",description:`
 		妖精類成員攻擊力 10 倍
-		`,tag:[{name:"增攻",object:["妖"],limit:[]}],monster:[2946,10684,10689,10717,10718,10728,10797,10798,10837,10845,10846,10847,10918,10958,11056,11058,11060,11065,11066,11068,11104,11122,11134]},{name:"十刑之怒 ‧ 人",description:`
+		`,tag:[{name:"增攻",object:["妖"],limit:[]}],monster:[2946,10684,10689,10717,10718,10728,10797,10798,10837,10845,10846,10847,10918,10958,11056,11058,11060,11065,11066,11068,11104,11122,11134,11135]},{name:"十刑之怒 ‧ 人",description:`
 		人類成員攻擊力 10 倍
 		`,tag:[{name:"增攻",object:["人"],limit:[]}],monster:[10687,10698,10699,10700,10702,10703,10704,10721,10724,10730,10732,10734,10753,10755,10790,10826,10886,10887,10906,10910,10911,10924,11061,11102,11106,11107,11112]},{name:"生存之力",description:`
 		I.【地獄樂】成員攻擊力 9 倍、生命力及回復力 3 倍
