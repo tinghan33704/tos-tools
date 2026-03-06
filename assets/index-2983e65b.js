@@ -55017,8 +55017,6 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 該「雋永之約 ‧ 黑嘉嘉」技能 CD -2
 				`,activate:"以「雋永之約 ‧ 黑嘉嘉」作成員",skill_tag:["其他減CD"],activate_tag:[],relative:[10819]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2024.71"},{id:10820,name:"情定棋局 ‧ 黑嘉嘉",attribute:"暗",race:"人類",star:6,monsterTag:["黑嘉嘉","愛意洋溢"],crossOver:!0,skill:[{name:"同心棋緣",type:"normal",charge:"CD",num:5,description:`
 				I. 嘎啦嘎啦
-				
-				
 				II.【黑嘉嘉】、光屬性及暗屬性成員
 				⓵ 對所有目標的傷害額外 2.5 倍
 				⓶ 無視「二屬盾」、「三屬盾」、「四屬盾」、「五屬盾」
