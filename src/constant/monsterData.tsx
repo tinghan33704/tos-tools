@@ -194163,8 +194163,6 @@ export const monsterData: IObject[] = [
 				`,*/
 				'description': `
 				I. 嘎啦嘎啦
-				
-				
 				II.【黑嘉嘉】、光屬性及暗屬性成員
 				⓵ 對所有目標的傷害額外 2.5 倍
 				⓶ 無視「二屬盾」、「三屬盾」、「四屬盾」、「五屬盾」
