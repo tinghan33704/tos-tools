@@ -1,4 +1,4 @@
-// Last modified : 2026.03.26 21:50
+// Last modified : 2026.03.28 12:47
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -10659,7 +10659,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				3 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
 				`,
-				'tag': ['敵身狀態']
+				'tag': []
 			}
 		],
 		'teamSkill': [],
@@ -10685,7 +10685,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				3 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
 				`,
-				'tag': ['敵身狀態']
+				'tag': []
 			}
 		],
 		'teamSkill': [],
@@ -10711,7 +10711,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				3 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
 				`,
-				'tag': ['敵身狀態']
+				'tag': []
 			},
 			{
 				'name': '傳播',
@@ -10722,7 +10722,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				5 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
 				`,
-				'tag': ['敵身狀態']
+				'tag': []
 			},
 			{
 				'name': '靈石治療 ‧ 中',
