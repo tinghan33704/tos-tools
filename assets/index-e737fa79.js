@@ -1421,13 +1421,13 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 以回血溢出值作全體攻擊，最大 10 倍
 				`,activate:"以「噩耗元素噬者 ‧ 迪亞布羅」作隊長，並以 ≥3 個 6 星「妖嬈花夢」系列的角色、 5 星或 6 星「妖女」系列或 6 星或 7 星「玩具精靈」系列的角色或「精靈使 ‧ 烏特博麗公主」作成員 (不可重複)",skill_tag:["溢補攻擊"],activate_tag:["指定隊長","指定成員"],relative:[742,296,299,302,305,308,862,864,866,868,870,876,1191,1192,1193,1194,1195,1602,1604,1606,1608,1610,1612,1614,1616]}],maxLevel:99,maxSkill:10,maxRefine:4,version:"v2.00"},{id:303,name:"閃亮的蛋",attribute:"光",race:"妖精類",star:3,monsterTag:["妖女"],crossOver:!1,skill:[{name:"擴散",type:"normal",charge:"CD",num:10,description:`
 				3 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
-				`,tag:["敵身狀態"]}],teamSkill:[],maxLevel:30,maxSkill:10,maxRefine:0,version:"v2.00"},{id:304,name:"瑪格",attribute:"光",race:"妖精類",star:4,monsterTag:["妖女"],crossOver:!1,skill:[{name:"擴散",type:"normal",charge:"CD",num:10,description:`
+				`,tag:[]}],teamSkill:[],maxLevel:30,maxSkill:10,maxRefine:0,version:"v2.00"},{id:304,name:"瑪格",attribute:"光",race:"妖精類",star:4,monsterTag:["妖女"],crossOver:!1,skill:[{name:"擴散",type:"normal",charge:"CD",num:10,description:`
 				3 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
-				`,tag:["敵身狀態"]}],teamSkill:[],maxLevel:70,maxSkill:10,maxRefine:0,version:"v2.00"},{id:305,name:"聖蜂后 ‧ 瑪格莉特",attribute:"光",race:"妖精類",star:5,monsterTag:["妖女"],crossOver:!1,skill:[{name:"擴散",type:"normal",charge:"CD",num:10,description:`
+				`,tag:[]}],teamSkill:[],maxLevel:70,maxSkill:10,maxRefine:0,version:"v2.00"},{id:305,name:"聖蜂后 ‧ 瑪格莉特",attribute:"光",race:"妖精類",star:5,monsterTag:["妖女"],crossOver:!1,skill:[{name:"擴散",type:"normal",charge:"CD",num:10,description:`
 				3 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
-				`,tag:["敵身狀態"]},{name:"傳播",type:"refine",refine:4,charge:"CD",num:10,description:`
+				`,tag:[]},{name:"傳播",type:"refine",refine:4,charge:"CD",num:10,description:`
 				5 回合內，敵方所受傷害的 50% 分別擴散到其他敵人身上
-				`,tag:["敵身狀態"]},{name:"靈石治療 ‧ 中",type:"combine",member:[285,305],charge:"CD",num:-1,description:`
+				`,tag:[]},{name:"靈石治療 ‧ 中",type:"combine",member:[285,305],charge:"CD",num:-1,description:`
 				2 回合內，所有屬性符石兼具 50% 心符石效果
 				`,tag:[["符石兼具心",2]]},{name:"靈泉之源",type:"combine",member:[742,305],charge:"CD",num:-1,description:`
 				2 回合內，心符石的掉落率提升，所有屬性符石兼具心符石效果
