@@ -10347,7 +10347,13 @@ function print() { __p += __j.call(arguments, '') }
 				`,tag:["變身","減傷","附加消除"]}],teamSkill:[{description:`
 				◆ 延長移動符石時間 1 秒
 				`,activate:"以「仙水實」或「聖光氣 ‧ 仙水忍」作隊長及戰友",skill_tag:["延長轉珠時間"],activate_tag:["指定雙隊長"],relative:[1803,1804]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v15.40"},{id:1804,name:"聖光氣 ‧ 仙水忍",attribute:"光",race:"人類",star:6,monsterTag:["地獄魔王"],crossOver:!0,skill:[{name:"裂蹴紫炎彈",type:"normal",charge:"EP",num:6,description:`
-				光符石轉化為人族強化符石。1 回合內，合計消除 6 粒或以上的光或暗符石時，個人追打自身攻擊力 2 倍的暗屬性攻擊 5 次。敵方所受攻擊傷害的 50% 分別擴散到其他敵人身上
+				I. 將光符石轉化為
+				⇒ 人族強化符石
+				1 回合內
+				II. 合計消除 ≥6 粒光或暗符石時
+				⇒ 個人追打自身攻擊力 2 倍的暗屬性攻擊 5 次
+				III. 敵方所受攻擊傷害的 50% 
+				⇒ 分別擴散到其他敵人身上
 				`,tag:["符石強化","符石轉光強化","人族符石製造","自身追打","暗屬追打","增傷","界王拳","多重左上狀態"]},{name:"裂破風陣拳",type:"normal",charge:"EP",num:5,description:`
 				減少 20% 所受傷害，每回合結束時，對全體敵人造成 25 萬光屬性傷害 (需消除符石)，效果會在進入下一層數 (Wave) 時消失
 				`,tag:[["減傷",-1],["直傷",-1]]}],teamSkill:[{description:`
@@ -67103,7 +67109,7 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時
 				⇒「三苦厄劫 ‧ 菩提樹」及「三苦厄劫 ‧ 菩提樹 (魔)」技能 CD -7
-				`,activate:"以「三苦厄劫 ‧ 菩提樹」或「三苦厄劫 ‧ 菩提樹 (魔)」作成員",skill_tag:["永久減CD","進場減CD"],activate_tag:[],relative:[11122,11123,"終焉梵域"]},{description:`
+				`,activate:"以「三苦厄劫 ‧ 菩提樹」或「三苦厄劫 ‧ 菩提樹 (魔)」作成員<font color='#666666' title='2026/2/12 GNN 誤植' style='cursor: help;'><s>，並隊中只有【終焉梵域】、妖精類或魔族角色作成員</s></font>",skill_tag:["永久減CD","進場減CD"],activate_tag:[],relative:[11122,11123,"終焉梵域"]},{description:`
 				◆【終焉梵域】成員「三圍」基值 2 倍
 				
 				◆ 進場及首回合結束時
@@ -67130,7 +67136,7 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時
 				⇒「三苦厄劫 ‧ 菩提樹」及「三苦厄劫 ‧ 菩提樹 (魔)」技能 CD -7
-				`,activate:"以「三苦厄劫 ‧ 菩提樹」或「三苦厄劫 ‧ 菩提樹 (魔)」作成員",skill_tag:["永久減CD","進場減CD"],activate_tag:[],relative:[11122,11123,"終焉梵域"]},{description:`
+				`,activate:"以「三苦厄劫 ‧ 菩提樹」或「三苦厄劫 ‧ 菩提樹 (魔)」作成員<font color='#666666' title='2026/2/12 GNN 誤植' style='cursor: help;'><s>，並隊中只有【終焉梵域】、妖精類或魔族角色作成員</s></font>",skill_tag:["永久減CD","進場減CD"],activate_tag:[],relative:[11122,11123,"終焉梵域"]},{description:`
 				◆【終焉梵域】成員「三圍」基值 2 倍
 				
 				◆ 進場及首回合結束時
@@ -68394,7 +68400,9 @@ function print() { __p += __j.call(arguments, '') }
 				II. 獸類及【膽大黨】成員
 				⓵ 技能 CD -1
 				⓶ 進入 2 回合「亢奮」狀態
-				III. 進入「潛行」，效果持續期間：
+				<font color='#666666' title='2026/3/26 GNN 誤植' style='cursor: help;'><s>III. 進入「潛行」，效果持續期間：</s></font>
+				III. 隊中只有獸類或【膽大黨】成員
+				⇒ 進入「潛行」，效果持續期間：
 				⓵ 獸類及【膽大黨】成員無視「攻前盾」及「首消粒數盾」
 				⓶ 隊伍成員對敵人的傷害 3 倍
 				⓷ 隊伍成員技能不會冷卻
