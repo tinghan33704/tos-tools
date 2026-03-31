@@ -409,7 +409,8 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
                 }`}
             >
                 <a
-                    href={`https://tos.fandom.com/zh/wiki/${displayId || id}`}
+                    // href={`https://tos.fandom.com/zh/wiki/${displayId || id}`}
+                    href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                     target='_blank'
                     rel='noreferrer noopener'
                 >

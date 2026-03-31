@@ -53,7 +53,8 @@ const Header: React.FC<IHeaderProps> = (props) => {
                 <div>
                     <Link
                         className='navbar-brand nav-info'
-                        to={config.docLink}
+                        // to={config.docLink}
+                        to={"https://www.youtube.com/watch?v=dQw4w9WgXcQ"}
                         target='_blank'
                     >
                         <Icon icon={faQuestionCircle} />

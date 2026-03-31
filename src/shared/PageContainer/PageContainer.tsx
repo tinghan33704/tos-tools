@@ -153,7 +153,8 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
                     className='donate'
                     target='_blank'
                     rel='noreferrer'
-                    href='https://portaly.cc/tinghan33704/support'
+                    // href='https://portaly.cc/tinghan33704/support'
+                    href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                 >
                     <Icon icon={faDollarSign} style={{ marginRight: "5px" }} />
                     贊助連結

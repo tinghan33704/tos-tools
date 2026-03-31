@@ -50,28 +50,32 @@ const MainPage: React.FC<IMainPageProps> = () => {
                     <div className='author-link'>
                         <a
                             target='_blank'
-                            href='https://www.facebook.com/profile.php?id=100070781094266'
+                            // href='https://www.facebook.com/profile.php?id=100070781094266'
+                            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                             rel='noreferrer'
                         >
                             <Image path='other/fb_icon' width={50} />
                         </a>
                         <a
                             target='_blank'
-                            href='https://home.gamer.com.tw/profile/index.php?&owner=tinghan33704'
+                            // href='https://home.gamer.com.tw/profile/index.php?&owner=tinghan33704'
+                            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                             rel='noreferrer'
                         >
                             <Image path='other/bahamut_icon' width={50} />
                         </a>
                         <a
                             target='_blank'
-                            href='https://github.com/tinghan33704'
+                            // href='https://github.com/tinghan33704'
+                            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                             rel='noreferrer'
                         >
                             <Image path='other/github_icon' width={50} />
                         </a>
                         <a
                             target='_blank'
-                            href='https://portaly.cc/tinghan33704/support'
+                            // href='https://portaly.cc/tinghan33704/support'
+                            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                             rel='noreferrer'
                         >
                             <Icon

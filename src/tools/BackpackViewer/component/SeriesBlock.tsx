@@ -86,7 +86,8 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                                     }`}
                                 >
                                     <a
-                                        href={`https://tos.fandom.com/zh/wiki/${id}`}
+                                        // href={`https://tos.fandom.com/zh/wiki/${id}`}
+                                        href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
                                         target='_blank'
                                         rel='noreferrer'
                                     >
