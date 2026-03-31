@@ -315,6 +315,7 @@ export const skillIconMapping: IObject = {
     防爆: ["prevent_death_blow"],
     防觸電: ["electrified"],
     防血量囚錮: ["hp_lock"],
+    防石牢: ["stone_jail"],
     防碎裂: ["crack"],
     防暴風: ["storm"],
     防射擊: ["laser"],
