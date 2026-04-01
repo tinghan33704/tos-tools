@@ -1552,6 +1552,6 @@ export const craftSelectorNotification = ""
 export const monsterSelectorNotification = ""
 export const backpackViewerNotification = ""
 
-export const allToolBroadcastNotification = "關於重大功能改動請參閱工具標題的說明書"
+export const allToolBroadcastNotification = ""
 
 export const myAuth = "MTAyMDE4OTgxOTI2NDA5NA"

@@ -321,11 +321,10 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
                 }`}
             >
                 <a
-                    // href={`https://tos.fandom.com/zh/wiki/C${paddingZeros(
-                    //     id,
-                    //     2,
-                    // )}`}
-                    href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+                    href={`https://tos.fandom.com/zh/wiki/C${paddingZeros(
+                        id,
+                        2,
+                    )}`}
                     target='_blank'
                     rel='noreferrer noopener'
                 >
