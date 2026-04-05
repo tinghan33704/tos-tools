@@ -1,4 +1,4 @@
-// Last modified : 2026.03.31 21:46
+// Last modified : 2026.04.05 23:13
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -42022,6 +42022,59 @@ export const leaderSkillData: IObject[] = [
 			}
 		],
 		'monster': [11155]
+	},
+	{
+		'name': '凜潔海誓',
+		'description': `
+		I. 水屬性、妖精類及【唯美白紗】成員
+		⓵ 攻擊力 100 倍
+		⓶ 生命力 5 倍
+		II. 隊伍成員對敵人的傷害 3.9 倍
+		III. 消除水符石或心符石
+		⇒【唯美白紗】成員技能 CD -1
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血'],
+				'object': ['水', '妖', '特定成員'],
+				'limit': []
+			},
+			{
+				'name': ['敵方受傷增加', '增攻'],
+				'object': [],
+				'limit': []
+			},
+			{
+				'name': '其他減CD',
+				'object': ['特定成員'],
+				'limit': ['消除特定符石']
+			}
+		],
+		'monster': [11158]
+	},
+	{
+		'name': '罪愛婚約',
+		'description': `
+		I. 火屬性、機械族及【唯美白紗】成員
+		⓵ 攻擊力 90 倍
+		⓶ 生命力 5 倍
+		II. 消除火符石或心符石
+		⓵ 隊伍成員攻擊力 4 倍
+		⓶ 增加 6 連擊 (Combo)
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血'],
+				'object': ['火', '機', '特定成員'],
+				'limit': []
+			},
+			{
+				'name': ['增攻', '增加Combo'],
+				'object': [],
+				'limit': ['消除特定符石']
+			}
+		],
+		'monster': [11159]
 	},
 	{
 		'name': '歷劫之道',
