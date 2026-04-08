@@ -509,3 +509,28 @@
         font-size: 1.2rem;
     }
 }
+
+.all-max-time-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--text-black);
+    margin: 5px 0 12px 0;
+    padding: 10px 0;
+    border: 2px dashed;
+    border-radius: 3px;
+    border-color: var(--fire);
+
+    &-number {
+        color: var(--fire);
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    svg {
+        color: var(--fire);
+        margin: 0 10px;
+    }
+}

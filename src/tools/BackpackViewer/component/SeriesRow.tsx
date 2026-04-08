@@ -1,10 +1,12 @@
 import _ from "lodash"
 import React, { useCallback, useContext } from "react"
 import { Col, Row } from "react-bootstrap"
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons/faTriangleExclamation"
 
-import { sealContent } from "src/constant/filterConstants"
+import { sealContent, sealOpenPeriod } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
 import DataContext from "src/utilities/Context/DataContext"
+import Icon from "src/utilities/Icon"
 import SeriesBlock from "./SeriesBlock"
 
 import "./style.scss"
@@ -63,6 +65,21 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
         [cardCategory, tab],
     )
 
+    const showAllTimeLeftMin = 20 * 24 * 60 * 60 * 1000 // 20 天
+
+    const allMaxTimeLeft =
+        new Date(sealOpenPeriod?.["All Max 自選"]?.end).getTime() -
+        new Date().getTime()
+
+    const allMaxTimeLeftString =
+        allMaxTimeLeft >= 24 * 60 * 60 * 1000
+            ? `${Math.floor(allMaxTimeLeft / (24 * 60 * 60 * 1000))} 天`
+            : allMaxTimeLeft >= 60 * 60 * 1000
+              ? `${Math.floor(allMaxTimeLeft / (60 * 60 * 1000))} 小時`
+              : allMaxTimeLeft >= 60 * 1000
+                ? `${Math.floor(allMaxTimeLeft / (60 * 1000))} 分鐘`
+                : `${Math.floor(allMaxTimeLeft / 1000)} 秒`
+
     const allMaxCardNumber =
         Object.values(sealContent["All Max 自選"]).flat()?.length || 0
     const allMaxCardHadNumber =
@@ -78,28 +95,42 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
     return (
         <Row>
             {tab === "All Max 自選" && (
-                <Col xs={12} md={12} lg={12}>
-                    <div
-                        className={`had-count-container had-count-container-${
-                            hideHadMonster
-                                ? "reverse"
-                                : allMaxCardHadNumber >= allMaxCardNumber
-                                  ? "all"
-                                  : "partial"
-                        }`}
-                    >
-                        <span>
-                            <span className='had-count'>
-                                {!hideHadMonster
-                                    ? allMaxCardHadNumber
-                                    : allMaxCardNotHaveNumber}
-                            </span>{" "}
-                            <span className='all-count'>
-                                / {allMaxCardNumber}
+                <>
+                    {allMaxTimeLeft <= showAllTimeLeftMin && (
+                        <Col xs={12} md={12} lg={12}>
+                            <div className='all-max-time-left'>
+                                <Icon icon={faTriangleExclamation} />
+                                All Max 自選還剩
+                                <span className='all-max-time-left-number'>
+                                    {allMaxTimeLeftString}
+                                </span>
+                                <Icon icon={faTriangleExclamation} />
+                            </div>
+                        </Col>
+                    )}
+                    <Col xs={12} md={12} lg={12}>
+                        <div
+                            className={`had-count-container had-count-container-${
+                                hideHadMonster
+                                    ? "reverse"
+                                    : allMaxCardHadNumber >= allMaxCardNumber
+                                      ? "all"
+                                      : "partial"
+                            }`}
+                        >
+                            <span>
+                                <span className='had-count'>
+                                    {!hideHadMonster
+                                        ? allMaxCardHadNumber
+                                        : allMaxCardNotHaveNumber}
+                                </span>{" "}
+                                <span className='all-count'>
+                                    / {allMaxCardNumber}
+                                </span>
                             </span>
-                        </span>
-                    </div>
-                </Col>
+                        </div>
+                    </Col>
+                </>
             )}
             {Object.keys(sealContent[tab]).map((title, index) => {
                 let _data: (number | number[])[] = []
