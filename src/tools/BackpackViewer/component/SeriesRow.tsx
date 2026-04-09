@@ -96,18 +96,19 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
         <Row>
             {tab === "All Max 自選" && (
                 <>
-                    {allMaxTimeLeft <= showAllTimeLeftMin && (
-                        <Col xs={12} md={12} lg={12}>
-                            <div className='all-max-time-left'>
-                                <Icon icon={faTriangleExclamation} />
-                                All Max 自選還剩
-                                <span className='all-max-time-left-number'>
-                                    {allMaxTimeLeftString}
-                                </span>
-                                <Icon icon={faTriangleExclamation} />
-                            </div>
-                        </Col>
-                    )}
+                    {allMaxTimeLeft <= showAllTimeLeftMin &&
+                        allMaxTimeLeft > 0 && (
+                            <Col xs={12} md={12} lg={12}>
+                                <div className='all-max-time-left'>
+                                    <Icon icon={faTriangleExclamation} />
+                                    All Max 自選還剩
+                                    <span className='all-max-time-left-number'>
+                                        {allMaxTimeLeftString}
+                                    </span>
+                                    <Icon icon={faTriangleExclamation} />
+                                </div>
+                            </Col>
+                        )}
                     <Col xs={12} md={12} lg={12}>
                         <div
                             className={`had-count-container had-count-container-${
