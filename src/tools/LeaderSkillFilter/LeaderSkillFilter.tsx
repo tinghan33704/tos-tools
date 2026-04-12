@@ -276,7 +276,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         const isRaceSelected = !!selectedRaces.length
         const isStarSelected = !!selectedStars.length
 
-        const result: IObject[] = []
+        let result: IObject[] = []
 
         for (const skill of leaderSkillData) {
             const tagArr = skill?.tag || []
@@ -787,6 +787,8 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                 }
             }
         }
+
+        result.sort((a, b) => a?.id - b?.id)
 
         setResultData(result.filter((skill) => !skill?.skill?.changedSkill))
         setResultDataChange(
