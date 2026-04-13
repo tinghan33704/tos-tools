@@ -377,7 +377,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                             let isKeywordChecked = false
 
                             for (const keyword of keywordArr) {
-                                for (const desc in [
+                                for (const desc of [
                                     ...craft.skill_description,
                                     ...craft.armed_description,
                                 ]) {
@@ -420,7 +420,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         let isAllKeywordChecked = true
                         for (const keyword of keywordArr) {
                             let isKeywordChecked = false
-                            for (const desc in [
+                            for (const desc of [
                                 ...craft.skill_description,
                                 ...craft.armed_description,
                             ]) {
