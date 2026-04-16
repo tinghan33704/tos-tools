@@ -1,4 +1,4 @@
-// Last modified : 2026.04.10 13:32
+// Last modified : 2026.04.16 20:23
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -42126,7 +42126,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': ['消除特定符石']
 			}
 		],
-		'monster': [11163, 11164, 11165]
+		'monster': [11163, 11164, 11165, 11166]
 	},
 	{
 		'name': '歷劫之道',
