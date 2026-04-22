@@ -196,7 +196,7 @@ export const craftChargeTypeStringMapping: string[] = ['首批消除水符石', 
 export const sealOpenPeriod: IObject = {
 	'All Max 自選': {
 		start: '2026-01-28T00:00:00+0800',
-		end: '2026-04-26T23:59:59+0800',
+		end: '2026-04-30T23:59:59+0800',
 	}
 }
 
