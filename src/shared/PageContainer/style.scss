@@ -76,4 +76,16 @@
             height: 24px;
         }
     }
+
+    .my-birthday {
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.15);
+        margin-top: 10px;
+
+        img {
+            width: 50%;
+            margin: auto;
+            object-fit: contain;
+        }
+    }
 }

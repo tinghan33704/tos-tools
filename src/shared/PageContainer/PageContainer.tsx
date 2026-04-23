@@ -3,10 +3,6 @@ import { Alert, Container } from "react-bootstrap"
 import { faClose, faDollarSign } from "@fortawesome/free-solid-svg-icons"
 
 import Context from "src/utilities/Context/Context"
-import Setting from "../Setting"
-import Icon from "src/utilities/Icon"
-
-import "./style.scss"
 import {
     allToolBroadcastNotification,
     backpackViewerNotification,
@@ -17,6 +13,11 @@ import {
     skillFilterNotification,
     teamSkillFilterNotification,
 } from "src/constant/filterConstants"
+import Icon from "src/utilities/Icon"
+import Image from "src/utilities/Image"
+import Setting from "../Setting"
+
+import "./style.scss"
 
 export interface IPageContainerProps {
     children: React.ReactElement
@@ -185,12 +186,24 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
         )
     }, [toolId])
 
+    const renderMyBirthday = useCallback(() => {
+        const now = new Date()
+        return now.getMonth() === 4 && now.getDate() === 5 ? (
+            <div className='my-birthday'>
+                <Image path='other/its_my_birthday' />
+            </div>
+        ) : (
+            <></>
+        )
+    }, [])
+
     return (
         <Container
             className='page-container'
             style={{ paddingTop: `${headerHeight}px` }}
         >
             {renderNotification()}
+            {renderMyBirthday()}
             {children}
             <Setting
                 openDurationModal={openDurationModal}
