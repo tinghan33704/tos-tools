@@ -69514,14 +69514,14 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11177,name:"守護術師 ‧ 菲茲",attribute:"",race:"",star:0,monsterTag:["無職轉生"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2026.30"},{id:11177,name:"守護術師 ‧ 菲茲",attribute:"",race:"",star:0,monsterTag:["無職轉生"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[{description:`
 				◆【無職轉生】成員「三圍」基值 1.8 倍
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11178,name:"枕邊絮語 ‧ 洛琪希",attribute:"光",race:"魔族",star:7,monsterTag:["無職轉生","枕邊絮語"],crossOver:!0,skill:[{name:"夜色靜語",type:"normal",charge:"EP",num:6,description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2026.30"},{id:11178,name:"枕邊絮語 ‧ 洛琪希",attribute:"光",race:"魔族",star:7,monsterTag:["無職轉生","枕邊絮語"],crossOver:!0,skill:[{name:"夜色靜語",type:"normal",charge:"EP",num:6,description:`
 				I.「水王級魔術師 ‧ 洛琪希」、「枕邊絮語 ‧ 洛琪希」、「轉生者 ‧ 魯迪烏斯」及「迷宮攻略者 ‧ 魯迪烏斯」進入 14 回合「亢奮」狀態
 				1 回合內
 				II. 自身攻擊力 14 倍
@@ -69586,7 +69586,7 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11179,name:"七星靜香",attribute:"水",race:"人類",star:6,monsterTag:["無職轉生","七星靜香"],crossOver:!0,skill:[{name:"七星之戒指",type:"normal",charge:"CD",num:7,description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2026.30"},{id:11179,name:"七星靜香",attribute:"水",race:"人類",star:6,monsterTag:["無職轉生","七星靜香"],crossOver:!0,skill:[{name:"七星之戒指",type:"normal",charge:"CD",num:7,description:`
 				1 回合內
 				I. 自身攻擊力 7 倍
 				II. 連擊 (Ex. Combo、Combo) 數目固定為 7
@@ -69704,14 +69704,12 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11189,name:"",attribute:"",race:"",star:0,monsterTag:["無職轉生"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[{description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11189,name:"赤龍",attribute:"火",race:"強化素材",star:6,monsterTag:["無職轉生","素材"],crossOver:!0,skill:[{name:"沒有技能",type:"normal",charge:"CD",num:0,description:"沒有技能",tag:[]}],teamSkill:[{description:`
 				◆【無職轉生】成員「三圍」基值 1.8 倍
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11190,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:0,maxRefine:0,version:"v2026.30"},{id:11190,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11191,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
