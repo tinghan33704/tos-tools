@@ -1,4 +1,4 @@
-// Last modified : 2026.04.25 03:01
+// Last modified : 2026.04.25 03:14
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -225734,7 +225734,7 @@ export const monsterData: IObject[] = [
 		],
         'maxLevel': 99,
         'maxSkill': 12,
-        'maxRefine': 0,
+        'maxRefine': 4,
         'version': 'v2026.30'
     },
     {
@@ -225773,7 +225773,7 @@ export const monsterData: IObject[] = [
 		],
         'maxLevel': 99,
         'maxSkill': 12,
-        'maxRefine': 0,
+        'maxRefine': 4,
         'version': 'v2026.30'
     },
     {
@@ -225891,7 +225891,7 @@ export const monsterData: IObject[] = [
 		],
         'maxLevel': 99,
         'maxSkill': 12,
-        'maxRefine': 0,
+        'maxRefine': 4,
         'version': 'v2026.30'
     },
     {
@@ -226348,23 +226348,21 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11189,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['無職轉生'],
+        'name': '赤龍',
+        'attribute': '火',
+        'race': '強化素材',
+        'star': 6,
+        'monsterTag': ['無職轉生', '素材'],
         'crossOver': true,
         'skill': [
-            {
-                'name': '',
-                'type': 'normal',
-                'charge': 'CD',
-                'num': 0,
-                'description': `
-
-                `,
-                'tag': []
-            }
+			{
+				'name': '沒有技能',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 0,
+				'description': `沒有技能`,
+				'tag': []
+			}
         ],
         'teamSkill': [
 			{
@@ -226381,7 +226379,7 @@ export const monsterData: IObject[] = [
 			}
 		],
         'maxLevel': 99,
-        'maxSkill': 12,
+        'maxSkill': 0,
         'maxRefine': 0,
         'version': 'v2026.30'
     },
