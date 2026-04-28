@@ -1,4 +1,4 @@
-// Last modified : 2026.04.27 16:50
+// Last modified : 2026.04.28 20:02
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -226748,29 +226748,55 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11200,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '茉莉茶園 ‧ 莫莉安娜',
+        'attribute': '火',
+        'race': '人類',
+        'star': 6,
+        'monsterTag': ['茉莉茶園'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '茶香樂韻',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 4,
                 'description': `
 
                 `,
-                'tag': []
+                'tag': ['延長轉珠時間', '增加符石', '人族符石製造', '五屬版面', '五屬心版面', '固定版面', '增傷', '無視反首消盾', '無視首消全版盾', '減CD', '符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉心', '符石轉水強化', '符石轉火強化', '符石轉木強化', '符石轉光強化', '符石轉暗強化', '符石轉心強化', '軌跡轉化']
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆「茉莉茶園 ‧ 莫莉安娜」轉換為隊長屬性
+				`,
+				'activate': `以「茉莉茶園 ‧ 莫莉安娜」作成員`,
+				'skill_tag': ['召喚獸轉水', '召喚獸轉木', '召喚獸轉光', '召喚獸轉暗'],
+				'activate_tag': [],
+				'relative': [11200]
+			},
+		],
+		'board': [
+			{
+				'row': 8,
+				'column': 6,
+				'board': [
+					'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+					'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+					'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+				]
+			}
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.30'
     },
 	{
 		'id': 20001,
