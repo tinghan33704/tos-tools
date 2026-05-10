@@ -38,7 +38,7 @@
     .sub-panel {
         margin-top: 40px;
 
-        .input,
+        .input-wrapper,
         .btn {
             margin-top: 10px;
         }
@@ -73,6 +73,18 @@
 
             svg {
                 margin-right: 10px;
+            }
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+
+            svg {
+                position: absolute;
+                right: 35px;
+                cursor: pointer;
+                color: var(--text-black);
             }
         }
     }

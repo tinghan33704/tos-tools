@@ -1,6 +1,12 @@
 import React, { useRef, useState, useCallback, useContext } from "react"
 import { Col, Form, Modal, Nav, Row, Tab } from "react-bootstrap"
-import { faCheck, faDownload, faTimes } from "@fortawesome/free-solid-svg-icons"
+import {
+    faCheck,
+    faDownload,
+    faEye,
+    faEyeSlash,
+    faTimes,
+} from "@fortawesome/free-solid-svg-icons"
 
 import { uidMaxLength, veriMaxLength } from "src/constant/filterConstants"
 import { fetchPlayerData, setUrlParams } from "src/utilities/utils"
@@ -25,9 +31,12 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
 
     const [action, setAction] = useState<string>("import")
     const [uid, setUid] = useState<string>("")
-    const [veri, setVeri] = useState<string>("")
+    const [veri, setVeri] = useState<string>(
+        localStorage.getItem("VERIFICATION_CODE") || "",
+    )
     const [inputDisabled, setInputDisabled] = useState<boolean>(false)
     const [dataStatus, setDataStatus] = useState<IObject>({})
+    const [hideVeriCode, setHideVeriCode] = useState<boolean>(true)
 
     const onCloseModal = useCallback(() => {
         setAction("import")
@@ -35,6 +44,7 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
         setVeri("")
         setInputDisabled(false)
         setDataStatus({})
+        setHideVeriCode(true)
 
         onClose()
     }, [onClose])
@@ -50,9 +60,10 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
         (selectedTab: string | null) => {
             if (selectedTab !== action) {
                 setUid("")
-                setVeri("")
+                setVeri(localStorage.getItem("VERIFICATION_CODE") || "")
                 setInputDisabled(false)
                 setDataStatus({})
+                setHideVeriCode(true)
             }
         },
         [action],
@@ -98,6 +109,11 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
         }
     }, [playerData])
 
+    const saveVerificationCode = useCallback(() => {
+        localStorage.setItem("VERIFICATION_CODE", veri)
+        saveBackpack()
+    }, [saveBackpack, veri])
+
     const onChangeUid = useCallback((uid: string) => {
         setUid(uid)
     }, [])
@@ -123,29 +139,43 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                 <div className='sub-panel'>
                     <Form>
                         <Form.Group>
-                            <Form.Control
-                                type='input'
-                                className='input uid-input'
-                                placeholder='輸入 UID'
-                                value={uid}
-                                maxLength={uidMaxLength}
-                                onChange={(e) => onChangeUid(e.target.value)}
-                                onKeyDown={onInputKeyPress}
-                                disabled={inputDisabled}
-                            />
-                            {event === "update" ? (
+                            <div className='input-wrapper'>
                                 <Form.Control
                                     type='input'
-                                    className='input veri-input'
-                                    placeholder='輸入驗證碼'
-                                    value={veri}
-                                    maxLength={veriMaxLength}
+                                    className='input uid-input'
+                                    placeholder='輸入 UID'
+                                    value={uid}
+                                    maxLength={uidMaxLength}
                                     onChange={(e) =>
-                                        onChangeVeri(e.target.value)
+                                        onChangeUid(e.target.value)
                                     }
                                     onKeyDown={onInputKeyPress}
                                     disabled={inputDisabled}
                                 />
+                            </div>
+                            {event === "update" ? (
+                                <div className='input-wrapper'>
+                                    <Form.Control
+                                        type={
+                                            hideVeriCode ? "password" : "input"
+                                        }
+                                        className='input veri-input'
+                                        placeholder='輸入驗證碼'
+                                        value={veri}
+                                        maxLength={veriMaxLength}
+                                        onChange={(e) =>
+                                            onChangeVeri(e.target.value)
+                                        }
+                                        onKeyDown={onInputKeyPress}
+                                        disabled={inputDisabled}
+                                    />
+                                    <Icon
+                                        icon={hideVeriCode ? faEyeSlash : faEye}
+                                        onClick={() =>
+                                            setHideVeriCode(!hideVeriCode)
+                                        }
+                                    />
+                                </div>
                             ) : (
                                 <></>
                             )}
@@ -154,12 +184,22 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
                     <Row>
                         <Col xs={12}>
                             {dataStatus.status === "success" ? (
-                                <Button
-                                    className={"start-btn"}
-                                    text={"儲存背包"}
-                                    onClick={saveBackpack}
-                                    disabled={inputDisabled}
-                                />
+                                <>
+                                    {event === "update" && (
+                                        <Button
+                                            className={"start-btn"}
+                                            text={"儲存背包及驗證碼"}
+                                            onClick={saveVerificationCode}
+                                            disabled={inputDisabled}
+                                        />
+                                    )}
+                                    <Button
+                                        className={"start-btn"}
+                                        text={"儲存背包"}
+                                        onClick={saveBackpack}
+                                        disabled={inputDisabled}
+                                    />
+                                </>
                             ) : (
                                 <Button
                                     className={"start-btn"}
@@ -189,12 +229,16 @@ const UserDataModal: React.FC<IUserDataModalProps> = (props) => {
             )
         },
         [
-            dataStatus,
+            dataStatus.status,
+            dataStatus.text,
+            hideVeriCode,
             importData,
             inputDisabled,
             onChangeUid,
             onChangeVeri,
+            onInputKeyPress,
             saveBackpack,
+            saveVerificationCode,
             uid,
             veri,
         ],
