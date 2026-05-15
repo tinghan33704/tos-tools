@@ -69853,21 +69853,83 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11187,name:"",attribute:"",race:"",star:0,monsterTag:["無職轉生"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
-
-                `,tag:[]}],teamSkill:[{description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11187,name:"魔石多頭龍",attribute:"火",race:"龍類",star:7,monsterTag:["無職轉生","地獄魔王"],crossOver:!0,skill:[{name:"吸魔之鱗",type:"normal",charge:"CD",num:6,description:`
+				I. 將心符石轉化為火強化符石
+				II. 將敵人屬性符石轉化為心強化符石
+				III. 使敵人進入「石化」狀態，持續 3 回合
+				▋ 使敵人無法行動
+				▋ 敵人轉換為木屬性
+				3 回合內
+				IV. 龍類及【無職轉生】成員無視「攻前盾」、「指定連擊法印」及「符石連擊零化」
+				V. 隊伍成員對木屬性敵人或人類敵人的傷害 3 倍
+				VI. 首批火符石及心符石 1 粒即可發動消除
+				VII. 回合結束時
+				⇒ 將所有符石轉化為火龍類強化符石及心龍類強化符石
+                `,tag:["心轉其他",["符石轉火",3],["符石轉火強化",3],"水轉其他","火轉其他","木轉其他","光轉其他","暗轉其他",["符石轉心",3],["符石轉心強化",3],["石化敵方",3],["無法行動",3],["敵方轉木",3],["無視攻前盾",3],["無視連擊法印",3],["無視追擊零化",3],["敵方受傷增加",3],["對人類增傷",3],["增傷",3],["一消",3],["龍族符石製造",3],["大幅轉版",3],"敵身狀態"]}],teamSkill:[{description:`
 				◆【無職轉生】成員「三圍」基值 1.8 倍
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11188,name:"龍神 ‧ 奧爾斯帝德",attribute:"木",race:"神族",star:7,monsterTag:["無職轉生","地獄魔王"],crossOver:!0,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11188,name:"龍神 ‧ 奧爾斯帝德",attribute:"木",race:"神族",star:7,monsterTag:["無職轉生","地獄魔王"],crossOver:!0,skill:[{name:"絕對壓制",type:"normal",charge:"CD",num:6,description:`
+				I. 神族、龍類及【無職轉生】成員
+				⓵ 解除「技能封鎖」狀態
+				⓶ 以「亢奮」及「暴怒」狀態取代「疲憊」、「休眠」、「風壓」、「麻痺」及「沉默」狀態 (此技能無視「休眠」、「風壓」、「沉默」及「技能封鎖」狀態)
+				2 回合內
+				II. 神族、龍類及【無職轉生】成員無視「全消盾」及「指定減傷抗性敵技」
+				III. 增加 15 連擊 (Ex. Combo、Combo)
+				IV. 發動技能時，神族、龍類或【無職轉生】成員數目≥ 3
+				⇒ 隊伍成員無視「首消粒數盾」
+                `,tag:["解鎖","亢奮狀態","增傷","暴怒狀態","解除疲憊","解除休眠","解除風壓","解除麻痺","解除沉默",["無視全首消盾",2],["無視減傷抗性",2],["增加Ex.Combo",2],["增加Combo",2],["無視數字盾",2]]},{name:"前龍門",type:"normal",charge:"CD",num:6,description:`
+				2 回合內
+				I. 隊伍成員對敵人的傷害 5 倍
+				II. 掉落的木符石及心符石添加為「加護」符石
+				III. 發動技能時，神族、龍類或【無職轉生】成員數目≥ 3
+				⇒ 隊伍成員無視「% 防禦盾」及「血浴地型」
+				IV. 發動技能時或回合結束時
+				⇒ <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心神族及龍類強化符石)</board>
+                `,tag:[["敵方受傷增加",2],["增傷",2],["加護符石製造",2],["無視%數盾",2],["無視血浴地型",2],["移除",2],["整版移除",2],["移除強制掉落",2],["強制掉水",2],["強制掉火",2],["強制掉木",2],["強制掉光",2],["強制掉暗",2],["強制掉心",2],["固定版面",2],["五屬版面",2],["五屬心版面",2],["神族符石製造",2],["龍族符石製造",2]]}],teamSkill:[{description:`
+				◆ 隊伍成員
+				⓵ 攻擊力 12 倍
+				⓶ 無視「燃燒」及「瘴氣地型」
 
-                `,tag:[]}],teamSkill:[{description:`
+				◆「灼熱地型」傷害轉化為生命力
+
+				◆ 神族、龍類及【無職轉生】成員無視「指定形狀盾」、「攻前盾」、「固定連擊盾」及「反首消符石盾」
+
+				◆ 移動符石時間必延 10 秒
+
+				◆ 增加 10 連擊 (Ex. Combo、Combo)
+
+				◆ 所有符石兼具 100% 神族、龍類及【無職轉生】成員屬性符石效果
+
+				◆ 連擊 (Ex. Combo、Combo) 時攻擊力提升 100%
+
+				◆「一步一傷」傷害減至 0
+
+				◆ 消除神族、龍類或【無職轉生】成員屬性符石
+				⇒ 受到致命傷害時召喚師不會死亡
+
+				◆ 進場時
+				⇒ 神族、龍類及【無職轉生】成員技能 CD -8
+
+				◆ 每消除神族、龍類或【無職轉生】成員屬性符石時
+				⇒ 當前生命力變為 100%
+				`,activate:"以「龍神 ‧ 奧爾斯帝德」作隊長及戰友",skill_tag:["增攻","無視燃燒","無視瘴氣","無視灼熱地型","無視拼圖盾","無視攻前盾","無視固定連擊盾","無視反首消盾","延長轉珠時間","增加Ex.Combo","增加Combo","水兼具其他","火兼具其他","木兼具其他","光兼具其他","暗兼具其他","心兼具其他","符石兼具水","符石兼具火","符石兼具木","符石兼具光","符石兼具暗","Combo時增攻","無視一步一傷","意志","進場減CD","回血"],activate_tag:["指定雙隊長"],relative:[11188]},{description:`
+				◆「龍神 ‧ 奧爾斯帝德」轉換為龍類成員
+				`,activate:"隊中只有「龍神 ‧ 奧爾斯帝德」及龍類角色作成員",skill_tag:[],activate_tag:["指定種族成員"],relative:[11188]},{description:`
+				◆ 隊伍成員無視「反饋」
+				
+				◆ 若以攻擊傷害或攻前炮擊斃敵人
+				⇒ 回合結束時，神族、龍類及【無職轉生】成員
+				⓵ 技能 CD -2
+				⓶ 技能 EP +2
+				`,activate:"以【無職轉生】、龍類或神族角色作隊長，並以「龍神 ‧ 奧爾斯帝德」作成員",skill_tag:["防反饋","其他減CD","其他回EP"],activate_tag:["指定隊長"],relative:[11188,"無職轉生"]},{description:`
 				◆【無職轉生】成員「三圍」基值 1.8 倍
 				
 				◆ 進場時
 				⇒【無職轉生】成員技能 CD -3
-				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11189,name:"赤龍",attribute:"火",race:"強化素材",star:6,monsterTag:["無職轉生","素材"],crossOver:!0,skill:[{name:"沒有技能",type:"normal",charge:"CD",num:0,description:"沒有技能",tag:[]}],teamSkill:[{description:`
+				`,activate:"以 ≥3 個【無職轉生】角色作成員",skill_tag:["增攻","增回","增血","進場減CD"],activate_tag:["指定成員"],relative:["無職轉生"]}],board:[["Eg","Wr","Fg","Lr","Dg","Hr","Eg","Wr","Fg","Lr","Dg","Hr","Eg","Wr","Fg","Lr","Dg","Hr","Eg","Wr","Fg","Lr","Dg","Hr","Eg","Wr","Fg","Lr","Dg","Hr"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.30"},{id:11189,name:"赤龍",attribute:"火",race:"強化素材",star:6,monsterTag:["無職轉生","素材"],crossOver:!0,skill:[{name:"沒有技能",type:"normal",charge:"CD",num:0,description:"沒有技能",tag:[]}],teamSkill:[{description:`
 				◆【無職轉生】成員「三圍」基值 1.8 倍
 				
 				◆ 進場時
@@ -78885,7 +78947,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		獸類成員攻擊力 10 倍
 		`,tag:[{name:"增攻",object:["獸"],limit:[]}],monster:[2947,10602,10674,10675,10676,10677,10723,10731,10786,10796,10824,10835,10836,10838,10839,10851,10927,10928,10929,11021,11022,11059,11064,11109,11125,11133,11153,11156,11180,11183,11184]},{name:"十刑之怒 ‧ 龍",description:`
 		龍類成員攻擊力 10 倍
-		`,tag:[{name:"增攻",object:["龍"],limit:[]}],monster:[2926,2940,2959,10603,10719,10735,10736,10792,10840,10888,10893,10920,10957,10963,10966,11063,11111,11119,11126,11132,11136,11154]},{name:"瑰麗魔法",description:`
+		`,tag:[{name:"增攻",object:["龍"],limit:[]}],monster:[2926,2940,2959,10603,10719,10735,10736,10792,10840,10888,10893,10920,10957,10963,10966,11063,11111,11119,11126,11132,11136,11154,11187]},{name:"瑰麗魔法",description:`
 		I. 全隊攻擊力 9 倍、生命力及回復力 1.7 倍
 		II. 人類成員
 		⓵ 攻擊力額外 4.5 倍
@@ -80282,7 +80344,16 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		II.【無職轉生】成員攻擊力 2.8 倍
 		III. 發動角色符石
 		⇒【無職轉生】成員以攻擊力的 100% 對敵人追打無屬性攻擊 1 次
-		`,tag:[{name:["增攻","增血","增回"],object:["光","人","魔","特定成員"],limit:[]},{name:"增攻",object:["特定成員"],limit:[]},{name:"無屬追打",object:["特定成員"],limit:["發動角色符石"]}],monster:[11178]},{name:"歷劫之道",description:`
+		`,tag:[{name:["增攻","增血","增回"],object:["光","人","魔","特定成員"],limit:[]},{name:"增攻",object:["特定成員"],limit:[]},{name:"無屬追打",object:["特定成員"],limit:["發動角色符石"]}],monster:[11178]},{name:"不滅龍元",description:`
+		I. 龍類、神族及【無職轉生】成員
+		⓵ 攻擊力 100 倍
+		⓶ 生命力 5 倍
+		II.【無職轉生】成員攻擊力 4 倍
+		III. 消除龍類或神族成員屬性符石
+		⓵ 增加 10 連擊 (Combo)
+		⓶ 每消除 1 粒龍類及神族成員屬性符石時
+		⇒ 當前生命力變為 100%
+		`,tag:[{name:["增攻","增血"],object:["龍","神","特定成員"],limit:[]},{name:"增攻",object:["特定成員"],limit:[]},{name:["增加Combo","回血"],object:[],limit:["消除特定符石"]}],monster:[11188]},{name:"歷劫之道",description:`
 		I. 全隊攻擊力 8 倍
 		II. 心符石兼具屬性符石效果
 		III. 隊中有 ≥3 種族成員時
