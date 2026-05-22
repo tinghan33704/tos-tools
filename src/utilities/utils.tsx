@@ -460,6 +460,10 @@ export const descriptionTranslator = (
                   /冥綻(狀態)?/g,
                   `<span class='desc-note-label-10 desc-positive-label'>冥綻$1</span>`,
               )
+              .replace(
+                  /集結攻擊/g,
+                  `<span class='desc-note-label-11 desc-linking-label'>集結攻擊</span>`,
+              )
         : (description || "")
               ?.replace(/\n[^\S\n]*/g, "<br>")
               ?.replace(/^<br>/, "")

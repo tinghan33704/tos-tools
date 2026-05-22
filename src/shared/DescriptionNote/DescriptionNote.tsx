@@ -105,6 +105,14 @@ const DescriptionNote: React.FC = () => {
                         自身無視「連擊護盾」及「連擊相等盾」
                     </span>
                 )
+            case 11:
+                return (
+                    <span className='desc-note-label'>
+                        ⓵ 會集自身以外成員的攻擊次數
+                        <br />⓶ 自身發動相應次數的攻擊
+                        <br />⓷ 被會集成員攻擊力變為 0
+                    </span>
+                )
             default:
                 return <></>
         }
