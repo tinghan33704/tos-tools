@@ -1,4 +1,4 @@
-// Last modified : 2026.05.23 04:49
+// Last modified : 2026.05.24 18:12
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -227098,8 +227098,8 @@ export const monsterData: IObject[] = [
                 'charge': 'CD',
                 'num': 6,
                 'description': `
-				I. 移除所有符石
-				⓵ 掉落固定版面符石 (隊長屬性及心妖精類強化符石)
+				I. <board>移除所有符石
+				⓵ 掉落固定版面符石 (隊長屬性及心妖精類強化符石)</board>
 				⓶ 將心符石添加為「音樂」符石
 				1 回合內
 				II. 隊伍成員
@@ -227118,6 +227118,20 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
+		'board': [
+			{
+				'board': [
+					'He', 'He', 'He', 'He', 'He', 'He', 
+					'1e', '1e', '1e', '1e', '1e', '1e', 
+					'He', '1e', 'He', 'He', '1e', 'He', 
+					'He', '1e', 'He', 'He', '1e', 'He', 
+					'He', '1e', 'He', 'He', '1e', 'He', 
+				],
+				'note': [
+					'隊長屬性強化符石'
+				]
+			}
+		],
         'maxLevel': 99,
         'maxSkill': 12,
         'maxRefine': 0,

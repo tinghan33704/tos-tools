@@ -65,16 +65,16 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
             const changed = !(type in filters)
                 ? [value]
                 : filters[type].includes(value)
-                ? filters[type].filter(
-                      (item: string | number) => item !== value
-                  )
-                : [...filters[type], value]
+                  ? filters[type].filter(
+                        (item: string | number) => item !== value,
+                    )
+                  : [...filters[type], value]
             setFilters({
                 ...filters,
                 [type]: changed,
             })
         },
-        [filters]
+        [filters],
     )
 
     const onInputKeyPress = useCallback(
@@ -84,7 +84,7 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                 event.preventDefault()
             }
         },
-        []
+        [],
     )
 
     const renderPanel = useCallback(() => {
@@ -200,7 +200,7 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                             <div>
                                 {Object.keys(sortByCategories).map((title) => (
                                     <Dropdown.Item
-                                        title={title}
+                                        title={sortByCategories[title]}
                                         eventKey={title}
                                     >
                                         {sortByCategories[title]}
@@ -226,7 +226,7 @@ const InventoryFilterModal: React.FC<IInventoryFilterModalProps> = (props) => {
                             <div>
                                 {Object.keys(orderByCategories).map((title) => (
                                     <Dropdown.Item
-                                        title={title}
+                                        title={orderByCategories[title]}
                                         eventKey={title}
                                     >
                                         {orderByCategories[title]}

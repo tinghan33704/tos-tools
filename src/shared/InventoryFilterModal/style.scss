@@ -67,6 +67,15 @@
             background-color: var(--background-color) !important;
             border-color: #777777 !important;
             padding: 3px 0 !important;
+
+            .dropdown-item {
+                color: var(--text-black);
+
+                &:active,
+                &:hover {
+                    background-color: rgba(150, 150, 150, 0.5) !important;
+                }
+            }
         }
     }
 
