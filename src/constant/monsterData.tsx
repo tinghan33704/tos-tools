@@ -1,4 +1,4 @@
-// Last modified : 2026.06.05 00:07
+// Last modified : 2026.06.05 10:11
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -227981,7 +227981,7 @@ export const monsterData: IObject[] = [
         'race': '人類',
         'star': 6,
         'monsterTag': ['茉莉茶園'],
-        'crossOver': false,
+        'crossOver': true,
         'skill': [
             {
                 'name': '茶香樂韻',
