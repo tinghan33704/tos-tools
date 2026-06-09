@@ -31,6 +31,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
     const [selectedAttributes, setSelectedAttributes] = useState<string[]>([])
     const [selectedRaces, setSelectedRaces] = useState<string[]>([])
     const [selectedStars, setSelectedStars] = useState<string[]>([])
+    const [selectedOrigin, setSelectedOrigin] = useState<string[]>([])
     const [selectedTags, setSelectedTags] = useState<string[]>([])
     const [selectedExtraTags, setSelectedExtraTags] = useState<string[]>([])
     const [selectedVersions, setSelectedVersions] = useState<string[]>([])
@@ -46,6 +47,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             attribute: [selectedAttributes, setSelectedAttributes],
             race: [selectedRaces, setSelectedRaces],
             star: [selectedStars, setSelectedStars],
+            origin: [selectedOrigin, setSelectedOrigin],
             tag: [selectedTags, setSelectedTags],
             extraTag: [selectedExtraTags, setSelectedExtraTags],
             version: [selectedVersions, setSelectedVersions],
@@ -53,6 +55,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
     }, [
         selectedAttributes,
         selectedExtraTags,
+        selectedOrigin,
         selectedRaces,
         selectedStars,
         selectedTags,
@@ -107,6 +110,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
         const isAttrSelected = !!selectedAttributes.length
         const isRaceSelected = !!selectedRaces.length
         const isStarSelected = !!selectedStars.length
+        const isOriginSelected = !!selectedOrigin.length
         const isTagSelected = !!selectedTags.length
         const isExtraTagSelected = !!selectedExtraTags.length
         const isVersionSelected = !!selectedVersions.length
@@ -115,6 +119,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             !isAttrSelected &&
             !isRaceSelected &&
             !isStarSelected &&
+            !isOriginSelected &&
             !isTagSelected &&
             !isExtraTagSelected &&
             !isVersionSelected
@@ -142,67 +147,34 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                     !selectedAttributes.includes(monster.attribute)) ||
                 (isRaceSelected && !selectedRaces.includes(monster.race)) ||
                 (isStarSelected &&
-                    !selectedStars.map((s) => +s[0]).includes(monster.star))
+                    !selectedStars.map((s) => +s[0]).includes(monster.star)) ||
+                (isOriginSelected &&
+                    ((!selectedOrigin.includes("自家") && !monster.crossOver) ||
+                        (!selectedOrigin.includes("合作") &&
+                            monster.crossOver))) ||
+                (isVersionSelected &&
+                    !selectedVersions.includes(monster.version))
             )
                 continue
 
-            if (isTagSelected) {
-                let hasTag = false
-
-                for (const tag of monster?.monsterTag || []) {
-                    if (selectedTags.includes(tag)) {
-                        hasTag = true
-                        break
-                    }
-                }
-
-                if (
-                    (selectedTags.includes("自家") && !monster?.crossOver) ||
-                    (selectedTags.includes("合作") && monster?.crossOver)
+            if (
+                isTagSelected &&
+                !(monster?.monsterTag || []).some((tag: string) =>
+                    selectedTags.includes(tag),
                 )
-                    hasTag = true
-
-                if (hasTag) {
-                    result.push({ id: monster.id })
-                    continue
-                }
-            }
-
-            if (isExtraTagSelected) {
-                if (idGroup.includes(monster.id)) {
-                    result.push({ id: monster.id })
-                    continue
-                }
-
-                let hasTag = false
-
-                for (const tag of monster?.monsterTag || []) {
-                    if (tagGroup.includes(tag)) {
-                        hasTag = true
-                        break
-                    }
-                }
-
-                if (hasTag) {
-                    result.push({ id: monster.id })
-                    continue
-                }
-            }
-
-            if (isVersionSelected) {
-                if (selectedVersions.includes(monster?.version)) {
-                    result.push({ id: monster.id })
-                }
-            }
+            )
+                continue
 
             if (
-                (isAttrSelected || isRaceSelected || isStarSelected) &&
-                !isTagSelected &&
-                !isExtraTagSelected &&
-                !isVersionSelected
-            ) {
-                result.push({ id: monster.id })
-            }
+                isExtraTagSelected &&
+                !idGroup.includes(monster.id) &&
+                !(monster?.monsterTag || []).some((tag: string) =>
+                    tagGroup.includes(tag),
+                )
+            )
+                continue
+
+            result.push({ id: monster.id })
         }
 
         setResultData(
@@ -220,6 +192,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
         input,
         selectedAttributes,
         selectedExtraTags,
+        selectedOrigin,
         selectedRaces,
         selectedStars,
         selectedTags,
@@ -302,9 +275,17 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         btnSuffix={" ★"}
                     />
                     <FilterRow
+                        title={"召喚獸來源"}
+                        type={"origin"}
+                        data={tagString[0]}
+                        selectedData={selectedOrigin}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                    />
+                    <FilterRow
                         title={"官方標籤"}
                         type={"tag"}
-                        data={tagString}
+                        data={tagString.slice(1)}
                         selectedData={selectedTags}
                         toggleButton={toggleButton}
                         resetButton={resetButton}
@@ -312,7 +293,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         enableSearch
                     />
                     <FilterRow
-                        title={"其他標籤"}
+                        title={"合作系列"}
                         type={"extraTag"}
                         data={extraFilterData.map((group) =>
                             group.map((item: IObject) => item.name),
