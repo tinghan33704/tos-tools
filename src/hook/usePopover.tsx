@@ -17,17 +17,17 @@ export const usePopover = () => {
     const [size, setSize] = useState([0, 0])
 
     const ref = useRef<any>(null)
+    const debouncedOnScroll = useRef(_.debounce(() => setScrollPosition(window.pageYOffset), 500))
+    const debouncedOnResize = useRef(_.debounce(() => setSize([window.innerWidth, window.innerHeight]), 500))
 
     useEffect(() => {
         setIsDomReady(true)
 
-        window.addEventListener("scroll", _.debounce(onScroll, 500))
-        window.addEventListener("resize", _.debounce(onResize, 500))
-        window.addEventListener("click", onClick as any)
+        window.addEventListener("scroll", debouncedOnScroll.current)
+        window.addEventListener("resize", debouncedOnResize.current)
         return () => {
-            window.removeEventListener("scroll", onScroll)
-            window.addEventListener("resize", onResize)
-            window.removeEventListener("click", onClick as any)
+            window.removeEventListener("scroll", debouncedOnScroll.current)
+            window.removeEventListener("resize", debouncedOnResize.current)
         }
     }, [])
 
@@ -84,14 +84,6 @@ export const usePopover = () => {
     useEffect(() => {
         toggleBorder()
     }, [isOpen, target])
-
-    const onResize = useCallback(() => {
-        setSize([window.innerWidth, window.innerHeight])
-    }, [])
-
-    const onScroll = useCallback(() => {
-        setScrollPosition(window.pageYOffset)
-    }, [])
 
     const setPopoverPosition = useCallback(() => {
         const refCurrent = ref?.current

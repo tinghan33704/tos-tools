@@ -42,6 +42,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                 (relative: number) => {
                     return (
                         <Image
+                            key={relative}
                             className='relative-img'
                             path={`monster/${relative}`}
                         />
@@ -60,6 +61,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
 
                 return (
                     <LazyLoad
+                        key={`${id}_${attr}`}
                         once
                         offset={500}
                         placeholder={
@@ -80,7 +82,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                             (index: number, index_index: number) => {
                                 const skill = monster?.teamSkill?.[index]
                                 return (
-                                    <>
+                                    <React.Fragment key={`${id}_${attr}_${index}`}>
                                         <tr
                                             className={`monster-tr ${
                                                 index_index === 0
@@ -137,7 +139,7 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
                                                 )}
                                             </td>
                                         </tr>
-                                    </>
+                                    </React.Fragment>
                                 )
                             }
                         )}
@@ -148,4 +150,4 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
     )
 }
 
-export default ResultTable
+export default React.memo(ResultTable)

@@ -81,7 +81,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                         載入中...
                                     </span>
                                 }
-                                key={`group_row_${index}_${curIndex}`}
+                                key={`group_row_${type}_${index}`}
                             >
                                 <Row className='gx-0 group-row'>
                                     {group.map((data: string) => {
@@ -90,7 +90,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                                 group={type}
                                                 index={curIndex++}
                                                 text={`${data}${btnSuffix}`}
-                                                key={`${data}_${curIndex}`}
+                                                key={`${type}_${data}`}
                                                 selectedData={selectedData}
                                                 toggleButton={toggleButton}
                                                 showSkillIcon={showSkillIcon}
@@ -105,7 +105,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                         ) : (
                             <Row
                                 className='gx-0 group-row'
-                                key={`group_row_${index}_${curIndex}`}
+                                key={`group_row_${type}_${index}`}
                             >
                                 {group.map((data: string) => {
                                     return (
@@ -113,7 +113,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                             group={type}
                                             index={curIndex++}
                                             text={`${data}${btnSuffix}`}
-                                            key={`${data}_${curIndex}`}
+                                            key={`${type}_${data}`}
                                             selectedData={selectedData}
                                             toggleButton={toggleButton}
                                             showSkillIcon={showSkillIcon}
@@ -130,7 +130,7 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                             group={type}
                             index={curIndex++}
                             text={`${group}${btnSuffix}`}
-                            key={`${group}_${curIndex}`}
+                            key={`${type}_${group}`}
                             selectedData={selectedData}
                             toggleButton={toggleButton}
                             showSkillIcon={showSkillIcon}
@@ -142,4 +142,4 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
     )
 }
 
-export default FilterButtonGroup
+export default React.memo(FilterButtonGroup)

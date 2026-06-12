@@ -29,7 +29,7 @@ const MainPage: React.FC<IMainPageProps> = () => {
             <Row className='tool-row'>
                 {Object.values(toolConfig).map((tool: IObject) => {
                     return (
-                        <Col sm={6}>
+                        <Col key={tool.toolPath} sm={6}>
                             <div
                                 className='tool-btn'
                                 onClick={(e: React.MouseEvent<HTMLElement>) =>

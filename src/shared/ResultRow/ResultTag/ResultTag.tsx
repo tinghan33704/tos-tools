@@ -80,4 +80,4 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
     )
 }
 
-export default ResultTag
+export default React.memo(ResultTag)

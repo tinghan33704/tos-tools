@@ -107,4 +107,4 @@ const TopButtonGroup: React.FC<ITopButtonGroupProps> = (props) => {
     )
 }
 
-export default TopButtonGroup
+export default React.memo(TopButtonGroup)

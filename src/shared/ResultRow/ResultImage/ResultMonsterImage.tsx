@@ -53,9 +53,7 @@ const TagExpanderHeader = ({ eventKey }: IObject) => {
     )
 }
 
-export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
-    props,
-) => {
+export const ResultMonsterImage = React.memo<IResultMonsterImageProps>((props) => {
     const {
         data,
         noImagePopover,
@@ -627,4 +625,4 @@ export const ResultMonsterImage: React.FC<IResultMonsterImageProps> = (
             {renderIdTag()}
         </div>
     )
-}
+})

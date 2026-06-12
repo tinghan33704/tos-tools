@@ -22,4 +22,4 @@ const Icon: React.FC<IIconProps> = (props) => {
     )
 }
 
-export default Icon
+export default React.memo(Icon)

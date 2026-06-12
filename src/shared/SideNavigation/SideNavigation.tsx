@@ -26,6 +26,7 @@ const SideNavigation: React.FC<ISideNavigationProps> = (props) => {
                 {Object.values(toolConfig).map((config) => {
                     return (
                         <Link
+                            key={config.toolPath}
                             className='side-navigation-item'
                             to={`/${config.toolPath}`}
                             target='_blank'
@@ -43,4 +44,4 @@ const SideNavigation: React.FC<ISideNavigationProps> = (props) => {
     )
 }
 
-export default SideNavigation
+export default React.memo(SideNavigation)

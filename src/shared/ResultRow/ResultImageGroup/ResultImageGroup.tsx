@@ -39,9 +39,10 @@ const ResultImageGroup: React.FC<IResultImageGroupProps> = (props) => {
 
     return (
         <>
-            {resultChunk.map((chunk) => {
+            {resultChunk.map((chunk, chunkIndex) => {
                 return (
                     <LazyLoad
+                        key={`chunk_${chunkIndex}`}
                         once
                         offset={500}
                         placeholder={
@@ -107,4 +108,4 @@ const ResultImageGroup: React.FC<IResultImageGroupProps> = (props) => {
     )
 }
 
-export default ResultImageGroup
+export default React.memo(ResultImageGroup)

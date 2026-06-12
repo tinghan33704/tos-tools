@@ -20,7 +20,7 @@ export interface IResultCraftImageProps {
     setPopoverContent?: (content: React.ReactElement) => void
 }
 
-export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
+export const ResultCraftImage = React.memo<IResultCraftImageProps>((props) => {
     const { data, noImagePopover, togglePopover, setPopoverContent } = props
     const ref = useRef(null)
     const { id, notInInventory } = data
@@ -385,4 +385,4 @@ export const ResultCraftImage: React.FC<IResultCraftImageProps> = (props) => {
             {renderIdTag()}
         </div>
     )
-}
+})

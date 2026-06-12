@@ -103,4 +103,4 @@ const Image: React.FC<IImageProps> = (props) => {
     )
 }
 
-export default Image
+export default React.memo(Image)

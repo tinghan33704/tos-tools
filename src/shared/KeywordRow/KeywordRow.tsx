@@ -66,4 +66,4 @@ const KeywordRow: React.FC<IKeywordRowProps> = (props) => {
     )
 }
 
-export default KeywordRow
+export default React.memo(KeywordRow)

@@ -1,4 +1,11 @@
-import React from "react"
+import React, { useMemo } from "react"
+
+interface ThemeContextProviderProps {
+    theme: string
+    changeTheme: () => void
+    repairThemeSwitch: () => void
+    children: React.ReactNode
+}
 
 const ThemeContext = React.createContext({
     theme: "",
@@ -9,11 +16,18 @@ const ThemeContext = React.createContext({
     /***** EASTER EGG *****/
 })
 
-export const ThemeContextProvider = (props: any) => {
+export const ThemeContextProvider = ({
+    theme,
+    changeTheme,
+    repairThemeSwitch,
+    children,
+}: ThemeContextProviderProps) => {
+    const value = useMemo(
+        () => ({ theme, changeTheme, repairThemeSwitch }),
+        [theme, changeTheme, repairThemeSwitch],
+    )
     return (
-        <ThemeContext.Provider value={props}>
-            {props.children}
-        </ThemeContext.Provider>
+        <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
     )
 }
 
