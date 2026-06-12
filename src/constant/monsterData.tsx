@@ -1,4 +1,4 @@
-// Last modified : 2026.06.12 11:36
+// Last modified : 2026.06.13 00:50
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -84230,7 +84230,7 @@ export const monsterData: IObject[] = [
 				'description': `
 				I. <board>將隊長及戰友各直行首 4 粒符石
 				⇒ 轉化為火獸族強化符石</board>
-				II.  若隊長為「宇宙恐龍 ‧ 積頓」
+				II. 若隊長為「宇宙恐龍 ‧ 積頓」
 				⇒ 回合結束時，自身技能 CD 減少 3
 				`,
 				'tag': ['符石轉火', '符石轉火強化', '獸族符石製造', '固定版面', '減CD']
@@ -95604,7 +95604,7 @@ export const monsterData: IObject[] = [
 				I. 光屬性生命力、攻擊力、回復力 1.6 倍
 				II. 延長移動符石時間至 10 秒
 				III. 光及暗符石兼具
-				⇒  50% 心符石效果
+				⇒ 50% 心符石效果
 				IV. 暗及心符石兼具光符石效果
 				V. 水、火、木符石
 				⇒ 兼具 50% 光符石效果
@@ -113931,7 +113931,7 @@ export const monsterData: IObject[] = [
 				* 無法獲得 EP 技能
 				
 				◆ 獲得技能後的隊長或戰友
-				⇒ 技能 CD-3
+				⇒ 技能 CD -3
 				`,
 				'activate': `以「假面騎士Decade」或「假面騎士Decade(完全型態)」作隊長及戰友，且隊中有【假面騎士】作成員`,
 				'skill_tag': ['其他減CD'],
@@ -114024,7 +114024,7 @@ export const monsterData: IObject[] = [
 				* 無法獲得 EP 技能
 				
 				◆ 獲得技能後的隊長或戰友
-				⇒ 技能 CD-3
+				⇒ 技能 CD -3
 				`,
 				'activate': `以「假面騎士Decade」或「假面騎士Decade(完全型態)」作隊長及戰友，且隊中有【假面騎士】作成員`,
 				'skill_tag': ['其他減CD'],
@@ -116274,7 +116274,7 @@ export const monsterData: IObject[] = [
 				◆ 光及暗符石兼具
 				⇒ 木及心符石效果
 				
-				◆ 隊長及戰友進場及首回合結束時 CD-5
+				◆ 隊長及戰友進場及首回合結束時 CD -5
 				
 				◆ 木、光及暗符石效果提升 200%
 				`,
@@ -131864,10 +131864,10 @@ export const monsterData: IObject[] = [
 				I. 隊伍成員無視「反首消符石盾」、「指定連擊法印」及「符石連擊零化」
 				II. 首批符石 1 粒即可發動消除
 				III. 隊中只有妖精類成員或隊伍成員種族的數量 ≥3
-				⇒  隊伍成員無視「首消相同種類盾」及「首消不同種類盾」
+				⇒ 隊伍成員無視「首消相同種類盾」及「首消不同種類盾」
 				IV. 移動符石時
 				⇒ 將觸碰的符石添加為妖精類符石
-				V. 隊中只有妖精類成員或隊伍成員種族的數量≥ 3
+				V. 隊中只有妖精類成員或隊伍成員種族的數量 ≥3
 				⇒ 效果的持續時間更改為 2 回合
                 `,
                 'tag': [['無視反首消盾', 2], ['無視連擊法印', 2], ['無視追擊零化', 2], ['一消', 2], ['無視首消相同種類盾', 2], ['無視首消不同種類盾', 2], ['妖族符石製造', 2], ['軌跡轉化', 2]]
@@ -148199,7 +148199,7 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'description': `
-				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD-2
+				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD -2
 				`,
 				'activate': `以「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」作成員`,
 				'skill_tag': ['進場減CD'],
@@ -148281,7 +148281,7 @@ export const monsterData: IObject[] = [
 		'teamSkill': [
 			{
 				'description': `
-				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD-2
+				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD -2
 				`,
 				'activate': `以「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」作成員`,
 				'skill_tag': ['進場減CD'],
@@ -178322,7 +178322,7 @@ export const monsterData: IObject[] = [
 				<meff>【龍咬閃】</meff>
 				▋ 所受傷害減至 0 (包括「喋血屠刀」等扣除召喚師指定 % 生命力的敵技所造成的傷害)
 				▋ 若受到敵人攻擊
-				⇒ 自身技能 CD-3
+				⇒ 自身技能 CD -3
 				▋ 回合結束時
 				⇒ 減少 50% 當前生命力
 				`,
@@ -182051,7 +182051,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182212,7 +182212,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182314,7 +182314,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182436,7 +182436,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182515,7 +182515,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182584,7 +182584,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182697,7 +182697,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182789,7 +182789,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182855,7 +182855,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182924,7 +182924,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -182995,7 +182995,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183252,7 +183252,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183317,7 +183317,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183386,7 +183386,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183453,7 +183453,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183537,7 +183537,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183636,7 +183636,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183730,7 +183730,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -183891,7 +183891,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -184021,7 +184021,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -184078,7 +184078,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -187861,7 +187861,7 @@ export const monsterData: IObject[] = [
 				◆ 無視「黏腐」、「燃燒」
 
 				◆ 光屬性人類成員
-				⇒ 進場技能 CD-7
+				⇒ 進場技能 CD -7
 
 				◆ 所有符石兼具光符石效果
 
@@ -205598,7 +205598,7 @@ export const monsterData: IObject[] = [
 				⓵ 全隊無視「% 防禦盾」
 				⓶ 增加 10 連擊 (Ex. Combo、Combo)
 				⓷ 每回合結束時
-				⇒ 自身技能 CD-2
+				⇒ 自身技能 CD -2
 				`,
 				'tag': ['我方扣血', '無視開技扣血', ['界王拳', 2], ['增傷', 2], ['無視拼圖盾', 2], ['無視全首消盾', 2], ['無視%數盾', 2], ['增加Ex.Combo', 2], ['增加Combo', 2], ['減CD', 2]]
 			},
