@@ -13944,7 +13944,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以「超人吉田」作成員",skill_tag:["增攻"],activate_tag:[],relative:[2159]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.40"},{id:2160,name:"宇宙恐龍 ‧ 積頓",attribute:"火",race:"獸類",star:6,monsterTag:["地獄魔王","侵略者"],crossOver:!0,skill:[{name:"一兆度火球",type:"normal",charge:"CD",num:5,description:`
 				I. <board>將隊長及戰友各直行首 4 粒符石
 				⇒ 轉化為火獸族強化符石</board>
-				II.  若隊長為「宇宙恐龍 ‧ 積頓」
+				II. 若隊長為「宇宙恐龍 ‧ 積頓」
 				⇒ 回合結束時，自身技能 CD 減少 3
 				`,tag:["符石轉火","符石轉火強化","獸族符石製造","固定版面","減CD"]}],teamSkill:[{description:`
 				◆「宇宙恐龍 ‧ 積頓」
@@ -17389,7 +17389,7 @@ function print() { __p += __j.call(arguments, '') }
 				I. 光屬性生命力、攻擊力、回復力 1.6 倍
 				II. 延長移動符石時間至 10 秒
 				III. 光及暗符石兼具
-				⇒  50% 心符石效果
+				⇒ 50% 心符石效果
 				IV. 暗及心符石兼具光符石效果
 				V. 水、火、木符石
 				⇒ 兼具 50% 光符石效果
@@ -23603,7 +23603,7 @@ function print() { __p += __j.call(arguments, '') }
 				* 無法獲得 EP 技能
 				
 				◆ 獲得技能後的隊長或戰友
-				⇒ 技能 CD-3
+				⇒ 技能 CD -3
 				`,activate:"以「假面騎士Decade」或「假面騎士Decade(完全型態)」作隊長及戰友，且隊中有【假面騎士】作成員",skill_tag:["其他減CD"],activate_tag:["指定隊長戰友"],relative:[2704,2705]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v20.10"},{id:2705,name:"假面騎士Decade(完全型態)",attribute:"暗",race:"人類",star:6,monsterTag:["假面騎士"],crossOver:!0,skill:[{name:"給我記好了！",type:"normal",charge:"EP",num:5,description:`
 				點選「K-TOUCH」，獲取 1 回合效果：
 				
@@ -23649,7 +23649,7 @@ function print() { __p += __j.call(arguments, '') }
 				* 無法獲得 EP 技能
 				
 				◆ 獲得技能後的隊長或戰友
-				⇒ 技能 CD-3
+				⇒ 技能 CD -3
 				`,activate:"以「假面騎士Decade」或「假面騎士Decade(完全型態)」作隊長及戰友，且隊中有【假面騎士】作成員",skill_tag:["其他減CD"],activate_tag:["指定隊長戰友"],relative:[2704,2705]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v20.10"},{id:2706,name:"假面騎士Saber",attribute:"火",race:"人類",star:6,monsterTag:["假面騎士"],crossOver:!0,skill:[{name:"故事的結局由我來決定！",type:"normal",charge:"CD",num:6,description:`
 				I. 引爆第 3 橫行符石
 				⇒ <board 1>掉落火強化符石</board>
@@ -24434,7 +24434,7 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 光及暗符石兼具
 				⇒ 木及心符石效果
 				
-				◆ 隊長及戰友進場及首回合結束時 CD-5
+				◆ 隊長及戰友進場及首回合結束時 CD -5
 				
 				◆ 木、光及暗符石效果提升 200%
 				`,activate:"以「女帝的銘誓 ‧ 美索不達米亞」作隊長及戰友",skill_tag:["二消","光兼具其他","暗兼具其他","符石兼具木","符石兼具心","進場減CD","其他減CD","符石效果提升"],activate_tag:["指定雙隊長"],relative:[2739]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2021.20"},{id:2740,name:"巧工鑄心 ‧ 加拉哈德",attribute:"水",race:"人類",star:7,monsterTag:["圓桌騎士"],crossOver:!1,skill:[{name:"團結聚力 ‧ 人之志",type:"normal",charge:"CD",num:6,description:`
@@ -31034,10 +31034,10 @@ function print() { __p += __j.call(arguments, '') }
 				I. 隊伍成員無視「反首消符石盾」、「指定連擊法印」及「符石連擊零化」
 				II. 首批符石 1 粒即可發動消除
 				III. 隊中只有妖精類成員或隊伍成員種族的數量 ≥3
-				⇒  隊伍成員無視「首消相同種類盾」及「首消不同種類盾」
+				⇒ 隊伍成員無視「首消相同種類盾」及「首消不同種類盾」
 				IV. 移動符石時
 				⇒ 將觸碰的符石添加為妖精類符石
-				V. 隊中只有妖精類成員或隊伍成員種族的數量≥ 3
+				V. 隊中只有妖精類成員或隊伍成員種族的數量 ≥3
 				⇒ 效果的持續時間更改為 2 回合
                 `,tag:[["無視反首消盾",2],["無視連擊法印",2],["無視追擊零化",2],["一消",2],["無視首消相同種類盾",2],["無視首消不同種類盾",2],["妖族符石製造",2],["軌跡轉化",2]]}],teamSkill:[{description:`
 				◆ 隊伍成員
@@ -35587,7 +35587,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以「救世主 ‧ 以諾」作隊長",skill_tag:["延長轉珠時間","符石轉水","符石轉火","符石轉木","符石轉光","符石轉暗","人族符石製造","獸族符石製造","妖族符石製造","龍族符石製造","神族符石製造","魔族符石製造","機械族符石製造","增加Combo","增攻","無視拼圖盾","龍脈儀能力"],activate_tag:["指定隊長"],relative:[10165]},{description:`
 				◆「救世主 ‧ 以諾」及「妹妹 ‧ 諾拉」技能 CD -2
 				`,activate:"以「救世主 ‧ 以諾」及「妹妹 ‧ 諾拉」作成員",skill_tag:["永久減CD"],activate_tag:["指定成員"],relative:[10165,2655]},{description:`
-				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD-2
+				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD -2
 				`,activate:"以「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」作成員",skill_tag:["進場減CD"],activate_tag:["指定成員"],relative:[10165,10166]}],board:[["W","W","W","L","L","L","F","F","F","D","D","D","E","E","E","H","H","H","-","-","-","-","-","-","-","-","-","-","-","-"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2022.10"},{id:10166,name:"流火祈夢 ‧ 英格麗",attribute:"火",race:"人類",star:6,monsterTag:["堅毅氣魄"],crossOver:!1,specialImage:!0,skill:[{name:"伊影玲瓏",type:"normal",charge:"CD",num:6,description:`
 				I. 火、暗、心符石首批 2 粒相連
 				⇒ 即可發動消除
@@ -35618,7 +35618,7 @@ function print() { __p += __j.call(arguments, '') }
 				V. 回合結束時，上述兩者
 				⇒ 進入 2 回合疲憊狀態
 				`,tag:[["限制成員攻擊",2],["無視追擊零化",2],["無視減傷抗性",2],["一消",2],["火屬追打",2],["暗屬追打",2],["自身追打",2],["疲憊狀態",2],["我方減攻",2]]}],teamSkill:[{description:`
-				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD-2
+				◆「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」進場 CD -2
 				`,activate:"以「救世主 ‧ 以諾」及「流火祈夢 ‧ 英格麗」作成員",skill_tag:["進場減CD"],activate_tag:["指定成員"],relative:[10165,10166]},{description:`
 				◆「流火祈夢 ‧ 英格麗」進場 CD -6
 				
@@ -47615,7 +47615,7 @@ function print() { __p += __j.call(arguments, '') }
 				<meff>【龍咬閃】</meff>
 				▋ 所受傷害減至 0 (包括「喋血屠刀」等扣除召喚師指定 % 生命力的敵技所造成的傷害)
 				▋ 若受到敵人攻擊
-				⇒ 自身技能 CD-3
+				⇒ 自身技能 CD -3
 				▋ 回合結束時
 				⇒ 減少 50% 當前生命力
 				`,tag:["增加Combo","增傷","界王拳","水屬追打","火屬追打","木屬追打","光屬追打","暗屬追打","五屬追打","自身追打","無視攻前盾","無視反首消盾","限制成員攻擊","解除暴風","解除射擊","引爆","直行引爆","引爆強制掉落","強制掉火","人族符石製造","固定版面","移除","整版移除","移除強制掉落","強制掉心","無視五屬盾","暈擊敵方","無法行動","無屬追打","減傷","硬減傷","減CD","我方扣血","敵身狀態"]}],teamSkill:[{description:`
@@ -49243,7 +49243,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49343,7 +49343,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒「畫眉丸」攻擊力額外 2 倍
 				`,activate:"以「畫眉丸」作成員",skill_tag:["增攻","敵方受傷增加","暗屬追打","無視燃燒","無視灼熱地型"],activate_tag:[],relative:[10691]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49399,7 +49399,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 增加 15 連擊 (Combo)
 				`,activate:"以「山田淺右衛門佐切」作隊長，並以【地獄樂】成員作戰友",skill_tag:["延長轉珠時間","無視黏腐","無視瘴氣","我方減攻","增攻","進場減CD","水兼具其他","火兼具其他","木兼具其他","光兼具其他","暗兼具其他","心兼具其他","符石兼具水","符石兼具火","符石兼具木","符石兼具光","符石兼具暗","符石兼具心","符石效果提升","符石轉木","符石轉木強化","人族符石製造","固定版面","無視攻前盾","無視反首消盾","增加Combo"],activate_tag:["指定隊長戰友"],relative:[10692,"地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49466,7 +49466,7 @@ function print() { __p += __j.call(arguments, '') }
 				▋「固定連擊盾」
 				`,activate:"以「亞左弔兵衛」作隊長，並以【死刑犯】作戰友",skill_tag:["延長轉珠時間","增血","增攻","增回","水兼具其他","火兼具其他","木兼具其他","光兼具其他","暗兼具其他","心兼具其他","符石兼具光","符石兼具暗","符石兼具心","無視一步一傷","電擊符石處理","強制掉落","人族符石製造","亢奮狀態","二消","增加Combo","引爆","無視二屬盾","無視三屬盾","無視四屬盾","無視五屬盾","無視固定連擊盾"],activate_tag:["指定隊長戰友"],relative:[10693,"死刑犯"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49497,7 +49497,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49527,7 +49527,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49594,7 +49594,7 @@ function print() { __p += __j.call(arguments, '') }
 				▋「連擊相等盾」
 				`,activate:"以「山田淺右衛門士遠」作隊長，並以【斬首行刑者】角色作成員",skill_tag:["延長轉珠時間","增血","增攻","增回","進場減CD","無視燃燒","防漆黑","符石強化","人族符石製造","水兼具其他","火兼具其他","木兼具其他","光兼具其他","暗兼具其他","心兼具其他","符石兼具火","符石兼具木","符石兼具心","三消","移除","強制掉落","增加Combo","無視五屬盾","無視連擊相等盾"],activate_tag:["指定隊長戰友"],relative:[10696,"斬首行刑者"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49624,7 +49624,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49651,7 +49651,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49681,7 +49681,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49713,7 +49713,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49880,7 +49880,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒「首消組數屬性符石盾」
 				`,activate:"以「杠」作隊長及戰友",skill_tag:["延長轉珠時間","無視黏腐","無視燃燒","無視瘴氣","防毒","電擊符石處理","凍結符石處理","弱化符石處理","化血符石處理","石化符石處理","凝結符石處理","符石強化","人族符石製造","無視一步一傷","無視拼圖盾","無視固定連擊盾","水兼具其他","火兼具其他","木兼具其他","光兼具其他","暗兼具其他","心兼具其他","符石兼具水","符石兼具火","符石兼具木","符石兼具光","符石兼具暗","符石兼具心","無視開技扣血","增攻","無視首消組數屬性盾"],activate_tag:["指定雙隊長"],relative:[10701]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49906,7 +49906,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49936,7 +49936,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -49964,7 +49964,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -50000,7 +50000,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -50045,7 +50045,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -50084,7 +50084,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -50175,7 +50175,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -50243,7 +50243,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -50261,7 +50261,7 @@ function print() { __p += __j.call(arguments, '') }
 				(需消耗龍脈儀使用次數 1 次)
 				`,activate:"以【地獄樂】角色作隊長",skill_tag:["龍脈儀能力"],activate_tag:["指定隊長"],relative:["地獄樂"]},{description:`
 				◆「杠」及「山田淺右衛門仙汰」
-				⇒ 進場技能 CD-8
+				⇒ 進場技能 CD -8
 
 				◆「山田淺右衛門仙汰」
 				⇒ 轉換為暗屬性
@@ -51994,7 +51994,7 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 無視「黏腐」、「燃燒」
 
 				◆ 光屬性人類成員
-				⇒ 進場技能 CD-7
+				⇒ 進場技能 CD -7
 
 				◆ 所有符石兼具光符石效果
 
@@ -60617,7 +60617,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓵ 全隊無視「% 防禦盾」
 				⓶ 增加 10 連擊 (Ex. Combo、Combo)
 				⓷ 每回合結束時
-				⇒ 自身技能 CD-2
+				⇒ 自身技能 CD -2
 				`,tag:["我方扣血","無視開技扣血",["界王拳",2],["增傷",2],["無視拼圖盾",2],["無視全首消盾",2],["無視%數盾",2],["增加Ex.Combo",2],["增加Combo",2],["減CD",2]]},{name:"愛的回聲",type:"normal",charge:"CD",num:4,description:`
 				1 回合內
 				I. 吸收本回合敵人所有『攻擊傷害、「喋血屠刀」等扣除召喚師指定 % 生命力的敵技所造成的傷害』
