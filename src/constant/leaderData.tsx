@@ -1,4 +1,4 @@
-// Last modified : 2026.06.11 17:38
+// Last modified : 2026.06.12 21:30
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -608,7 +608,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': '增攻',
+				'name': ['Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -1254,7 +1254,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': '增攻',
+				'name': ['Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -3038,7 +3038,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': '增攻',
+				'name': ['Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -4640,6 +4640,11 @@ export const leaderSkillData: IObject[] = [
 		隊伍中只有龍類隊員時：連擊 (Combo) 時攻擊力提升 125%
 		`,
 		'tag': [
+			{
+				'name': 'Combo時增攻',
+				'object': [],
+				'limit': ['成員種族']
+			},
 			{
 				'name': '增攻',
 				'object': ['龍'],
@@ -7513,7 +7518,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': ['成員種族']
 			},
 			{
-				'name': '延長轉珠時間',
+				'name': ['延長轉珠時間', 'Combo時增攻'],
 				'object': [],
 				'limit': ['成員種族']
 			}
@@ -12937,7 +12942,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': '增攻',
+				'name': ['Combo時增攻', '增攻'],
 				'object': [],
 				'limit': ['特定成員']
 			},
@@ -15181,7 +15186,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': '延長轉珠時間',
+				'name': ['延長轉珠時間', 'Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			},
@@ -15212,7 +15217,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': '延長轉珠時間',
+				'name': ['延長轉珠時間', 'Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			},
@@ -18204,7 +18209,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': ['延長轉珠時間', '增血', '增攻', '增回'],
+				'name': ['延長轉珠時間', '增血', '增攻', '增回', 'Combo時增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -18958,7 +18963,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': ['心兼具其他', '符石兼具水', '增攻'],
+				'name': ['心兼具其他', '符石兼具水', 'Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -18980,7 +18985,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': ['心兼具其他', '符石兼具火', '增攻'],
+				'name': ['心兼具其他', '符石兼具火', 'Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -19002,7 +19007,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': ['心兼具其他', '符石兼具木', '增攻'],
+				'name': ['心兼具其他', '符石兼具木', 'Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -19024,7 +19029,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': ['心兼具其他', '符石兼具光', '增攻'],
+				'name': ['心兼具其他', '符石兼具光', 'Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -19046,7 +19051,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': ['心兼具其他', '符石兼具暗', '增攻'],
+				'name': ['心兼具其他', '符石兼具暗', 'Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -19073,7 +19078,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': ['消除特定符石']
 			},
 			{
-				'name': '增攻',
+				'name': ['Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -22817,9 +22822,9 @@ export const leaderSkillData: IObject[] = [
 				'limit': ['成員種族']
 			},
 			{
-				'name': '增攻',
+				'name': ['Combo時增攻', '增攻'],
 				'object': [],
-				'limit': []
+				'limit': ['成員種族']
 			},
 			{
 				'name': ['延長轉珠時間', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗'],
@@ -24521,7 +24526,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': ['增攻', '火兼具其他', '符石兼具水', '符石兼具木', '符石兼具光', '符石兼具暗', '符石兼具心'],
+				'name': ['Combo時增攻', '增攻', '火兼具其他', '符石兼具水', '符石兼具木', '符石兼具光', '符石兼具暗', '符石兼具心'],
 				'object': [],
 				'limit': []
 			}
@@ -24773,7 +24778,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': '增攻',
+				'name': ['Combo時增攻', '增攻'],
 				'object': [],
 				'limit': []
 			}
@@ -26842,7 +26847,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': ['增攻', '增血', '增回', '延長轉珠時間'],
+				'name': ['增攻', '增血', '增回', '延長轉珠時間', 'Combo時增攻'],
 				'object': [],
 				'limit': []
 			},
@@ -28784,7 +28789,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': ['增攻', '增血', '增回'],
+				'name': ['增攻', '增血', '增回', 'Combo時增攻'],
 				'object': [],
 				'limit': ['特定成員', '成員數量']
 			},
@@ -29469,7 +29474,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': []
 			},
 			{
-				'name': ['延長轉珠時間', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '符石兼具心'],
+				'name': ['延長轉珠時間', 'Combo時增攻', '增攻', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '符石兼具心'],
 				'object': [],
 				'limit': []
 			},
@@ -29852,7 +29857,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': ['增攻', '增血', '增回', '無視連擊相等盾', '延長轉珠時間'],
+				'name': ['增攻', '增血', '增回', '無視連擊相等盾', '延長轉珠時間', 'Combo時增攻'],
 				'object': [],
 				'limit': []
 			},
@@ -33444,7 +33449,7 @@ export const leaderSkillData: IObject[] = [
 				'limit': ['特定成員', '成員種族']
 			},
 			{
-				'name': '延長轉珠時間',
+				'name': ['Combo時增攻', '增攻', '延長轉珠時間'],
 				'object': [],
 				'limit': ['特定成員', '成員種族']
 			},
@@ -36377,7 +36382,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': ['增攻', '增血', '增回'],
+				'name': ['增攻', '增血', '增回', 'Combo時增攻'],
 				'object': [],
 				'limit': []
 			},
@@ -38983,7 +38988,7 @@ export const leaderSkillData: IObject[] = [
 		`,
 		'tag': [
 			{
-				'name': ['增攻', '增血', '增回'],
+				'name': ['增攻', '增血', '增回', 'Combo時增攻'],
 				'object': [],
 				'limit': []
 			},
@@ -39063,7 +39068,7 @@ export const leaderSkillData: IObject[] = [
 		'changedSkill': true,
 		'tag': [
 			{
-				'name': ['增攻', '增血', '增回', '符石效果提升'],
+				'name': ['增攻', '增血', '增回', '符石效果提升', 'Combo時增攻'],
 				'object': [],
 				'limit': []
 			},
