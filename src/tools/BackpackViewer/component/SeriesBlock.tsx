@@ -36,6 +36,7 @@ const showFirstStageAsEmptyPreview = [
     "魔法學習之路",
     "無限升級",
     "未知的轉折點",
+    "魔法實技測驗",
 ]
 const showFinalStageEvenNotExist = [
     "強力武裝",
