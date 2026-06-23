@@ -464,6 +464,10 @@ export const descriptionTranslator = (
                   /集結攻擊/g,
                   `<span class='desc-note-label-11 desc-linking-label'>集結攻擊</span>`,
               )
+              .replace(
+                  /(「?魔力」?符石)/g,
+                  `<span class='desc-note-label-12 desc-linking-label'>$1</span>`,
+              )
         : (description || "")
               ?.replace(/\n[^\S\n]*/g, "<br>")
               ?.replace(/^<br>/, "")

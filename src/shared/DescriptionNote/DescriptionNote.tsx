@@ -113,6 +113,21 @@ const DescriptionNote: React.FC = () => {
                         <br />⓷ 被會集成員攻擊力變為 0
                     </span>
                 )
+            case 12:
+                return (
+                    <span className='desc-note-label'>
+                        ⓵「移動及消除符石」期間外
+                        <br />⇒
+                        解除魔力符石所在直行及橫行位置的「連環光牢」及「暴風」
+                        <br />⓶ 每消除 1 粒魔力符石
+                        <br />⇒ 增加 3 連擊 (Combo)
+                        <br />⓷ 消除屬性魔力符石
+                        <br />⇒ 該屬性成員攻擊力 2 倍
+                        <br />⓸ 消除心魔力符石
+                        <br />⇒ 完全回復生命力
+                        <br />⓹ 魔力符石於召喚師死亡後消失
+                    </span>
+                )
             default:
                 return <></>
         }
