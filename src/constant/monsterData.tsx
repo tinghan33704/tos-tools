@@ -1,4 +1,4 @@
-// Last modified : 2026.06.23 11:34
+// Last modified : 2026.06.24 14:03
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -228259,7 +228259,7 @@ export const monsterData: IObject[] = [
 				'activate': `以「安潔莉娜 ‧ 庫都 ‧ 希爾茲」或「Stars總隊長 ‧ 安吉 ‧ 天狼星」作隊長，並以【魔法科高中的劣等生】角色作戰友`,
 				'skill_tag': ['增攻', '無視燃燒', '無視黏腐', '無視黑洞', '無視拼圖盾', '無視攻前盾', '延長轉珠時間', '增加Ex.Combo', '增加Combo', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '護盾', '移除', '符石強化', '人族符石製造'],
 				'activate_tag': ['指定隊長戰友'],
-				'relative': [11202, '魔法科高中的劣等生']
+				'relative': [11202, 11217, '魔法科高中的劣等生']
 			},
 			{
 				'description': `
@@ -228269,8 +228269,8 @@ export const monsterData: IObject[] = [
 				`,
 				'activate': `以「安潔莉娜 ‧ 庫都 ‧ 希爾茲」或「Stars總隊長 ‧ 安吉 ‧ 天狼星」作成員`,
 				'skill_tag': ['無視灼熱地型', '無視一步一傷'],
-				'activate_tag': ['指定成員'],
-				'relative': [11202]
+				'activate_tag': [],
+				'relative': [11202, 11217]
 			},
 			{
 				'description': `
@@ -228284,8 +228284,8 @@ export const monsterData: IObject[] = [
 				`,
 				'activate': `以「安潔莉娜 ‧ 庫都 ‧ 希爾茲」或「Stars總隊長 ‧ 安吉 ‧ 天狼星」作成員`,
 				'skill_tag': ['增攻'],
-				'activate_tag': ['指定成員'],
-				'relative': [11202]
+				'activate_tag': [],
+				'relative': [11202, 11217]
 			},
 			{
 				'description': `
@@ -228408,7 +228408,7 @@ export const monsterData: IObject[] = [
 				'activate': `以「七草真由美」及「十文字克人」作成員`,
 				'skill_tag': ['增攻', '增回', '增血'],
 				'activate_tag': ['指定成員'],
-				'relative': [11203]
+				'relative': [11203, 11216]
 			},
 			{
 				'description': `
@@ -229555,7 +229555,7 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11216,
-        'name': '',
+        'name': '十文字克人',
         'attribute': '',
         'race': '',
         'star': 0,
@@ -229574,6 +229574,18 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [
+			{
+				'description': `
+				◆「七草真由美」及「十文字克人」「三圍」基值 1.7 倍
+				
+				◆ 進場時
+				⇒「十文字克人」技能 CD -6
+				`,
+				'activate': `以「七草真由美」及「十文字克人」作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '進場減CD'],
+				'activate_tag': ['指定成員'],
+				'relative': [11203, 11216]
+			},
 			{
 				'description': `
 				◆ 消除【魔法科高中的劣等生】成員屬性符石
@@ -229608,7 +229620,7 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11217,
-        'name': '',
+        'name': 'Stars總隊長 ‧ 安吉 ‧ 天狼星',
         'attribute': '',
         'race': '',
         'star': 0,
@@ -229626,7 +229638,63 @@ export const monsterData: IObject[] = [
                 'tag': []
             }
         ],
+        
         'teamSkill': [
+			{
+				'description': `
+				◆ 隊伍成員
+				⓵ 攻擊力 6 倍
+				⓶ 無視「燃燒」、「黏腐」及「黑洞」
+
+				◆【魔法科高中的劣等生】成員無視「指定形狀盾」及「攻前盾」
+
+				◆ 移動符石時間必延 6 秒
+
+				◆ 增加 12 連擊 (Ex. Combo、Combo)
+
+				◆ 所有符石兼具 100%【魔法科高中的劣等生】成員屬性符石效果
+
+				◆ 獲得 70 萬點「護盾 ‧ 抵」
+
+				◆ 首批消除所有火符石
+				⇒ 移除光符石及暗符石，直至場上沒有該符石
+				⇒ 掉落火符石
+
+				◆ 移動符石時
+				⓵ 將觸碰的符石轉化為強化符石
+				⓶ 將觸碰的符石添加為人類符石
+				`,
+				'activate': `以「安潔莉娜 ‧ 庫都 ‧ 希爾茲」或「Stars總隊長 ‧ 安吉 ‧ 天狼星」作隊長，並以【魔法科高中的劣等生】角色作戰友`,
+				'skill_tag': ['增攻', '無視燃燒', '無視黏腐', '無視黑洞', '無視拼圖盾', '無視攻前盾', '延長轉珠時間', '增加Ex.Combo', '增加Combo', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '護盾', '移除', '符石強化', '人族符石製造'],
+				'activate_tag': ['指定隊長戰友'],
+				'relative': [11202, 11217, '魔法科高中的劣等生']
+			},
+			{
+				'description': `
+				◆「灼熱地型」傷害轉化為生命力
+				
+				◆「一步一傷」傷害減至 1
+				`,
+				'activate': `以「安潔莉娜 ‧ 庫都 ‧ 希爾茲」或「Stars總隊長 ‧ 安吉 ‧ 天狼星」作成員`,
+				'skill_tag': ['無視灼熱地型', '無視一步一傷'],
+				'activate_tag': [],
+				'relative': [11202, 11217]
+			},
+			{
+				'description': `
+				◆ 能夠獲得「爆除蓄能」(上限 90)
+				
+				◆「爆除蓄能」每持有 1
+				⇒「安潔莉娜 ‧ 庫都 ‧ 希爾茲」及「Stars總隊長 ‧ 安吉 ‧ 天狼星」攻擊力增加 0.05 倍
+
+				◆ 每引爆或移除 1 粒符石
+				⇒「爆除蓄能」+1
+				`,
+				'activate': `以「安潔莉娜 ‧ 庫都 ‧ 希爾茲」或「Stars總隊長 ‧ 安吉 ‧ 天狼星」作成員`,
+				'skill_tag': ['增攻'],
+				'activate_tag': [],
+				'relative': [11202, 11217]
+			},
 			{
 				'description': `
 				◆ 消除【魔法科高中的劣等生】成員屬性符石
@@ -229655,8 +229723,8 @@ export const monsterData: IObject[] = [
 			}
 		],
         'maxLevel': 99,
-        'maxSkill': 0,
-        'maxRefine': 0,
+        'maxSkill': 12,
+        'maxRefine': 4,
         'version': 'v2026.40'
     },
     {
