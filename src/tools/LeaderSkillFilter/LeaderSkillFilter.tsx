@@ -50,6 +50,7 @@ interface ILeaderSkillFilterProps {}
 const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
     const [selectedFunctions, setSelectedFunctions] = useState<string[]>([])
+    const [excludedFunctions, setExcludedFunctions] = useState<string[]>([])
     const [selectedTags, setSelectedTags] = useState<string[]>([])
     const [selectedAttributes, setSelectedAttributes] = useState<string[]>([])
     const [selectedRaces, setSelectedRaces] = useState<string[]>([])
@@ -114,6 +115,9 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         if (!_.isEmpty(params)) {
             setSelectedFunctions(
                 decodeMapping(leaderSkillFunctionString, params?.search),
+            )
+            setExcludedFunctions(
+                decodeMapping(leaderSkillFunctionString, params?.exc),
             )
             setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
             setSelectedRaces(decodeMapping(raceTypeString, params?.race))
@@ -250,10 +254,20 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         [activateObj, objectiveObj, toggleValue, typeMap],
     )
 
+    const excludeButton = useCallback(
+        (_type: string, text: string, value: boolean) => {
+            setExcludedFunctions((prev) =>
+                value ? [...prev, text] : prev.filter((item) => item !== text),
+            )
+        },
+        [],
+    )
+
     const resetButton = useCallback(
         (type: string) => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
+            if (type === "functions") setExcludedFunctions([])
         },
         [typeMap],
     )
@@ -269,14 +283,17 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         const keywordArr: string[] = checkKeyword(keyword)
         const aliasArr = addAlias(selectedFunctions, keywordArr)
         const functionArr = [...new Set([...selectedFunctions, ...aliasArr])]
+        const excludedFunctionArr = [...new Set([...excludedFunctions])]
 
-        const isFunctionSelected = !!selectedFunctions.length
+        const isFunctionSelected = !!(
+            selectedFunctions.length + excludedFunctions.length
+        )
         const isTagSelected = !!selectedTags.length
         const isAttrSelected = !!selectedAttributes.length
         const isRaceSelected = !!selectedRaces.length
         const isStarSelected = !!selectedStars.length
 
-        let result: IObject[] = []
+        const result: IObject[] = []
 
         for (const skill of leaderSkillData) {
             const tagArr = skill?.tag || []
@@ -431,6 +448,26 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                             }
                         }
                     }
+
+                    if (!isSkillMatch) {
+                        const skillArr = _.uniq(
+                            tagArr
+                                .map((tag: IObject) =>
+                                    Array.isArray(tag?.name)
+                                        ? tag?.name
+                                        : [tag?.name],
+                                )
+                                .flat(),
+                        )
+
+                        if (
+                            _.intersection(excludedFunctionArr, skillArr)
+                                .length < excludedFunctionArr.length
+                        ) {
+                            isSkillMatch = true
+                        }
+                    }
+
                     if (!isSkillMatch && !keywordArr.length) continue
 
                     // Check for keywords
@@ -655,6 +692,25 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         }
                     }
 
+                    if (isSkillMatch) {
+                        const skillArr = _.uniq(
+                            tagArr
+                                .map((tag: IObject) =>
+                                    Array.isArray(tag?.name)
+                                        ? tag?.name
+                                        : [tag?.name],
+                                )
+                                .flat(),
+                        )
+
+                        if (
+                            _.intersection(excludedFunctionArr, skillArr)
+                                .length !== 0
+                        ) {
+                            isSkillMatch = false
+                        }
+                    }
+
                     if (!isSkillMatch) continue
 
                     // Check for keywords
@@ -798,6 +854,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
         const searchParam = {
             functions: selectedFunctions,
+            excludeFunctions: excludedFunctions,
             keyword: textSanitizer(keyword).length ? keyword.split(",") : [],
             attribute: selectedAttributes,
             race: selectedRaces,
@@ -808,6 +865,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
         setUrlParams({
             search: encodeMapping(leaderSkillFunctionString, selectedFunctions),
+            exc: encodeMapping(leaderSkillFunctionString, excludedFunctions),
             attr: encodeMapping(attrTypeString, selectedAttributes),
             race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
@@ -827,6 +885,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
     }, [
         activateObj,
         andOr,
+        excludedFunctions,
         keyword,
         loadingParams,
         objectiveObj,
@@ -888,6 +947,8 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                         data={leaderSkillFunctionString}
                         selectedData={selectedFunctions}
                         toggleButton={toggleButton}
+                        excludeData={excludedFunctions}
+                        excludeButton={excludeButton}
                         resetButton={resetButton}
                         enableSearch
                         showSkillIcon={showSkillIcon}

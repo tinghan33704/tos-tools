@@ -1,6 +1,9 @@
 import React, { useCallback } from "react"
 import _ from "lodash"
 import { Col, Row } from "react-bootstrap"
+import { faXmark } from "@fortawesome/free-solid-svg-icons"
+
+import Icon from "src/utilities/Icon"
 
 import "./style.scss"
 
@@ -12,6 +15,7 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
     const { searchParam } = props
     const {
         functions,
+        excludeFunctions,
         keyword,
         tag,
         attribute,
@@ -27,6 +31,7 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
 
     const renderTag = useCallback(
         (type: string, text: string, subText: string = "") => {
+            const isExcluded = type === "excluded-function"
             return (
                 <Col xs={6} sm={3} className='tag-wrapper'>
                     <div
@@ -39,11 +44,14 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
                         {subText && (
                             <span className='tag-subtext'>({subText})</span>
                         )}
+                        {isExcluded && (
+                            <Icon icon={faXmark} className='excluded-icon' />
+                        )}
                     </div>
                 </Col>
             )
         },
-        []
+        [],
     )
 
     return (
@@ -52,25 +60,28 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
                 ? Object.entries(functions).map((item: any[]) => {
                       if (item?.[1]?.length) {
                           return item?.[1]?.map((dur: string) =>
-                              renderTag("function", item[0], dur)
+                              renderTag("function", item[0], dur),
                           )
                       } else {
                           return renderTag("function", item[0])
                       }
                   })
                 : functions?.map((item: string) => renderTag("function", item))}
+            {excludeFunctions?.map((item: string) =>
+                renderTag("excluded-function", item),
+            )}
             {skillFunctions?.map((item: string) =>
-                renderTag("skill-function", item)
+                renderTag("skill-function", item),
             )}
             {armedFunctions?.map((item: string) =>
-                renderTag("armed-function", item)
+                renderTag("armed-function", item),
             )}
             {keyword?.map((item: string) => renderTag("keyword", item))}
             {mode?.map((item: string) => renderTag("mode", item))}
             {activate?.map((item: string) => renderTag("activate", item))}
             {tag?.map((item: string) => renderTag("tag", item))}
             {attribute?.map((item: string) =>
-                renderTag("attribute", `${item}屬性`)
+                renderTag("attribute", `${item}屬性`),
             )}
             {race?.map((item: string) => renderTag("race", item))}
             {star?.map((item: string) => renderTag("star", item))}

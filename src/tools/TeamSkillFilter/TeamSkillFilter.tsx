@@ -37,6 +37,7 @@ interface ITeamSkillFilterProps {}
 const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
     const [selectedFunctions, setSelectedFunctions] = useState<string[]>([])
+    const [excludedFunctions, setExcludedFunctions] = useState<string[]>([])
     const [selectedActivate, setSelectedActivate] = useState<string[]>([])
     const [selectedAttributes, setSelectedAttributes] = useState<string[]>([])
     const [selectedRaces, setSelectedRaces] = useState<string[]>([])
@@ -95,6 +96,9 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             setSelectedFunctions(
                 decodeMapping(teamSkillFunctionString, params?.search),
             )
+            setExcludedFunctions(
+                decodeMapping(teamSkillFunctionString, params?.exc),
+            )
             setSelectedActivate(
                 decodeMapping(teamSkillActivateString, params?.act),
             )
@@ -136,10 +140,20 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
         [toggleValue, typeMap],
     )
 
+    const excludeButton = useCallback(
+        (_type: string, text: string, value: boolean) => {
+            setExcludedFunctions((prev) =>
+                value ? [...prev, text] : prev.filter((item) => item !== text),
+            )
+        },
+        [],
+    )
+
     const resetButton = useCallback(
         (type: string) => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
+            if (type === "functions") setExcludedFunctions([])
         },
         [typeMap],
     )
@@ -154,9 +168,14 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
     const startFilter = useCallback(() => {
         const keywordArr: string[] = checkKeyword(keyword)
         const aliasArr = addAlias(selectedFunctions, keywordArr)
-        const functionArr = [...new Set([...selectedFunctions, ...aliasArr])]
+        const selectedFunctionArr = [
+            ...new Set([...selectedFunctions, ...aliasArr]),
+        ]
+        const excludedFunctionArr = [...new Set([...excludedFunctions])]
 
-        const isFunctionSelected = !!selectedFunctions.length
+        const isFunctionSelected = !!(
+            selectedFunctions.length + excludedFunctions.length
+        )
         const isAttrSelected = !!selectedAttributes.length
         const isRaceSelected = !!selectedRaces.length
         const isStarSelected = !!selectedStars.length
@@ -196,7 +215,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         // Check for skill tags
                         let isSkillMatch = false
 
-                        for (const selectedFunction of functionArr) {
+                        for (const selectedFunction of selectedFunctionArr) {
                             if (
                                 monsterSkill.skill_tag.includes(
                                     selectedFunction,
@@ -204,6 +223,19 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                             ) {
                                 isSkillMatch = true
                                 break
+                            }
+                        }
+
+                        if (!isSkillMatch) {
+                            const monsterSkillArr = monsterSkill.skill_tag
+
+                            if (
+                                _.intersection(
+                                    excludedFunctionArr,
+                                    monsterSkillArr,
+                                ).length < excludedFunctionArr.length
+                            ) {
+                                isSkillMatch = true
                             }
                         }
 
@@ -231,7 +263,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         // Check for skill tags
                         let isSkillMatch = true
 
-                        for (const selectedFunction of functionArr) {
+                        for (const selectedFunction of selectedFunctionArr) {
                             if (
                                 !monsterSkill.skill_tag.includes(
                                     selectedFunction,
@@ -239,6 +271,19 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                             ) {
                                 isSkillMatch = false
                                 break
+                            }
+                        }
+
+                        if (isSkillMatch) {
+                            const monsterSkillArr = monsterSkill.skill_tag
+
+                            if (
+                                _.intersection(
+                                    excludedFunctionArr,
+                                    monsterSkillArr,
+                                ).length !== 0
+                            ) {
+                                isSkillMatch = false
                             }
                         }
 
@@ -308,6 +353,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
         const searchParam = {
             functions: selectedFunctions,
+            excludeFunctions: excludedFunctions,
             keyword: textSanitizer(keyword).length ? keyword.split(",") : [],
             activate: selectedActivate,
             attribute: selectedAttributes,
@@ -318,6 +364,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
         setUrlParams({
             search: encodeMapping(teamSkillFunctionString, selectedFunctions),
+            exc: encodeMapping(teamSkillFunctionString, excludedFunctions),
             act: encodeMapping(teamSkillActivateString, selectedActivate),
             attr: encodeMapping(attrTypeString, selectedAttributes),
             race: encodeMapping(raceTypeString, selectedRaces),
@@ -336,6 +383,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
         setLoadingParams(false)
     }, [
         andOr,
+        excludedFunctions,
         keyword,
         loadingParams,
         selectedActivate,
@@ -381,6 +429,8 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         data={teamSkillFunctionString}
                         selectedData={selectedFunctions}
                         toggleButton={toggleButton}
+                        excludeData={excludedFunctions}
+                        excludeButton={excludeButton}
                         resetButton={resetButton}
                         enableSearch
                         showSkillIcon={showSkillIcon}

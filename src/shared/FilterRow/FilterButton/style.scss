@@ -62,6 +62,24 @@
         }
     }
 
+    &.excluded {
+        .btn-input[type="checkbox"] + label.btn {
+            background-color: var(--filter-btn-red-bg);
+            color: var(--text-white);
+            font-weight: bold;
+
+            .excluded-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 2.5em;
+                color: rgba(255, 255, 255, 0.3);
+                pointer-events: none;
+            }
+        }
+    }
+
     .btn-icon {
         height: 1em;
         margin-right: 0.4rem;

@@ -22,6 +22,7 @@ $--filter-btn-checked-green-bg: --filter-btn-checked-green-bg;
 $--filter-btn-checked-orange-bg: --filter-btn-checked-orange-bg;
 $--filter-btn-checked-purple-bg: --filter-btn-checked-purple-bg;
 $--filter-btn-checked-cyan-bg: --filter-btn-checked-cyan-bg;
+$--filter-btn-red-bg: --filter-btn-red-bg;
 $--filter-btn-border: --filter-btn-border;
 $--filter-btn-bg: --filter-btn-bg;
 
@@ -89,6 +90,7 @@ $theme-light: (
     $--filter-btn-checked-orange-bg: rgb(242, 129, 0),
     $--filter-btn-checked-purple-bg: rgb(107, 0, 152),
     $--filter-btn-checked-cyan-bg: rgb(0, 148, 206),
+    $--filter-btn-red-bg: rgb(200, 50, 50),
     $--filter-btn-border: black,
     $--filter-btn-bg: transparent,
 
@@ -156,6 +158,7 @@ $theme-dark: (
     $--filter-btn-checked-orange-bg: rgba(242, 129, 0, 0.4),
     $--filter-btn-checked-purple-bg: rgb(107, 0, 152, 0.6),
     $--filter-btn-checked-cyan-bg: rgb(0, 148, 206, 0.6),
+    $--filter-btn-red-bg: rgba(200, 50, 50, 0.6),
     $--filter-btn-border: #aaaaaa,
     $--filter-btn-bg: transparent,
 

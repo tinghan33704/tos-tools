@@ -55,6 +55,7 @@ interface ISkillFilterProps {}
 const SkillFilter: React.FC<ISkillFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
     const [selectedFunctions, setSelectedFunctions] = useState<string[]>([])
+    const [excludedFunctions, setExcludedFunctions] = useState<string[]>([])
     const [selectedTags, setSelectedTags] = useState<string[]>([])
     const [selectedAttributes, setSelectedAttributes] = useState<string[]>([])
     const [selectedRaces, setSelectedRaces] = useState<string[]>([])
@@ -132,6 +133,11 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                 params?.search,
             )
             setSelectedFunctions(selectedFunction)
+            const excludedFunction = decodeMapping(
+                skillFunctionString,
+                params?.exc,
+            )
+            setExcludedFunctions(excludedFunction)
             setSelectedAttributes(decodeMapping(attrTypeString, params?.attr))
             setSelectedRaces(decodeMapping(raceTypeString, params?.race))
             setSelectedStars(
@@ -242,10 +248,20 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
         [durationObj, toggleValue, typeMap],
     )
 
+    const excludeButton = useCallback(
+        (_type: string, text: string, value: boolean) => {
+            setExcludedFunctions((prev) =>
+                value ? [...prev, text] : prev.filter((item) => item !== text),
+            )
+        },
+        [],
+    )
+
     const resetButton = useCallback(
         (type: string) => {
             const typeAction = typeMap?.[type]
             typeAction[1]([])
+            if (type === "functions") setExcludedFunctions([])
         },
         [typeMap],
     )
@@ -260,9 +276,14 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
     const startFilter = useCallback(() => {
         const keywordArr: string[] = checkKeyword(keyword)
         const aliasArr = addAlias(selectedFunctions, keywordArr)
-        const functionArr = [...new Set([...selectedFunctions, ...aliasArr])]
+        const selectedFunctionArr = [
+            ...new Set([...selectedFunctions, ...aliasArr]),
+        ]
+        const excludedFunctionArr = [...new Set([...excludedFunctions])]
 
-        const isFunctionSelected = !!selectedFunctions.length
+        const isFunctionSelected = !!(
+            selectedFunctions.length + excludedFunctions.length
+        )
         const isTagSelected = !!selectedTags.length
         const isAttrSelected = !!selectedAttributes.length
         const isRaceSelected = !!selectedRaces.length
@@ -336,8 +357,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                     // Check for skill tags
 
-                    let isMonsterMatch = functionArr.every(
-                        (selectedFunction) => {
+                    let isMonsterMatch =
+                        selectedFunctionArr.every((selectedFunction) => {
                             if (selectedFunction in durationObj) {
                                 return allSkillTags.some(
                                     (tag: (string | number)[] | string) => {
@@ -377,8 +398,14 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                         tag?.[0] === selectedFunction,
                                 )
                             }
-                        },
-                    )
+                        }) &&
+                        excludedFunctionArr.every((excludedFunction) =>
+                            allSkillTags.every(
+                                (tag: (string | number)[] | string) =>
+                                    tag !== excludedFunction &&
+                                    tag?.[0] !== excludedFunction,
+                            ),
+                        )
                     if (!isMonsterMatch) continue
 
                     // Check for keywords
@@ -401,9 +428,9 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                     ] of monster.skill.entries()) {
                         let isMatch = false
 
-                        for (const selectedFunction of functionArr) {
+                        for (const selectedFunction of selectedFunctionArr) {
                             if (
-                                (selectedFunction in durationObj &&
+                                ((selectedFunction in durationObj &&
                                     monsterSkill.tag.some(
                                         (tag: (string | number)[] | string) => {
                                             return (
@@ -439,12 +466,23 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                             )
                                         },
                                     )) ||
-                                (!(selectedFunction in durationObj) &&
-                                    monsterSkill.tag.some(
+                                    (!(selectedFunction in durationObj) &&
+                                        monsterSkill.tag.some(
+                                            (
+                                                tag:
+                                                    | (string | number)[]
+                                                    | string,
+                                            ) =>
+                                                tag === selectedFunction ||
+                                                tag?.[0] === selectedFunction,
+                                        ))) &&
+                                excludedFunctionArr.every((excludedFunction) =>
+                                    allSkillTags.every(
                                         (tag: (string | number)[] | string) =>
-                                            tag === selectedFunction ||
-                                            tag?.[0] === selectedFunction,
-                                    ))
+                                            tag !== excludedFunction &&
+                                            tag?.[0] !== excludedFunction,
+                                    ),
+                                )
                             ) {
                                 const charge =
                                     "reduce" in monsterSkill
@@ -511,7 +549,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                             // Check for skill tags
                             let isSkillMatch = false
 
-                            for (const selectedFunction of functionArr) {
+                            for (const selectedFunction of selectedFunctionArr) {
                                 let isTagChecked = false
 
                                 for (const tag of monsterSkill.tag) {
@@ -595,6 +633,22 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                 }
                             }
 
+                            if (!isSkillMatch) {
+                                const monsterSkillArr = monsterSkill.tag?.map(
+                                    (tag: string | [string, number]) =>
+                                        Array.isArray(tag) ? tag?.[0] : tag,
+                                )
+
+                                if (
+                                    _.intersection(
+                                        excludedFunctionArr,
+                                        monsterSkillArr,
+                                    ).length < excludedFunctionArr.length
+                                ) {
+                                    isSkillMatch = true
+                                }
+                            }
+
                             if (!isSkillMatch && !keywordArr.length) continue
 
                             // Check for keywords
@@ -619,7 +673,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                             // Check for skill tags
                             let isSkillMatch = true
 
-                            for (const selectedFunction of functionArr) {
+                            for (const selectedFunction of selectedFunctionArr) {
                                 let isTagChecked = false
                                 for (const tag of monsterSkill.tag) {
                                     if (Array.isArray(tag)) {
@@ -703,6 +757,22 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                                 }
 
                                 if (!isTagChecked) {
+                                    isSkillMatch = false
+                                }
+                            }
+
+                            if (isSkillMatch) {
+                                const monsterSkillArr = monsterSkill.tag?.map(
+                                    (tag: string | [string, number]) =>
+                                        Array.isArray(tag) ? tag?.[0] : tag,
+                                )
+
+                                if (
+                                    _.intersection(
+                                        excludedFunctionArr,
+                                        monsterSkillArr,
+                                    ).length !== 0
+                                ) {
                                     isSkillMatch = false
                                 }
                             }
@@ -846,6 +916,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                     [cur]: cur in durationObj ? durationObj[cur] : [],
                 }
             }, []),
+            excludeFunctions: excludedFunctions,
             keyword: textSanitizer(keyword).length ? keyword.split(",") : [],
             attribute: selectedAttributes,
             race: selectedRaces,
@@ -858,6 +929,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
         setUrlParams({
             search: encodeMapping(skillFunctionString, selectedFunctions),
+            exc: encodeMapping(skillFunctionString, excludedFunctions),
             attr: encodeMapping(attrTypeString, selectedAttributes),
             race: encodeMapping(raceTypeString, selectedRaces),
             star: encodeMapping(
@@ -899,6 +971,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
     }, [
         andOr,
         durationObj,
+        excludedFunctions,
         keyword,
         loadingParams,
         selectedAttributes,
@@ -965,6 +1038,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                         data={skillFunctionString}
                         selectedData={selectedFunctions}
                         toggleButton={toggleButton}
+                        excludeData={excludedFunctions}
+                        excludeButton={excludeButton}
                         resetButton={resetButton}
                         enableSearch
                         showSkillIcon={showSkillIcon}

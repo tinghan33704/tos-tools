@@ -23,12 +23,14 @@ export interface IFilterRowProps {
     type: string
     data: (string | string[])[]
     selectedData?: string[]
+    toggleButton?: (type: string, text: string, value: boolean) => void
+    excludeData?: string[]
+    excludeButton?: (type: string, text: string, value: boolean) => void
     btnSuffix?: string
     collapsible?: boolean
     defaultOpen?: boolean
     hideReset?: boolean
     enableSearch?: boolean
-    toggleButton?: (type: string, text: string, value: boolean) => void
     resetButton?: (type: string) => void
     showSkillIcon?: boolean
 }
@@ -45,6 +47,8 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
         hideReset,
         selectedData = [],
         toggleButton,
+        excludeData = [],
+        excludeButton,
         resetButton,
         showSkillIcon,
     } = props
@@ -66,6 +70,8 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
                 useLazyLoad={collapsible}
                 selectedData={selectedData}
                 toggleButton={toggleButton}
+                excludeData={excludeData}
+                excludeButton={excludeButton}
                 showSkillIcon={showSkillIcon}
                 {...(collapsible ? { isCollapseOpen } : {})}
                 {...(enableSearch ? { searchText } : {})}
@@ -76,6 +82,8 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
         collapsible,
         data,
         enableSearch,
+        excludeButton,
+        excludeData,
         isCollapseOpen,
         searchText,
         selectedData,

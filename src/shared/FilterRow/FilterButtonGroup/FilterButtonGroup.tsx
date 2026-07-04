@@ -16,6 +16,8 @@ export interface IFilterButtonGroupProps {
     searchText?: string
     selectedData?: string[]
     toggleButton?: (type: string, text: string, value: boolean) => void
+    excludeData?: string[]
+    excludeButton?: (type: string, text: string, value: boolean) => void
     showSkillIcon?: boolean
 }
 
@@ -28,6 +30,8 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
         searchText = "",
         selectedData = [],
         toggleButton,
+        excludeData = [],
+        excludeButton,
         showSkillIcon,
     } = props
 
@@ -93,6 +97,8 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                                 key={`${type}_${data}`}
                                                 selectedData={selectedData}
                                                 toggleButton={toggleButton}
+                                                excludeData={excludeData}
+                                                excludeButton={excludeButton}
                                                 showSkillIcon={showSkillIcon}
                                             />
                                         )
@@ -116,6 +122,8 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                                             key={`${type}_${data}`}
                                             selectedData={selectedData}
                                             toggleButton={toggleButton}
+                                            excludeData={excludeData}
+                                            excludeButton={excludeButton}
                                             showSkillIcon={showSkillIcon}
                                         />
                                     )
@@ -133,6 +141,8 @@ const FilterButtonGroup: React.FC<IFilterButtonGroupProps> = (props) => {
                             key={`${type}_${group}`}
                             selectedData={selectedData}
                             toggleButton={toggleButton}
+                            excludeData={excludeData}
+                            excludeButton={excludeButton}
                             showSkillIcon={showSkillIcon}
                         />
                     )

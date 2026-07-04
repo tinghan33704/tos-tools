@@ -87,7 +87,7 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                         {func}
                     </Col>
                     <Col xs={12} md={12} lg={8}>
-                        <Row>
+                        <Row className='filter-rows'>
                             {!leaderSkillTypeNoObject.includes(func) && (
                                 <Col
                                     xs={12}
@@ -107,32 +107,31 @@ const ObjectiveModal: React.FC<IObjectiveModalProps> = (props) => {
                                             </Accordion.Header>
                                             <Accordion.Body>
                                                 <Row>
-                                                    {[" ", ...attrTypeStr].map(
-                                                        (attr) => (
-                                                            <Col
-                                                                className='objective-text'
-                                                                xs={2}
-                                                                onClick={() =>
-                                                                    attr !== " "
-                                                                        ? toggleObjective(
-                                                                              func,
-                                                                              attr,
-                                                                              "",
-                                                                              true,
-                                                                          )
-                                                                        : null
-                                                                }
-                                                            >
-                                                                {attr}
-                                                            </Col>
-                                                        ),
-                                                    )}
+                                                    <Col xs={2}></Col>
+                                                    {attrTypeStr.map((attr) => (
+                                                        <Col
+                                                            className='objective-text objective-select-all'
+                                                            xs={2}
+                                                            onClick={() =>
+                                                                attr !== " "
+                                                                    ? toggleObjective(
+                                                                          func,
+                                                                          attr,
+                                                                          "",
+                                                                          true,
+                                                                      )
+                                                                    : null
+                                                            }
+                                                        >
+                                                            {attr}
+                                                        </Col>
+                                                    ))}
                                                 </Row>
                                                 {raceTypeStr.map(
                                                     (race, race_index) => (
                                                         <Row>
                                                             <Col
-                                                                className='objective-text'
+                                                                className='objective-text objective-select-all'
                                                                 xs={2}
                                                                 onClick={() =>
                                                                     toggleObjective(
