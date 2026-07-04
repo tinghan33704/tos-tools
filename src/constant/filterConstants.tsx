@@ -100,7 +100,7 @@ export const leaderSkillFunctionString: string[][] = [
 /* prettier-ignore */
 export const leaderSkillTypeNoObject: string[] = ['符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉心', '符石轉水強化', '符石轉火強化', '符石轉木強化', '符石轉光強化', '符石轉暗強化', '符石轉心強化', '人族符石製造', '獸族符石製造', '妖族符石製造', '龍族符石製造', '神族符石製造', '魔族符石製造', '機械族符石製造', '符石強化', '引爆', '符石兼具水', '符石兼具火', '符石兼具木', '符石兼具光', '符石兼具暗', '符石兼具心', '水兼具其他', '火兼具其他', '木兼具其他', '光兼具其他', '暗兼具其他', '心兼具其他', '減傷', '意志', '迴避', '回血', '敵方傷害吸收', '直傷', '反擊', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '符石效果提升', '強化珠效果提升', '二消', '三消', '四消', '三十消', '只能首消符石', '增加Combo', '增加Ex.Combo', '延長轉珠時間', '單體轉全體', 'Combo時增攻', '敵方中毒', '物品掉落增加', '減少轉珠時間', '我方扣血', '我方受傷增加', '總血量減少']
 
-export const leaderSkillObjectString: string[] = ['自身', '特定成員']
+export const leaderSkillObjectString: string[] = ["自身", "特定成員"]
 
 /* prettier-ignore */
 export const leaderSkillLimitString: string[] = ['無', '我方血量', '敵方血量', '我方回復力', '單體攻擊', '全體攻擊', '消除符石', '消除特定符石', '不消除特定符石', '消除強化符石', '消除種族符石', '發動角色符石', '消除角色符石', '不消除角色符石', '消除數量', '消除種類數量', '消除一組數量', '消除組數', '消除特定位置', '消除特定形狀', '成員屬性', '成員屬性數量', '成員種族', '成員種族數量', '成員稀有度', '成員數量', '特定成員', '特定隊長', '特定戰友', '回合上限', 'Combo數量', 'Ex.Combo數量', '轉珠時間', '移動步數', '特定符石起手', '特定符石放手', '特定位置起手', '含附加效果', '含合體成員', '不含重複成員', '沒有隊員', '版面分布', '成員行動值', '龍脈儀能量', '受到攻擊', '攻擊屬性數量', '發動技能', '引爆符石', '擊斃敵人']
@@ -1565,9 +1565,12 @@ export const uidMaxLength = 11
 export const veriMaxLength = 6
 export const lastUpdateExpiration = 14 * 24 * 60 * 60 * 1000
 
-export const skillFilterNotification = "新功能：長按或右鍵功能按鈕以反向選取，用以排除所選的功能"
-export const teamSkillFilterNotification = "新功能：長按或右鍵功能按鈕以反向選取，用以排除所選的功能"
-export const leaderSkillFilterNotification = "新功能：長按或右鍵功能按鈕以反向選取，用以排除所選的功能"
+export const skillFilterNotification =
+    "新功能：長按或右鍵功能按鈕以<span style='color: red;'>反向選取</span>，用以排除所選的功能。<a href='https://www.facebook.com/permalink.php?story_fbid=pfbid0uZrGgH1bAga8T5juQYLr6BsPsUKKFg5NwmMfDPyqaqk3Z27ZKKnapYGTsddStRgUl&id=100070781094266' target='_blank'>貼文</a>"
+export const teamSkillFilterNotification =
+    "新功能：長按或右鍵功能按鈕以<span style='color: red;'>反向選取</span>，用以排除所選的功能。<a href='https://www.facebook.com/permalink.php?story_fbid=pfbid0uZrGgH1bAga8T5juQYLr6BsPsUKKFg5NwmMfDPyqaqk3Z27ZKKnapYGTsddStRgUl&id=100070781094266' target='_blank'>貼文</a>"
+export const leaderSkillFilterNotification =
+    "新功能：長按或右鍵功能按鈕以<span style='color: red;'>反向選取</span>，用以排除所選的功能。<a href='https://www.facebook.com/permalink.php?story_fbid=pfbid0uZrGgH1bAga8T5juQYLr6BsPsUKKFg5NwmMfDPyqaqk3Z27ZKKnapYGTsddStRgUl&id=100070781094266' target='_blank'>貼文</a>"
 export const craftFilterNotification = ""
 export const craftSelectorNotification = ""
 export const monsterSelectorNotification = ""
