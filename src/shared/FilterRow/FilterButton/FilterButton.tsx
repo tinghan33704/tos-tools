@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { useEffect, useMemo, useRef } from "react"
 import { Col } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
@@ -95,7 +95,29 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
 
     const buttonId = useMemo(() => `${group}-${index}`, [group, index])
 
+    const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const isLongPress = useRef(false)
+
+    useEffect(() => {
+        return () => {
+            if (longPressTimer.current) clearTimeout(longPressTimer.current)
+        }
+    }, [])
+
+    const triggerExclude = () => {
+        if (!excludeButton) return
+        if (buttonChecked) {
+            toggleButton?.(group, text, false)
+        } else {
+            excludeButton(group, text, !buttonExcluded)
+        }
+    }
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (isLongPress.current) {
+            isLongPress.current = false
+            return
+        }
         if (callback) {
             callback(e)
         } else if (buttonExcluded) {
@@ -108,10 +130,23 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
     const handleContextMenu = (e: React.MouseEvent) => {
         e.preventDefault()
         if (!excludeButton) return
-        if (buttonChecked) {
-            toggleButton?.(group, text, false)
-        } else {
-            excludeButton(group, text, !buttonExcluded)
+        isLongPress.current = true
+        triggerExclude()
+    }
+
+    const handlePointerDown = (e: React.PointerEvent) => {
+        if (!excludeButton || e.button === 2) return
+        isLongPress.current = false
+        longPressTimer.current = setTimeout(() => {
+            isLongPress.current = true
+            triggerExclude()
+        }, 500)
+    }
+
+    const handlePointerUp = () => {
+        if (longPressTimer.current) {
+            clearTimeout(longPressTimer.current)
+            longPressTimer.current = null
         }
     }
 
@@ -124,6 +159,10 @@ const FilterButton: React.FC<IFilterButtonProps> = (props) => {
             title={`${text}${suffix}`}
             key={`${text}${suffix}`}
             onContextMenu={handleContextMenu}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerLeave={handlePointerUp}
+            onPointerCancel={handlePointerUp}
         >
             <input
                 type='checkbox'
