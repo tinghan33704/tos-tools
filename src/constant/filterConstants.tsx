@@ -1565,9 +1565,9 @@ export const uidMaxLength = 11
 export const veriMaxLength = 6
 export const lastUpdateExpiration = 14 * 24 * 60 * 60 * 1000
 
-export const skillFilterNotification = ""
-export const teamSkillFilterNotification = ""
-export const leaderSkillFilterNotification = ""
+export const skillFilterNotification = "新功能：長按或右鍵功能按鈕以反向選取，用以排除所選的功能"
+export const teamSkillFilterNotification = "新功能：長按或右鍵功能按鈕以反向選取，用以排除所選的功能"
+export const leaderSkillFilterNotification = "新功能：長按或右鍵功能按鈕以反向選取，用以排除所選的功能"
 export const craftFilterNotification = ""
 export const craftSelectorNotification = ""
 export const monsterSelectorNotification = ""
