@@ -128,6 +128,19 @@ const DescriptionNote: React.FC = () => {
                         <br />⓹ 魔力符石於召喚師死亡後消失
                     </span>
                 )
+            case 13:
+                return (
+                    <span className='desc-note-label'>
+                        ⓵ 進場及每進入下一層數 (Wave)
+                        <br />⇒ 秘法重置為可發動狀態
+                        <br />⓶ 移動符石後，點擊秘技角色頭像
+                        <br />⇒ 以發動秘法
+                        <br />⓷ 每個角色的秘法
+                        <br />⇒ 每層最多觸發 1 次
+                        <br />⓸ 發動秘法的回合
+                        <br />⇒ 不能發動龍刻脈動
+                    </span>
+                )
             default:
                 return <></>
         }

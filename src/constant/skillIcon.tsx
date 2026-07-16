@@ -336,6 +336,7 @@ export const skillIconMapping: IObject = {
     無視陽之氣: ["yang_energy"],
     無視炎之氣: ["fire_energy"],
     無視雷之氣: ["thunder_energy"],
+	無視脈流: ["flow"],
     解除迷霧: ["mist"],
     物品掉落增加: ["coin"],
 

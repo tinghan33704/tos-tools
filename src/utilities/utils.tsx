@@ -468,6 +468,10 @@ export const descriptionTranslator = (
                   /(「?魔力」?符石)/g,
                   `<span class='desc-note-label-12 desc-linking-label'>$1</span>`,
               )
+              .replace(
+                  /(「秘法」)/g,
+                  `「<span class='desc-note-label-13 desc-linking-label'>秘法</span>」`,
+              )
         : (description || "")
               ?.replace(/\n[^\S\n]*/g, "<br>")
               ?.replace(/^<br>/, "")
