@@ -1,4 +1,4 @@
-// Last modified : 2026.07.17 01:13
+// Last modified : 2026.07.17 07:47
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -221762,7 +221762,7 @@ export const monsterData: IObject[] = [
 				'activate': `以「悠久繽紛 ‧ 烏瑞亞」作成員`,
 				'skill_tag': ['增攻', '增回', '增血', '增加Ex.Combo', '增加Combo', '其他減CD', '進場減CD'],
 				'activate_tag': [],
-				'relative': [11129]
+				'relative': [11130]
 			}
 		],
 		'board': [
