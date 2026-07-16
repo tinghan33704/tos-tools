@@ -67735,7 +67735,7 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 進場時
 				⇒ 神族成員技能 CD -2
-				`,activate:"以「悠久繽紛 ‧ 烏瑞亞」作成員",skill_tag:["增攻","增回","增血","增加Ex.Combo","增加Combo","其他減CD","進場減CD"],activate_tag:[],relative:[11129]}],board:[["Eg","Eg","Eg","Eg","Eg","Eg","Eg","Wg","Fg","Lg","Dg","Hg","Eg","Wg","Fg","Lg","Dg","Hg","Eg","Wg","Fg","Lg","Dg","Hg","Eg","Eg","Eg","Eg","Eg","Eg"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.11"},{id:11131,name:"開運祝舞 ‧ 夏彥",attribute:"水",race:"魔族",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"福舞生輝",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「悠久繽紛 ‧ 烏瑞亞」作成員",skill_tag:["增攻","增回","增血","增加Ex.Combo","增加Combo","其他減CD","進場減CD"],activate_tag:[],relative:[11130]}],board:[["Eg","Eg","Eg","Eg","Eg","Eg","Eg","Wg","Fg","Lg","Dg","Hg","Eg","Wg","Fg","Lg","Dg","Hg","Eg","Wg","Fg","Lg","Dg","Hg","Eg","Eg","Eg","Eg","Eg","Eg"]],maxLevel:99,maxSkill:12,maxRefine:0,version:"v2026.11"},{id:11131,name:"開運祝舞 ‧ 夏彥",attribute:"水",race:"魔族",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"福舞生輝",type:"normal",charge:"CD",num:5,description:`
 				I. 此技能無視「開技消耗代價」
 				II. 解除「亡命爆擊」
 				III. <board>將所有符石轉化為固定版面符石 (水屬性及心強化符石)</board>
