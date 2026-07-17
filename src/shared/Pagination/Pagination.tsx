@@ -24,7 +24,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
         currentPage,
         totalPages,
         onPageChange,
-        boundaryCount = isMobile ? 2 : 3,
+        boundaryCount = isMobile ? 1 : 3,
     } = props
 
     const [inputValue, setInputValue] = useState<string>(String(currentPage))
@@ -93,11 +93,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
             {pageItems.map((item) =>
                 item === "input" ? (
                     <>
-                        {!isMobile ? (
-                            <Icon icon={faEllipsis} className='ellipsis' />
-                        ) : (
-                            <></>
-                        )}
+                        <Icon icon={faEllipsis} className='ellipsis' />
                         <input
                             key='page-input'
                             className='page-input'
@@ -114,11 +110,7 @@ const Pagination: React.FC<IPaginationProps> = (props) => {
                             onKeyDown={onInputKeyDown}
                             aria-label='輸入頁碼'
                         />
-                        {!isMobile ? (
-                            <Icon icon={faEllipsis} className='ellipsis' />
-                        ) : (
-                            <></>
-                        )}
+                        <Icon icon={faEllipsis} className='ellipsis' />
                     </>
                 ) : (
                     <button
