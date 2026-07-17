@@ -284,57 +284,6 @@
                 }
             }
         }
-
-        .filter-display {
-            height: 100%;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .filter-row {
-                display: flex;
-                align-items: center;
-
-                .filter-btn {
-                    border: 1px #777777 solid;
-                    background-color: rgba(120, 120, 120, 0.3);
-                    border-radius: 5px;
-                    width: 36px;
-                    height: 36px;
-                    min-width: 36px;
-                    padding: 5px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-
-                    &.filtered {
-                        background-color: rgba(255, 255, 255, 0.8);
-                        filter: invert(1);
-                    }
-                }
-
-                .filter-icons {
-                    margin-left: 2px;
-
-                    img {
-                        width: 36px;
-                        height: 36px;
-                        padding: 2px;
-                    }
-                }
-            }
-
-            .card-count {
-                font-size: 1.2em;
-                text-align: end;
-
-                @include max576 {
-                    text-align: center;
-                }
-            }
-        }
     }
 
     &-row {
@@ -342,6 +291,8 @@
 
         &-shell {
             margin-top: 10px !important;
+            padding-bottom: 10px;
+            border-bottom: 1px #777777 solid;
         }
     }
 
@@ -372,6 +323,59 @@
         }
         &.middle {
             border-radius: 5px;
+        }
+    }
+}
+
+.filter-display {
+    height: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px #777777 solid;
+
+    .filter-row {
+        display: flex;
+        align-items: center;
+
+        .filter-btn {
+            border: 1px #777777 solid;
+            background-color: rgba(120, 120, 120, 0.3);
+            border-radius: 5px;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            &.filtered {
+                background-color: rgba(255, 255, 255, 0.8);
+                filter: invert(1);
+            }
+        }
+
+        .filter-icons {
+            margin-left: 2px;
+
+            img {
+                width: 36px;
+                height: 36px;
+                padding: 2px;
+            }
+        }
+    }
+
+    .card-count {
+        font-size: 1.2em;
+        text-align: end;
+
+        @include max576 {
+            text-align: center;
         }
     }
 }

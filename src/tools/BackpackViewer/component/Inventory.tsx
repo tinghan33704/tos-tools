@@ -1,19 +1,7 @@
 import _ from "lodash"
-import React, {
-    useEffect,
-    useState,
-    useMemo,
-    useCallback,
-    useContext,
-} from "react"
+import React, { useEffect, useState, useCallback, useContext } from "react"
 import { Col, Row } from "react-bootstrap"
-import {
-    faBackward,
-    faCaretLeft,
-    faCaretRight,
-    faForward,
-    faFilter,
-} from "@fortawesome/free-solid-svg-icons"
+import { faFilter } from "@fortawesome/free-solid-svg-icons"
 
 import DataContext from "src/utilities/Context/DataContext"
 
@@ -31,6 +19,7 @@ import {
     orderByCategories,
     sortByCategories,
 } from "src/shared/InventoryFilterModal/InventoryFilterModal"
+import Pagination from "src/shared/Pagination"
 import MonsterImage from "./MonsterImage"
 
 import "./style.scss"
@@ -50,9 +39,9 @@ const Inventory: React.FC<IInventoryProps> = ({
 
     const [cards, setCards] = useState<IObject[]>(playerData?.wholeData || [])
     const [filteredCards, setFilteredCards] = useState<IObject[]>(
-        playerData?.wholeData || []
+        playerData?.wholeData || [],
     )
-    const [currentPage, setCurrentPage] = useState(0)
+    const [currentPage, setCurrentPage] = useState(1)
     const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
     const [filters, setFilters] = useState<IObject>({
         sortBy:
@@ -62,41 +51,32 @@ const Inventory: React.FC<IInventoryProps> = ({
             Object.keys(orderByCategories)[0],
     })
 
-    const totalPage = useMemo(
-        () => Math.ceil(filteredCards.length / PAGE_SIZE),
-        [filteredCards]
-    )
-
     useEffect(() => {
         setCards(
             playerData?.wholeData?.sort(
-                (a: IObject, b: IObject) => b?.acquiredAt - a?.acquiredAt
-            ) || []
+                (a: IObject, b: IObject) => b?.acquiredAt - a?.acquiredAt,
+            ) || [],
         )
     }, [playerData])
-
-    useEffect(() => {
-        if (currentPage >= totalPage) setCurrentPage(totalPage - 1)
-    }, [currentPage, totalPage])
 
     useEffect(() => {
         const _cards = cards
             .filter((card) =>
                 filters?.attribute?.length
                     ? filters?.attribute.includes(
-                          getMonsterById(card?.id)?.attribute
+                          getMonsterById(card?.id)?.attribute,
                       )
-                    : true
+                    : true,
             )
             .filter((card) =>
                 filters?.race?.length
                     ? filters?.race.includes(getMonsterById(card?.id)?.race)
-                    : true
+                    : true,
             )
             .filter((card) =>
                 filters?.star?.length
                     ? filters?.star.includes(getMonsterById(card?.id)?.star)
-                    : true
+                    : true,
             )
             .filter((card) =>
                 filters?.keyword?.length
@@ -104,10 +84,10 @@ const Inventory: React.FC<IInventoryProps> = ({
                           (word) =>
                               getMonsterById(card?.id)?.name?.includes(word) ||
                               getMonsterById(card?.id)?.monsterTag.some(
-                                  (tag: string) => tag?.includes(word)
-                              )
+                                  (tag: string) => tag?.includes(word),
+                              ),
                       )
-                    : true
+                    : true,
             )
 
         const { sortBy, orderBy } = filters
@@ -175,10 +155,10 @@ const Inventory: React.FC<IInventoryProps> = ({
                             ? a?.acquiredAt - b?.acquiredAt
                             : b?.acquiredAt - a?.acquiredAt
                 }
-            })
+            }),
         )
 
-        setCurrentPage(0)
+        setCurrentPage(1)
     }, [cards, filters, playerData])
 
     const renderMonsterInfoPopover = useCallback((card: IObject) => {
@@ -276,26 +256,25 @@ const Inventory: React.FC<IInventoryProps> = ({
             togglePopover(e)
             setPopoverContent(renderMonsterInfoPopover(card))
         },
-        [renderMonsterInfoPopover, setPopoverContent, togglePopover]
+        [renderMonsterInfoPopover, setPopoverContent, togglePopover],
     )
 
-    const movePage = useCallback(
-        (offset: number) => {
-            const newPage = currentPage + offset
+    const onChangePage = useCallback(
+        (page: number) => {
             setCurrentPage(
-                newPage >= totalPage - 1
-                    ? totalPage - 1
-                    : newPage < 0
-                    ? 0
-                    : newPage
+                page < 1
+                    ? 1
+                    : page > filteredCards.length
+                      ? filteredCards.length
+                      : page,
             )
         },
-        [currentPage, totalPage]
+        [filteredCards.length],
     )
 
     const renderFilter = useCallback(() => {
         const isFiltered = ["attribute", "race", "star", "keyword"].some(
-            (key) => key in filters && filters[key].length
+            (key) => key in filters && filters[key].length,
         )
 
         return (
@@ -336,75 +315,20 @@ const Inventory: React.FC<IInventoryProps> = ({
         )
     }, [filters])
 
-    const renderHeader = useCallback(() => {
-        return (
-            <div className='inventory-header'>
-                <Row className='pagination'>
-                    <Col xs={2} sm={2} md={1}>
-                        {currentPage > 0 && (
-                            <div
-                                className='inventory-pagination left'
-                                onClick={() => movePage(-10)}
-                            >
-                                <Icon icon={faBackward} />
-                            </div>
-                        )}
-                    </Col>
-                    <Col xs={8} sm={8} md={10} className='page-count'>
-                        <div>
-                            <span className='current-page'>
-                                {currentPage + 1}
-                            </span>{" "}
-                            / {totalPage}
-                        </div>
-                    </Col>
-                    <Col xs={2} sm={2} md={1}>
-                        {currentPage < totalPage - 1 && (
-                            <div
-                                className='inventory-pagination right'
-                                onClick={() => movePage(10)}
-                            >
-                                <Icon icon={faForward} />
-                            </div>
-                        )}
-                    </Col>
-                </Row>
-                <Row className='filter-display'>
-                    <Col sm={9} xs={12}>
-                        {renderFilter()}
-                    </Col>
-                    <Col sm={3} xs={12} className='card-count'>
-                        {filteredCards.length} 張卡片
-                    </Col>
-                </Row>
-            </div>
-        )
-    }, [currentPage, filteredCards, movePage, renderFilter, totalPage])
-
     const renderCards = useCallback(() => {
         const itemInRow = window.innerWidth <= 768 ? 5 : 10
 
         const cardRow = _.chunk(
             filteredCards.slice(
+                (currentPage - 1) * PAGE_SIZE,
                 currentPage * PAGE_SIZE,
-                (currentPage + 1) * PAGE_SIZE
             ),
-            itemInRow
+            itemInRow,
         )
 
         return (
             <Row className='inventory-row-shell'>
-                <Col xs={2} sm={2} md={1}>
-                    {currentPage > 0 && (
-                        <div
-                            className='inventory-pagination left'
-                            onClick={() => movePage(-1)}
-                        >
-                            <Icon icon={faCaretLeft} />
-                        </div>
-                    )}
-                </Col>
-                <Col xs={8} sm={8} md={10}>
+                <Col sm={12}>
                     {cardRow.map((row) => {
                         if (row.length < itemInRow) {
                             row = [...row, ...new Array(itemInRow - row.length)]
@@ -433,30 +357,25 @@ const Inventory: React.FC<IInventoryProps> = ({
                         )
                     })}
                 </Col>
-                <Col xs={2} sm={2} md={1}>
-                    {currentPage < totalPage - 1 && (
-                        <div
-                            className='inventory-pagination right'
-                            onClick={() => movePage(1)}
-                        >
-                            <Icon icon={faCaretRight} />
-                        </div>
-                    )}
-                </Col>
             </Row>
         )
-    }, [
-        currentPage,
-        filteredCards,
-        movePage,
-        onClickImage,
-        playerData,
-        totalPage,
-    ])
+    }, [currentPage, filteredCards, onClickImage, playerData])
 
     return (
         <>
-            {renderHeader()}
+            <Pagination
+                currentPage={currentPage}
+                totalPages={Math.ceil(filteredCards.length / PAGE_SIZE)}
+                onPageChange={onChangePage}
+            />
+            <Row className='filter-display'>
+                <Col sm={9} xs={12}>
+                    {renderFilter()}
+                </Col>
+                <Col sm={3} xs={12} className='card-count'>
+                    {filteredCards.length} 張卡片
+                </Col>
+            </Row>
             {renderCards()}
             <InventoryFilterModal
                 open={isFilterModalOpen}
@@ -466,13 +385,18 @@ const Inventory: React.FC<IInventoryProps> = ({
                     setFilters(filters)
                     localStorage.setItem(
                         "SORT_BY",
-                        filters?.sortBy || Object.keys(sortByCategories)[0]
+                        filters?.sortBy || Object.keys(sortByCategories)[0],
                     )
                     localStorage.setItem(
                         "ORDER_BY",
-                        filters?.orderBy || Object.keys(orderByCategories)[0]
+                        filters?.orderBy || Object.keys(orderByCategories)[0],
                     )
                 }}
+            />
+            <Pagination
+                currentPage={currentPage}
+                totalPages={Math.ceil(filteredCards.length / PAGE_SIZE)}
+                onPageChange={onChangePage}
             />
         </>
     )

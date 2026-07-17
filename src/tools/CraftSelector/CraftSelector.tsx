@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import { Col, Form, Row, Table } from "react-bootstrap"
 import _ from "lodash"
-import {
-    faBackward,
-    faCaretLeft,
-    faCaretRight,
-    faCheck,
-    faForward,
-    faLightbulb,
-} from "@fortawesome/free-solid-svg-icons"
+import { faCheck, faLightbulb } from "@fortawesome/free-solid-svg-icons"
 
 import {
     craftModeTypeString,
@@ -29,6 +22,7 @@ import PageContainer from "src/shared/PageContainer"
 import ResultRow from "src/shared/ResultRow"
 import { ResultCraftImage } from "src/shared/ResultRow/ResultImage"
 import InputModal from "src/shared/InputModal"
+import Pagination from "src/shared/Pagination"
 
 import "./style.scss"
 
@@ -45,7 +39,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
 
     const [craftDataByName, setCraftDataByName] = useState<IObject>({})
     const [craftPureName, setCraftPureName] = useState<Set<string>>(new Set())
-    const [currentPage, setCurrentPage] = useState(0)
+    const [currentPage, setCurrentPage] = useState(1)
     const [keyword, setKeyword] = useState<string>("")
     const [keywordArr, setKeywordArr] = useState<string[]>([])
 
@@ -58,11 +52,6 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                 ),
         )
     }, [craftPureName, keywordArr])
-
-    const totalPage = useMemo(
-        () => Math.ceil(filteredCraftPureName.length / PAGE_SIZE),
-        [filteredCraftPureName],
-    )
 
     const resultRef = useRef<HTMLDivElement>(null)
 
@@ -189,86 +178,22 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
         [selectedCrafts],
     )
 
-    const movePage = useCallback(
-        (offset: number) => {
-            const newPage = currentPage + offset
+    const onChangePage = useCallback(
+        (page: number) => {
             setCurrentPage(
-                newPage >= totalPage - 1
-                    ? totalPage - 1
-                    : newPage < 0
-                      ? 0
-                      : newPage,
+                page < 1
+                    ? 1
+                    : page > filteredCraftPureName.length
+                      ? filteredCraftPureName.length
+                      : page,
             )
         },
-        [currentPage, totalPage],
+        [filteredCraftPureName.length],
     )
-
-    const renderHeader = useCallback(() => {
-        return (
-            <div className='inventory-header craft-selector-header'>
-                <Row className='pagination'>
-                    <Col xs={2} sm={2} md={1} className='page-btn'>
-                        {currentPage > 0 && (
-                            <div
-                                className='inventory-pagination left'
-                                onClick={() => movePage(-10)}
-                            >
-                                <Icon icon={faBackward} />
-                            </div>
-                        )}
-                    </Col>
-                    <Col xs={2} sm={2} md={2} className='page-btn'>
-                        {currentPage > 0 && (
-                            <div
-                                className='inventory-pagination middle'
-                                onClick={() => movePage(-1)}
-                            >
-                                <Icon
-                                    icon={faCaretLeft}
-                                    style={{ fontSize: "1.2em" }}
-                                />
-                            </div>
-                        )}
-                    </Col>
-                    <Col xs={4} sm={4} md={6} className='page-count'>
-                        <div>
-                            <span className='current-page'>
-                                {currentPage + 1}
-                            </span>{" "}
-                            / {totalPage}
-                        </div>
-                    </Col>
-                    <Col xs={2} sm={2} md={2} className='page-btn'>
-                        {currentPage < totalPage - 1 && (
-                            <div
-                                className='inventory-pagination middle'
-                                onClick={() => movePage(1)}
-                            >
-                                <Icon
-                                    icon={faCaretRight}
-                                    style={{ fontSize: "1.2em" }}
-                                />
-                            </div>
-                        )}
-                    </Col>
-                    <Col xs={2} sm={2} md={1} className='page-btn'>
-                        {currentPage < totalPage - 1 && (
-                            <div
-                                className='inventory-pagination right'
-                                onClick={() => movePage(10)}
-                            >
-                                <Icon icon={faForward} />
-                            </div>
-                        )}
-                    </Col>
-                </Row>
-            </div>
-        )
-    }, [currentPage, movePage, totalPage])
 
     const onFilterKeyword = useCallback(() => {
         setKeywordArr(keyword.trim().replace(" ", "").split(","))
-        setCurrentPage(0)
+        setCurrentPage(1)
     }, [keyword])
 
     const onInputKeyPress = useCallback(
@@ -350,8 +275,8 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                             ) : (
                                 filteredCraftPureName
                                     .slice(
+                                        (currentPage - 1) * 10,
                                         currentPage * 10,
-                                        (currentPage + 1) * 10,
                                     )
                                     .map((name: string) => {
                                         const allCrafts = craftModeTypeString
@@ -625,8 +550,21 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
             <Header resetAll={resetAll} startFilter={startFilter} />
             <PageContainer openInputModal={openInputModal}>
                 <div className='craft-selector'>
-                    {renderHeader()}
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={Math.ceil(
+                            filteredCraftPureName.length / PAGE_SIZE,
+                        )}
+                        onPageChange={onChangePage}
+                    />
                     {renderTable()}
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={Math.ceil(
+                            filteredCraftPureName.length / PAGE_SIZE,
+                        )}
+                        onPageChange={onChangePage}
+                    />
                     <div ref={resultRef}>
                         {isAfterFilter ? (
                             <>
