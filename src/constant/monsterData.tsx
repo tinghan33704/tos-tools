@@ -1,4 +1,4 @@
-// Last modified : 2026.07.18 01:11
+// Last modified : 2026.07.18 18:17
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -230559,7 +230559,7 @@ export const monsterData: IObject[] = [
         'attribute': '水',
         'race': '妖精類',
         'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'monsterTag': ['十三巫誓', '魔女永夜 I'],
         'crossOver': false,
         'skill': [
             {
@@ -230625,7 +230625,7 @@ export const monsterData: IObject[] = [
         'attribute': '火',
         'race': '妖精類',
         'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'monsterTag': ['十三巫誓', '魔女永夜 I'],
         'crossOver': false,
         'skill': [
             {
@@ -230701,7 +230701,7 @@ export const monsterData: IObject[] = [
         'attribute': '木',
         'race': '神族',
         'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'monsterTag': ['十三巫誓', '魔女永夜 I'],
         'crossOver': false,
         'skill': [
             {
@@ -230836,7 +230836,7 @@ export const monsterData: IObject[] = [
         'attribute': '光',
         'race': '妖精類',
         'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'monsterTag': ['十三巫誓', '魔女永夜 I'],
         'crossOver': false,
         'skill': [
             {
@@ -230868,7 +230868,7 @@ export const monsterData: IObject[] = [
         'attribute': '暗',
         'race': '神族',
         'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'monsterTag': ['十三巫誓', '魔女永夜 I'],
         'crossOver': false,
         'skill': [
             {
@@ -231016,7 +231016,7 @@ export const monsterData: IObject[] = [
         'attribute': '木',
         'race': '神族',
         'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'monsterTag': ['十三巫誓', '魔女永夜 I'],
         'crossOver': false,
         'skill': [
             {
@@ -231048,27 +231048,25 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11233,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '掃帚精靈',
+        'attribute': '木',
+        'race': '強化素材',
+        'star': 6,
+        'monsterTag': ['素材'],
         'crossOver': false,
         'skill': [
-            {
-                'name': '',
-                'type': 'normal',
-                'charge': 'CD',
-                'num': 0,
-                'description': `
-
-                `,
-                'tag': []
-            }
+			{
+				'name': '沒有技能',
+				'type': 'normal',
+				'charge': 'CD',
+				'num': 0,
+				'description': `沒有技能`,
+				'tag': []
+			}
         ],
         'teamSkill': [],
         'maxLevel': 99,
-        'maxSkill': 12,
+        'maxSkill': 0,
         'maxRefine': 0,
         'version': 'v2026.41'
     },
@@ -231078,7 +231076,7 @@ export const monsterData: IObject[] = [
         'attribute': '火',
         'race': '神族',
         'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'monsterTag': ['十三巫誓', '錯位牌劫'],
         'crossOver': false,
         'skill': [
             {
@@ -231116,8 +231114,8 @@ export const monsterData: IObject[] = [
         'name': '提燈指迷 ‧ 安妮特',
         'attribute': '暗',
         'race': '神族',
-        'star': 6,
-        'monsterTag': ['十三巫誓'],
+        'star': 5,
+        'monsterTag': ['十三巫誓', '提燈指迷'],
         'crossOver': false,
         'skill': [
             {
