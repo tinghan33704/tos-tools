@@ -924,6 +924,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             tag: selectedTags,
             charge: selectedCharges,
             genre: selectedGenres,
+            andOr,
         }
         setCurrentSearchParam(searchParam)
 

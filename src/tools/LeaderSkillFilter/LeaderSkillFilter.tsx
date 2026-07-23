@@ -860,6 +860,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             race: selectedRaces,
             star: selectedStars,
             tag: selectedTags,
+            andOr,
         }
         setCurrentSearchParam(searchParam)
 

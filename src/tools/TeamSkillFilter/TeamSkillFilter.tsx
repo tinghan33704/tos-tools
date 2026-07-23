@@ -359,6 +359,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             attribute: selectedAttributes,
             race: selectedRaces,
             star: selectedStars,
+            andOr,
         }
         setCurrentSearchParam(searchParam)
 

@@ -131,7 +131,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                 decodeMapping(craftGenreTypeString, params?.genre),
             )
             setKeyword(unicodeToString(params?.keyword || ""))
-            setAndOr(["or", "and", "m-and"][+params?.or || 0])
+            setAndOr(["or", "and"][+params?.or || 0])
 
             setLoadingParams(true)
         }
@@ -469,6 +469,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             star: selectedStars,
             charge: selectedCharges,
             genre: selectedGenres,
+            andOr,
         }
         setCurrentSearchParam(searchParam)
 

@@ -443,22 +443,34 @@ const ResultRow: React.FC<IResultRowProps> = (props) => {
         )
     }, [noImagePopover, renderNoResult, resultData])
 
+    const renderAndOrTag = useCallback(() => {
+        const { andOr = "" } = searchParam
+        return andOr ? (
+            <div className={`and-or-tag ${andOr}-tag`}>
+                {andOr?.toUpperCase()}
+            </div>
+        ) : (
+            <></>
+        )
+    }, [searchParam])
+
     const renderUidTag = useCallback(() => {
         const uid = playerData?.uid || "---"
         return useInventory ? (
-            <Col xs={6} className='uid-tag'>
+            <Col xs={12} sm={6} className='uid-tag'>
                 UID: {uid}
             </Col>
         ) : (
-            <Col xs={6} />
+            <Col xs={12} sm={6} />
         )
     }, [playerData, useInventory])
 
     return (
         <>
             <Row className='result-row'>
-                <Col xs={6} className='result-row-title'>
+                <Col xs={12} sm={6} className='result-row-title'>
                     <h3>{title || "搜尋結果"}</h3>
+                    {renderAndOrTag()}
                 </Col>
                 {renderUidTag()}
             </Row>

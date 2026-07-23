@@ -185,6 +185,7 @@ export const skillIconMapping: IObject = {
     暴風牽制敵方: ["storm"],
     束縛敵方: ["chain"],
     威壓敵方: ["coercion"],
+    敵附異常: ["atk_deduction"],
     敵方轉水: ["water"],
     敵方轉火: ["fire"],
     敵方轉木: ["earth"],
