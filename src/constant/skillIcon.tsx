@@ -330,6 +330,7 @@ export const skillIconMapping: IObject = {
     崩壞值抗性: ["corrupt"],
     鏽化值抗性: ["rust"],
     無視縮時地型: ["time_reduction"],
+	無視防禦地型: ["target"],
     無視虛之印記: ["sombre_mark"],
     無視能力點消耗: ["trojan"],
     無視EP消耗代價: ["ep_cost_increase"],
