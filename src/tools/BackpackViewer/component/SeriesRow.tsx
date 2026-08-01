@@ -133,7 +133,10 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                     </Col>
                 </>
             )}
-            {Object.keys(sealContent[tab]).map((title, index) => {
+            {(tab === "獨立封印"
+                ? _.reverse(_.clone(Object.keys(sealContent[tab])))
+                : Object.keys(sealContent[tab])
+            ).map((title, index) => {
                 let _data: (number | number[])[] = []
 
                 sealContent[tab][title].forEach(
@@ -226,7 +229,7 @@ const SeriesRow: React.FC<ISeriesRowProps> = ({
                 }
 
                 return _data?.length ? (
-                    <Col xs={12} md={6} lg={6}>
+                    <Col sm={12} md={6} lg={6}>
                         <SeriesBlock
                             playerData={playerData}
                             title={title}

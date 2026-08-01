@@ -72,7 +72,7 @@ export const toolConfig: IObject = {
             古幣封印: ["sort", "backpack", "theme"],
             魔法石封印: ["sort", "backpack", "theme"],
             獨立封印: ["sort", "backpack", "theme"],
-            合作封印: ["sort", "backpack", "theme"],
+            合作系列: ["backpack", "theme"],
             其他卡片: ["sort", "category", "backpack", "theme"],
             完整背包: ["backpack", "theme"],
         },

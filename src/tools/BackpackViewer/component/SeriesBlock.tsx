@@ -3,6 +3,7 @@ import LazyLoad from "react-lazyload"
 import _ from "lodash"
 import { Accordion, Col, Row } from "react-bootstrap"
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"
+import { AutoTextSize } from "auto-text-size"
 
 import { paddingZeros } from "src/utilities/utils"
 import Image from "src/utilities/Image"
@@ -136,7 +137,12 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                 <span className='title-expander'>
                     <Icon icon={isOpen ? faCaretUp : faCaretDown} />
                 </span>
-                <div>{title}</div>
+                <div style={{ width: "70%" }}>
+                    <div className='title-text'>
+                        <AutoTextSize maxFontSizePx={24}>{title}</AutoTextSize>
+                    </div>
+                </div>
+
                 <span className='collect-progress'>{`${collected} / ${total}`}</span>
             </Accordion.Header>
         )
@@ -188,6 +194,7 @@ const SeriesBlock: React.FC<ISeriesBlockProps> = ({
                     return (
                         <Col
                             xs={3}
+                            sm={2}
                             md={3}
                             lg={2}
                             className='monster-series-block'

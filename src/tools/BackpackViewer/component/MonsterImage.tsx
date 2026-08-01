@@ -4,6 +4,7 @@ import { monsterData } from "src/constant/monsterData"
 import Image from "src/utilities/Image"
 
 import "./style.scss"
+import { AutoTextSize } from "auto-text-size"
 
 interface IMonsterImageProps {
     playerData: IObject
@@ -12,6 +13,7 @@ interface IMonsterImageProps {
     onClick: (e: React.MouseEvent) => void
     cardData?: IObject
     hideHadMonster?: boolean
+    hideInfo?: boolean
 }
 
 const MonsterImage: React.FC<IMonsterImageProps> = ({
@@ -21,6 +23,7 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
     onClick,
     cardData,
     hideHadMonster = false,
+    hideInfo = false,
 }) => {
     const renderInfoTag = useCallback(
         (id: number) => {
@@ -56,7 +59,9 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
             return (
                 <>
                     <div className='skill-level'>
-                        SLv. {data?.skillLevel ?? "???"}
+                        <AutoTextSize maxFontSizePx={12}>
+                            SLv. {data?.skillLevel ?? "???"}
+                        </AutoTextSize>
                     </div>
                     <div className='info-tag'>
                         <div className='bottom-tag'>
@@ -65,7 +70,11 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
                             ) : (
                                 <></>
                             )}
-                            <div className='level-tag'>{levelTag}</div>
+                            <div className='level-tag'>
+                                <AutoTextSize maxFontSizePx={12}>
+                                    {levelTag}
+                                </AutoTextSize>
+                            </div>
                         </div>
                     </div>
                 </>
@@ -89,10 +98,10 @@ const MonsterImage: React.FC<IMonsterImageProps> = ({
                             : ""
                     }`}
                 />
-                {!notInInventory && renderInfoTag(id)}
+                {!notInInventory && !hideInfo && renderInfoTag(id)}
             </div>
         )
-    }, [hideHadMonster, id, notInInventory, onClick, renderInfoTag])
+    }, [hideHadMonster, hideInfo, id, notInInventory, onClick, renderInfoTag])
 
     return <>{renderImage()}</>
 }

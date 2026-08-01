@@ -24,6 +24,7 @@ import PageContainer from "src/shared/PageContainer"
 import UserDataModal from "src/shared/UserDataModal"
 import Icon from "src/utilities/Icon"
 import SeriesRow from "./component/SeriesRow"
+import CrossOverPage from "./component/CrossOverPage"
 import Inventory from "./component/Inventory"
 
 interface IBackpackViewerProps {}
@@ -201,6 +202,12 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
                         {renderSeriesSelector()}
                         {currentTab === "完整背包" ? (
                             <Inventory
+                                togglePopover={togglePopover}
+                                setPopoverContent={setPopoverContent}
+                            />
+                        ) : currentTab === "合作系列" ? (
+                            <CrossOverPage
+                                sortBy={currentSort}
                                 togglePopover={togglePopover}
                                 setPopoverContent={setPopoverContent}
                             />
