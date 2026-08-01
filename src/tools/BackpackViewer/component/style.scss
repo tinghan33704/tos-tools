@@ -578,12 +578,11 @@
 }
 
 .crossover-image-grid {
-    // Fixed 8 per row, which the 12-column grid cannot divide evenly
     display: grid;
     grid-template-columns: repeat(8, 1fr);
 
     @include max768 {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -605,15 +604,10 @@
         text-align: center;
         padding: 4px !important;
 
-        // These are AutoTextSize containers. The library measures the parent and
-        // overrides its display/align-items, so a definite width and height are
-        // required for the font size to be computed. Font size itself is set by
-        // AutoTextSize via maxFontSizePx.
         .crossover-group-title,
         .crossover-group-subtitle {
             width: 100%;
             justify-content: center;
-            // The library sets `align-items: start` inline, so this needs to win
             align-items: center !important;
             color: var(--text-black);
         }
