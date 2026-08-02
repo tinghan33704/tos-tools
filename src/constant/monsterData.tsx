@@ -1,4 +1,4 @@
-// Last modified : 2026.08.01 20:16
+// Last modified : 2026.08.03 00:29
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -191275,7 +191275,7 @@ export const monsterData: IObject[] = [
 		'attribute': '水',
 		'race': '獸類',
 		'star': 6,
-		'monsterTag': [],
+		'monsterTag': ['墮座飛獸'],
 		'crossOver': false,
 		'skill': [
 			{
