@@ -30,6 +30,15 @@ interface ICraftSelectorProps {}
 
 const PAGE_SIZE = 10
 
+const getAttributeList = (
+    attribute: string | string[] | undefined,
+): string[] =>
+    !attribute || attribute === "沒有限制"
+        ? []
+        : Array.isArray(attribute)
+          ? attribute
+          : [attribute]
+
 const CraftSelector: React.FC<ICraftSelectorProps> = () => {
     const [selectedCrafts, setSelectedCrafts] = useState<number[]>([])
     const [resultData, setResultData] = useState<number[]>([])
@@ -370,30 +379,25 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                   name
                                                               ]?.race ? (
                                                                 <>
-                                                                    {craftDataByName[
-                                                                        name
-                                                                    ]
-                                                                        ?.attribute &&
-                                                                    craftDataByName[
-                                                                        name
-                                                                    ]
-                                                                        ?.attribute !==
-                                                                        "沒有限制" ? (
-                                                                        <Image
-                                                                            width={
-                                                                                30
-                                                                            }
-                                                                            path={`icon/icon_${
-                                                                                attrZhToEn[
-                                                                                    craftDataByName[
-                                                                                        name
-                                                                                    ]
-                                                                                        ?.attribute
-                                                                                ]
-                                                                            }`}
-                                                                        />
-                                                                    ) : (
-                                                                        <></>
+                                                                    {getAttributeList(
+                                                                        craftDataByName[
+                                                                            name
+                                                                        ]
+                                                                            ?.attribute,
+                                                                    ).map(
+                                                                        (
+                                                                            attr: string,
+                                                                        ) => (
+                                                                            <Image
+                                                                                key={
+                                                                                    attr
+                                                                                }
+                                                                                width={
+                                                                                    30
+                                                                                }
+                                                                                path={`icon/icon_${attrZhToEn[attr]}`}
+                                                                            />
+                                                                        ),
                                                                     )}
                                                                     {craftDataByName[
                                                                         name
@@ -418,16 +422,20 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                     ) : (
                                                                         <></>
                                                                     )}{" "}
-                                                                    {craftDataByName[
-                                                                        name
-                                                                    ]
-                                                                        ?.attribute &&
-                                                                    craftDataByName[
-                                                                        name
-                                                                    ]
-                                                                        ?.attribute !==
-                                                                        "沒有限制"
-                                                                        ? `${craftDataByName[name]?.attribute}屬性`
+                                                                    {getAttributeList(
+                                                                        craftDataByName[
+                                                                            name
+                                                                        ]
+                                                                            ?.attribute,
+                                                                    ).length
+                                                                        ? `${getAttributeList(
+                                                                              craftDataByName[
+                                                                                  name
+                                                                              ]
+                                                                                  ?.attribute,
+                                                                          ).join(
+                                                                              "/",
+                                                                          )}屬性`
                                                                         : ""}
                                                                     {craftDataByName[
                                                                         name

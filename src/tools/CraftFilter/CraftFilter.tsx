@@ -38,6 +38,14 @@ import ResultRow from "src/shared/ResultRow"
 
 interface ICraftFilterProps {}
 
+const isAttributeMatch = (
+    selectedAttributes: string[],
+    attribute: string | string[] | undefined,
+) =>
+    Array.isArray(attribute)
+        ? attribute.some((attr) => selectedAttributes.includes(attr))
+        : selectedAttributes.includes(attribute as string)
+
 const CraftFilter: React.FC<ICraftFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
     const [selectedSkillFunctions, setSelectedSkillFunctions] = useState<
@@ -203,7 +211,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                             Object.keys(craft.mode)?.includes(mode),
                         )) ||
                     (isAttrSelected &&
-                        !selectedAttributes.includes(craft.attribute)) ||
+                        !isAttributeMatch(
+                            selectedAttributes,
+                            craft.attribute,
+                        )) ||
                     (isRaceSelected && !selectedRaces.includes(craft.race)) ||
                     (isStarSelected && !selectedStars.includes(craft.star)) ||
                     (isChargeSelected &&
@@ -312,9 +323,13 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         )) ||
                     (isAttrSelected &&
                         !(
-                            selectedAttributes.includes(craft.attribute) ||
+                            isAttributeMatch(
+                                selectedAttributes,
+                                craft.attribute,
+                            ) ||
                             craft?.monster?.some((m: number) =>
-                                selectedAttributes.includes(
+                                isAttributeMatch(
+                                    selectedAttributes,
                                     monsterData.find((md) => m === md.id)
                                         ?.attribute,
                                 ),
