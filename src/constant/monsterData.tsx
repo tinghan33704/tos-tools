@@ -1,4 +1,4 @@
-// Last modified : 2026.08.07 00:04
+// Last modified : 2026.08.10 13:27
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -156976,7 +156976,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v2022.60'
 	},
 	{
@@ -232391,7 +232391,7 @@ export const monsterData: IObject[] = [
 		],
         'maxLevel': 99,
         'maxSkill': 10,
-        'maxRefine': 0,
+        'maxRefine': 4,
         'version': 'v2026.41'
     },
     {
@@ -232411,8 +232411,8 @@ export const monsterData: IObject[] = [
                 'num': 5,
                 'description': `
 				I. 點選元素法陣上的符石 2 次
-				⇒ 移除所有符石
-				⇒ 掉落固定版面符石 (點選的符石種類人類「加護」及「音樂」強化符石)
+				⇒ <board>移除所有符石
+				⇒ 掉落固定版面符石 (點選的符石種類人類「加護」及「音樂」強化符石)</board>
 				1 回合內
 				II. 隊伍成員
 				⓵ 攻擊力 2 倍
@@ -232557,9 +232557,24 @@ export const monsterData: IObject[] = [
 				'relative': [11244, 11245]
 			},
 		],
+		'board': [
+			{
+				'board': [
+					'1h', '2h', '1h', '2h', '1h', '2h', 
+					'1h', '2h', '1h', '2h', '1h', '2h', 
+					'1h', '2h', '1h', '2h', '1h', '2h', 
+					'1h', '2h', '1h', '2h', '1h', '2h', 
+					'1h', '2h', '1h', '2h', '1h', '2h', 
+				],
+				'note': [
+					'首次點選的種類強化音樂符石',
+					'第 2 次點選的種類強化加護符石',
+				]
+			}
+		],
         'maxLevel': 99,
         'maxSkill': 10,
-        'maxRefine': 0,
+        'maxRefine': 4,
         'version': 'v2026.41'
     },
     {
