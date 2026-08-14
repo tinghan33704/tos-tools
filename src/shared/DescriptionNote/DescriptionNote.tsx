@@ -141,6 +141,15 @@ const DescriptionNote: React.FC = () => {
                         <br />⇒ 不能發動龍刻脈動
                     </span>
                 )
+            case 14:
+                return (
+                    <span className='desc-note-label'>
+                        ⓵ 點擊元素脈磁炮圖示以發動
+                        <br />⓶ 發動元素脈磁炮不視作發動技能
+                        <br />⓷ 進入下一層數 (Wave)
+                        <br />⇒ 重置元素脈磁炮數量為 0
+                    </span>
+                )
             default:
                 return <></>
         }

@@ -1,4 +1,4 @@
-// Last modified : 2026.08.07 00:04
+// Last modified : 2026.08.14 22:51
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -42933,6 +42933,38 @@ export const leaderSkillData: IObject[] = [
 			}
 		],
 		'monster': [11245]
+	},
+	{
+		'name': '百慕城域',
+		'description': `
+		I. 隊伍成員
+		⓵ 攻擊力 180 倍
+		⓶ 生命力 2 倍
+		II. 木屬性、機械族及【超限科技】成員
+		⓵ 攻擊力及生命力 4 倍
+		⓶ 無視「攻前盾」
+		⓷ 對敵人的炮擊傷害 10 倍
+		III. 進場時
+		⇒ 機械族成員的「行動值」提升 100%
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血'],
+				'object': [],
+				'limit': []
+			},
+			{
+				'name': ['增攻', '增血', '無視攻前盾', '敵方受傷增加'],
+				'object': ['木', '機', '特定成員'],
+				'limit': []
+			},
+			{
+				'name': '行動值提升',
+				'object': ['機'],
+				'limit': []
+			}
+		],
+		'monster': [11247]
 	},
 	{
 		'name': '歷劫之道',

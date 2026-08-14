@@ -410,7 +410,7 @@ export const descriptionTranslator = (
               )
               .replace(
                   /【連攜魔導式】/g,
-                  `<span class='desc-note-label-0 desc-linking-label'>【連攜魔導式】</span>`,
+                  `<span class='desc-note-label-0 desc-note-label'>【連攜魔導式】</span>`,
               )
               .replace(
                   /亢奮(狀態)?/g,
@@ -462,15 +462,19 @@ export const descriptionTranslator = (
               )
               .replace(
                   /集結攻擊/g,
-                  `<span class='desc-note-label-11 desc-linking-label'>集結攻擊</span>`,
+                  `<span class='desc-note-label-11 desc-note-label'>集結攻擊</span>`,
               )
               .replace(
                   /(「?魔力」?符石)/g,
-                  `<span class='desc-note-label-12 desc-linking-label'>$1</span>`,
+                  `<span class='desc-note-label-12 desc-note-label'>$1</span>`,
               )
               .replace(
                   /(「秘法」)/g,
-                  `「<span class='desc-note-label-13 desc-linking-label'>秘法</span>」`,
+                  `「<span class='desc-note-label-13 desc-note-label'>秘法</span>」`,
+              )
+              .replace(
+                  /(元素脈磁炮)/g,
+                  `<span class='desc-note-label-14 desc-note-label'>元素脈磁炮</span>`,
               )
         : (description || "")
               ?.replace(/\n[^\S\n]*/g, "<br>")
