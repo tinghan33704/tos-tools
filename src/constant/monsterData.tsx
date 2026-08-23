@@ -1,4 +1,4 @@
-// Last modified : 2026.08.21 01:19
+// Last modified : 2026.08.23 15:44
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -132417,11 +132417,22 @@ export const monsterData: IObject[] = [
 				'row': 8,
 				'column': 6,
 				'board': [
-					
+					'Wg', 'Fg', 'Eg', 'Lg', 'Dg', 'Hg', 
+					'Wg', 'Fg', 'Eg', 'Lg', 'Dg', 'Hg', 
+					'Wg', 'Fg', 'Eg', 'Lg', 'Dg', 'Hg', 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
+					'-' , '-' , '-' , '-' , '-' , '-' , 
 				],
 			},
 			[
-			
+				'Dg', 'Dg', 'Dg', 'Dg', 'Dg', 'Dg', 
+				'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 'Dg', 
+				'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 'Dg', 
+				'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 'Dg', 
+				'Dg', 'Dg', 'Dg', 'Dg', 'Dg', 'Dg', 
 			]
 		],
         'maxLevel': 99,
@@ -132557,6 +132568,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': [2881, 2882, 2883, 2884, 2885, 2092, 2968, 2969, 3009]
 			}
+		],
+		'board': [
+			[
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 15,
@@ -155324,7 +155344,21 @@ export const monsterData: IObject[] = [
 				'skill_tag': ['無視灼熱地型', '無視燃燒'],
 				'activate_tag': ['指定種族成員'],
 				'relative': [10280]
-			}
+			},
+			{
+				'description': `
+				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
+				
+				◆ 獸類成員無視「防禦地型」
+
+				◆ 進場時
+				⇒ 獸類成員技能 CD -3
+				`,
+				'activate': `以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '無視防禦地型', '進場減CD'],
+				'activate_tag': ['指定成員', '指定種族成員'],
+				'relative': [11246, 10280, 11260, 11261]
+			},
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
@@ -232896,7 +232930,7 @@ export const monsterData: IObject[] = [
 				'activate': `以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員`,
 				'skill_tag': ['增攻', '增回', '增血', '無視防禦地型', '進場減CD'],
 				'activate_tag': ['指定種族成員'],
-				'relative': [11246]
+				'relative': [11246, 10280, 11260, 11261]
 			},
 		],
         'maxLevel': 99,
@@ -232955,7 +232989,7 @@ export const monsterData: IObject[] = [
                 `,
                 'tag': ['無視開技扣血', '解除起動浮標', '回血', '延遲', '直傷', '無視技能直傷', '崩壞值抗性', '無視能力點消耗', '鏽化值抗性', '破防直傷', '破強化直傷', '無視力的印記', '無視敵身減傷', '無視累積符石盾', '敵方受傷增加', '增傷', '無視首殺盾', '加護符石製造', '電擊符石處理', '風化符石處理', '凍結符石處理', '石化符石處理', '凝結符石處理', '弱化符石處理', '化血符石處理', '爆破炸彈處理', '機械族符石製造', '軌跡轉化']
             },
-            /*{
+            {
                 'name': '全域吞併',
                 'type': 'normal',
                 'charge': 'EP',
@@ -232968,7 +233002,7 @@ export const monsterData: IObject[] = [
 				III. 機械族成員的「行動值」提升 100%
                 `,
                 'tag': ['吞併', '回血', '行動值提升']
-            }*/
+            }
         ],
         'teamSkill': [
 			{
@@ -233540,10 +233574,10 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11260,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
+        'name': '獸道獨行 ‧ 凱撒',
+        'attribute': '水',
+        'race': '獸類',
+        'star': 8,
         'monsterTag': [],
         'crossOver': false,
         'skill': [
@@ -233558,7 +233592,22 @@ export const monsterData: IObject[] = [
                 'tag': []
             }
         ],
-        'teamSkill': [],
+        'teamSkill': [
+			{
+				'description': `
+				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
+				
+				◆ 獸類成員無視「防禦地型」
+
+				◆ 進場時
+				⇒ 獸類成員技能 CD -3
+				`,
+				'activate': `以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '無視防禦地型', '進場減CD'],
+				'activate_tag': ['指定成員', '指定種族成員'],
+				'relative': [11246, 10280, 11260, 11261]
+			},
+		],
         'maxLevel': 0,
         'maxSkill': 0,
         'maxRefine': 0,
@@ -233566,10 +233615,10 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11261,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
+        'name': '弒序絕裁 ‧ 凱撒',
+        'attribute': '水',
+        'race': '獸類',
+        'star': 8,
         'monsterTag': [],
         'crossOver': false,
         'skill': [
@@ -233584,7 +233633,22 @@ export const monsterData: IObject[] = [
                 'tag': []
             }
         ],
-        'teamSkill': [],
+        'teamSkill': [
+			{
+				'description': `
+				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
+				
+				◆ 獸類成員無視「防禦地型」
+
+				◆ 進場時
+				⇒ 獸類成員技能 CD -3
+				`,
+				'activate': `以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '無視防禦地型', '進場減CD'],
+				'activate_tag': ['指定成員', '指定種族成員'],
+				'relative': [11246, 10280, 11260, 11261]
+			},
+		],
         'maxLevel': 0,
         'maxSkill': 0,
         'maxRefine': 0,
