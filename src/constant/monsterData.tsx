@@ -1,4 +1,4 @@
-// Last modified : 2026.08.24 14:16
+// Last modified : 2026.08.24 19:21
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -57601,7 +57601,7 @@ export const monsterData: IObject[] = [
 		'attribute': '光',
 		'race': '獸類',
 		'star': 8,
-		'monsterTag': ['北域霸獸'],
+		'monsterTag': ['封王', '北域霸獸'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -99569,7 +99569,7 @@ export const monsterData: IObject[] = [
 		'attribute': '光',
 		'race': '獸類',
 		'star': 8,
-		'monsterTag': ['北域霸獸'],
+		'monsterTag': ['封王', '北域霸獸'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133369,7 +133369,7 @@ export const monsterData: IObject[] = [
 		'attribute': '暗',
 		'race': '妖精類',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133463,7 +133463,7 @@ export const monsterData: IObject[] = [
 		'attribute': '光',
 		'race': '獸類',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133581,7 +133581,7 @@ export const monsterData: IObject[] = [
 		'attribute': '暗',
 		'race': '神族',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133665,7 +133665,7 @@ export const monsterData: IObject[] = [
 		'attribute': '火',
 		'race': '妖精類',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133751,7 +133751,7 @@ export const monsterData: IObject[] = [
 		'attribute': '木',
 		'race': '龍類',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133834,7 +133834,7 @@ export const monsterData: IObject[] = [
 		'attribute': '光',
 		'race': '神族',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133926,7 +133926,7 @@ export const monsterData: IObject[] = [
 		'attribute': '水',
 		'race': '神族',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -134017,7 +134017,7 @@ export const monsterData: IObject[] = [
 		'attribute': '火',
 		'race': '魔族',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -134098,7 +134098,7 @@ export const monsterData: IObject[] = [
 		'attribute': '暗',
 		'race': '神族',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -134228,7 +134228,7 @@ export const monsterData: IObject[] = [
 		'attribute': '水',
 		'race': '機械族',
 		'star': 8,
-		'monsterTag': ['侵蝕 ‧ 封王'],
+		'monsterTag': ['封王', '侵蝕 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -210528,7 +210528,7 @@ export const monsterData: IObject[] = [
 		'attribute': '火',
 		'race': '神族',
 		'star': 7,
-		'monsterTag': ['嶄新 ‧ 封王'],
+		'monsterTag': ['封王', '嶄新 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -210554,7 +210554,7 @@ export const monsterData: IObject[] = [
 		'attribute': '水',
 		'race': '龍類',
 		'star': 7,
-		'monsterTag': ['嶄新 ‧ 封王'],
+		'monsterTag': ['封王', '嶄新 ‧ 封王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -210580,7 +210580,7 @@ export const monsterData: IObject[] = [
         'attribute': '木',
         'race': '獸類',
 		'star': 7,
-		'monsterTag': ['嶄新 ‧ 封王'],
+		'monsterTag': ['封王', '嶄新 ‧ 封王'],
         'crossOver': false,
         'skill': [
             {
