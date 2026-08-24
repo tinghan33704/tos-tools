@@ -237,6 +237,7 @@ export const skillIconMapping: IObject = {
     無視紅綠燈: ["vortex"],
     無視步數限制: ["step_restriction"],
     無視移形換影: ["shrouded_rune"],
+	無視即效永生: ["full_recovery"],
     無視拼圖盾: ["puzzle_shield"],
     無視攻前盾: ["initial_shield"],
     無視強化盾: ["enchanted_shield"],

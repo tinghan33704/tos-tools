@@ -1,4 +1,4 @@
-// Last modified : 2026.08.21 01:19
+// Last modified : 2026.08.24 14:16
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -43072,6 +43072,24 @@ export const leaderSkillData: IObject[] = [
 			}
 		],
 		'monster': [11247]
+	},
+	{
+		'name': '百慕城域 ‧ 城核驅動',
+		'description': `
+		I.【超限科技】成員
+		⓵ 攻擊力 1,000 倍
+		⓶ 生命力 8 倍
+		⓷ 無視「攻前盾」
+		⓸ 對敵人的炮擊傷害 10 倍
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '無視攻前盾', '敵方受傷增加'],
+				'object': ['特定成員'],
+				'limit': []
+			}
+		],
+		'monster': [11258]
 	},
 	{
 		'name': '歷劫之道',
