@@ -8632,7 +8632,7 @@ function print() { __p += __j.call(arguments, '') }
 				光屬性攻擊力 1.5 倍及光屬性人類攻擊力 2 倍；效果持續至沒有首批消除所有光符石
 				`,tag:[["增傷",-1]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v13.40"},{id:1521,name:"煙螢夜瓏 ‧ 灼蘿",attribute:"火",race:"龍類",star:6,monsterTag:["公會任務"],crossOver:!1,skill:[{name:"熾烈之靈",type:"normal",charge:"CD",num:6,description:`
 				火符石兼具 50% 心符石效果，效果持續至沒有消除火符石 (效果持續期間技能不會冷卻)
-				`,tag:[["符石兼具心",-1]]}],teamSkill:[],maxLevel:99,maxSkill:15,maxRefine:0,version:"v13.40"},{id:1522,name:"日月巨狼 ‧ 芬爾厄",attribute:"光",race:"獸類",star:8,monsterTag:["北域霸獸"],crossOver:!1,skill:[{name:"噬狼吮血",type:"normal",charge:"CD",num:5,description:`
+				`,tag:[["符石兼具心",-1]]}],teamSkill:[],maxLevel:99,maxSkill:15,maxRefine:0,version:"v13.40"},{id:1522,name:"日月巨狼 ‧ 芬爾厄",attribute:"光",race:"獸類",star:8,monsterTag:["封王","北域霸獸"],crossOver:!1,skill:[{name:"噬狼吮血",type:"normal",charge:"CD",num:5,description:`
 				引爆隊伍成員屬性以外的符石，以掉落屬性符石。1 回合內，將全隊對敵方造成傷害的 2.5% 轉化為生命力 (不計算主動技傷害)，最大為生命力等值的 50% (不能疊加)
 				`,tag:["引爆","光外符石引爆","引爆強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗","我方傷害吸收"]},{name:"百變圍城 ‧ 加冕",type:"normal",charge:"CD",num:10,description:`
 				將所有符石轉化為隊伍成員屬性的強化符石
@@ -18656,7 +18656,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,tag:["獸族符石製造",["黑白還原",-1],["暗屬追打",3]]}],teamSkill:[{description:`
 				◆ 異空轉生的「噬日狼」及異空轉生的「喰月狼」
 				⇒ 進場 CD -2
-				`,activate:"以「噬日災煞 ‧ 噬日狼」及「蝕月浩劫 ‧ 喰月狼」作隊長及戰友",skill_tag:["進場減CD"],activate_tag:["指定隊長戰友"],relative:[2446,2448,2447,2449]}],board:[["-","-","-","D","D","D","-","-","-","-","-","-","-","-","-","D","D","D","-","-","-","-","-","-","-","-","-","D","D","D"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v19.20"},{id:2450,name:"日月雙生 ‧ 芬爾厄",attribute:"光",race:"獸類",star:8,monsterTag:["北域霸獸"],crossOver:!1,skill:[{name:"噬狼吮血 ‧ 強",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「噬日災煞 ‧ 噬日狼」及「蝕月浩劫 ‧ 喰月狼」作隊長及戰友",skill_tag:["進場減CD"],activate_tag:["指定隊長戰友"],relative:[2446,2448,2447,2449]}],board:[["-","-","-","D","D","D","-","-","-","-","-","-","-","-","-","D","D","D","-","-","-","-","-","-","-","-","-","D","D","D"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v19.20"},{id:2450,name:"日月雙生 ‧ 芬爾厄",attribute:"光",race:"獸類",star:8,monsterTag:["封王","北域霸獸"],crossOver:!1,skill:[{name:"噬狼吮血 ‧ 強",type:"normal",charge:"CD",num:5,description:`
 				I. 引爆隊伍成員屬性以外的符石
 				⇒ 掉落屬性符石
 				1 回合內
@@ -31425,7 +31425,7 @@ function print() { __p += __j.call(arguments, '') }
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:2999,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
-                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:3001,name:"野望滅絕 ‧ 薩魯曼",attribute:"暗",race:"妖精類",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"蝕靈",type:"normal",charge:"CD",num:6,description:`
+                `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:3001,name:"野望滅絕 ‧ 薩魯曼",attribute:"暗",race:"妖精類",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"蝕靈",type:"normal",charge:"CD",num:6,description:`
 				I. 當前生命力變為總生命力 100%
 				1 回合內
 				II. 將移動符石時觸碰的電擊、凍結、弱化、化血、石化、凝結符石狀態解除
@@ -31465,7 +31465,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以「野望滅絕 ‧ 薩魯曼」作成員",skill_tag:["增攻","永久減CD"],activate_tag:[],relative:[3001]},{description:`
 				◆ 隊員
 				⇒「生命力、攻擊力及回復力」基值 15 倍
-				`,activate:"以「野望滅絕 ‧ 薩魯曼」作隊長及戰友，並以 4 個 4 星「地精」系列的角色作隊員",skill_tag:["增血","增攻","增回"],activate_tag:["指定雙隊長","指定成員"],relative:[3001,451,452,453,454,455]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v20.00"},{id:3002,name:"日墜月落 ‧ 噬日狼與喰月狼",attribute:"光",race:"獸類",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"日月序位",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「野望滅絕 ‧ 薩魯曼」作隊長及戰友，並以 4 個 4 星「地精」系列的角色作隊員",skill_tag:["增血","增攻","增回"],activate_tag:["指定雙隊長","指定成員"],relative:[3001,451,452,453,454,455]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v20.00"},{id:3002,name:"日墜月落 ‧ 噬日狼與喰月狼",attribute:"光",race:"獸類",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"日月序位",type:"normal",charge:"CD",num:6,description:`
 				I. 若自身位於最左方 3 直行的成員位置
 				⇒ <board 1>將左方 3 直行的符石分別轉化為「光、暗、光」強化符石</board>
 				II. 若自身位於最右方 3 直行的成員位置
@@ -31513,7 +31513,7 @@ function print() { __p += __j.call(arguments, '') }
 				
 				◆ 於 ≥12 秒結束轉珠
 				⇒ 回合結束時，將所有符石添加為獸族符石
-				`,activate:"以「日墜月落 ‧ 噬日狼與喰月狼」作隊長及戰友",skill_tag:["增攻","破防","獸族符石製造"],activate_tag:["指定雙隊長"],relative:[3002]}],board:[["L","D","L","-","-","-","L","D","L","-","-","-","L","D","L","-","-","-","L","D","L","-","-","-","L","D","L","-","-","-"],["-","-","-","D","L","D","-","-","-","D","L","D","-","-","-","D","L","D","-","-","-","D","L","D","-","-","-","D","L","D"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2021.10"},{id:3003,name:"理智失序 ‧ 奧丁",attribute:"暗",race:"神族",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"狂暴神力",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「日墜月落 ‧ 噬日狼與喰月狼」作隊長及戰友",skill_tag:["增攻","破防","獸族符石製造"],activate_tag:["指定雙隊長"],relative:[3002]}],board:[["L","D","L","-","-","-","L","D","L","-","-","-","L","D","L","-","-","-","L","D","L","-","-","-","L","D","L","-","-","-"],["-","-","-","D","L","D","-","-","-","D","L","D","-","-","-","D","L","D","-","-","-","D","L","D","-","-","-","D","L","D"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2021.10"},{id:3003,name:"理智失序 ‧ 奧丁",attribute:"暗",race:"神族",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"狂暴神力",type:"normal",charge:"CD",num:6,description:`
 				2 回合內
 				I.「異化的聖炎 ‧ 巴哈姆特」、「奏響崩壞之音 ‧ 莎娜」、「異度殺戮 ‧ 貝西摩斯」、「侵蝕 ‧ 封王」系列及神族成員
 				⓵ 攻擊力 3 倍
@@ -31550,7 +31550,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以 8 星「侵蝕 ‧ 封王」系列的角色作成員",skill_tag:["延長轉珠時間","符石強化"],activate_tag:["指定成員"],relative:["侵蝕 ‧ 封王"]},{description:`
 				◆「幽閉空間」技能生效時
 				⇒ 將移動符石時觸碰的符石轉化為神族強化符石
-				`,activate:"以「理智失序 ‧ 奧丁」作成員",skill_tag:["符石強化","神族符石製造"],activate_tag:[],relative:[3003]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2021.20"},{id:3004,name:"根源倒錯 ‧ 迪亞布羅",attribute:"火",race:"妖精類",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"灼熱之靈",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「理智失序 ‧ 奧丁」作成員",skill_tag:["符石強化","神族符石製造"],activate_tag:[],relative:[3003]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2021.20"},{id:3004,name:"根源倒錯 ‧ 迪亞布羅",attribute:"火",race:"妖精類",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"灼熱之靈",type:"normal",charge:"CD",num:6,description:`
 				I. 將所有符石轉化為
 				⇒「火及心」強化符石
 				II. 若隊長為「侵蝕 ‧ 封王」系列或妖精類成員
@@ -31580,7 +31580,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以 8 星「侵蝕 ‧ 封王」系列的角色作成員",skill_tag:["延長轉珠時間","符石強化"],activate_tag:["指定成員"],relative:["侵蝕 ‧ 封王"]},{description:`
 				◆「幽閉空間」技能生效時
 				⇒ 妖精類回復力 5 倍
-				`,activate:"以「根源倒錯 ‧ 迪亞布羅」作成員",skill_tag:["增回"],activate_tag:[],relative:[3004]}],board:[["F","F","F","F","F","F","H","H","H","H","H","H","F","F","F","F","F","F","H","H","H","H","H","H","F","F","F","F","F","F"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.10"},{id:3005,name:"生死剝離 ‧ 尼德霍格",attribute:"木",race:"龍類",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"毒牙撕咬",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「根源倒錯 ‧ 迪亞布羅」作成員",skill_tag:["增回"],activate_tag:[],relative:[3004]}],board:[["F","F","F","F","F","F","H","H","H","H","H","H","F","F","F","F","F","F","H","H","H","H","H","H","F","F","F","F","F","F"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.10"},{id:3005,name:"生死剝離 ‧ 尼德霍格",attribute:"木",race:"龍類",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"毒牙撕咬",type:"normal",charge:"CD",num:5,description:`
 				1 回合內
 				I. 攻擊力基值最高 (最左方) 的「異化的聖炎 ‧ 巴哈姆特」、「奏響崩壞之音 ‧ 莎娜」、「異度殺戮 ‧ 貝西摩斯」、「侵蝕 ‧ 封王」系列或龍類成員
 				⇒ 增加 5,000 點攻擊力基值
@@ -31616,7 +31616,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以 8 星「侵蝕 ‧ 封王」系列的角色作成員",skill_tag:["延長轉珠時間","符石強化"],activate_tag:["指定成員"],relative:["侵蝕 ‧ 封王"]},{description:`
 				◆「幽閉空間」技能生效時
 				⇒ 於消除符石後回復 20,000 點生命力
-				`,activate:"以「生死剝離 ‧ 尼德霍格」作成員",skill_tag:["回血"],activate_tag:[],relative:[3005]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.20"},{id:3006,name:"存在質疑 ‧ 路西法",attribute:"光",race:"神族",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"神魔絕殺",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「生死剝離 ‧ 尼德霍格」作成員",skill_tag:["回血"],activate_tag:[],relative:[3005]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.20"},{id:3006,name:"存在質疑 ‧ 路西法",attribute:"光",race:"神族",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"神魔絕殺",type:"normal",charge:"CD",num:6,description:`
 				1 回合內
 				I.「異化的聖炎 ‧ 巴哈姆特」、「奏響崩壞之音 ‧ 莎娜」、「異度殺戮 ‧ 貝西摩斯」、「侵蝕 ‧ 封王」系列、神族及魔族成員
 				⓵ 增加 2,000 點攻擊力基值
@@ -31652,7 +31652,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 轉化為神族強化符石
 				⓶ 將移動符石時觸碰的魔族成員直行符石
 				⇒ 轉化為魔族強化符石
-				`,activate:"以「存在質疑 ‧ 路西法」作成員",skill_tag:["符石強化","神族符石製造","魔族符石製造"],activate_tag:[],relative:[3006]}],board:[["Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg","Dd","Dd","Dd","Dd","Dd","Dd","Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.40"},{id:3007,name:"常世否定 ‧ 姬氏",attribute:"水",race:"神族",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"神魔律令",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「存在質疑 ‧ 路西法」作成員",skill_tag:["符石強化","神族符石製造","魔族符石製造"],activate_tag:[],relative:[3006]}],board:[["Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg","Dd","Dd","Dd","Dd","Dd","Dd","Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg","Lg","Dd","Lg"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.40"},{id:3007,name:"常世否定 ‧ 姬氏",attribute:"水",race:"神族",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"神魔律令",type:"normal",charge:"CD",num:6,description:`
 				I. <board>將所有符石轉化為
 				⇒ 固定數量及位置的「水、火、木」強化符石</board>
 				1 回合內
@@ -31687,7 +31687,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以 8 星「侵蝕 ‧ 封王」系列的角色作成員",skill_tag:["延長轉珠時間","符石強化"],activate_tag:["指定成員"],relative:["侵蝕 ‧ 封王"]},{description:`
 				◆「幽閉空間」技能生效時
 				⇒ 神族及魔族成員追打光及暗屬性攻擊各 1 次
-				`,activate:"以「常世否定 ‧ 姬氏」作成員",skill_tag:["光屬追打","暗屬追打"],activate_tag:[],relative:[3007]}],board:[["W","W","W","E","F","W","W","E","F","E","F","W","W","E","F","E","F","W","W","E","F","E","F","W","W","E","F","W","W","W"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.50"},{id:3008,name:"維度粉碎 ‧ 猶格索托斯",attribute:"火",race:"魔族",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"魔息來襲",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「常世否定 ‧ 姬氏」作成員",skill_tag:["光屬追打","暗屬追打"],activate_tag:[],relative:[3007]}],board:[["W","W","W","E","F","W","W","E","F","E","F","W","W","E","F","E","F","W","W","E","F","E","F","W","W","E","F","W","W","W"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.50"},{id:3008,name:"維度粉碎 ‧ 猶格索托斯",attribute:"火",race:"魔族",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"魔息來襲",type:"normal",charge:"CD",num:6,description:`
 				2 回合內
 				I. 無視「黏腐」
 				II. 將移動符石時觸碰的符石
@@ -31721,7 +31721,7 @@ function print() { __p += __j.call(arguments, '') }
 				`,activate:"以 8 星「侵蝕 ‧ 封王」系列的角色作成員",skill_tag:["延長轉珠時間","符石強化"],activate_tag:["指定成員"],relative:["侵蝕 ‧ 封王"]},{description:`
 				◆「幽閉空間」技能生效時
 				⇒ 減少 80% 所受傷害
-				`,activate:"以「維度粉碎 ‧ 猶格索托斯」作成員",skill_tag:["減傷"],activate_tag:[],relative:[3008]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.71"},{id:3009,name:"殘像肆虐 ‧ 卡俄斯",attribute:"暗",race:"神族",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"混沌之輪",type:"normal",charge:"CD",num:5,description:`
+				`,activate:"以「維度粉碎 ‧ 猶格索托斯」作成員",skill_tag:["減傷"],activate_tag:[],relative:[3008]}],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2022.71"},{id:3009,name:"殘像肆虐 ‧ 卡俄斯",attribute:"暗",race:"神族",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"混沌之輪",type:"normal",charge:"CD",num:5,description:`
 				I. 引爆所有符石
 				⇒ <board>掉落固定版面的「五屬及心」強化符石</board>
 				1 回合內
@@ -31773,7 +31773,7 @@ function print() { __p += __j.call(arguments, '') }
 				◆「初序的創造論 ‧ 卡俄斯」、「初序的毀滅曲 ‧ 卡俄斯」、「晨昏天傾 ‧ 卡俄斯」及「殘像肆虐 ‧ 卡俄斯」轉換為最左方的「狂波萬頃 ‧ 蓬托斯」、「星輝炎原 ‧ 法那斯」、「繁木芬馥 ‧ 蓋婭」、「構建星淵 ‧ 埃忒耳」或「永冥夜暮 ‧ 厄瑞玻斯」成員屬性
 				`,activate:"以「狂波萬頃 ‧ 蓬托斯」、「星輝炎原 ‧ 法那斯」、「繁木芬馥 ‧ 蓋婭」、「構建星淵 ‧ 埃忒耳」或「永冥夜暮 ‧ 厄瑞玻斯」作成員，並以「初序的創造論 ‧ 卡俄斯」、「初序的毀滅曲 ‧ 卡俄斯」、「晨昏天傾 ‧ 卡俄斯」或「殘像肆虐 ‧ 卡俄斯」作成員",skill_tag:["增攻","增回","增血","永久減CD","召喚獸轉水","召喚獸轉火","召喚獸轉木","召喚獸轉光"],activate_tag:["指定成員"],relative:[2881,2882,2883,2884,2885,2092,2968,2969,3009]},{description:`
 				◆ 8 星成員「三圍」基值 1.9 倍
-				`,activate:"以「初序的創造論 ‧ 卡俄斯」、「初序的毀滅曲 ‧ 卡俄斯」、「晨昏天傾 ‧ 卡俄斯」或「殘像肆虐 ‧ 卡俄斯」作成員，並以 ≥2 個 8 星角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定稀有度成員"],relative:[2092,2968,2969,3009]}],board:[["D","L","H","H","H","H","D","L","H","E","L","H","D","L","W","F","L","H","D","L","L","L","L","H","D","D","D","D","D","H"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2023.31"},{id:3010,name:"意識分解 ‧ 夏馬西",attribute:"水",race:"機械族",star:8,monsterTag:["侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"絕境深淵",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「初序的創造論 ‧ 卡俄斯」、「初序的毀滅曲 ‧ 卡俄斯」、「晨昏天傾 ‧ 卡俄斯」或「殘像肆虐 ‧ 卡俄斯」作成員，並以 ≥2 個 8 星角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定稀有度成員"],relative:[2092,2968,2969,3009]}],board:[["D","L","H","H","H","H","D","L","H","E","L","H","D","L","W","F","L","H","D","L","L","L","L","H","D","D","D","D","D","H"]],maxLevel:99,maxSkill:15,maxRefine:0,version:"v2023.31"},{id:3010,name:"意識分解 ‧ 夏馬西",attribute:"水",race:"機械族",star:8,monsterTag:["封王","侵蝕 ‧ 封王"],crossOver:!1,skill:[{name:"絕境深淵",type:"normal",charge:"CD",num:6,description:`
 				I. 解除「異化的聖炎 ‧ 巴哈姆特」、「奏響崩壞之音 ‧ 莎娜」、「異度殺戮 ‧ 貝西摩斯」及「侵蝕 ‧ 封王」系列成員被封鎖的技能 (此技能無視封鎖技能)
 				II. <board>將所有符石轉化為
 				⇒ 固定數量及位置的「五屬及心」強化符石</board>
@@ -62830,11 +62830,11 @@ function print() { __p += __j.call(arguments, '') }
 
 				`,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11e3,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
-				`,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11001,name:"罪狀宣告 ‧ 聖槍涅索伊",attribute:"火",race:"神族",star:7,monsterTag:["嶄新 ‧ 封王"],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11001,name:"罪狀宣告 ‧ 聖槍涅索伊",attribute:"火",race:"神族",star:7,monsterTag:["封王","嶄新 ‧ 封王"],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
-				`,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11002,name:"聖裁時刻 ‧ 貞德",attribute:"水",race:"龍類",star:7,monsterTag:["嶄新 ‧ 封王"],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11002,name:"聖裁時刻 ‧ 貞德",attribute:"水",race:"龍類",star:7,monsterTag:["封王","嶄新 ‧ 封王"],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
-				`,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11003,name:"鋼志審結 ‧ 凱撒",attribute:"木",race:"獸類",star:7,monsterTag:["嶄新 ‧ 封王"],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11003,name:"鋼志審結 ‧ 凱撒",attribute:"木",race:"獸類",star:7,monsterTag:["封王","嶄新 ‧ 封王"],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11004,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
