@@ -72862,8 +72862,8 @@ function print() { __p += __j.call(arguments, '') }
 				⓶【機械動力】成員的「行動值」達至 100%
 				⇒ 機械族成員對敵人的傷害 2 倍
 
-				◆「無垠星河 ‧ 圖靈與百慕達」及「無垠星河 ‧ 圖靈與百慕達 (同調)」的「行動值」變為最大值
-				`,activate:"以「無垠星河 ‧ 圖靈與百慕達」或「無垠星河 ‧ 圖靈與百慕達 (同調)」作成員，並以 ≥2 個【機械動力】角色作成員",skill_tag:["敵方受傷增加","增攻","行動值提升"],activate_tag:["指定成員"],relative:[11247,11258]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11248,name:"機城御廚 ‧ 古嚕",attribute:"暗",race:"機械族",star:6,monsterTag:["超限科技","機城御廚"],crossOver:!1,skill:[{name:"機鋼燉煮",type:"normal",charge:"CD",num:6,description:`
+				<span style='color: #666666; cursor: help;' title='薛丁格的滿行動值，啊一直反覆橫跳就飽了啊'><s>◆「無垠星河 ‧ 圖靈與百慕達」及「無垠星河 ‧ 圖靈與百慕達 (同調)」的「行動值」變為最大值</s></span>
+				`,activate:"以「無垠星河 ‧ 圖靈與百慕達」或「無垠星河 ‧ 圖靈與百慕達 (同調)」作成員，並以 ≥2 個【機械動力】角色作成員",skill_tag:["敵方受傷增加","增攻"],activate_tag:["指定成員"],relative:[11247,11258]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11248,name:"機城御廚 ‧ 古嚕",attribute:"暗",race:"機械族",star:6,monsterTag:["超限科技","機城御廚"],crossOver:!1,skill:[{name:"機鋼燉煮",type:"normal",charge:"CD",num:6,description:`
 				I. 機械族成員的「行動值」提升 100%
 				II. <board>移除所有符石
 				⇒ 掉落固定版面符石 (火屬性、木屬性、光屬性及暗屬性機械族強化符石)</board>
@@ -73097,8 +73097,8 @@ function print() { __p += __j.call(arguments, '') }
 				⓶【機械動力】成員的「行動值」達至 100%
 				⇒ 機械族成員對敵人的傷害 2 倍
 
-				◆「無垠星河 ‧ 圖靈與百慕達」及「無垠星河 ‧ 圖靈與百慕達 (同調)」的「行動值」變為最大值
-				`,activate:"以「無垠星河 ‧ 圖靈與百慕達」或「無垠星河 ‧ 圖靈與百慕達 (同調)」作成員，並以 ≥2 個【機械動力】角色作成員",skill_tag:["敵方受傷增加","增攻","行動值提升"],activate_tag:["指定成員"],relative:[11247,11258]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11259,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				<span style='color: #666666; cursor: help;' title='薛丁格的滿行動值，啊一直反覆橫跳就飽了啊'><s>◆「無垠星河 ‧ 圖靈與百慕達」及「無垠星河 ‧ 圖靈與百慕達 (同調)」的「行動值」變為最大值</s></span>
+				`,activate:"以「無垠星河 ‧ 圖靈與百慕達」或「無垠星河 ‧ 圖靈與百慕達 (同調)」作成員，並以 ≥2 個【機械動力】角色作成員",skill_tag:["敵方受傷增加","增攻"],activate_tag:["指定成員"],relative:[11247,11258]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11259,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11260,name:"獸道獨行 ‧ 凱撒",attribute:"水",race:"獸類",star:8,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
