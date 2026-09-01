@@ -1,4 +1,4 @@
-// Last modified : 2026.08.27 22:50
+// Last modified : 2026.09.02 23:21
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -210978,7 +210978,7 @@ export const monsterData: IObject[] = [
         'attribute': '暗',
         'race': '神族',
         'star': 7,
-        'monsterTag': ['北域之詩', '諸神的黃昏'],
+        'monsterTag': ['北域之詩', '封王', '諸神的黃昏'],
         'crossOver': false,
         'skill': [
             {
