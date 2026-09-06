@@ -38408,12 +38408,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓶ 無視「燃燒」
 				`,activate:"以「獸道征途 ‧ 凱撒」作成員，且隊中只有獸類成員",skill_tag:["無視灼熱地型","無視燃燒"],activate_tag:["指定種族成員"],relative:[10280]},{description:`
 				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
-				
-				◆ 獸類成員無視「防禦地型」
-
-				◆ 進場時
-				⇒ 獸類成員技能 CD -3
-				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血","無視防禦地型","進場減CD"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]},{description:`
+				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]},{description:`
 				◆ 「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」、「戰局統馭 ‧ 凱撒」及「浩瀚蝕流 ‧ 豪斯」
 				⓵「三圍」基值 2 倍
 				⓶ 不會進入「拘束」狀態
@@ -73309,12 +73304,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓶ 不會進入「拘束」狀態
 				`,activate:"以「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」或「戰局統馭 ‧ 凱撒」作成員，並以「浩瀚蝕流 ‧ 豪斯」作成員",skill_tag:["增攻","增回","增血","防拘束"],activate_tag:["指定成員"],relative:[10280,11260,11261,10475,10273]},{description:`
 				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
-				
-				◆ 獸類成員無視「防禦地型」
-
-				◆ 進場時
-				⇒ 獸類成員技能 CD -3
-				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血","無視防禦地型","進場減CD"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11261,name:"弒序絕裁 ‧ 凱撒",attribute:"水",race:"獸類",star:8,monsterTag:["獸血霸者幻化"],crossOver:!1,skill:[{name:"誅序滅律",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11261,name:"弒序絕裁 ‧ 凱撒",attribute:"水",race:"獸類",star:8,monsterTag:["獸血霸者幻化"],crossOver:!1,skill:[{name:"誅序滅律",type:"normal",charge:"CD",num:6,description:`
 				I. 水屬性及獸類成員
 				⓵ 攻擊力 2.5 倍
 				⓶ 無視「十字限盾」、「T 字限盾」、「L 字限盾」、「指定減傷抗性敵技」及「減傷狀態」
@@ -73385,12 +73375,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓶ 不會進入「拘束」狀態
 				`,activate:"以「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」或「戰局統馭 ‧ 凱撒」作成員，並以「浩瀚蝕流 ‧ 豪斯」作成員",skill_tag:["增攻","增回","增血","防拘束"],activate_tag:["指定成員"],relative:[10280,11260,11261,10475,10273]},{description:`
 				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
-				
-				◆ 獸類成員無視「防禦地型」
-
-				◆ 進場時
-				⇒ 獸類成員技能 CD -3
-				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血","無視防禦地型","進場減CD"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11262,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11262,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11263,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
