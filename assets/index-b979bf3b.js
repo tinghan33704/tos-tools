@@ -38412,7 +38412,7 @@ function print() { __p += __j.call(arguments, '') }
 				◆ 「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」、「戰局統馭 ‧ 凱撒」及「浩瀚蝕流 ‧ 豪斯」
 				⓵「三圍」基值 2 倍
 				⓶ 不會進入「拘束」狀態
-				`,activate:"以「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」或「戰局統馭 ‧ 凱撒」作成員，並以「浩瀚蝕流 ‧ 豪斯」作成員",skill_tag:["增攻","增回","增血","防拘束"],activate_tag:["指定成員"],relative:[10280,11260,11261,10475,10273]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2022.50"},{id:10281,name:"魔刀掠空 ‧ 珍娜",attribute:"水",race:"魔族",star:5,monsterTag:["宇宙海盜團"],crossOver:!1,skill:[{name:"魔刃流",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」或「戰局統馭 ‧ 凱撒」作成員，並以「浩瀚蝕流 ‧ 豪斯」作成員",skill_tag:["增攻","增回","增血","防拘束"],activate_tag:["指定成員"],relative:[10280,11260,11261,10475,10273]}],maxLevel:99,maxSkill:10,maxRefine:4,version:"v2022.50"},{id:10281,name:"魔刀掠空 ‧ 珍娜",attribute:"水",race:"魔族",star:5,monsterTag:["宇宙海盜團"],crossOver:!1,skill:[{name:"魔刃流",type:"normal",charge:"CD",num:6,description:`
 				I. 引爆風化符石
 				⇒ 掉落魔族強化符石
 				3 回合內
@@ -73304,7 +73304,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓶ 不會進入「拘束」狀態
 				`,activate:"以「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」或「戰局統馭 ‧ 凱撒」作成員，並以「浩瀚蝕流 ‧ 豪斯」作成員",skill_tag:["增攻","增回","增血","防拘束"],activate_tag:["指定成員"],relative:[10280,11260,11261,10475,10273]},{description:`
 				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
-				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11261,name:"弒序絕裁 ‧ 凱撒",attribute:"水",race:"獸類",star:8,monsterTag:["獸血霸者幻化"],crossOver:!1,skill:[{name:"誅序滅律",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],maxLevel:99,maxSkill:10,maxRefine:4,version:"v2026.50"},{id:11261,name:"弒序絕裁 ‧ 凱撒",attribute:"水",race:"獸類",star:8,monsterTag:["獸血霸者幻化"],crossOver:!1,skill:[{name:"誅序滅律",type:"normal",charge:"CD",num:6,description:`
 				I. 水屬性及獸類成員
 				⓵ 攻擊力 2.5 倍
 				⓶ 無視「十字限盾」、「T 字限盾」、「L 字限盾」、「指定減傷抗性敵技」及「減傷狀態」
@@ -73313,13 +73313,13 @@ function print() { __p += __j.call(arguments, '') }
 				III. 每消除 1 粒獸類符石
 				⇒ 增加 3 連擊 (Combo)
 				IV. 將「獸道獨行 ‧ 凱撒」或「弒序絕裁 ‧ 凱撒」角色頭像向上滑動
-				⇒ 增加 3 行固定版面符石 (五屬及心獸類強化符石)
+				⇒ <board 1>增加 3 行固定版面符石 (五屬及心獸類強化符石)</board>
 				(此技能可隨時關閉，效果會在此「技能關閉」或死亡後消失)
 
 				V.「技能關閉」時
 				⓵ 點選元素法陣上的符石 2 次
-				⇒ 移除所有符石
-				⇒ 掉落固定版面符石 (點選的符石種類獸類強化符石)
+				⇒ <board 2>移除所有符石
+				⇒ 掉落固定版面符石 (點選的符石種類獸類強化符石)</board>
                 `,tag:[["增傷",-1],["無視十字盾",-1],["無視T字盾",-1],["無視L字盾",-1],["無視減傷抗性",-1],["無視敵身減傷",-1],["防殞命輪迴",-1],["無視回復顛倒",-1],["增加Combo",-1],["增加符石",-1],["獸族符石製造",-1],["固定版面",-1],["五屬版面",-1],["五屬心版面",-1],"隨時關閉","移除","整版移除","移除強制掉落","強制掉水","強制掉火","強制掉木","強制掉光","強制掉暗","強制掉心","頭像狀態"]}],teamSkill:[{description:`
 				◆ 水屬性及獸類成員
 				⓵ 攻擊力 15 倍
@@ -73375,7 +73375,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓶ 不會進入「拘束」狀態
 				`,activate:"以「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」、「弒序絕裁 ‧ 凱撒」或「戰局統馭 ‧ 凱撒」作成員，並以「浩瀚蝕流 ‧ 豪斯」作成員",skill_tag:["增攻","增回","增血","防拘束"],activate_tag:["指定成員"],relative:[10280,11260,11261,10475,10273]},{description:`
 				◆「指引領導 ‧ 蕾茵」、「獸道征途 ‧ 凱撒」、「獸道獨行 ‧ 凱撒」及「弒序絕裁 ‧ 凱撒」「三圍」基值 3 倍
-				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],maxLevel:99,maxSkill:10,maxRefine:0,version:"v2026.50"},{id:11262,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
+				`,activate:"以「指引領導 ‧ 蕾茵」作成員，並以 ≥3 個獸類角色作成員",skill_tag:["增攻","增回","增血"],activate_tag:["指定成員","指定種族成員"],relative:[11246,10280,11260,11261]}],board:[{row:8,column:6,board:["Wb","Fb","Eb","Lb","Db","Hb","Wb","Fb","Eb","Lb","Db","Hb","Wb","Fb","Eb","Lb","Db","Hb","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"]},{board:["1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b","1b","2b"],note:["首次點選的種類強化符石","第 2 次點選的種類強化符石"]}],maxLevel:99,maxSkill:10,maxRefine:4,version:"v2026.50"},{id:11262,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11263,name:"",attribute:"",race:"",star:0,monsterTag:[],crossOver:!1,skill:[{name:"",type:"normal",charge:"CD",num:0,description:`
 
