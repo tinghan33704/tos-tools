@@ -2516,4 +2516,34 @@ export const crossOverData: IObject[] = [
         ],
         startTime: "2026.06",
     },
+    {
+        title: "遊戲王－怪獸之決鬥",
+        subtitle: "",
+        data: [
+            {
+                title: "石抽",
+                subtitle: "",
+                data: [
+					11265,
+					11266,
+					11262,
+					11263,
+					11264,
+					11267, 
+					11268
+                ],
+            },
+            {
+                title: "地獄魔王",
+                subtitle: "",
+                data: [11278],
+            },
+            {
+                title: "全齊獎",
+                subtitle: "",
+                data: [11274],
+            },
+        ],
+        startTime: "2026.09",
+    },
 ]

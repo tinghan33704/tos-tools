@@ -392,6 +392,7 @@
     .card-count {
         font-size: 1.2em;
         text-align: end;
+        color: var(--text-black);
 
         @include max576 {
             text-align: center;

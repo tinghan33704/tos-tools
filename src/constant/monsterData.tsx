@@ -1,4 +1,4 @@
-// Last modified : 2026.09.07 20:29
+// Last modified : 2026.09.09 19:01
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -234271,18 +234271,32 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11262,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '海馬瀨人 & 青眼白龍',
+        'attribute': '水',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '毀滅的爆裂疾風彈',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
+                'description': `
+
+                `,
+                'tag': []
+            },
+            {
+                'name': '合體 ‧ 青眼究極龍！',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 6,
+				'combine': {
+					'member': [11262, 11262, 11262],
+					'out': 0,
+				},
                 'description': `
 
                 `,
@@ -234290,25 +234304,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11263,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '城之內克也 & 真紅眼黑龍',
+        'attribute': '火',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '黑炎彈',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
 
                 `,
@@ -234316,25 +234330,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11264,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '孔雀舞 & 神鷹女郎三姐妹',
+        'attribute': '木',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '三重爪牙碎斷',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
 
                 `,
@@ -234342,25 +234356,35 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11265,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '武藤遊戲 & 破壞龍鋼多拉',
+        'attribute': '暗',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '破壞烈光',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
+                'description': `
+
+                `,
+                'tag': []
+            },
+            {
+                'name': '破壞劍一閃',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 12,
                 'description': `
 
                 `,
@@ -234368,25 +234392,35 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11266,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '闇遊戲 & 黑魔導',
+        'attribute': '暗',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '黑魔導',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
+                'description': `
+
+                `,
+                'tag': []
+            },
+            {
+                'name': '黑魔導的復活儀式',
+                'type': 'normal',
+                'charge': 'CD',
+                'num': 3,
                 'description': `
 
                 `,
@@ -234394,25 +234428,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11267,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '伊西絲 ‧ 伊修達爾',
+        'attribute': '水',
+        'race': '人類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '現世與冥界的逆轉',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
 
                 `,
@@ -234420,25 +234454,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11268,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '闇貘良 & 暗黑人偶 ‧ 妮可羅菲婭',
+        'attribute': '暗',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '怨靈詛咒',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 8,
                 'description': `
 
                 `,
@@ -234446,10 +234480,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11269,
@@ -234457,8 +234491,8 @@ export const monsterData: IObject[] = [
         'attribute': '',
         'race': '',
         'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
                 'name': '',
@@ -234472,10 +234506,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11270,
@@ -234483,8 +234517,8 @@ export const monsterData: IObject[] = [
         'attribute': '',
         'race': '',
         'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
                 'name': '',
@@ -234498,10 +234532,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11271,
@@ -234509,8 +234543,8 @@ export const monsterData: IObject[] = [
         'attribute': '',
         'race': '',
         'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
                 'name': '',
@@ -234524,10 +234558,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11272,
@@ -234535,8 +234569,8 @@ export const monsterData: IObject[] = [
         'attribute': '',
         'race': '',
         'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
                 'name': '',
@@ -234550,10 +234584,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11273,
@@ -234561,8 +234595,8 @@ export const monsterData: IObject[] = [
         'attribute': '',
         'race': '',
         'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
                 'name': '',
@@ -234576,25 +234610,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11274,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '闇遊戲 & 三幻神',
+        'attribute': '暗',
+        'race': '神族',
+        'star': 8,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '神聖光芒 ‧ 終極破壞光',
                 'type': 'normal',
-                'charge': 'CD',
-                'num': 0,
+                'charge': 'EP',
+                'num': 6,
                 'description': `
 
                 `,
@@ -234602,25 +234636,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
-        'maxRefine': 0,
-        'version': ''
+        'maxLevel': 99,
+        'maxSkill': 12,
+        'maxRefine': 4,
+        'version': 'v2026.51'
     },
     {
         'id': 11275,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '真崎杏子 & 黑魔導女孩',
+        'attribute': '光',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '魔法之筒',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
 
                 `,
@@ -234628,25 +234662,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11276,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '盜賊基斯 & 左輪手槍龍',
+        'attribute': '暗',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '俄羅斯輪盤',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
 
                 `,
@@ -234654,10 +234688,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11277,
@@ -234687,18 +234721,18 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11278,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '貝卡斯 ‧ J ‧ 克羅佛多 & 千眼納祭',
+        'attribute': '暗',
+        'race': '魔族',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥', '地獄魔王'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '千眼咒縛',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
 
                 `,
@@ -234706,25 +234740,25 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11279,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
-        'crossOver': false,
+        'name': '昆蟲流羽蛾 & 昆蟲女王',
+        'attribute': '木',
+        'race': '妖精類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'crossOver': true,
         'skill': [
             {
-                'name': '',
+                'name': '女王的地獄吐息',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
 
                 `,
@@ -234732,10 +234766,10 @@ export const monsterData: IObject[] = [
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.51'
     },
     {
         'id': 11280,
