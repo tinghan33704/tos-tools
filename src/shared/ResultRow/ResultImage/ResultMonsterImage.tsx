@@ -132,6 +132,10 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
             /* Race icon change for Kirito and Maomao */
             const specialRaceIcon =
                 id === 10495 ? "kirito" : id === 10444 ? "yao" : null
+            /* Star icon change for Yugioh */
+            const specialStarIcon = monsterTag?.includes("遊戲王 怪獸之決鬥")
+                ? `${star}_yugioh`
+                : null
             /***** EASTER EGG *****/
 
             const attrStr = attrZhToEn?.[attribute] || "u"
@@ -143,7 +147,9 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
             const racePath = specialRaceIcon
                 ? `other/icon_${specialRaceIcon}`
                 : `icon/icon_${raceStr}`
-            const starPath = `icon/icon_${star}`
+            const starPath = specialStarIcon
+                ? `other/icon_${specialStarIcon}`
+                : `icon/icon_${star}`
 
             return (
                 <Row
