@@ -2522,7 +2522,7 @@ export const crossOverData: IObject[] = [
         data: [
             {
                 title: "石抽",
-                subtitle: "",
+                subtitle: "我的回合，抽卡！",
                 data: [
 					11265,
 					11266,
