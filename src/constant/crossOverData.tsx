@@ -2539,9 +2539,24 @@ export const crossOverData: IObject[] = [
                 data: [11278],
             },
             {
+                title: "挑戰關卡",
+                subtitle: "",
+                data: [11276, 11279],
+            },
+            {
+                title: "境外探索",
+                subtitle: "",
+                data: [11275],
+            },
+            {
                 title: "全齊獎",
                 subtitle: "",
                 data: [11274],
+            },
+            {
+                title: "練技素材",
+                subtitle: "",
+                data: [11287],
             },
         ],
         startTime: "2026.09",

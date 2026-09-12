@@ -1,4 +1,4 @@
-// Last modified : 2026.09.12 01:28
+// Last modified : 2026.09.12 13:48
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -43298,6 +43298,36 @@ export const leaderSkillData: IObject[] = [
 			},
 		],
 		'monster': [11266]
+	},
+	{
+		'name': '究極龍降臨',
+		'description': `
+		I. 水屬性、龍類及【遊戲王 怪獸之決鬥】成員
+		⓵ 攻擊力 100 倍
+		⓶ 生命力 5 倍
+		⓷ 對敵人的傷害 4.5 倍
+		II. 龍類成員攻擊力基值 +4,500 點
+		III. 消除水符石或心符石
+		⇒ 增加 10 連擊 (Combo)
+		`,
+		'tag': [
+			{
+				'name': ['增攻', '增血', '敵方受傷增加'],
+				'object': ['水', '龍', '特定成員'],
+				'limit': []
+			},
+			{
+				'name': '增攻',
+				'object': ['龍'],
+				'limit': []
+			},
+			{
+				'name': '增加Combo',
+				'object': [],
+				'limit': ['消除特定符石']
+			}
+		],
+		'monster': [11269]
 	},
 	{
 		'name': '三幻神牌組',
