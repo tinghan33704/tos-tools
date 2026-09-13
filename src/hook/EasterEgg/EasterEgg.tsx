@@ -36,7 +36,7 @@ const showImpact = (x: number, y: number) => {
                 transform: `rotate(${angle}deg) scale(${scale})`,
             }}
             unselectable='on'
-        />
+        />,
     )
     document.getElementById("root")?.append(ele)
 
@@ -69,14 +69,14 @@ export const useGlassBreak = () => {
                         opacity: 0.8,
                         transform: `rotate(${angle}deg) scale(${scale})`,
                     }}
-                />
+                />,
             )
             document.getElementById("root")?.append(ele)
 
             toggleClass(target, "shake-small")
             setTimeout(() => toggleClass(target, "shake-small"), 200)
         },
-        []
+        [],
     )
 
     const repairGlass = useCallback(() => {
@@ -128,7 +128,7 @@ export const useMangaVoiceText = () => {
                         transform: `rotate(${angle}deg) scale(${scale})`,
                     }}
                     unselectable='on'
-                />
+                />,
             )
             document.getElementById("root")?.append(ele)
 
@@ -143,7 +143,7 @@ export const useMangaVoiceText = () => {
                     toggleClass(target, "shake-small")
             }, 500)
         },
-        []
+        [],
     )
 
     return { setMangaVoiceText }
@@ -189,7 +189,7 @@ export const useExplode = () => {
                         transform: `rotate(${angle}deg) scale(${scale})`,
                     }}
                     unselectable='on'
-                />
+                />,
             )
             document.getElementById("root")?.append(ele)
 
@@ -204,7 +204,7 @@ export const useExplode = () => {
                     toggleClass(target, "shake-small")
             }, 500)
         },
-        []
+        [],
     )
 
     return { setExplode }
@@ -241,7 +241,7 @@ export const useThemeSwitch = () => {
                     alert("要不要猜猜看再多按幾次會怎樣？")
                 } else if (_switchTime === 180) {
                     alert(
-                        "等等我開玩笑的，真的沒東西了\n\n請重新整理頁面以修好開關"
+                        "等等我開玩笑的，真的沒東西了\n\n請重新整理頁面以修好開關",
                     )
                 } else if (_switchTime >= 181) {
                     alert("請重新整理頁面以修好開關")
@@ -251,7 +251,7 @@ export const useThemeSwitch = () => {
             }
             setSwitchTime(_switchTime)
         },
-        [switchTime]
+        [switchTime],
     )
 
     const repairThemeSwitch = useCallback(() => {
@@ -291,7 +291,7 @@ export const useCongratsClicker = () => {
     const [clickCount, setClickCount] = useState(0)
     const [clickLock, setClickLock] = useState(false)
     const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | null>(
-        null
+        null,
     )
 
     const showCongrats = useCallback(() => {
@@ -315,7 +315,7 @@ export const useCongratsClicker = () => {
                     zIndex: 100000,
                     userSelect: "none",
                 }}
-            />
+            />,
         )
         document.getElementById("root")?.prepend(ele)
 
@@ -330,19 +330,25 @@ export const useCongratsClicker = () => {
             }, i * 10)
         }
         for (let i = 1; i <= fadeTime; i++) {
-            setTimeout(function () {
-                ;(banner as HTMLDivElement).style.opacity = `${
-                    (1 / fadeTime) * i
-                }`
-            }, 1000 + i * 10)
+            setTimeout(
+                function () {
+                    ;(banner as HTMLDivElement).style.opacity = `${
+                        (1 / fadeTime) * i
+                    }`
+                },
+                1000 + i * 10,
+            )
         }
         for (let i = 1; i <= fadeTime; i++) {
-            setTimeout(function () {
-                ele.style.opacity = `${1 - (1 / fadeTime) * i}`
-                ;(banner as HTMLDivElement).style.opacity = `${
-                    1 - (1 / fadeTime) * i
-                }`
-            }, 6000 + i * 10)
+            setTimeout(
+                function () {
+                    ele.style.opacity = `${1 - (1 / fadeTime) * i}`
+                    ;(banner as HTMLDivElement).style.opacity = `${
+                        1 - (1 / fadeTime) * i
+                    }`
+                },
+                6000 + i * 10,
+            )
         }
 
         setTimeout(function () {
@@ -374,6 +380,38 @@ export const useCongratsClicker = () => {
     }, [checkComboCount, clickCount, clickLock, showCongrats])
 
     return { onClickKirito }
+}
+
+// Click on Kuriboh image generates a new Kuriboh
+export const useGenerateKuriboh = () => {
+    const MAX_KURIBOH_COUNT = 200
+    const generateKuriboh = useCallback(() => {
+        if (document.querySelectorAll(".kuriboh").length >= MAX_KURIBOH_COUNT)
+            return
+
+        const scale = 0.6 + Math.random() * 0.4
+        const angle = Math.random() * 40 - 20
+        const size = 150
+        const x = Math.random() * (window.innerWidth - size)
+        const y = Math.random() * (window.innerHeight - size)
+
+        const ele = document.createElement("div")
+
+        ele.className = "kuriboh fade-in"
+        ele.style = `position: fixed; left: ${x}px; top: ${y}px; z-index: 10000; pointer-events: none; user-select: none;`
+        ele.innerHTML = renderToString(
+            <img
+                src='./src/img/other/kuriboh.png'
+                style={{
+                    transform: `rotate(${angle}deg) scale(${scale})`,
+                }}
+                unselectable='on'
+            />,
+        )
+        document.getElementById("root")?.append(ele)
+    }, [])
+
+    return { generateKuriboh }
 }
 
 /***** EASTER EGG *****/

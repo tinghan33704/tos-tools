@@ -28,6 +28,7 @@ import {
     useGlassBreak,
     useMangaVoiceText,
     useMikuDisappear,
+    useGenerateKuriboh,
 } from "src/hook/EasterEgg/EasterEgg"
 
 import "./style.scss"
@@ -121,6 +122,7 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
         const { repairThemeSwitch } = useContext(ThemeContext)
         const { setChinarashi } = useChinarashi()
         const { onClickKirito } = useCongratsClicker()
+        const { generateKuriboh } = useGenerateKuriboh()
         /***** EASTER EGG *****/
 
         const renderMonsterName = useCallback(() => {
@@ -624,6 +626,10 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
                 if (id === 10495) {
                     onClickKirito()
                 }
+                // Click on Kuriboh's image generates new Kuriboh
+                if (id === 11287) {
+                    generateKuriboh()
+                }
                 /***** EASTER EGG *****/
             },
             [
@@ -641,6 +647,7 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
                 setMangaVoiceText,
                 setPopoverContent,
                 togglePopover,
+                generateKuriboh,
             ],
         )
 
