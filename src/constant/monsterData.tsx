@@ -1,4 +1,4 @@
-// Last modified : 2026.09.12 14:05
+// Last modified : 2026.09.14 17:20
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -132345,16 +132345,19 @@ export const monsterData: IObject[] = [
 				⓶ 第 2 批掉落心魔族強化符石
 				VI. 消除符石後
 				⇒ 魔族及獸類成員技能 CD -1
-
                 `,
-                'tag': ['移除', '整版移除', '移除強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '魔族符石製造', '增傷', '界王拳', '無視連擊相等盾', '無視數字盾', '天降強制掉落', '減CD']
+                'tag': ['移除', '整版移除', '移除強制掉落', '強制掉水', '強制掉火', '強制掉木', '強制掉光', '強制掉暗', '強制掉心', '魔族符石製造', '增傷', '界王拳', '無視連擊相等盾', '無視數字盾', '天降強制掉落', '固定版面', '減CD']
             }
         ],
         'teamSkill': [],
 		'board': [
 			{
 				'board': [
-				
+					'1d', '2d', '1d', '2d', '1d', '2d', 
+					'1d', '2d', '1d', '2d', '1d', '2d', 
+					'1d', '2d', '1d', '2d', '1d', '2d', 
+					'1d', '2d', '1d', '2d', '1d', '2d', 
+					'1d', '2d', '1d', '2d', '1d', '2d', 
 				],
 				'note': [
 					'首次點選的種類強化符石',
@@ -234441,7 +234444,13 @@ export const monsterData: IObject[] = [
 			},
 		],
 		'board': [
-		
+			[
+				'Wr', 'Hr', 'Wr', 'Hr', 'Wr', 'Hr', 
+				'Wr', 'Hr', 'Wr', 'Hr', 'Wr', 'Hr', 
+				'Wr', 'Hr', 'Wr', 'Hr', 'Wr', 'Hr', 
+				'Wr', 'Hr', 'Wr', 'Hr', 'Wr', 'Hr', 
+				'Wr', 'Hr', 'Wr', 'Hr', 'Wr', 'Hr', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -235262,7 +235271,7 @@ export const monsterData: IObject[] = [
 		],
         'maxLevel': 99,
         'maxSkill': 12,
-        'maxRefine': 0,
+        'maxRefine': 4,
         'version': 'v2026.51'
     },
     {
@@ -235576,11 +235585,19 @@ export const monsterData: IObject[] = [
 		],
 		'board': [
 			[
-			
+				'Dg', 'Dg', 'Dg', 'Dg', 'Dg', 'Dg', 
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+				'Dg', 'Wg', 'Fg', 'Eg', 'Lg', 'Hg', 
+				'Hg', 'Hg', 'Hg', 'Hg', 'Hg', 'Hg', 
 			],
 			{
 				'board': [
-				
+					'1g', '1g', '1g', '1g', '1g', '1g', 
+					'Hg', 'Hg', 'Hg', 'Hg', 'Hg', 'Hg', 
+					'1g', '1g', '1g', '1g', '1g', '1g', 
+					'Hg', 'Hg', 'Hg', 'Hg', 'Hg', 'Hg', 
+					'1g', '1g', '1g', '1g', '1g', '1g', 
 				],
 				'note': [
 					'隊長屬性強化符石'
@@ -235588,7 +235605,11 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'board': [
-				
+					'1g', 'Hg', '1g', 'Hg', '1g', 'Hg', 
+					'1g', 'Hg', '1g', 'Hg', '1g', 'Hg', 
+					'1g', 'Hg', '1g', 'Hg', '1g', 'Hg', 
+					'1g', 'Hg', '1g', 'Hg', '1g', 'Hg', 
+					'1g', 'Hg', '1g', 'Hg', '1g', 'Hg', 
 				],
 				'note': [
 					'自身屬性強化符石'
@@ -235677,7 +235698,11 @@ export const monsterData: IObject[] = [
 		'board': [
 			{
 				'board': [
-				
+					'1d', '2d', '3d', '4d', '5d', '6d', 
+					'1d', '2d', '3d', '4d', '5d', '6d', 
+					'1d', '2d', '3d', '4d', '5d', '6d', 
+					'1d', '2d', '3d', '4d', '5d', '6d', 
+					'1d', '2d', '3d', '4d', '5d', '6d', 
 				],
 				'note': [
 					'首次點選的種類「加護」強化符石', 
