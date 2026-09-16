@@ -1,4 +1,4 @@
-// Last modified : 2026.09.16 00:30
+// Last modified : 2026.09.16 12:55
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -235846,7 +235846,7 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11278,
-        'name': '貝卡斯 ‧ J ‧ 克羅佛多&千眼納祭',
+        'name': '貝卡斯 ‧ J ‧ 克羅佛多&千眼納祭魔',
         'attribute': '暗',
         'race': '魔族',
         'star': 6,
