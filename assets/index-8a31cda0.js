@@ -74180,7 +74180,7 @@ function print() { __p += __j.call(arguments, '') }
 				▋ ≥3
 				⓵ 進場時
 				⇒【遊戲王 怪獸之決鬥】成員技能 CD -2
-				`,activate:"以【遊戲王 怪獸之決鬥】角色作成員",skill_tag:["進場減CD","增攻","增回","增血","無視刺血符石"],activate_tag:["指定成員"],relative:["遊戲王 怪獸之決鬥"]}],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11278,name:"貝卡斯 ‧ J ‧ 克羅佛多&千眼納祭",attribute:"暗",race:"魔族",star:6,monsterTag:["遊戲王 怪獸之決鬥","地獄魔王"],crossOver:!0,skill:[{name:"千眼咒縛",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以【遊戲王 怪獸之決鬥】角色作成員",skill_tag:["進場減CD","增攻","增回","增血","無視刺血符石"],activate_tag:["指定成員"],relative:["遊戲王 怪獸之決鬥"]}],maxLevel:0,maxSkill:0,maxRefine:0,version:""},{id:11278,name:"貝卡斯 ‧ J ‧ 克羅佛多&千眼納祭魔",attribute:"暗",race:"魔族",star:6,monsterTag:["遊戲王 怪獸之決鬥","地獄魔王"],crossOver:!0,skill:[{name:"千眼咒縛",type:"normal",charge:"CD",num:6,description:`
 				I. 使敵人進入「冥控」狀態，持續 1 回合
 				▋ 使敵人無法行動
 				▋ 敵人轉換為暗屬性
