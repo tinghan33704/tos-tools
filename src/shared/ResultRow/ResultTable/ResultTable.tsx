@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import _ from "lodash"
 import { Table } from "react-bootstrap"
 import LazyLoad from "react-lazyload"
@@ -23,6 +23,10 @@ const ResultTable: React.FC<IResultTableProps> = (props) => {
     const { resultData, noImagePopover = false } = props
 
     const [currentPage, setCurrentPage] = useState(1)
+
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [resultData])
 
     const onChangePage = useCallback(
         (page: number) => {

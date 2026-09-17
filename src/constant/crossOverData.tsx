@@ -2525,9 +2525,9 @@ export const crossOverData: IObject[] = [
                 subtitle: "我的回合，抽卡！",
                 data: [
 					11265,
-					11266,
-					11262,
-					11263,
+					[11266, 11271],
+					[11262, 11272],
+					[11263, 11273],
 					11264,
 					11267, 
 					11268
@@ -2536,12 +2536,12 @@ export const crossOverData: IObject[] = [
             {
                 title: "地獄魔王",
                 subtitle: "",
-                data: [11278],
+                data: [11278, 11281],
             },
             {
                 title: "挑戰關卡",
                 subtitle: "",
-                data: [11276, 11279],
+                data: [11276, 11277, 11279, 11282],
             },
             {
                 title: "境外探索",
