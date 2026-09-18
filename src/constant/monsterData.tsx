@@ -1,4 +1,4 @@
-// Last modified : 2026.09.18 00:29
+// Last modified : 2026.09.18 21:15
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -235364,8 +235364,8 @@ export const monsterData: IObject[] = [
 				⓶ 連擊 (Ex. Combo) 數目固定為 6
 				V. 發動技能時或回合結束時
 				⓵ 當前生命力變為 100%
-				⓶ 移除所有符石
-				⇒ 掉落固定版面符石 (五屬及心神族強化符石)
+				⓶ <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心神族強化符石)</board>
 				VI. 隊中每有 1 個神族、龍類或【遊戲王 怪獸之決鬥】成員 (自身除外)
 				⇒ 效果的持續時間增加 1 回合
                 `,
@@ -235521,6 +235521,15 @@ export const monsterData: IObject[] = [
 				'relative': ['遊戲王 怪獸之決鬥']
 			},
 		],
+		'board': [
+			[
+				'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 
+				'Wg', 'Eg', 'Lg', 'Dg', 'Hg', 'Fg', 
+				'Wg', 'Eg', 'Lg', 'Dg', 'Hg', 'Fg', 
+				'Wg', 'Eg', 'Lg', 'Dg', 'Hg', 'Fg', 
+				'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 
+			]
+		],
         'maxLevel': 99,
         'maxSkill': 12,
         'maxRefine': 0,
@@ -235557,7 +235566,7 @@ export const monsterData: IObject[] = [
 				
 				VI.「技能關閉」時
 				⓵ 點選元素法陣上的符石 2 次
-				⓶ 引爆所有符石，掉落固定版面符石 (點選的符石種類神族符石)
+				⓶ <board>引爆所有符石，掉落固定版面符石 (點選的符石種類神族符石)</board>
 				⓷ 對敵人造成 400 兆點無屬性的傷害 1 次 (此傷害無視「強化突破」及「防禦力」)
 				⓸ 1 回合內
 				├ 增加 24 連擊 (Ex. Combo、Combo)
@@ -235685,6 +235694,21 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': ['遊戲王 怪獸之決鬥']
 			},
+		],
+		'board': [
+			{
+				'board': [
+					'1g', '2g', '1g', '2g', '1g', '2g', 
+					'1g', '2g', '1g', '2g', '1g', '2g', 
+					'1g', '2g', '1g', '2g', '1g', '2g', 
+					'1g', '2g', '1g', '2g', '1g', '2g', 
+					'1g', '2g', '1g', '2g', '1g', '2g', 
+				],
+				'note': [
+					'首次點選的種類符石',
+					'第 2 次點選的種類符石',
+				]
+			}
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -236400,11 +236424,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11280,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': ['遊戲王 怪獸之決鬥'],
+        'name': '梶木漁太&傳說的漁人',
+        'attribute': '水',
+        'race': '人類',
+        'star': 6,
+        'monsterTag': ['遊戲王 怪獸之決鬥', '梶木漁太&傳說的漁人'],
         'crossOver': true,
         'skill': [
             {
