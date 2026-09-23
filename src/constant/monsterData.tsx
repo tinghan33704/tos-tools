@@ -1,4 +1,4 @@
-// Last modified : 2026.09.18 21:15
+// Last modified : 2026.09.23 16:49
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -132404,7 +132404,7 @@ export const monsterData: IObject[] = [
                 'name': '無垢之境',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 4,
+                'num': 2,
                 'description': `
 				I. 解除「結界地型」及「幽閉空間」
 				II. 移除所有符石
@@ -221947,6 +221947,7 @@ export const monsterData: IObject[] = [
 			{
 				'description': `
 				◆ 隊伍成員無視「中毒」及「回復顛倒」
+				
 				◆「萬法根念 ‧ 阿賴耶識」及「最勝龍雷 ‧ 帝釋天」不會進入「疲憊」、「休眠」、「風壓」、「麻痺」、「沉默」及「技能封鎖」狀態
 
 				◆ 進場時
