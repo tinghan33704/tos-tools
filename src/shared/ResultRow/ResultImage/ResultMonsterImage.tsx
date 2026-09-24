@@ -21,6 +21,7 @@ import {
 } from "src/utilities/utils"
 import Image from "src/utilities/Image"
 import Icon from "src/utilities/Icon"
+import { useIsPopoverFocused } from "src/hook/usePopoverFocus"
 import {
     useChinarashi,
     useCongratsClicker,
@@ -64,7 +65,7 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
             searchParam,
             resultData,
         } = props
-        const ref = useRef(null)
+        const ref = useRef<HTMLDivElement>(null)
         const { toolId } = useContext(Context)
         const { id, skillIndex, skillIndexes, notInInventory, skill } = data
         const monsterInfo: IObject = getMonsterById(id)
@@ -96,6 +97,7 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
 
         /***** EASTER EGG *****/
         /* Flags for special image or image change design */
+        const isFocused = useIsPopoverFocused(ref)
         const hasSpecialImage = useMemo(() => !!specialImage, [specialImage])
         const hasImageChange = useMemo(
             () =>
@@ -497,19 +499,10 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
             const capooImage = id === 11075
 
             const pathId = hasImageChange
-                ? document
-                      .querySelector(
-                          `.result-image[path="monster/${imageChangeArr?.[0]}"]`,
-                      )
-                      ?.getAttribute("focused")
+                ? isFocused
                     ? imageChangeArr?.[1]
                     : imageChangeArr?.[0]
-                : (hasSpecialImage &&
-                        document.querySelector(
-                            `.result-image[src$="${id}.png"][focused="true"]`,
-                        )) ||
-                    anyaSmile ||
-                    cilantroAngry
+                : (hasSpecialImage && isFocused) || anyaSmile || cilantroAngry
                   ? `${id}_sp`
                   : isNowNight
                     ? `${id}_sp`
@@ -517,9 +510,7 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
                       ? `${id}_sp2`
                       : digimonShinka
                         ? `${id}_sp1`
-                        : document.querySelector(
-                                `.result-image[src$="${id}.png"][focused="true"]`,
-                            ) && capooImage
+                        : isFocused && capooImage
                           ? `${id}_sp${_.random(1, 5)}`
                           : id
             /***** EASTER EGG *****/
@@ -549,6 +540,7 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
             hasSpecialImage,
             id,
             imageChangeArr,
+            isFocused,
             keywordsArr,
             noImagePopover,
             notInInventory,
@@ -560,17 +552,7 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
 
         const onClickImage = useCallback(
             (e: React.MouseEvent) => {
-                if (
-                    !document
-                        .querySelector(
-                            `.result-image[path="monster/${id}"], .result-image[path^="monster/${id}_sp"]${
-                                hasImageChange
-                                    ? `, .result-image[path="monster/${imageChangeArr?.[0]}"], .result-image[path="monster/${imageChangeArr?.[1]}"]`
-                                    : ""
-                            }`,
-                        )
-                        ?.getAttribute("focused")
-                ) {
+                if (!isFocused) {
                     togglePopover?.(e)
                     setPopoverContent?.(monsterInfoPopover)
                 }
@@ -633,9 +615,8 @@ export const ResultMonsterImage = React.memo<IResultMonsterImageProps>(
                 /***** EASTER EGG *****/
             },
             [
-                hasImageChange,
                 id,
-                imageChangeArr,
+                isFocused,
                 mikuDisappear,
                 monsterInfoPopover,
                 onClickKirito,

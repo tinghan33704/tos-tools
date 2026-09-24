@@ -3,6 +3,8 @@ import { createPortal } from "react-dom"
 import { useState, useCallback, useEffect } from "react"
 import _ from "lodash"
 
+import { setPopoverFocusTarget } from "./usePopoverFocus"
+
 import "./style.scss"
 
 export const usePopover = () => {
@@ -28,6 +30,7 @@ export const usePopover = () => {
         return () => {
             window.removeEventListener("scroll", debouncedOnScroll.current)
             window.removeEventListener("resize", debouncedOnResize.current)
+            setPopoverFocusTarget(null)
         }
     }, [])
 
@@ -79,6 +82,8 @@ export const usePopover = () => {
         prevTarget?.removeAttribute("focused")
         if (isOpen) target?.setAttribute("focused", isOpen)
         else target?.removeAttribute("focused")
+
+        setPopoverFocusTarget(isOpen ? target : null)
     }, [isOpen, prevTarget, target])
 
     useEffect(() => {

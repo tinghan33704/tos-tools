@@ -197,6 +197,7 @@ export const skillIconMapping: IObject = {
     解除風壓: ["windswept"],
     解除麻痺: ["paralyzed"],
     解除沉默: ["silenced"],
+	解除封脈: ["light_sword"],
     防鎖: ["shackle"],
     防毒: ["prevent_poison"],
     解除自爆: ["prevent_death_blow"],
@@ -239,6 +240,7 @@ export const skillIconMapping: IObject = {
     無視步數限制: ["step_restriction"],
     無視移形換影: ["shrouded_rune"],
 	無視即效永生: ["full_recovery"],
+	無視附加消除: ["neutralize"], 
     無視拼圖盾: ["puzzle_shield"],
     無視攻前盾: ["initial_shield"],
     無視強化盾: ["enchanted_shield"],
@@ -346,6 +348,7 @@ export const skillIconMapping: IObject = {
 	無視脈流: ["flow"],
 	無視五屬焚爆: ["water_explode", "fire_explode", "earth_explode", "light_explode", "dark_explode"],
     解除迷霧: ["mist"],
+	無視次批消除盾: ["drop_monochrome"],
     物品掉落增加: ["coin"],
 
     //
