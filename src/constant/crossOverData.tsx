@@ -2536,7 +2536,7 @@ export const crossOverData: IObject[] = [
             {
                 title: "地獄魔王",
                 subtitle: "",
-                data: [11278, 11281, 11283, 11284],
+                data: [11278, 11281, 11283, 11284, 11285, 11286],
             },
             {
                 title: "挑戰關卡",
