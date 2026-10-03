@@ -1,4 +1,4 @@
-// Last modified : 2026.09.30 18:24
+// Last modified : 2026.09.30 19:21
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -236227,10 +236227,18 @@ export const monsterData: IObject[] = [
 				]
 			}, 
 			[
-			
+				'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 
+				'Wg', 'Eg', 'Lg', 'Dg', 'Hg', 'Fg',
+				'Wg', 'Eg', 'Lg', 'Dg', 'Hg', 'Fg',
+				'Wg', 'Eg', 'Lg', 'Dg', 'Hg', 'Fg',
+				'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 'Fg', 
 			],
 			[
-			
+				'Hg', 'Lg', 'Lg', 'Hg', 'Hg', 'Hg', 
+				'Hg', 'Lg', 'Lg', 'Lg', 'Lg', 'Lg', 
+				'Hg', 'Lg', 'Lg', 'Lg', 'Lg', 'Hg', 
+				'Lg', 'Lg', 'Lg', 'Lg', 'Lg', 'Hg', 
+				'Hg', 'Hg', 'Hg', 'Lg', 'Lg', 'Hg', 
 			],
 		],
         'maxLevel': 99,
