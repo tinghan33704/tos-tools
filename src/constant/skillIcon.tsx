@@ -241,6 +241,7 @@ export const skillIconMapping: IObject = {
     無視移形換影: ["shrouded_rune"],
 	無視即效永生: ["full_recovery"],
 	無視附加消除: ["neutralize"], 
+	無視佑律: ["drop_dark"],
     無視拼圖盾: ["puzzle_shield"],
     無視攻前盾: ["initial_shield"],
     無視強化盾: ["enchanted_shield"],
