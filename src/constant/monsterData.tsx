@@ -1,4 +1,4 @@
-// Last modified : 2026.10.09 00:52
+// Last modified : 2026.10.11 16:21
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -238156,7 +238156,7 @@ export const monsterData: IObject[] = [
         'attribute': '水',
         'race': '人類',
         'star': 5,
-        'monsterTag': ['火花與齒輪'],
+        'monsterTag': ['魔都住民'],
         'crossOver': false,
         'skill': [
             {
