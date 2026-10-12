@@ -1,4 +1,4 @@
-// Last modified : 2026.10.11 16:21
+// Last modified : 2026.10.12 16:43
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -238074,7 +238074,7 @@ export const monsterData: IObject[] = [
         'attribute': '暗',
         'race': '人類',
         'star': 6,
-        'monsterTag': [],
+        'monsterTag': ['十三巫誓', '挖地尋寶'],
         'crossOver': false,
         'skill': [
             {
@@ -238101,7 +238101,11 @@ export const monsterData: IObject[] = [
 		'board': [
 			{
 				'board': [
-				
+					'1h', '2h', '3h', '1h', '2h', '3h', 
+					'1h', '2h', '3h', '1h', '2h', '3h', 
+					'1h', '2h', '3h', '1h', '2h', '3h', 
+					'1h', '2h', '3h', '1h', '2h', '3h', 
+					'1h', '2h', '3h', '1h', '2h', '3h', 
 				],
 				'note': [
 					'首次點選的種類強化符石', 
@@ -238121,7 +238125,7 @@ export const monsterData: IObject[] = [
         'attribute': '暗',
         'race': '獸類',
         'star': 6,
-        'monsterTag': ['地獄魔王'],
+        'monsterTag': ['十三巫誓', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
@@ -238156,7 +238160,7 @@ export const monsterData: IObject[] = [
         'attribute': '水',
         'race': '人類',
         'star': 5,
-        'monsterTag': ['魔都住民'],
+        'monsterTag': ['十三巫誓', '魔都住民'],
         'crossOver': false,
         'skill': [
             {
