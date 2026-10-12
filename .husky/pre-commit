@@ -1,0 +1,8 @@
+NOW=$(date '+%Y.%m.%d %H:%M')
+
+for FILE in src/constant/monsterData.tsx src/constant/leaderData.tsx src/constant/armedCraftData.tsx; do
+  if git diff --cached --name-only | grep -qx "$FILE"; then
+    sed -i -b "1s|^\(// Last modified : \)[0-9.]* [0-9:]*|\1$NOW|" "$FILE"
+    git add "$FILE"
+  fi
+done
