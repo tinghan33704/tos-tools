@@ -1,4 +1,4 @@
-// Last modified : 2026.10.14 19:04
+// Last modified : 2026.10.19 13:49
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -237353,8 +237353,8 @@ export const monsterData: IObject[] = [
                 'num': 6,
                 'description': `
 				I. 水屬性、人類及【十三巫誓】成員解除「技能封鎖」狀態 (此技能無視「技能封鎖」狀態)
-				II. 移除所有符石
-				⇒ 掉落固定版面符石 (五屬及心人類強化符石)
+				II. <board>移除所有符石
+				⇒ 掉落固定版面符石 (五屬及心人類強化符石)</board>
 				▋ 隊長為【十三巫誓】成員
 				⇒ 此移除無視「佑律」
 				1 回合內
@@ -237531,6 +237531,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': ['十三巫誓']
 			},
+		],
+		'board': [
+			[
+				'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+				'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+				'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+				'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+				'Wh', 'Fh', 'Eh', 'Lh', 'Dh', 'Hh', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -237808,8 +237817,8 @@ export const monsterData: IObject[] = [
                 'charge': 'CD',
                 'num': 6,
                 'description': `
-				I. 引爆所有符石
-				⇒ 掉落固定版面符石 (五屬人類強化符石)
+				I. <board>引爆所有符石
+				⇒ 掉落固定版面符石 (五屬人類強化符石)</board>
 				▋ 隊長為【十三巫誓】成員
 				⇒ 此引爆無視「佑律」
 				1 回合內
@@ -237874,6 +237883,15 @@ export const monsterData: IObject[] = [
 				'activate_tag': ['指定成員'],
 				'relative': ['十三巫誓']
 			},
+		],
+		'board': [
+			[
+				'Lh', 'Lh', 'Lh', 'Lh', 'Lh', 'Lh', 
+				'Wh', 'Wh', 'Wh', 'Wh', 'Wh', 'Wh', 
+				'Fh', 'Fh', 'Fh', 'Fh', 'Fh', 'Fh', 
+				'Eh', 'Eh', 'Eh', 'Eh', 'Eh', 'Eh', 
+				'Dh', 'Dh', 'Dh', 'Dh', 'Dh', 'Dh', 
+			]
 		],
         'maxLevel': 99,
         'maxSkill': 12,
@@ -238111,7 +238129,7 @@ export const monsterData: IObject[] = [
                 'num': 4,
                 'description': `
 				I. 點選元素法陣上的符石 3 次
-				⇒ 引爆所有符石，掉落固定版面符石 (點選的符石種類人類強化符石)
+				⇒ <board>引爆所有符石，掉落固定版面符石 (點選的符石種類人類強化符石)</board>
 				▋ 隊長為【十三巫誓】成員
 				⇒ 此引爆無視「佑律」
 				1 回合內
@@ -238495,11 +238513,11 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11301,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '常理之外 ‧ 界隙異象',
+        'attribute': '光',
+        'race': '妖精類',
+        'star': 6,
+        'monsterTag': ['十三巫誓', '失序連鎖'],
         'crossOver': false,
         'skill': [
             {
@@ -238513,11 +238531,48 @@ export const monsterData: IObject[] = [
                 'tag': []
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【十三巫誓】成員
+				⓵ 生命力及回復力基值 1.3 倍
+				⓶ 無視「技能重置」及「脈流」
+				⓷ 對敵人的傷害 1.3 倍
+
+				◆【十三巫誓】成員於本回合發動主動技能
+				⇒ 隊伍成員對敵人的傷害 1.3 倍
+
+				◆ 場上有擁有「淡化印記」或「陽之氣」的敵人
+				⇒ 移動符石時，將觸碰的符石添加為「淡化印記」符石
+				`,
+				'activate': `以【十三巫誓】角色作隊長，並以 ≥3 個【十三巫誓】角色作成員`,
+				'skill_tag': ['增血', '增回', '無視技能重置', '無視脈流', '敵方受傷增加', '增攻', '淡化印記製造'],
+				'activate_tag': ['指定隊長', '指定成員'],
+				'relative': ['十三巫誓']
+			},
+			{
+				'description': `
+				◆ 根據【十三巫誓】成員數目，獲得以下效果：
+
+				▋ ≥1
+				【十三巫誓】成員無視「開技消耗代價」
+
+				▋ ≥2
+				【十三巫誓】成員攻擊力、生命力及回復力 2.5 倍
+
+				▋ ≥3
+				隊伍成員無視「灼熱地型」
+				`,
+				'activate': `以【十三巫誓】角色作成員`,
+				'skill_tag': ['無視開技扣血', '增攻', '增血', '增回', '無視灼熱地型'],
+				'activate_tag': ['指定成員'],
+				'relative': ['十三巫誓']
+			},
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.60'
     },
     {
         'id': 11302,
