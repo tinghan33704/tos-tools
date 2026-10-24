@@ -1,4 +1,4 @@
-// Last modified : 2026.10.22 23:00
+// Last modified : 2026.10.24 18:58
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -78994,7 +78994,7 @@ export const monsterData: IObject[] = [
 		'attribute': '木',
 		'race': '魔族',
 		'star': 6,
-		'monsterTag': ['地獄魔王'],
+		'monsterTag': ['妖魔傾城', '地獄魔王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -79029,7 +79029,7 @@ export const monsterData: IObject[] = [
 		'attribute': '光',
 		'race': '妖精類',
 		'star': 6,
-		'monsterTag': ['地獄魔王'],
+		'monsterTag': ['妖魔傾城', '地獄魔王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -79059,7 +79059,7 @@ export const monsterData: IObject[] = [
 		'attribute': '暗',
 		'race': '妖精類',
 		'star': 6,
-		'monsterTag': ['地獄魔王'],
+		'monsterTag': ['妖魔傾城', '地獄魔王'],
 		'crossOver': false,
 		'skill': [
 			{
@@ -133010,7 +133010,11 @@ export const monsterData: IObject[] = [
 		],
 		'board': [
 			[
-			
+				'Ld', 'Ld', 'Ld', 'Ld', 'Ld', 'Ld', 
+				'Wd', 'Wd', 'Wd', 'Ed', 'Ed', 'Ed', 
+				'Ld', 'Ld', 'Ld', 'Ld', 'Ld', 'Ld', 
+				'Fd', 'Fd', 'Fd', 'Dd', 'Dd', 'Dd', 
+				'Ld', 'Ld', 'Ld', 'Ld', 'Ld', 'Ld', 
 			]
 		],
         'maxLevel': 99,
@@ -133045,7 +133049,7 @@ export const monsterData: IObject[] = [
 				V. 隊長為魔族、妖精類或【妖魔傾城】成員 (發動技能時)
 				⇒ 消除符石後，自身技能 CD -5
                 `,
-                'tag': ['解除自爆', '引爆', '直行引爆', '引爆強制掉落', '強制掉直行屬性', '增傷', '無視血浴地型', '無視攻擊次數盾', '無視力的印記', '減CD']
+                'tag': ['解除自爆', '引爆', '直行引爆', '引爆強制掉落', '強制掉直行屬性', '人族符石製造', '獸族符石製造', '妖族符石製造', '龍族符石製造', '神族符石製造', '魔族符石製造', '機械族符石製造', '增傷', '無視血浴地型', '無視攻擊次數盾', '無視力的印記', '減CD']
             }
         ],
         'teamSkill': [
@@ -133127,7 +133131,7 @@ export const monsterData: IObject[] = [
 				VI. 移動符石時
 				⇒ 將觸碰的符石添加為魔族符石
                 `,
-                'tag': ['解除自爆', '共鳴', '增傷', '自身追打', '水屬追打', '火屬追打', '木屬追打', '光屬追打', '暗屬追打', '五屬追打', '無屬追打', '我方減回', '無視首殺盾', '我方減攻', '減CD', '魔族符石製造', '軌跡轉化']
+                'tag': ['解除自爆', '共鳴', '增傷', '界王拳', '自身追打', '水屬追打', '火屬追打', '木屬追打', '光屬追打', '暗屬追打', '五屬追打', '無屬追打', '我方減回', '無視首殺盾', '我方減攻', '減CD', '魔族符石製造', '軌跡轉化']
             }
         ],
         'teamSkill': [
