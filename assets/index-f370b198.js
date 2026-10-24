@@ -12590,7 +12590,7 @@ function print() { __p += __j.call(arguments, '') }
 				隊長及戰友攻擊力 2.5 倍，效果持續至首批消除心符石
 				`,tag:[["增傷",-1],["界王拳",-1]]}],teamSkill:[{description:`
 				◆ 每進入下一層數 (Wave) 時，隨機將 3 粒符石轉化為魔族符石
-				`,activate:"隊長及戰友為魔族成員，並以「禍國魔娃 ‧ 褒姒」或「烈女勳章 ‧ 妺喜」作成員",skill_tag:["魔族符石製造"],activate_tag:["指定隊長戰友"],relative:[2062,2066]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.10"},{id:2067,name:"斷腸思慕 ‧ 呂雉",attribute:"木",race:"魔族",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"人彘之愛",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"隊長及戰友為魔族成員，並以「禍國魔娃 ‧ 褒姒」或「烈女勳章 ‧ 妺喜」作成員",skill_tag:["魔族符石製造"],activate_tag:["指定隊長戰友"],relative:[2062,2066]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v17.10"},{id:2067,name:"斷腸思慕 ‧ 呂雉",attribute:"木",race:"魔族",star:6,monsterTag:["妖魔傾城","地獄魔王"],crossOver:!1,skill:[{name:"人彘之愛",type:"normal",charge:"CD",num:6,description:`
 				I. 自身及身旁成員攻擊力 4 倍
 				II. 魔族、妖精類及【妖魔傾城】成員無視「二屬盾」、「三屬盾」、「四屬盾」、「五屬盾」及「全消盾」
 				III. 將 5 粒符石 (按心符石、水符石、火符石、光符石、暗符石及木符石的順序) 轉化為木魔族強化符石
@@ -12601,13 +12601,13 @@ function print() { __p += __j.call(arguments, '') }
 				V.「技能關閉」時
 				⓵ 魔族、妖精類及【妖魔傾城】成員增加 2 回合「亢奮」狀態
 				⓶ 1 回合內，增加 10 連擊 (Combo)
-				`,tag:[["界王拳",-1],["增傷",-1],["無視二屬盾",-1],["無視三屬盾",-1],["無視四屬盾",-1],["無視五屬盾",-1],["無視全首消盾",-1],["心轉其他",-1],["水轉其他",-1],["火轉其他",-1],["光轉其他",-1],["暗轉其他",-1],["符石轉木",-1],["符石轉木強化",-1],["符石強化",-1],["魔族符石製造",-1],["亢奮狀態",2],"增加Combo","隨時關閉","頭像狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.10"},{id:2068,name:"落雁琴姬 ‧ 王昭君",attribute:"光",race:"妖精類",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"落雁之魅",type:"normal",charge:"CD",num:6,description:`
+				`,tag:[["界王拳",-1],["增傷",-1],["無視二屬盾",-1],["無視三屬盾",-1],["無視四屬盾",-1],["無視五屬盾",-1],["無視全首消盾",-1],["心轉其他",-1],["水轉其他",-1],["火轉其他",-1],["光轉其他",-1],["暗轉其他",-1],["符石轉木",-1],["符石轉木強化",-1],["符石強化",-1],["魔族符石製造",-1],["亢奮狀態",2],"增加Combo","隨時關閉","頭像狀態"]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.10"},{id:2068,name:"落雁琴姬 ‧ 王昭君",attribute:"光",race:"妖精類",star:6,monsterTag:["妖魔傾城","地獄魔王"],crossOver:!1,skill:[{name:"落雁之魅",type:"normal",charge:"CD",num:6,description:`
 				I. 魔族、妖精類及【妖魔傾城】成員
 				⓵ 攻擊力及回復力 3 倍
 				⓶ 無視「首殺盾」
 				II. 掉落的符石以妖精類強化符石代替
 				(技能效果會持續生效，直至沒有消除種族符石)
-				`,tag:[["增傷",-1],["增回",-1],["無視首殺盾",-1],["妖族符石製造",-1]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.10"},{id:2069,name:"獵皮艷妖 ‧ 西施",attribute:"暗",race:"妖精類",star:6,monsterTag:["地獄魔王"],crossOver:!1,skill:[{name:"沉魚之惑",type:"normal",charge:"CD",num:5,description:`
+				`,tag:[["增傷",-1],["增回",-1],["無視首殺盾",-1],["妖族符石製造",-1]]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:"v17.10"},{id:2069,name:"獵皮艷妖 ‧ 西施",attribute:"暗",race:"妖精類",star:6,monsterTag:["妖魔傾城","地獄魔王"],crossOver:!1,skill:[{name:"沉魚之惑",type:"normal",charge:"CD",num:5,description:`
 				1 回合內
 				I. 魔族、妖精類及【妖魔傾城】成員無視「攻前盾」及「指定減傷抗性敵技」
 				II. 隊中只有魔族、妖精類或【妖魔傾城】成員
@@ -31598,7 +31598,7 @@ function print() { __p += __j.call(arguments, '') }
 
 				◆ 消除魔族符石數量 ≥10
 				⇒ 回合結束時，魔族、妖精類及【妖魔傾城】成員技能 CD -1
-				`,activate:"以「傲視天威 ‧ 武則天」作成員，並以 ≥3 個【妖魔傾城】或魔族角色作成員",skill_tag:["無視一步一傷","其他減CD"],activate_tag:["指定成員","指定種族成員"],relative:[2973,"妖魔傾城"]}],board:[[]],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2026.60"},{id:2974,name:"踏歌獻魂 ‧ 克麗奧",attribute:"暗",race:"魔族",star:7,monsterTag:["妖魔傾城"],crossOver:!1,skill:[{name:"翩躚焰舞",type:"normal",charge:"CD",num:6,description:`
+				`,activate:"以「傲視天威 ‧ 武則天」作成員，並以 ≥3 個【妖魔傾城】或魔族角色作成員",skill_tag:["無視一步一傷","其他減CD"],activate_tag:["指定成員","指定種族成員"],relative:[2973,"妖魔傾城"]}],board:[["Ld","Ld","Ld","Ld","Ld","Ld","Wd","Wd","Wd","Ed","Ed","Ed","Ld","Ld","Ld","Ld","Ld","Ld","Fd","Fd","Fd","Dd","Dd","Dd","Ld","Ld","Ld","Ld","Ld","Ld"]],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2026.60"},{id:2974,name:"踏歌獻魂 ‧ 克麗奧",attribute:"暗",race:"魔族",star:7,monsterTag:["妖魔傾城"],crossOver:!1,skill:[{name:"翩躚焰舞",type:"normal",charge:"CD",num:6,description:`
 				I. 解除「亡命爆擊」
 				II. 點選場上直行符石 6 次
 				⇒ 引爆點選的直行，掉落該直行成員屬性種族 (沒有成員則為隨機) 強化符石
@@ -31610,7 +31610,7 @@ function print() { __p += __j.call(arguments, '') }
 				⇒ 隊伍成員無視「力的印記」
 				V. 隊長為魔族、妖精類或【妖魔傾城】成員 (發動技能時)
 				⇒ 消除符石後，自身技能 CD -5
-                `,tag:["解除自爆","引爆","直行引爆","引爆強制掉落","強制掉直行屬性","增傷","無視血浴地型","無視攻擊次數盾","無視力的印記","減CD"]}],teamSkill:[{description:`
+                `,tag:["解除自爆","引爆","直行引爆","引爆強制掉落","強制掉直行屬性","人族符石製造","獸族符石製造","妖族符石製造","龍族符石製造","神族符石製造","魔族符石製造","機械族符石製造","增傷","無視血浴地型","無視攻擊次數盾","無視力的印記","減CD"]}],teamSkill:[{description:`
 				◆ 魔族、妖精類及【妖魔傾城】成員
 				⓵ 攻擊力 7 倍
 				⓶ 無視「攻前盾」、「固定連擊盾」、「反首消符石盾」、「指定連擊法印」及「符石連擊零化」
@@ -31653,7 +31653,7 @@ function print() { __p += __j.call(arguments, '') }
 				⓶ 消除符石後，自身技能 CD -5
 				VI. 移動符石時
 				⇒ 將觸碰的符石添加為魔族符石
-                `,tag:["解除自爆","共鳴","增傷","自身追打","水屬追打","火屬追打","木屬追打","光屬追打","暗屬追打","五屬追打","無屬追打","我方減回","無視首殺盾","我方減攻","減CD","魔族符石製造","軌跡轉化"]}],teamSkill:[{description:`
+                `,tag:["解除自爆","共鳴","增傷","界王拳","自身追打","水屬追打","火屬追打","木屬追打","光屬追打","暗屬追打","五屬追打","無屬追打","我方減回","無視首殺盾","我方減攻","減CD","魔族符石製造","軌跡轉化"]}],teamSkill:[{description:`
 				◆ 隊中每有 1 個【妖魔傾城】成員
 				⇒ 進場時或回合結束時，將隨機 10 粒符石添加為魔族符石 (上限至 30 粒)
 				`,activate:"以魔族角色作隊長及戰友，並以「霓符鬼姬 ‧ 褒姒」或「覆國毒計 ‧ 妺喜」作成員",skill_tag:["魔族符石製造"],activate_tag:["指定隊長戰友","指定成員"],relative:[2975,2977]}],maxLevel:99,maxSkill:12,maxRefine:4,version:"v2026.60"},{id:2976,name:"破繭化蝶 ‧ 楊玉環",attribute:"光",race:"妖精類",star:7,monsterTag:["妖魔傾城"],crossOver:!1,skill:[{name:"羞花靈息",type:"normal",charge:"CD",num:6,description:`
@@ -83376,7 +83376,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 		├ 攻擊力 3 倍
 		└ 無視「指定形狀盾」
 		⓶ 所有符石兼具 100% 五屬符石效果
-		`,tag:[{name:["增攻","增血","增回"],object:[],limit:[]},{name:["增攻","增血","增回"],object:["特定成員"],limit:[]},{name:"延長轉珠時間",object:[],limit:["特定成員","成員數量"]},{name:["增攻","無視拼圖盾","水兼具其他","火兼具其他","木兼具其他","光兼具其他","暗兼具其他","心兼具其他","符石兼具水","符石兼具火","符石兼具木","符石兼具光","符石兼具暗"],object:[],limit:["特定成員","成員數量"]}],monster:[2969]},{name:"魔念傾淚",description:`
+		`,tag:[{name:["增攻","增血","增回"],object:[],limit:[]},{name:["增攻","增血","增回"],object:["特定成員"],limit:[]},{name:"延長轉珠時間",object:[],limit:["特定成員","成員數量"]},{name:["增攻","無視拼圖盾","水兼具其他","火兼具其他","木兼具其他","光兼具其他","暗兼具其他","心兼具其他","符石兼具水","符石兼具火","符石兼具木","符石兼具光","符石兼具暗"],object:[],limit:["特定成員","成員數量"]}],monster:[2969]},{name:"魔魅合戮",description:`
+		I. 魔族、妖精類及【妖魔傾城】成員
+		⓵ 攻擊力 60 倍
+		⓶ 生命力及回復力 4 倍
+		II. 消除妖族符石或魔族符石
+		⓵ 隊伍成員攻擊力 2 倍
+		⓶ 魔族、妖精類及【妖魔傾城】成員以攻擊力的 100% 對敵人追打自身屬性攻擊 1 次
+		`,tag:[{name:["增攻","增血","增回"],object:["魔","妖","特定成員"],limit:[]},{name:"增攻",object:["特定成員"],limit:["消除種族符石"]},{name:["水屬追打","火屬追打","木屬追打","光屬追打","暗屬追打"],object:["魔","妖","特定成員"],limit:["消除種族符石"]}],monster:[2970,2972,2975,2976,2977]},{name:"魔念傾淚",description:`
 		I. 魔族、妖精類及【妖魔傾城】成員
 		⓵ 攻擊力 150 倍
 		⓶ 生命力及回復力 3 倍
