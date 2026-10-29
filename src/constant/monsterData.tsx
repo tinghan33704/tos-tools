@@ -1,4 +1,4 @@
-// Last modified : 2026.10.24 18:58
+// Last modified : 2026.10.29 21:10
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -79456,7 +79456,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.10'
 	},
 	{
@@ -83361,7 +83361,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v17.30'
 	},
 	{
@@ -87337,7 +87337,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v18.00'
 	},
 	{
@@ -87417,7 +87417,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v18.00'
 	},
 	{
@@ -95725,7 +95725,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v19.00'
 	},
 	{
@@ -101455,7 +101455,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v19.30'
 	},
 	{
@@ -107294,25 +107294,26 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'description': `
+				◆ 持有 ≥4「金果」的「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」攻擊力 2 倍
+
+				◆ 進場時
+				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」可以持有「金果」(上限 4)
+
+				◆「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」「金果」數量的總和 ≥1
+				⇒ 隊伍成員攻擊力 2 倍
+
+				◆ 於「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」直行首批消除 1 組 ≥5 粒符石
+				⓵ 最左方的「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」成員的「金果」每持有 1
+				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」以攻擊力的 100% 對敵人追打自身屬性攻擊 1 次
+				⓶「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」消耗持有的「金果」
+
 				◆ 每消除 1 組 ≥3 粒符石
-				⇒「瀾漫勾惑 ‧ 夏娃」及「惑言噬愛 ‧ 夏娃」獲得 1 個金果
-				⇒ 每回合最多可獲 2 個
-
-				◆ 每個「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」
-				⇒ 最多可同時持有 4 個金果
-
-				◆ 持有 4 個金果的「瀾漫勾惑 ‧ 夏娃」或「惑言噬愛 ‧ 夏娃」
-				⇒ 攻擊力 2 倍
-
-				◆ 於「瀾漫勾惑 ‧ 夏娃」或「惑言噬愛 ‧ 夏娃」直行首批消除 1 組 ≥5 粒「水、光或暗符石」
-				⓵ 根據最左方的「瀾漫勾惑 ‧ 夏娃」或「惑言噬愛 ‧ 夏娃」所持金果數量
-				⇒「瀾漫勾惑 ‧ 夏娃」及「惑言噬愛 ‧ 夏娃」追打相應次數的水屬性攻擊 1 次
-				⓶ 消耗所有金果
+				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」的「金果」+1 (每回合最多觸發 2 次)
 				`,
-				'activate': `以「瀾漫勾惑 ‧ 夏娃」或「惑言噬愛 ‧ 夏娃」作成員`,
-				'skill_tag': ['增攻', '水屬追打'],
-				'activate_tag': [],
-				'relative': [2585, 2895]
+				'activate': `以「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」或「甘霖禁果 ‧ 夏娃」作成員`,
+				'skill_tag': ['增攻', '火屬追打'],
+				'activate_tag': ['指定成員'],
+				'relative': [2585, 2895, 2971]
 			},
 			{
 				'description': `
@@ -119659,7 +119660,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v2022.50'
 	},
 	{
@@ -122736,7 +122737,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v2023.31'
 	},
 	{
@@ -124170,7 +124171,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v2023.60'
 	},
 	{
@@ -124562,7 +124563,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v2024.10'
 	},
 	{
@@ -124684,7 +124685,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v2024.10'
 	},
 	{
@@ -127253,7 +127254,7 @@ export const monsterData: IObject[] = [
 		],
 		'maxLevel': 99,
 		'maxSkill': 10,
-		'maxRefine': 0,
+		'maxRefine': 4,
 		'version': 'v2024.71'
 	},
 	{
@@ -127342,24 +127343,25 @@ export const monsterData: IObject[] = [
 			},
 			{
 				'description': `
+				◆ 持有 ≥4「金果」的「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」攻擊力 2 倍
+
+				◆ 進場時
+				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」可以持有「金果」(上限 4)
+
+				◆「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」「金果」數量的總和 ≥1
+				⇒ 隊伍成員攻擊力 2 倍
+
+				◆ 於「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」直行首批消除 1 組 ≥5 粒符石
+				⓵ 最左方的「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」成員的「金果」每持有 1
+				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」以攻擊力的 100% 對敵人追打自身屬性攻擊 1 次
+				⓶「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」消耗持有的「金果」
+
 				◆ 每消除 1 組 ≥3 粒符石
-				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」獲得 1 個金果
-				⇒ 每回合最多可獲 2 個
-
-				◆ 每個「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」、「甘霖禁果 ‧ 夏娃」
-				⇒ 最多可同時持有 4 個金果
-
-				◆ 持有 4 個金果的「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」或「甘霖禁果 ‧ 夏娃」
-				⇒ 攻擊力 2 倍
-
-				◆ 於「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」或「甘霖禁果 ‧ 夏娃」直行首批消除 1 組 ≥5 粒「水、光或暗符石」
-				⓵ 根據最左方的「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」或「甘霖禁果 ‧ 夏娃」所持金果數量
-				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」追打相應次數的水屬性攻擊 1 次
-				⓶ 消耗所有金果
+				⇒「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」及「甘霖禁果 ‧ 夏娃」的「金果」+1 (每回合最多觸發 2 次)
 				`,
 				'activate': `以「瀾漫勾惑 ‧ 夏娃」、「惑言噬愛 ‧ 夏娃」或「甘霖禁果 ‧ 夏娃」作成員`,
-				'skill_tag': ['增攻', '水屬追打'],
-				'activate_tag': [],
+				'skill_tag': ['增攻', '火屬追打'],
+				'activate_tag': ['指定成員'],
 				'relative': [2585, 2895, 2971]
 			},
 			{
@@ -238996,29 +238998,74 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11302,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '邪蔓植根 ‧ 瘴化魔女',
+        'attribute': '木',
+        'race': '妖精類',
+        'star': 6,
+        'monsterTag': ['十三巫誓', '失序連鎖'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '噬靈狂宴',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 解除「碎裂」、「暴風」及「結界地型」
+				1 回合內
+				II.【十三巫誓】及妖精類成員
+				⓵ 攻擊力 2.5 倍
+				⓶ 無視「連擊相等盾」及「減傷狀態」
+				III. 隊伍成員無視「符石禁咒」
+				IV. 發動角色符石
+				⓵ 自身攻擊力 6 倍
+				⓶ 該回合不會扣減該技能效果的尚餘回合數
                 `,
-                'tag': []
+                'tag': ['碎裂還原', '解除暴風', '解除結界地型', '增傷', '無視連擊相等盾', '無視敵身減傷', '無視符石禁消', '界王拳']
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【十三巫誓】成員
+				⓵ 生命力及回復力基值 1.3 倍
+				⓶ 無視「技能重置」及「脈流」
+				⓷ 對敵人的傷害 1.3 倍
+
+				◆【十三巫誓】成員於本回合發動主動技能
+				⇒ 隊伍成員對敵人的傷害 1.3 倍
+
+				◆ 場上有擁有「淡化印記」或「陽之氣」的敵人
+				⇒ 移動符石時，將觸碰的符石添加為「淡化印記」符石
+				`,
+				'activate': `以【十三巫誓】角色作隊長，並以 ≥3 個【十三巫誓】角色作成員`,
+				'skill_tag': ['增血', '增回', '無視技能重置', '無視脈流', '敵方受傷增加', '增攻', '淡化印記製造'],
+				'activate_tag': ['指定隊長', '指定成員'],
+				'relative': ['十三巫誓']
+			},
+			{
+				'description': `
+				◆ 根據【十三巫誓】成員數目，獲得以下效果：
+
+				▋ ≥1
+				【十三巫誓】成員無視「開技消耗代價」
+
+				▋ ≥2
+				【十三巫誓】成員攻擊力、生命力及回復力 2.5 倍
+
+				▋ ≥3
+				隊伍成員無視「灼熱地型」
+				`,
+				'activate': `以【十三巫誓】角色作成員`,
+				'skill_tag': ['無視開技扣血', '增攻', '增血', '增回', '無視灼熱地型'],
+				'activate_tag': ['指定成員'],
+				'relative': ['十三巫誓']
+			},
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.60'
     },
     {
         'id': 11303,
@@ -239215,55 +239262,104 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11305,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '魔領君后 ‧ 巴力與夏娃',
+        'attribute': '光',
+        'race': '魔族',
+        'star': 7,
+        'monsterTag': ['地獄魔王'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '噬權墮約',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 將心符石添加為「加護」符石
+				II. 對敵人造成 6666 億點無屬性的傷害 1 次 (此傷害無視「強化突破」及「防禦力」)
+				1 回合內
+				III. 隊伍成員
+				⓵ 回復力變為 0
+				⓶ 無視「攻前盾」、「反首消符石盾」、「首消粒數盾」、「指定連擊法印」及「符石連擊零化」
+				IV. 自身攻擊力 6 倍
+				V. 增加 66 連擊 (Ex. Combo、Combo)
+				VI. 身旁成員攻擊力跟隨自身的攻擊力
+				VII. 掉落的心符石添加為「加護」符石
+				VIII. 隊中只有魔族成員
+				⇒ 隊伍成員無視「力的印記」
                 `,
-                'tag': []
+                'tag': ['加護符石製造', '直傷', '破強化直傷', '破防直傷', '我方減回', '無視攻前盾', '無視反首消盾', '無視數字盾', '無視連擊法印', '無視追擊零化', '界王拳', '增傷', '增加Ex.Combo', '增加Combo', '共鳴', '無視力的印記']
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.60'
     },
     {
         'id': 11306,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '靈鯉化形 ‧ 軒轅',
+        'attribute': '光',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['異象歷奇', '記憶迴廊'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '龍脈聖光',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. <board>將所有符石轉化為固定版面符石 (光屬性及心龍類強化符石)</board>
+				1 回合內
+				II. 隊伍成員
+				⓵ 無視「首消粒數盾」
+				⓶ 對敵人的傷害 2.5 倍
+				III. 隊長及戰友均為「鯉躍天翔 ‧ 軒轅」或「破厄天弓 ‧ 帝鴻」(發動技能時)
+				⇒ 發動【異象歷奇】成員角色符石
+				⓵ 連擊 (Combo) 數目固定為 120
+				⓶ 連擊 (Ex. Combo) 數目固定為 12
+				▶ 反之
+				⓵ 連擊 (Combo) 數目固定為 12
+				⓶ 連擊 (Ex. Combo) 數目固定為 120
                 `,
-                'tag': []
+                'tag': ['符石轉光', '符石轉心', '符石轉光強化', '符石轉心強化', '龍族符石製造', '大幅轉版', '固定版面', '無視數字盾', '敵方受傷增加', '增傷', '固定Combo', '固定Ex.Combo']
             }
         ],
-        'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'teamSkill': [
+			{
+				'description': `
+				◆【異象歷奇】成員「三圍」基值 2 倍
+
+				◆ 進場時
+				⇒【異象歷奇】成員
+				⓵ 技能 CD -6
+				⓶ 進入 1 回合「亢奮」狀態
+
+				◆ 回合結束時
+				⇒【異象歷奇】成員進入 1 回合「亢奮」狀態
+				`,
+				'activate': `以 ≥2 個【異象歷奇】角色作成員`,
+				'skill_tag': ['增攻', '增回', '增血', '進場減CD', '亢奮狀態'],
+				'activate_tag': ['指定成員'],
+				'relative': ['異象歷奇']
+			},
+		],
+		'board': [
+			[
+				'Lr', 'Hr', 'Lr', 'Lr', 'Hr', 'Lr', 
+				'Lr', 'Hr', 'Lr', 'Lr', 'Hr', 'Lr', 
+				'Lr', 'Hr', 'Lr', 'Lr', 'Hr', 'Lr', 
+				'Lr', 'Hr', 'Lr', 'Lr', 'Hr', 'Lr', 
+				'Lr', 'Hr', 'Lr', 'Lr', 'Hr', 'Lr', 
+			]
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.60'
     },
     {
         'id': 11307,
