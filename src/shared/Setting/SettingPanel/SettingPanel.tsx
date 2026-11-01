@@ -35,7 +35,7 @@ export interface ISettingPanelProps {
     openUserDataModal?: () => void
     openObjectiveModal?: () => void
     openInputModal?: () => void
-    iconRef: React.RefObject<HTMLDivElement>
+    iconRef: React.RefObject<HTMLDivElement | null>
     backpackViewerPage?: string
 
     showNoData?: boolean

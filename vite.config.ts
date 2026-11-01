@@ -1,26 +1,24 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
-import copy from "rollup-plugin-copy"
+import { viteStaticCopy } from "vite-plugin-static-copy"
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         react(),
-        copy({
-            targets: [{ src: "src/img", dest: "dist/src" }],
-            hook: "writeBundle",
+        viteStaticCopy({
+            targets: [{ src: "src/img/**/*", dest: "." }],
         }),
     ],
     css: {
         preprocessorOptions: {
             scss: {
-                api: "modern-compiler", // or "modern"
                 silenceDeprecations: [
                     "legacy-js-api",
-                    "mixed-decls",
                     "color-functions",
                     "global-builtin",
                     "import",
+                    "if-function",
                 ],
             },
         },

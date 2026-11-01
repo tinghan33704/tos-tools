@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from "react"
 import { Col, Row } from "react-bootstrap"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "src/utilities/LazyLoad"
 import _ from "lodash"
 
 import Context from "src/utilities/Context/Context"

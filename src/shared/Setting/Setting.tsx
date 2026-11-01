@@ -56,7 +56,7 @@ const Setting: React.FC<ISettingProps> = (props) => {
         toggleHideHadMonster,
     } = props
 
-    const settingRef = useRef(null)
+    const settingRef = useRef<HTMLDivElement>(null)
 
     const [showSettingBtn, setShowSettingBtn] = useState<boolean>(false)
     const [showTopBtn, setShowTopBtn] = useState<boolean>(false)

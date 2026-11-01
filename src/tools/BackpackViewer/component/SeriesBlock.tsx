@@ -1,5 +1,5 @@
 import React, { useRef, useState, useCallback } from "react"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "src/utilities/LazyLoad"
 import _ from "lodash"
 import { Accordion, Col, Row } from "react-bootstrap"
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"

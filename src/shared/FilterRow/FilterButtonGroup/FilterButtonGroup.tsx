@@ -1,6 +1,6 @@
 import React from "react"
 import { Row } from "react-bootstrap"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "src/utilities/LazyLoad"
 
 import { skillAlias } from "src/constant/filterConstants"
 import FilterButton from "../FilterButton/FilterButton"

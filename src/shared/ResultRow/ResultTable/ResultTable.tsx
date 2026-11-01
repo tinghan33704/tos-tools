@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react"
 import _ from "lodash"
 import { Table } from "react-bootstrap"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "src/utilities/LazyLoad"
 
 import { attrZhToEn } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"

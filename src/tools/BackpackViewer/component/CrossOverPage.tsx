@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useRef, useState } from "react"
 import _ from "lodash"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "src/utilities/LazyLoad"
 import { Accordion, Col, Row } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"

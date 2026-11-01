@@ -19,7 +19,7 @@ const subscribe = (listener: Listener) => {
 }
 
 export const useIsPopoverFocused = (
-    ref: React.RefObject<HTMLElement>,
+    ref: React.RefObject<HTMLElement | null>,
 ): boolean => {
     const getSnapshot = useCallback(
         () => !!focusedTarget && !!ref.current?.contains(focusedTarget),

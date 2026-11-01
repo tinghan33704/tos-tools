@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback, useContext } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router"
 import { Dropdown, DropdownButton } from "react-bootstrap"
-import { forceCheck } from "react-lazyload"
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 
 import {
@@ -71,10 +70,6 @@ const BackpackViewer: React.FC<IBackpackViewerProps> = () => {
             openUserDataModal()
         }
     }, [isAfterInitLoad, currentTab])
-
-    useEffect(() => {
-        forceCheck()
-    }, [hideHadMonster, currentCardCategory])
 
     const setInitPage = useCallback(() => {
         const _page = localStorage?.getItem("CURRENT_PAGE") || ""
