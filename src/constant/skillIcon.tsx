@@ -265,6 +265,7 @@ export const skillIconMapping: IObject = {
     無視首消不同種類盾: ["different_type_shield"],
     無視累積符石盾: ["accumulate_shield"],
     無視首殺盾: ["first_blood_shield"],
+	無視效果欄狀態減攻: ["effect_count"],
     無視追擊零化: ["combo_trojan"],
     無視連擊法印: ["orb_shield"],
     無視力的印記: ["strength_mark"],
