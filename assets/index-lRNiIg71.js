@@ -31690,7 +31690,7 @@ function print() { __p += __j.call(arguments, '') }
 				IV. 隊伍成員對水屬性敵人的傷害 3 倍
 				V. 若有擊斃敵人
 				⇒ 回合結束時，自身技能 CD -3
-                `,tag:[`敵附異常`,`敵方轉水`,`符石轉水`,`符石轉火`,`符石轉木`,`符石轉光`,`符石轉暗`,`符石轉心`,`符石轉水強化`,`符石轉火強化`,`符石轉木強化`,`符石轉光強化`,`符石轉暗強化`,`符石轉心強化`,`無視反首消盾`,`敵方受傷增加`,`增傷`,`減CD`]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:`v2026.61`},{id:2980,name:``,attribute:``,race:``,star:0,monsterTag:[],crossOver:!1,skill:[{name:``,type:`normal`,charge:`CD`,num:0,description:`
+                `,tag:[`敵附異常`,`敵方轉水`,`符石轉水`,`符石轉火`,`符石轉木`,`符石轉光`,`符石轉暗`,`符石轉心`,`符石轉水強化`,`符石轉火強化`,`符石轉木強化`,`符石轉光強化`,`符石轉暗強化`,`符石轉心強化`,`無視反首消盾`,`敵方受傷增加`,`增傷`,`減CD`,`敵身狀態`]}],teamSkill:[],maxLevel:99,maxSkill:12,maxRefine:0,version:`v2026.61`},{id:2980,name:``,attribute:``,race:``,star:0,monsterTag:[],crossOver:!1,skill:[{name:``,type:`normal`,charge:`CD`,num:0,description:`
 
                 `,tag:[]}],teamSkill:[],maxLevel:0,maxSkill:0,maxRefine:0,version:``},{id:2981,name:``,attribute:``,race:``,star:0,monsterTag:[],crossOver:!1,skill:[{name:``,type:`normal`,charge:`CD`,num:0,description:`
 
@@ -76362,7 +76362,7 @@ function print() { __p += __j.call(arguments, '') }
 				VI. 消除符石後，首批掉落第 2 次點選的種類神族強化符石、第 2 批掉落第 3 次點選的種類神族強化符石
 				VII. 隊長為光屬性或神族成員 (發動技能時)
 				⇒ 解除「終結倒數」
-                `,tag:`碎裂還原.解除結界地型.符石轉水.符石轉火.符石轉木.符石轉光.符石轉暗.符石轉心.符石轉水強化.符石轉火強化.符石轉木強化.符石轉光強化.符石轉暗強化.符石轉心強化.神族符石製造.大幅轉版.增傷.無視血浴地型.無視攻擊次數盾.無視角色符石地型.天降強制掉落.強制掉水.強制掉火.強制掉木.強制掉光.強制掉暗.強制掉心.解除終結倒數`.split(`.`)}],teamSkill:[],board:[{board:`1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g`.split(`.`),note:[`首次點選的種類強化符石`]}],maxLevel:99,maxSkill:12,maxRefine:0,version:`v2026.61`},{id:11310,name:`宿根巨蟒 ‧ 格因與摩因`,attribute:`水`,race:`龍類`,star:6,monsterTag:[`北域之詩`,`宿根巨蟒`],crossOver:!1,skill:[{name:`雙蟒撕噬`,type:`normal`,charge:`CD`,num:6,description:`
+                `,tag:`碎裂還原.解除結界地型.水轉其他.火轉其他.木轉其他.光轉其他.暗轉其他.心轉其他.符石轉水.符石轉火.符石轉木.符石轉光.符石轉暗.符石轉心.符石轉水強化.符石轉火強化.符石轉木強化.符石轉光強化.符石轉暗強化.符石轉心強化.神族符石製造.大幅轉版.增傷.無視血浴地型.無視攻擊次數盾.無視角色符石地型.天降強制掉落.強制掉水.強制掉火.強制掉木.強制掉光.強制掉暗.強制掉心.解除終結倒數`.split(`.`)}],teamSkill:[],board:[{board:`1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g.1g`.split(`.`),note:[`首次點選的種類強化符石`]}],maxLevel:99,maxSkill:12,maxRefine:0,version:`v2026.61`},{id:11310,name:`宿根巨蟒 ‧ 格因與摩因`,attribute:`水`,race:`龍類`,star:6,monsterTag:[`北域之詩`,`宿根巨蟒`],crossOver:!1,skill:[{name:`雙蟒撕噬`,type:`normal`,charge:`CD`,num:6,description:`
 				I. 解除「隱身」
 				II. 點選場上的符石 3 次
 				⇒ <board>將所有符石轉化為第 1 次點選的種類強化符石</board>
@@ -76375,7 +76375,7 @@ function print() { __p += __j.call(arguments, '') }
 				V. 消除符石後
 				⓵ 第 1、2 及 3 直行掉落 15 粒第 2 次點選的種類強化符石
 				⓶ 第 4、5 及 6 直行掉落 15 粒第 3 次點選的種類強化符石
-                `,tag:[`解除隱身`,`符石轉水`,`符石轉火`,`符石轉木`,`符石轉光`,`符石轉暗`,`符石轉心`,`符石轉水強化`,`符石轉火強化`,`符石轉木強化`,`符石轉光強化`,`符石轉暗強化`,`符石轉心強化`,`大幅轉版`,`增傷`,`無視首消組數屬性盾`,`無視血浴地型`,`減CD`,`天降強制掉落`,`強制掉水`,`強制掉火`,`強制掉木`,`強制掉光`,`強制掉暗`,`強制掉心`]}],teamSkill:[{description:`
+                `,tag:`解除隱身.水轉其他.火轉其他.木轉其他.光轉其他.暗轉其他.心轉其他.符石轉水.符石轉火.符石轉木.符石轉光.符石轉暗.符石轉心.符石轉水強化.符石轉火強化.符石轉木強化.符石轉光強化.符石轉暗強化.符石轉心強化.大幅轉版.增傷.無視首消組數屬性盾.無視血浴地型.減CD.天降強制掉落.強制掉水.強制掉火.強制掉木.強制掉光.強制掉暗.強制掉心`.split(`.`)}],teamSkill:[{description:`
 				◆ 隊長為【北域之詩】成員
 				⇒【北域之詩】成員無視「温律臨界」
 				`,activate:`以「宿根巨蟒 ‧ 格因與摩因」作成員`,skill_tag:[],activate_tag:[],relative:[11310]}],board:[{board:`111111111111111111111111111111`.split(``),note:[`首次點選的種類強化符石`]}],maxLevel:99,maxSkill:12,maxRefine:0,version:`v2026.61`},{id:11311,name:`灰脊古蛇 ‧ 格拉巴克`,attribute:`木`,race:`龍類`,star:6,monsterTag:[`北域之詩`,`灰脊古蛇`],crossOver:!1,skill:[{name:`腐毒洪襲`,type:`normal`,charge:`CD`,num:6,description:`
