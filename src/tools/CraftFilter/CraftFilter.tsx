@@ -38,13 +38,13 @@ import ResultRow from "src/shared/ResultRow"
 
 interface ICraftFilterProps {}
 
-const isAttributeMatch = (
-    selectedAttributes: string[],
-    attribute: string | string[] | undefined,
+const isValueMatch = (
+    selectedValues: string[],
+    value: string | string[] | undefined,
 ) =>
-    Array.isArray(attribute)
-        ? attribute.some((attr) => selectedAttributes.includes(attr))
-        : selectedAttributes.includes(attribute as string)
+    Array.isArray(value)
+        ? value.some((v) => selectedValues.includes(v))
+        : selectedValues.includes(value as string)
 
 const CraftFilter: React.FC<ICraftFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
@@ -211,11 +211,9 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                             Object.keys(craft.mode)?.includes(mode),
                         )) ||
                     (isAttrSelected &&
-                        !isAttributeMatch(
-                            selectedAttributes,
-                            craft.attribute,
-                        )) ||
-                    (isRaceSelected && !selectedRaces.includes(craft.race)) ||
+                        !isValueMatch(selectedAttributes, craft.attribute)) ||
+                    (isRaceSelected &&
+                        !isValueMatch(selectedRaces, craft.race)) ||
                     (isStarSelected && !selectedStars.includes(craft.star)) ||
                     (isChargeSelected &&
                         !selectedCharges.includes(craft.charge))
@@ -323,12 +321,9 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         )) ||
                     (isAttrSelected &&
                         !(
-                            isAttributeMatch(
-                                selectedAttributes,
-                                craft.attribute,
-                            ) ||
+                            isValueMatch(selectedAttributes, craft.attribute) ||
                             craft?.monster?.some((m: number) =>
-                                isAttributeMatch(
+                                isValueMatch(
                                     selectedAttributes,
                                     monsterData.find((md) => m === md.id)
                                         ?.attribute,
@@ -337,9 +332,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         )) ||
                     (isRaceSelected &&
                         !(
-                            selectedRaces.includes(craft.race) ||
+                            isValueMatch(selectedRaces, craft.race) ||
                             craft?.monster?.some((m: number) =>
-                                selectedRaces.includes(
+                                isValueMatch(
+                                    selectedRaces,
                                     monsterData.find((md) => m === md.id)?.race,
                                 ),
                             )

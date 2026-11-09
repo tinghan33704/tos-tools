@@ -43,7 +43,16 @@ export const getCraftById = (id: number) => {
     return craftObj
 }
 
-export const paddingZeros = (str: string | number, padCount: number) => {
+export const getObjectiveList = (
+    value: string | string[] | undefined,
+): string[] =>
+    !value || value === "沒有限制"
+        ? []
+        : Array.isArray(value)
+          ? value
+          : [value]
+
+export const paddingZeros =(str: string | number, padCount: number) => {
     const _str = str.toString()
     return _str.length < padCount
         ? "0".repeat(padCount - _str.length) + _str

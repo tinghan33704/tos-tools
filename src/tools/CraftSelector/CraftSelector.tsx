@@ -13,7 +13,12 @@ import { armedCraftData } from "src/constant/armedCraftData"
 
 import { ContextProvider } from "src/utilities/Context/Context"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
-import { errorAlert, getCraftById, paddingZeros } from "src/utilities/utils"
+import {
+    errorAlert,
+    getCraftById,
+    getObjectiveList,
+    paddingZeros,
+} from "src/utilities/utils"
 import Icon from "src/utilities/Icon"
 import Image from "src/utilities/Image"
 import Button from "src/utilities/Button"
@@ -29,15 +34,6 @@ import "./style.scss"
 interface ICraftSelectorProps {}
 
 const PAGE_SIZE = 10
-
-const getAttributeList = (
-    attribute: string | string[] | undefined,
-): string[] =>
-    !attribute || attribute === "沒有限制"
-        ? []
-        : Array.isArray(attribute)
-          ? attribute
-          : [attribute]
 
 const CraftSelector: React.FC<ICraftSelectorProps> = () => {
     const [selectedCrafts, setSelectedCrafts] = useState<number[]>([])
@@ -379,7 +375,7 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                   name
                                                               ]?.race ? (
                                                                 <>
-                                                                    {getAttributeList(
+                                                                    {getObjectiveList(
                                                                         craftDataByName[
                                                                             name
                                                                         ]
@@ -399,36 +395,32 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                             />
                                                                         ),
                                                                     )}
-                                                                    {craftDataByName[
-                                                                        name
-                                                                    ]?.race &&
-                                                                    craftDataByName[
-                                                                        name
-                                                                    ]?.race !==
-                                                                        "沒有限制" ? (
-                                                                        <Image
-                                                                            width={
-                                                                                30
-                                                                            }
-                                                                            path={`icon/icon_${
-                                                                                raceZhToEn[
-                                                                                    craftDataByName[
-                                                                                        name
-                                                                                    ]
-                                                                                        ?.race
-                                                                                ]
-                                                                            }`}
-                                                                        />
-                                                                    ) : (
-                                                                        <></>
+                                                                    {getObjectiveList(
+                                                                        craftDataByName[
+                                                                            name
+                                                                        ]?.race,
+                                                                    ).map(
+                                                                        (
+                                                                            race: string,
+                                                                        ) => (
+                                                                            <Image
+                                                                                key={
+                                                                                    race
+                                                                                }
+                                                                                width={
+                                                                                    30
+                                                                                }
+                                                                                path={`icon/icon_${raceZhToEn[race]}`}
+                                                                            />
+                                                                        ),
                                                                     )}{" "}
-                                                                    {getAttributeList(
+                                                                    {getObjectiveList(
                                                                         craftDataByName[
                                                                             name
                                                                         ]
                                                                             ?.attribute,
                                                                     ).length
-                                                                        ? `${getAttributeList(
+                                                                        ? `${getObjectiveList(
                                                                               craftDataByName[
                                                                                   name
                                                                               ]
@@ -437,18 +429,11 @@ const CraftSelector: React.FC<ICraftSelectorProps> = () => {
                                                                               "/",
                                                                           )}屬性`
                                                                         : ""}
-                                                                    {craftDataByName[
-                                                                        name
-                                                                    ]?.race &&
-                                                                    craftDataByName[
-                                                                        name
-                                                                    ]?.race !==
-                                                                        "沒有限制"
-                                                                        ? craftDataByName[
-                                                                              name
-                                                                          ]
-                                                                              ?.race
-                                                                        : ""}
+                                                                    {getObjectiveList(
+                                                                        craftDataByName[
+                                                                            name
+                                                                        ]?.race,
+                                                                    ).join("/")}
                                                                 </>
                                                             ) : (
                                                                 ``

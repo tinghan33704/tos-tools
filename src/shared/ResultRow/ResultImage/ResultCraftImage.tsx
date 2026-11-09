@@ -2,7 +2,11 @@ import React, { useCallback, useRef, useMemo } from "react"
 import { Col, Popover, Row } from "react-bootstrap"
 import { AutoTextSize } from "auto-text-size"
 
-import { getCraftById, paddingZeros } from "src/utilities/utils"
+import {
+    getCraftById,
+    getObjectiveList,
+    paddingZeros,
+} from "src/utilities/utils"
 import {
     attrZhToEn,
     craftChargeTypeString,
@@ -45,9 +49,13 @@ export const ResultCraftImage = React.memo<IResultCraftImageProps>((props) => {
     const renderCraftInfo = useCallback(() => {
         const skillArr = description || skill_description || []
         const armedArr = armed_description || []
+        const attrList = getObjectiveList(attribute)
+        const raceList = getObjectiveList(race)
+        const nameColor =
+            attrList.length === 1 ? attrZhToEn?.[attrList[0]] || "o" : "o"
         const hasObjective =
-            (attribute && attribute !== "沒有限制") ||
-            (race && race !== "沒有限制") ||
+            attrList.length ||
+            raceList.length ||
             monster?.length ||
             series?.length
 
@@ -56,9 +64,7 @@ export const ResultCraftImage = React.memo<IResultCraftImageProps>((props) => {
                 <Col
                     xs={12}
                     sm={12}
-                    className={`craft-name craft-name-${
-                        attrZhToEn?.[attribute] || "o"
-                    }`}
+                    className={`craft-name craft-name-${nameColor}`}
                 >
                     {`【${paddingZeros(id, 3)}】${
                         nameFormat
@@ -73,9 +79,7 @@ export const ResultCraftImage = React.memo<IResultCraftImageProps>((props) => {
                     <Col
                         xs={12}
                         sm={8}
-                        className={`craft-objective craft-name-${
-                            attrZhToEn?.[attribute] || "o"
-                        }`}
+                        className={`craft-objective craft-name-${nameColor}`}
                     >
                         {hasObjective ? (
                             monster ? (
@@ -100,26 +104,24 @@ export const ResultCraftImage = React.memo<IResultCraftImageProps>((props) => {
                                 </>
                             ) : (
                                 <>
-                                    {attribute && attribute !== "沒有限制" ? (
+                                    {attrList.map((attr: string) => (
                                         <Image
-                                            path={`icon/icon_${attrZhToEn[attribute]}`}
+                                            key={attr}
+                                            path={`icon/icon_${attrZhToEn[attr]}`}
                                             className={"craft-attr-race-img"}
                                         />
-                                    ) : (
-                                        <></>
-                                    )}
-                                    {race && race !== "沒有限制" ? (
+                                    ))}
+                                    {raceList.map((r: string) => (
                                         <Image
-                                            path={`icon/icon_${raceZhToEn[race]}`}
+                                            key={r}
+                                            path={`icon/icon_${raceZhToEn[r]}`}
                                             className={"craft-attr-race-img"}
                                         />
-                                    ) : (
-                                        <></>
-                                    )}
-                                    {attribute &&
-                                        attribute !== "沒有限制" &&
-                                        `${attribute}屬性`}
-                                    {race && race !== "沒有限制" && `${race}`}
+                                    ))}
+                                    {attrList.length
+                                        ? `${attrList.join("/")}屬性`
+                                        : ""}
+                                    {raceList.join("/")}
                                 </>
                             )
                         ) : (
