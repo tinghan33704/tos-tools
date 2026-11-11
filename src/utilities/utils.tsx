@@ -8,8 +8,23 @@ import {
     lastUpdateExpiration,
     myAuth,
     skillAlias,
+    tagPageData,
+    type IKeywordTarget,
 } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
+
+export const tagString: string[][] = tagPageData.flatMap((page) => page.groups)
+export const tagPageString: { title: string; groups: number[] }[] =
+    tagPageData.reduce<{ title: string; groups: number[] }[]>((acc, page) => {
+        const startIndex = acc.reduce((sum, item) => sum + item.groups.length, 0)
+        return [
+            ...acc,
+            {
+                title: page.title,
+                groups: page.groups.map((_, index) => startIndex + index),
+            },
+        ]
+    }, [])
 
 /* prettier-ignore */
 const encodeChart = [
@@ -24,6 +39,16 @@ const encodeChart = [
 
 export const getMonsterById = (id: number) => {
     return monsterData.find((monster) => monster?.id === id) ?? {}
+}
+
+let monsterNameMap: Map<number, string> | null = null
+
+export const getMonsterNameById = (id: number) => {
+    if (!monsterNameMap)
+        monsterNameMap = new Map(
+            monsterData.map((monster) => [monster.id, monster.name]),
+        )
+    return monsterNameMap.get(id) ?? ""
 }
 
 export const getCraftById = (id: number) => {
@@ -99,6 +124,35 @@ export const checkKeyword = (keywordStr: string) => {
         return sanitizedKeywordStr.length ? sanitizedKeywordStr.split(",") : []
     }
 }
+
+export const matchKeywords = (
+    texts: string[],
+    keywords: string[],
+    mode: "some" | "every",
+) => {
+    const sanitizedTexts = texts.map((text) => textSanitizer(text ?? ""))
+    const isHit = (keyword: string) =>
+        sanitizedTexts.some((text) => text.includes(keyword))
+    return mode === "every" ? keywords.every(isHit) : keywords.some(isHit)
+}
+
+export const decodeKeywordTarget = (
+    targets: IKeywordTarget[],
+    index?: string,
+) => targets[Number(index ?? 0)]?.value ?? targets[0].value
+
+export const encodeKeywordTarget = (
+    targets: IKeywordTarget[],
+    value: string,
+) => {
+    const index = targets.findIndex((target) => target.value === value)
+    return index > 0 ? String(index) : ""
+}
+
+export const getKeywordTargetLabel = (
+    targets: IKeywordTarget[],
+    value: string,
+) => targets.find((target) => target.value === value)?.label ?? ""
 
 export const addAlias = (skillArr: string[], keywords: string[]) => {
     const _skillArr = [...skillArr]

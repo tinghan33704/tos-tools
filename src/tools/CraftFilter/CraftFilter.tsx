@@ -11,6 +11,7 @@ import {
     craftRaceTypeString,
     craftSkillTypeString,
     craftStarTypeString,
+    craftKeywordTargetString,
 } from "src/constant/filterConstants"
 
 import { ContextProvider } from "src/utilities/Context/Context"
@@ -20,9 +21,14 @@ import { craftData } from "src/constant/craftData"
 import { armedCraftData } from "src/constant/armedCraftData"
 import {
     checkKeyword,
+    decodeKeywordTarget,
     decodeMapping,
+    encodeKeywordTarget,
     encodeMapping,
+    getKeywordTargetLabel,
+    getMonsterNameById,
     getUrlParams,
+    matchKeywords,
     removeUrlParams,
     setUrlParams,
     stringToUnicode,
@@ -33,8 +39,18 @@ import { usePopover } from "src/hook/usePopover"
 import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
+import FilterTabs, { type IFilterTab } from "src/shared/FilterTabs"
 import KeywordRow from "src/shared/KeywordRow"
 import ResultRow from "src/shared/ResultRow"
+
+const craftKeywordGetter: Record<string, (craft: IObject) => string[]> = {
+    skillDescription: (craft) => [
+        ...(craft.description ?? []),
+        ...(craft.skill_description ?? []),
+    ],
+    armedDescription: (craft) => [...(craft.armed_description ?? [])],
+    craftName: (craft) => [craft.name],
+}
 
 interface ICraftFilterProps {}
 
@@ -48,6 +64,9 @@ const isValueMatch = (
 
 const CraftFilter: React.FC<ICraftFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
+    const [keywordTarget, setKeywordTarget] = useState<string>(
+        craftKeywordTargetString[0].value,
+    )
     const [selectedSkillFunctions, setSelectedSkillFunctions] = useState<
         string[]
     >([])
@@ -139,6 +158,9 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                 decodeMapping(craftGenreTypeString, params?.genre),
             )
             setKeyword(unicodeToString(params?.keyword || ""))
+            setKeywordTarget(
+                decodeKeywordTarget(craftKeywordTargetString, params?.kt),
+            )
             setAndOr(["or", "and"][+params?.or || 0])
 
             setLoadingParams(true)
@@ -186,6 +208,8 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
 
     const startFilter = useCallback(() => {
         const keywordArr: string[] = checkKeyword(keyword)
+        const getKeywordTexts =
+            craftKeywordGetter[keywordTarget] ?? craftKeywordGetter.description
         const skillFunctionArr = selectedSkillFunctions
         const isSkillFunctionSelected = !!selectedSkillFunctions.length
         const armedFunctionArr = selectedArmedFunctions
@@ -239,22 +263,16 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         if (!isSkillMatch && !keywordArr.length) continue
 
                         // Check for keywords
-                        if (!isSkillMatch && keywordArr.length) {
-                            let isKeywordChecked = false
-
-                            for (const keyword of keywordArr) {
-                                for (const desc in craft.description) {
-                                    const skillDesc = textSanitizer(desc)
-                                    if (skillDesc.includes(keyword)) {
-                                        isKeywordChecked = true
-                                        break
-                                    }
-                                }
-                                if (isKeywordChecked) break
-                            }
-
-                            if (!isKeywordChecked) continue
-                        }
+                        if (
+                            !isSkillMatch &&
+                            keywordArr.length &&
+                            !matchKeywords(
+                                getKeywordTexts(craft),
+                                keywordArr,
+                                "some",
+                            )
+                        )
+                            continue
                     } else if (andOr === "and") {
                         // AND
 
@@ -273,23 +291,14 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
 
                         // Check for keywords
 
-                        let isAllKeywordChecked = true
-                        for (const keyword of keywordArr) {
-                            let isKeywordChecked = false
-                            for (const desc in craft.description) {
-                                const skillDesc = textSanitizer(desc)
-                                if (skillDesc.includes(keyword)) {
-                                    isKeywordChecked = true
-                                    break
-                                }
-                            }
-                            if (!isKeywordChecked) {
-                                isAllKeywordChecked = false
-                                break
-                            }
-                        }
-
-                        if (!isAllKeywordChecked) continue
+                        if (
+                            !matchKeywords(
+                                getKeywordTexts(craft),
+                                keywordArr,
+                                "every",
+                            )
+                        )
+                            continue
                     }
                 }
                 if (craft?.tag?.length)
@@ -384,25 +393,16 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         if (!isSkillMatch && !keywordArr.length) continue
 
                         // Check for keywords
-                        if (!isSkillMatch && keywordArr.length) {
-                            let isKeywordChecked = false
-
-                            for (const keyword of keywordArr) {
-                                for (const desc of [
-                                    ...craft.skill_description,
-                                    ...craft.armed_description,
-                                ]) {
-                                    const skillDesc = textSanitizer(desc)
-                                    if (skillDesc.includes(keyword)) {
-                                        isKeywordChecked = true
-                                        break
-                                    }
-                                }
-                                if (isKeywordChecked) break
-                            }
-
-                            if (!isKeywordChecked) continue
-                        }
+                        if (
+                            !isSkillMatch &&
+                            keywordArr.length &&
+                            !matchKeywords(
+                                getKeywordTexts(craft),
+                                keywordArr,
+                                "some",
+                            )
+                        )
+                            continue
                     } else if (andOr === "and") {
                         // AND
 
@@ -428,26 +428,14 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
 
                         // Check for keywords
 
-                        let isAllKeywordChecked = true
-                        for (const keyword of keywordArr) {
-                            let isKeywordChecked = false
-                            for (const desc of [
-                                ...craft.skill_description,
-                                ...craft.armed_description,
-                            ]) {
-                                const skillDesc = textSanitizer(desc)
-                                if (skillDesc.includes(keyword)) {
-                                    isKeywordChecked = true
-                                    break
-                                }
-                            }
-                            if (!isKeywordChecked) {
-                                isAllKeywordChecked = false
-                                break
-                            }
-                        }
-
-                        if (!isAllKeywordChecked) continue
+                        if (
+                            !matchKeywords(
+                                getKeywordTexts(craft),
+                                keywordArr,
+                                "every",
+                            )
+                        )
+                            continue
                     }
                 }
                 if (
@@ -474,6 +462,10 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             skillFunctions: selectedSkillFunctions,
             armedFunctions: selectedArmedFunctions,
             keyword: textSanitizer(keyword).length ? keyword.split(",") : [],
+            keywordTarget: getKeywordTargetLabel(
+                craftKeywordTargetString,
+                keywordTarget,
+            ),
             mode: selectedModes,
             attribute: selectedAttributes,
             race: selectedRaces,
@@ -499,6 +491,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
                 : "",
+            kt: encodeKeywordTarget(craftKeywordTargetString, keywordTarget),
             or: ["or", "and"].indexOf(andOr).toString(),
         })
 
@@ -508,6 +501,7 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
     }, [
         andOr,
         keyword,
+        keywordTarget,
         loadingParams,
         selectedArmedFunctions,
         selectedAttributes,
@@ -525,51 +519,68 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
             resultRef.current.scrollIntoView(true)
     }, [isAfterFilter, resultData])
 
-    return (
-        <ContextProvider toolId='craft-filter'>
-            <Header
-                resetAll={resetAll}
-                andOr={andOr}
-                changeAndOr={(value: string) => setAndOr(value)}
-                startFilter={startFilter}
-            />
-            <PageContainer
-                showSkillIcon={showSkillIcon}
-                toggleShowSkillIcon={() => {
-                    const _showSkillIcon = !showSkillIcon
-                    setShowSkillIcon(_showSkillIcon)
-                    localStorage?.setItem(
-                        "SHOW_SKILL_ICON",
-                        JSON.stringify(_showSkillIcon),
-                    )
-                }}
-            >
+    const filterTabs: IFilterTab[] = [
+        {
+            key: "skillFunctions",
+            title: "龍脈能力",
+            count: selectedSkillFunctions.length,
+            content: (
+                <FilterRow
+                    title={"龍脈能力"}
+                    type={"skillFunctions"}
+                    data={craftSkillTypeString}
+                    selectedData={selectedSkillFunctions}
+                    toggleButton={toggleButton}
+                    resetButton={resetButton}
+                    enableSearch
+                    showSkillIcon={showSkillIcon}
+                />
+            ),
+        },
+        {
+            key: "armedFunctions",
+            title: "武裝能力",
+            count: selectedArmedFunctions.length,
+            content: (
+                <FilterRow
+                    title={"武裝能力"}
+                    type={"armedFunctions"}
+                    data={craftArmedTypeString}
+                    selectedData={selectedArmedFunctions}
+                    toggleButton={toggleButton}
+                    resetButton={resetButton}
+                    enableSearch
+                    showSkillIcon={showSkillIcon}
+                />
+            ),
+        },
+        {
+            key: "keyword",
+            title: "關鍵字搜尋",
+            count: textSanitizer(keyword).split(",").filter(Boolean).length,
+            content: (
+                <KeywordRow
+                    keyword={keyword}
+                    changeKeyword={(value: string) => setKeyword(value)}
+                    resetKeyword={() => setKeyword("")}
+                    targets={craftKeywordTargetString}
+                    target={keywordTarget}
+                    changeTarget={(value: string) => setKeywordTarget(value)}
+                />
+            ),
+        },
+        {
+            key: "craft",
+            title: "龍刻設定",
+            count:
+                selectedModes.length +
+                selectedAttributes.length +
+                selectedRaces.length +
+                selectedStars.length +
+                selectedCharges.length +
+                selectedGenres.length,
+            content: (
                 <>
-                    <FilterRow
-                        title={"龍脈能力"}
-                        type={"skillFunctions"}
-                        data={craftSkillTypeString}
-                        selectedData={selectedSkillFunctions}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        enableSearch
-                        showSkillIcon={showSkillIcon}
-                    />
-                    <FilterRow
-                        title={"武裝能力"}
-                        type={"armedFunctions"}
-                        data={craftArmedTypeString}
-                        selectedData={selectedArmedFunctions}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        enableSearch
-                        showSkillIcon={showSkillIcon}
-                    />
-                    <KeywordRow
-                        keyword={keyword}
-                        changeKeyword={(value: string) => setKeyword(value)}
-                        resetKeyword={() => setKeyword("")}
-                    />
                     <FilterRow
                         title={"龍刻模式"}
                         type={"mode"}
@@ -619,6 +630,32 @@ const CraftFilter: React.FC<ICraftFilterProps> = () => {
                         toggleButton={toggleButton}
                         resetButton={resetButton}
                     />
+                </>
+            ),
+        },
+    ]
+
+    return (
+        <ContextProvider toolId='craft-filter'>
+            <Header
+                resetAll={resetAll}
+                andOr={andOr}
+                changeAndOr={(value: string) => setAndOr(value)}
+                startFilter={startFilter}
+            />
+            <PageContainer
+                showSkillIcon={showSkillIcon}
+                toggleShowSkillIcon={() => {
+                    const _showSkillIcon = !showSkillIcon
+                    setShowSkillIcon(_showSkillIcon)
+                    localStorage?.setItem(
+                        "SHOW_SKILL_ICON",
+                        JSON.stringify(_showSkillIcon),
+                    )
+                }}
+            >
+                <>
+                    <FilterTabs id='craft-filter-tabs' tabs={filterTabs} />
                     <div ref={resultRef}>
                         {isAfterFilter ? (
                             <ResultRow

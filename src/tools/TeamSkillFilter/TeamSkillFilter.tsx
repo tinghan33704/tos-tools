@@ -8,6 +8,7 @@ import {
     attrTypeString,
     raceTypeString,
     starTypeString,
+    teamSkillKeywordTargetString,
 } from "src/constant/filterConstants"
 
 import { ContextProvider } from "src/utilities/Context/Context"
@@ -16,9 +17,13 @@ import { monsterData } from "src/constant/monsterData"
 import {
     addAlias,
     checkKeyword,
+    decodeKeywordTarget,
     decodeMapping,
+    encodeKeywordTarget,
     encodeMapping,
+    getKeywordTargetLabel,
     getUrlParams,
+    matchKeywords,
     removeUrlParams,
     setUrlParams,
     stringToUnicode,
@@ -29,13 +34,26 @@ import { usePopover } from "src/hook/usePopover"
 import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
+import FilterTabs, { type IFilterTab } from "src/shared/FilterTabs"
 import KeywordRow from "src/shared/KeywordRow"
 import ResultRow from "src/shared/ResultRow"
+
+const teamSkillKeywordGetter: Record<
+    string,
+    (monster: IObject, skill: IObject) => string[]
+> = {
+    description: (_monster, skill) => [skill.description],
+    activate: (_monster, skill) => [skill.activate],
+    monsterName: (monster) => [monster.name],
+}
 
 interface ITeamSkillFilterProps {}
 
 const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
+    const [keywordTarget, setKeywordTarget] = useState<string>(
+        teamSkillKeywordTargetString[0].value,
+    )
     const [selectedFunctions, setSelectedFunctions] = useState<string[]>([])
     const [excludedFunctions, setExcludedFunctions] = useState<string[]>([])
     const [selectedActivate, setSelectedActivate] = useState<string[]>([])
@@ -110,6 +128,9 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                 ),
             )
             setKeyword(unicodeToString(params?.keyword || ""))
+            setKeywordTarget(
+                decodeKeywordTarget(teamSkillKeywordTargetString, params?.kt),
+            )
             setAndOr(["or", "and"][+params?.or || 0])
 
             setLoadingParams(true)
@@ -167,7 +188,13 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
     const startFilter = useCallback(() => {
         const keywordArr: string[] = checkKeyword(keyword)
-        const aliasArr = addAlias(selectedFunctions, keywordArr)
+        const getKeywordTexts =
+            teamSkillKeywordGetter[keywordTarget] ??
+            teamSkillKeywordGetter.description
+        const aliasArr =
+            keywordTarget === "description"
+                ? addAlias(selectedFunctions, keywordArr)
+                : []
         const selectedFunctionArr = [
             ...new Set([...selectedFunctions, ...aliasArr]),
         ]
@@ -243,21 +270,16 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
 
                         // Check for keywords
 
-                        if (!isSkillMatch && keywordArr.length > 0) {
-                            let isKeywordChecked = false
-                            const skillDesc = textSanitizer(
-                                monsterSkill.description,
+                        if (
+                            !isSkillMatch &&
+                            keywordArr.length > 0 &&
+                            !matchKeywords(
+                                getKeywordTexts(monster, monsterSkill),
+                                keywordArr,
+                                "some",
                             )
-
-                            for (const keyword of keywordArr) {
-                                if (skillDesc.includes(keyword)) {
-                                    isKeywordChecked = true
-                                    break
-                                }
-                            }
-
-                            if (!isKeywordChecked) continue
-                        }
+                        )
+                            continue
                     } else if (andOr === "and") {
                         // AND
                         // Check for skill tags
@@ -290,21 +312,15 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         if (!isSkillMatch) continue
 
                         // Check for keywords
-                        if (keywordArr.length > 0) {
-                            let isKeywordChecked = true
-                            const skillDesc = textSanitizer(
-                                monsterSkill.description,
+                        if (
+                            keywordArr.length > 0 &&
+                            !matchKeywords(
+                                getKeywordTexts(monster, monsterSkill),
+                                keywordArr,
+                                "every",
                             )
-
-                            for (const keyword of keywordArr) {
-                                if (!skillDesc.includes(keyword)) {
-                                    isKeywordChecked = false
-                                    break
-                                }
-                            }
-
-                            if (!isKeywordChecked) continue
-                        }
+                        )
+                            continue
                     }
                     skillIndexArray.push(monsterSkillIndex)
                 }
@@ -355,6 +371,10 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             functions: selectedFunctions,
             excludeFunctions: excludedFunctions,
             keyword: textSanitizer(keyword).length ? keyword.split(",") : [],
+            keywordTarget: getKeywordTargetLabel(
+                teamSkillKeywordTargetString,
+                keywordTarget,
+            ),
             activate: selectedActivate,
             attribute: selectedAttributes,
             race: selectedRaces,
@@ -376,6 +396,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
                 : "",
+            kt: encodeKeywordTarget(teamSkillKeywordTargetString, keywordTarget),
             or: ["or", "and"].indexOf(andOr).toString(),
         })
 
@@ -386,6 +407,7 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
         andOr,
         excludedFunctions,
         keyword,
+        keywordTarget,
         loadingParams,
         selectedActivate,
         selectedAttributes,
@@ -400,55 +422,65 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
             resultRef.current.scrollIntoView(true)
     }, [isAfterFilter, resultData])
 
-    return (
-        <ContextProvider toolId='team-skill-filter'>
-            <Header
-                resetAll={resetAll}
-                andOr={andOr}
-                changeAndOr={(value: string) => setAndOr(value)}
-                startFilter={startFilter}
-            />
-            <PageContainer
-                showSkillIcon={showSkillIcon}
-                toggleShowSkillIcon={() => {
-                    const _showSkillIcon = !showSkillIcon
-                    setShowSkillIcon(_showSkillIcon)
-                    localStorage?.setItem(
-                        "SHOW_SKILL_ICON",
-                        JSON.stringify(_showSkillIcon),
-                    )
-                }}
-                resultView={resultView}
-                toggleResultView={() =>
-                    setResultView(resultView === "table" ? "summary" : "table")
-                }
-            >
+    const filterTabs: IFilterTab[] = [
+        {
+            key: "functions",
+            title: "隊伍技功能",
+            count: selectedFunctions.length + excludedFunctions.length,
+            content: (
+                <FilterRow
+                    title={"功能"}
+                    type={"functions"}
+                    data={teamSkillFunctionString}
+                    selectedData={selectedFunctions}
+                    toggleButton={toggleButton}
+                    excludeData={excludedFunctions}
+                    excludeButton={excludeButton}
+                    resetButton={resetButton}
+                    enableSearch
+                    showSkillIcon={showSkillIcon}
+                />
+            ),
+        },
+        {
+            key: "keyword",
+            title: "關鍵字搜尋",
+            count: textSanitizer(keyword).split(",").filter(Boolean).length,
+            content: (
+                <KeywordRow
+                    keyword={keyword}
+                    changeKeyword={(value: string) => setKeyword(value)}
+                    resetKeyword={() => setKeyword("")}
+                    targets={teamSkillKeywordTargetString}
+                    target={keywordTarget}
+                    changeTarget={(value: string) => setKeywordTarget(value)}
+                />
+            ),
+        },
+        {
+            key: "activate",
+            title: "發動條件",
+            count: selectedActivate.length,
+            content: (
+                <FilterRow
+                    title={"發動條件"}
+                    type={"activate"}
+                    data={teamSkillActivateString}
+                    selectedData={selectedActivate}
+                    toggleButton={toggleButton}
+                    resetButton={resetButton}
+                />
+            ),
+        },
+        {
+            key: "monster",
+            title: "召喚獸設定",
+            count:
+                selectedAttributes.length +
+                selectedRaces.length +
+                selectedStars.length,
+            content: (
                 <>
-                    <FilterRow
-                        title={"功能"}
-                        type={"functions"}
-                        data={teamSkillFunctionString}
-                        selectedData={selectedFunctions}
-                        toggleButton={toggleButton}
-                        excludeData={excludedFunctions}
-                        excludeButton={excludeButton}
-                        resetButton={resetButton}
-                        enableSearch
-                        showSkillIcon={showSkillIcon}
-                    />
-                    <KeywordRow
-                        keyword={keyword}
-                        changeKeyword={(value: string) => setKeyword(value)}
-                        resetKeyword={() => setKeyword("")}
-                    />
-                    <FilterRow
-                        title={"發動條件"}
-                        type={"activate"}
-                        data={teamSkillActivateString}
-                        selectedData={selectedActivate}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                    />
                     <FilterRow
                         title={"召喚獸屬性"}
                         type={"attribute"}
@@ -474,6 +506,36 @@ const TeamSkillFilter: React.FC<ITeamSkillFilterProps> = () => {
                         resetButton={resetButton}
                         btnSuffix={" ★"}
                     />
+                </>
+            ),
+        },
+    ]
+
+    return (
+        <ContextProvider toolId='team-skill-filter'>
+            <Header
+                resetAll={resetAll}
+                andOr={andOr}
+                changeAndOr={(value: string) => setAndOr(value)}
+                startFilter={startFilter}
+            />
+            <PageContainer
+                showSkillIcon={showSkillIcon}
+                toggleShowSkillIcon={() => {
+                    const _showSkillIcon = !showSkillIcon
+                    setShowSkillIcon(_showSkillIcon)
+                    localStorage?.setItem(
+                        "SHOW_SKILL_ICON",
+                        JSON.stringify(_showSkillIcon),
+                    )
+                }}
+                resultView={resultView}
+                toggleResultView={() =>
+                    setResultView(resultView === "table" ? "summary" : "table")
+                }
+            >
+                <>
+                    <FilterTabs id='team-skill-filter-tabs' tabs={filterTabs} />
                     <div ref={resultRef}>
                         {isAfterFilter ? (
                             <ResultRow

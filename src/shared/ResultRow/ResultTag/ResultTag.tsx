@@ -17,6 +17,7 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
         functions,
         excludeFunctions,
         keyword,
+        keywordTarget,
         tag,
         attribute,
         race,
@@ -76,7 +77,9 @@ const ResultTag: React.FC<IResultTagProps> = (props) => {
             {armedFunctions?.map((item: string) =>
                 renderTag("armed-function", item),
             )}
-            {keyword?.map((item: string) => renderTag("keyword", item))}
+            {keyword?.map((item: string) =>
+                renderTag("keyword", item, keywordTarget),
+            )}
             {mode?.map((item: string) => renderTag("mode", item))}
             {activate?.map((item: string) => renderTag("activate", item))}
             {tag?.map((item: string) => renderTag("tag", item))}

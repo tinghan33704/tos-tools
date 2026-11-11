@@ -200,7 +200,12 @@ const PageContainer: React.FC<IPageContainerProps> = (props) => {
     return (
         <Container
             className='page-container'
-            style={{ paddingTop: `${headerHeight}px` }}
+            style={
+                {
+                    paddingTop: `${headerHeight}px`,
+                    "--header-height": `${headerHeight}px`,
+                } as React.CSSProperties
+            }
         >
             {renderNotification()}
             {renderMyBirthday()}

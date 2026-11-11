@@ -3,31 +3,52 @@ import _ from "lodash"
 import { faCheck, faLightbulb } from "@fortawesome/free-solid-svg-icons"
 
 import {
-    tagString,
     versionString,
     extraFilterData,
     attrTypeString,
     raceTypeString,
     starTypeString,
+    monsterSelectorKeywordTargetString,
 } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
 
 import { ContextProvider } from "src/utilities/Context/Context"
 import { setFavIconAndTitle } from "src/utilities/toolSetting"
-import { errorAlert, getMonsterById, paddingZeros } from "src/utilities/utils"
+import {
+    checkKeyword,
+    errorAlert,
+    getMonsterById,
+    matchKeywords,
+    paddingZeros,
+    textSanitizer,
+    tagPageString,
+    tagString,
+} from "src/utilities/utils"
 import Icon from "src/utilities/Icon"
 import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
+import FilterTabs, { type IFilterTab } from "src/shared/FilterTabs"
+import KeywordRow from "src/shared/KeywordRow"
 import ResultRow from "src/shared/ResultRow"
 import InputModal from "src/shared/InputModal"
 
 import "./style.scss"
 
+const officialTagPages = tagPageString
+    .map((page) => ({
+        ...page,
+        groups: page.groups
+            .filter((groupIndex) => groupIndex > 0)
+            .map((groupIndex) => groupIndex - 1),
+    }))
+    .filter((page) => page.groups.length)
+
 interface IMonsterSelectorProps {}
 
 const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
     const [input, setInput] = useState<number[]>([])
+    const [keyword, setKeyword] = useState<string>("")
     const [selectedAttributes, setSelectedAttributes] = useState<string[]>([])
     const [selectedRaces, setSelectedRaces] = useState<string[]>([])
     const [selectedStars, setSelectedStars] = useState<string[]>([])
@@ -102,6 +123,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
         Object.keys(typeMap).forEach((type) => {
             resetButton(type)
         })
+        setKeyword("")
     }, [resetButton, typeMap])
 
     const startFilter = useCallback(() => {
@@ -114,8 +136,11 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
         const isTagSelected = !!selectedTags.length
         const isExtraTagSelected = !!selectedExtraTags.length
         const isVersionSelected = !!selectedVersions.length
+        const keywordArr: string[] = checkKeyword(keyword)
+        const isKeywordInput = !!keywordArr.length
 
         if (
+            !isKeywordInput &&
             !isAttrSelected &&
             !isRaceSelected &&
             !isStarSelected &&
@@ -153,7 +178,9 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         (!selectedOrigin.includes("合作") &&
                             monster.crossOver))) ||
                 (isVersionSelected &&
-                    !selectedVersions.includes(monster.version))
+                    !selectedVersions.includes(monster.version)) ||
+                (isKeywordInput &&
+                    !matchKeywords([monster.name], keywordArr, "some"))
             )
                 continue
 
@@ -190,6 +217,7 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
         setIsAfterFilter(true)
     }, [
         input,
+        keyword,
         selectedAttributes,
         selectedExtraTags,
         selectedOrigin,
@@ -244,10 +272,16 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
             resultRef.current.scrollIntoView(true)
     }, [isAfterFilter, resultData])
 
-    return (
-        <ContextProvider toolId='monster-selector'>
-            <Header resetAll={resetAll} startFilter={startFilter} />
-            <PageContainer openInputModal={openInputModal}>
+    const filterTabs: IFilterTab[] = [
+        {
+            key: "monster",
+            title: "召喚獸設定",
+            count:
+                selectedAttributes.length +
+                selectedRaces.length +
+                selectedStars.length +
+                selectedOrigin.length,
+            content: (
                 <>
                     <FilterRow
                         title={"召喚獸屬性"}
@@ -282,38 +316,80 @@ const MonsterSelector: React.FC<IMonsterSelectorProps> = () => {
                         toggleButton={toggleButton}
                         resetButton={resetButton}
                     />
-                    <FilterRow
-                        title={"官方標籤"}
-                        type={"tag"}
-                        data={tagString.slice(1)}
-                        selectedData={selectedTags}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        collapsible
-                        enableSearch
-                    />
-                    <FilterRow
-                        title={"合作系列"}
-                        type={"extraTag"}
-                        data={extraFilterData.map((group) =>
-                            group.map((item: IObject) => item.name),
-                        )}
-                        selectedData={selectedExtraTags}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        collapsible
-                        defaultOpen
-                        enableSearch
-                    />
-                    <FilterRow
-                        title={"版本標籤"}
-                        type={"version"}
-                        data={versionString}
-                        selectedData={selectedVersions}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        collapsible
-                    />
+                </>
+            ),
+        },
+        {
+            key: "keyword",
+            title: "關鍵字搜尋",
+            count: textSanitizer(keyword).split(",").filter(Boolean).length,
+            content: (
+                <KeywordRow
+                    keyword={keyword}
+                    changeKeyword={(value: string) => setKeyword(value)}
+                    resetKeyword={() => setKeyword("")}
+                    targets={monsterSelectorKeywordTargetString}
+                />
+            ),
+        },
+        {
+            key: "tag",
+            title: "官方標籤",
+            count: selectedTags.length,
+            content: (
+                <FilterRow
+                    title={"官方標籤"}
+                    type={"tag"}
+                    data={tagString.slice(1)}
+                    selectedData={selectedTags}
+                    toggleButton={toggleButton}
+                    resetButton={resetButton}
+                    enableSearch
+                    pages={officialTagPages}
+                />
+            ),
+        },
+        {
+            key: "extraTag",
+            title: "合作系列",
+            count: selectedExtraTags.length,
+            content: (
+                <FilterRow
+                    title={"合作系列"}
+                    type={"extraTag"}
+                    data={extraFilterData.map((group) =>
+                        group.map((item: IObject) => item.name),
+                    )}
+                    selectedData={selectedExtraTags}
+                    toggleButton={toggleButton}
+                    resetButton={resetButton}
+                    enableSearch
+                />
+            ),
+        },
+        {
+            key: "version",
+            title: "版本標籤",
+            count: selectedVersions.length,
+            content: (
+                <FilterRow
+                    title={"版本標籤"}
+                    type={"version"}
+                    data={versionString}
+                    selectedData={selectedVersions}
+                    toggleButton={toggleButton}
+                    resetButton={resetButton}
+                />
+            ),
+        },
+    ]
+
+    return (
+        <ContextProvider toolId='monster-selector'>
+            <Header resetAll={resetAll} startFilter={startFilter} />
+            <PageContainer openInputModal={openInputModal}>
+                <>
+                    <FilterTabs id='monster-selector-tabs' tabs={filterTabs} />
                     <div ref={resultRef}>
                         {isAfterFilter ? (
                             <>

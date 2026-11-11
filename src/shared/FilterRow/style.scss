@@ -63,6 +63,46 @@
             cursor: pointer;
         }
     }
+
+    &-page-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 10px;
+
+        .page-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border: 1px solid var(--filter-btn-border);
+            border-radius: 999px;
+            background-color: transparent;
+            color: var(--text-black);
+
+            &.active {
+                border-color: var(--tab-btn-active-bg);
+                background-color: var(--tab-btn-active-bg);
+                color: var(--text-white);
+            }
+        }
+
+        .page-nav-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            min-width: 1.6em;
+            height: 1.6em;
+            margin-left: 0.4em;
+            padding: 0 0.4em;
+            border-radius: 0.8em;
+            font-size: 0.75em;
+            line-height: 1;
+            background-color: var(--text-black);
+            color: var(--background-color);
+        }
+    }
 }
 
 .filter-button-group-wrapper {

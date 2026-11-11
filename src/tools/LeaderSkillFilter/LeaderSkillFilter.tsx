@@ -14,8 +14,8 @@ import {
     attrTypeString,
     raceTypeString,
     starTypeString,
-    tagString,
     leaderSkillObjectString,
+    leaderSkillKeywordTargetString,
 } from "src/constant/filterConstants"
 import { leaderSkillData } from "src/constant/leaderData"
 
@@ -25,30 +25,48 @@ import { setFavIconAndTitle } from "src/utilities/toolSetting"
 import {
     addAlias,
     checkKeyword,
+    decodeKeywordTarget,
     decodeMapping,
+    encodeKeywordTarget,
     encodeMapping,
     errorAlert,
+    getKeywordTargetLabel,
     getMonsterById,
+    getMonsterNameById,
     getUrlParams,
+    matchKeywords,
     removeUrlParams,
     setUrlParams,
     stringToUnicode,
     textSanitizer,
     unicodeToString,
+    tagPageString,
+    tagString,
 } from "src/utilities/utils"
 import { usePopover } from "src/hook/usePopover"
 import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
+import FilterTabs, { type IFilterTab } from "src/shared/FilterTabs"
 import KeywordRow from "src/shared/KeywordRow"
 import ResultRow from "src/shared/ResultRow"
 import ObjectiveModal from "src/shared/ObjectiveModal"
 import UserDataModal from "src/shared/UserDataModal"
 
+const leaderSkillKeywordGetter: Record<string, (skill: IObject) => string[]> = {
+    description: (skill) => [skill.description],
+    skillName: (skill) => [skill.name],
+    monsterName: (skill) =>
+        (skill.monster ?? []).map((id: number) => getMonsterNameById(id)),
+}
+
 interface ILeaderSkillFilterProps {}
 
 const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
+    const [keywordTarget, setKeywordTarget] = useState<string>(
+        leaderSkillKeywordTargetString[0].value,
+    )
     const [selectedFunctions, setSelectedFunctions] = useState<string[]>([])
     const [excludedFunctions, setExcludedFunctions] = useState<string[]>([])
     const [selectedTags, setSelectedTags] = useState<string[]>([])
@@ -128,6 +146,9 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             )
             setSelectedTags(decodeMapping(tagString, params?.tag))
             setKeyword(unicodeToString(params?.keyword || ""))
+            setKeywordTarget(
+                decodeKeywordTarget(leaderSkillKeywordTargetString, params?.kt),
+            )
             setAndOr(["or", "and"][+params?.or || 0])
 
             setLoadingParams(true)
@@ -281,7 +302,15 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
     const startFilter = useCallback(() => {
         const keywordArr: string[] = checkKeyword(keyword)
-        const aliasArr = addAlias(selectedFunctions, keywordArr)
+        const getKeywordTexts =
+            leaderSkillKeywordGetter[keywordTarget] ??
+            leaderSkillKeywordGetter.description
+        const isMonsterNameKeyword =
+            keywordTarget === "monsterName" && keywordArr.length > 0
+        const aliasArr =
+            keywordTarget === "description"
+                ? addAlias(selectedFunctions, keywordArr)
+                : []
         const functionArr = [...new Set([...selectedFunctions, ...aliasArr])]
         const excludedFunctionArr = [...new Set([...excludedFunctions])]
 
@@ -472,22 +501,22 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
                     // Check for keywords
 
-                    if (!isSkillMatch && keywordArr.length > 0) {
-                        let isKeywordChecked = false
-                        const skillDesc = textSanitizer(skill.description)
-
-                        for (const keyword of keywordArr) {
-                            if (skillDesc.includes(keyword)) {
-                                isKeywordChecked = true
-                                break
-                            }
-                        }
-
-                        if (!isKeywordChecked) continue
-                    }
+                    if (
+                        !isSkillMatch &&
+                        keywordArr.length > 0 &&
+                        !matchKeywords(getKeywordTexts(skill), keywordArr, "some")
+                    )
+                        continue
 
                     for (const monsterId of monsterArr) {
                         const monster = getMonsterById(monsterId)
+
+                        if (
+                            !isSkillMatch &&
+                            isMonsterNameKeyword &&
+                            !matchKeywords([monster?.name], keywordArr, "some")
+                        )
+                            continue
 
                         if (
                             !monster?.star ||
@@ -715,22 +744,25 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
 
                     // Check for keywords
 
-                    if (keywordArr.length > 0) {
-                        let isKeywordChecked = true
-                        const skillDesc = textSanitizer(skill.description)
-
-                        for (const keyword of keywordArr) {
-                            if (!skillDesc.includes(keyword)) {
-                                isKeywordChecked = false
-                                break
-                            }
-                        }
-
-                        if (!isKeywordChecked) continue
-                    }
+                    if (
+                        keywordArr.length > 0 &&
+                        !matchKeywords(
+                            getKeywordTexts(skill),
+                            keywordArr,
+                            "every",
+                        )
+                    )
+                        continue
 
                     for (const monsterId of monsterArr) {
                         const monster = getMonsterById(monsterId)
+
+                        if (
+                            isMonsterNameKeyword &&
+                            keywordArr.length > 0 &&
+                            !matchKeywords([monster?.name], keywordArr, "every")
+                        )
+                            continue
 
                         if (
                             !monster?.star ||
@@ -856,6 +888,10 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             functions: selectedFunctions,
             excludeFunctions: excludedFunctions,
             keyword: textSanitizer(keyword).length ? keyword.split(",") : [],
+            keywordTarget: getKeywordTargetLabel(
+                leaderSkillKeywordTargetString,
+                keywordTarget,
+            ),
             attribute: selectedAttributes,
             race: selectedRaces,
             star: selectedStars,
@@ -877,6 +913,10 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
                 : "",
+            kt: encodeKeywordTarget(
+                leaderSkillKeywordTargetString,
+                keywordTarget,
+            ),
             or: ["or", "and"].indexOf(andOr).toString(),
         })
 
@@ -888,6 +928,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
         andOr,
         excludedFunctions,
         keyword,
+        keywordTarget,
         loadingParams,
         objectiveObj,
         selectedAttributes,
@@ -914,6 +955,91 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
             resultRef?.current &&
             resultRef.current.scrollIntoView(true)
     }, [isAfterFilter, resultData])
+
+    const filterTabs: IFilterTab[] = [
+        {
+            key: "functions",
+            title: "隊長技功能",
+            count: selectedFunctions.length + excludedFunctions.length,
+            content: (
+                <FilterRow
+                    title={"功能"}
+                    type={"functions"}
+                    data={leaderSkillFunctionString}
+                    selectedData={selectedFunctions}
+                    toggleButton={toggleButton}
+                    excludeData={excludedFunctions}
+                    excludeButton={excludeButton}
+                    resetButton={resetButton}
+                    enableSearch
+                    showSkillIcon={showSkillIcon}
+                />
+            ),
+        },
+        {
+            key: "keyword",
+            title: "關鍵字搜尋",
+            count: textSanitizer(keyword).split(",").filter(Boolean).length,
+            content: (
+                <KeywordRow
+                    keyword={keyword}
+                    changeKeyword={(value: string) => setKeyword(value)}
+                    resetKeyword={() => setKeyword("")}
+                    targets={leaderSkillKeywordTargetString}
+                    target={keywordTarget}
+                    changeTarget={(value: string) => setKeywordTarget(value)}
+                />
+            ),
+        },
+        {
+            key: "monster",
+            title: "召喚獸設定",
+            count:
+                selectedAttributes.length +
+                selectedRaces.length +
+                selectedStars.length +
+                selectedTags.length,
+            content: (
+                <>
+                    <FilterRow
+                        title={"召喚獸屬性"}
+                        type={"attribute"}
+                        data={attrTypeString}
+                        selectedData={selectedAttributes}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                    />
+                    <FilterRow
+                        title={"召喚獸種族"}
+                        type={"race"}
+                        data={raceTypeString}
+                        selectedData={selectedRaces}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                    />
+                    <FilterRow
+                        title={"召喚獸稀有度"}
+                        type={"star"}
+                        data={starTypeString}
+                        selectedData={selectedStars}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                        btnSuffix={" ★"}
+                    />
+                    <FilterRow
+                        title={"召喚獸標籤"}
+                        type={"tag"}
+                        data={tagString}
+                        selectedData={selectedTags}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                        enableSearch
+                        pages={tagPageString}
+                    />
+                </>
+            ),
+        },
+    ]
 
     return (
         <ContextProvider toolId='leader-skill-filter'>
@@ -942,58 +1068,7 @@ const LeaderSkillFilter: React.FC<ILeaderSkillFilterProps> = () => {
                 }}
             >
                 <>
-                    <FilterRow
-                        title={"功能"}
-                        type={"functions"}
-                        data={leaderSkillFunctionString}
-                        selectedData={selectedFunctions}
-                        toggleButton={toggleButton}
-                        excludeData={excludedFunctions}
-                        excludeButton={excludeButton}
-                        resetButton={resetButton}
-                        enableSearch
-                        showSkillIcon={showSkillIcon}
-                    />
-                    <KeywordRow
-                        keyword={keyword}
-                        changeKeyword={(value: string) => setKeyword(value)}
-                        resetKeyword={() => setKeyword("")}
-                    />
-                    <FilterRow
-                        title={"召喚獸標籤"}
-                        type={"tag"}
-                        data={tagString}
-                        selectedData={selectedTags}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        collapsible
-                        enableSearch
-                    />
-                    <FilterRow
-                        title={"召喚獸屬性"}
-                        type={"attribute"}
-                        data={attrTypeString}
-                        selectedData={selectedAttributes}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                    />
-                    <FilterRow
-                        title={"召喚獸種族"}
-                        type={"race"}
-                        data={raceTypeString}
-                        selectedData={selectedRaces}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                    />
-                    <FilterRow
-                        title={"召喚獸稀有度"}
-                        type={"star"}
-                        data={starTypeString}
-                        selectedData={selectedStars}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        btnSuffix={" ★"}
-                    />
+                    <FilterTabs id='leader-skill-filter-tabs' tabs={filterTabs} />
                     <div ref={resultRef}>
                         {isAfterFilter ? (
                             <ResultRow

@@ -11,13 +11,13 @@ import _ from "lodash"
 
 import {
     skillFunctionString,
-    tagString,
     attrTypeString,
     raceTypeString,
     starTypeString,
     chargeTypeString,
     genreTypeString,
     optionText,
+    skillKeywordTargetString,
 } from "src/constant/filterConstants"
 import { monsterData } from "src/constant/monsterData"
 
@@ -28,21 +28,28 @@ import {
     addAlias,
     checkKeyword,
     decode,
+    decodeKeywordTarget,
     decodeMapping,
     encode,
+    encodeKeywordTarget,
     encodeMapping,
     errorAlert,
+    getKeywordTargetLabel,
     getUrlParams,
+    matchKeywords,
     removeUrlParams,
     setUrlParams,
     stringToUnicode,
     textSanitizer,
     unicodeToString,
+    tagPageString,
+    tagString,
 } from "src/utilities/utils"
 import { usePopover } from "src/hook/usePopover"
 import Header from "src/shared/Header"
 import PageContainer from "src/shared/PageContainer"
 import FilterRow from "src/shared/FilterRow"
+import FilterTabs, { IFilterTab } from "src/shared/FilterTabs"
 import KeywordRow from "src/shared/KeywordRow"
 import ResultRow from "src/shared/ResultRow"
 import DurationModal from "src/shared/DurationModal"
@@ -50,10 +57,22 @@ import UserDataModal from "src/shared/UserDataModal"
 import FixedBoard from "src/shared/FixedBoard"
 import DescriptionNote from "src/shared/DescriptionNote"
 
+const skillKeywordGetter: Record<
+    string,
+    (monster: IObject, skill: IObject) => string[]
+> = {
+    description: (_monster, skill) => [skill.description],
+    skillName: (_monster, skill) => [skill.name],
+    monsterName: (monster) => [monster.name],
+}
+
 interface ISkillFilterProps {}
 
 const SkillFilter: React.FC<ISkillFilterProps> = () => {
     const [keyword, setKeyword] = useState<string>("")
+    const [keywordTarget, setKeywordTarget] = useState<string>(
+        skillKeywordTargetString[0].value,
+    )
     const [selectedFunctions, setSelectedFunctions] = useState<string[]>([])
     const [excludedFunctions, setExcludedFunctions] = useState<string[]>([])
     const [selectedTags, setSelectedTags] = useState<string[]>([])
@@ -149,6 +168,9 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             setSelectedCharges(decodeMapping(chargeTypeString, params?.charge))
             setSelectedGenres(decodeMapping(genreTypeString, params?.genre))
             setKeyword(unicodeToString(params?.keyword || ""))
+            setKeywordTarget(
+                decodeKeywordTarget(skillKeywordTargetString, params?.kt),
+            )
             setAndOr(["or", "and", "m-and"][+params?.or || 0])
 
             const durationArr =
@@ -275,7 +297,12 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
     const startFilter = useCallback(() => {
         const keywordArr: string[] = checkKeyword(keyword)
-        const aliasArr = addAlias(selectedFunctions, keywordArr)
+        const getKeywordTexts =
+            skillKeywordGetter[keywordTarget] ?? skillKeywordGetter.description
+        const aliasArr =
+            keywordTarget === "description"
+                ? addAlias(selectedFunctions, keywordArr)
+                : []
         const selectedFunctionArr = [
             ...new Set([...selectedFunctions, ...aliasArr]),
         ]
@@ -343,8 +370,8 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                         (skill: IObject) => skill.charge,
                     )
 
-                    const allSkillDescription = monster.skill.map(
-                        (skill: IObject) => skill.description,
+                    const allKeywordTexts = monster.skill.flatMap(
+                        (skill: IObject) => getKeywordTexts(monster, skill),
                     )
 
                     if (
@@ -410,11 +437,11 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                     // Check for keywords
                     if (keywordArr.length) {
-                        isMonsterMatch = keywordArr.every((keyword) => {
-                            return allSkillDescription.some((desc: string) =>
-                                textSanitizer(desc).includes(keyword),
-                            )
-                        })
+                        isMonsterMatch = matchKeywords(
+                            allKeywordTexts,
+                            keywordArr,
+                            "every",
+                        )
 
                         if (!isMonsterMatch) continue
                     }
@@ -508,10 +535,10 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                         if (!isMatch && keywordArr.length) {
                             if (
-                                keywordArr.some((keyword) =>
-                                    textSanitizer(
-                                        monsterSkill.description,
-                                    ).includes(keyword),
+                                matchKeywords(
+                                    getKeywordTexts(monster, monsterSkill),
+                                    keywordArr,
+                                    "some",
                                 )
                             ) {
                                 const charge =
@@ -653,21 +680,16 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
 
                             // Check for keywords
 
-                            if (!isSkillMatch && keywordArr.length > 0) {
-                                let isKeywordChecked = false
-                                const skillDesc = textSanitizer(
-                                    monsterSkill.description,
+                            if (
+                                !isSkillMatch &&
+                                keywordArr.length > 0 &&
+                                !matchKeywords(
+                                    getKeywordTexts(monster, monsterSkill),
+                                    keywordArr,
+                                    "some",
                                 )
-
-                                for (const keyword of keywordArr) {
-                                    if (skillDesc.includes(keyword)) {
-                                        isKeywordChecked = true
-                                        break
-                                    }
-                                }
-
-                                if (!isKeywordChecked) continue
-                            }
+                            )
+                                continue
                         } else if (andOr === "and") {
                             // AND
                             // Check for skill tags
@@ -780,21 +802,15 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                             if (!isSkillMatch) continue
 
                             // Check for keywords
-                            if (keywordArr.length > 0) {
-                                let isKeywordChecked = true
-                                const skillDesc = textSanitizer(
-                                    monsterSkill.description,
+                            if (
+                                keywordArr.length > 0 &&
+                                !matchKeywords(
+                                    getKeywordTexts(monster, monsterSkill),
+                                    keywordArr,
+                                    "every",
                                 )
-
-                                for (const keyword of keywordArr) {
-                                    if (!skillDesc.includes(keyword)) {
-                                        isKeywordChecked = false
-                                        break
-                                    }
-                                }
-
-                                if (!isKeywordChecked) continue
-                            }
+                            )
+                                continue
                         }
 
                         const charge =
@@ -918,6 +934,10 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             }, []),
             excludeFunctions: excludedFunctions,
             keyword: textSanitizer(keyword).length ? keyword.split(",") : [],
+            keywordTarget: getKeywordTargetLabel(
+                skillKeywordTargetString,
+                keywordTarget,
+            ),
             attribute: selectedAttributes,
             race: selectedRaces,
             star: selectedStars,
@@ -943,6 +963,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             keyword: textSanitizer(keyword).length
                 ? stringToUnicode(textSanitizer(keyword))
                 : "",
+            kt: encodeKeywordTarget(skillKeywordTargetString, keywordTarget),
             or: ["or", "and", "m-and"].indexOf(andOr).toString(),
             duration: encode(
                 skillFunctionString
@@ -974,6 +995,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
         durationObj,
         excludedFunctions,
         keyword,
+        keywordTarget,
         loadingParams,
         selectedAttributes,
         selectedCharges,
@@ -1001,6 +1023,116 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
             resultRef?.current &&
             resultRef.current.scrollIntoView(true)
     }, [isAfterFilter, resultData])
+
+    const filterTabs: IFilterTab[] = [
+        {
+            key: "functions",
+            title: "主動技功能",
+            count: selectedFunctions.length + excludedFunctions.length,
+            content: (
+                <FilterRow
+                    title={"功能"}
+                    type={"functions"}
+                    data={skillFunctionString}
+                    selectedData={selectedFunctions}
+                    toggleButton={toggleButton}
+                    excludeData={excludedFunctions}
+                    excludeButton={excludeButton}
+                    resetButton={resetButton}
+                    enableSearch
+                    showSkillIcon={showSkillIcon}
+                />
+            ),
+        },
+        {
+            key: "keyword",
+            title: "關鍵字搜尋",
+            count: textSanitizer(keyword).split(",").filter(Boolean).length,
+            content: (
+                <KeywordRow
+                    keyword={keyword}
+                    changeKeyword={(value: string) => setKeyword(value)}
+                    resetKeyword={() => setKeyword("")}
+                    targets={skillKeywordTargetString}
+                    target={keywordTarget}
+                    changeTarget={(value: string) => setKeywordTarget(value)}
+                />
+            ),
+        },
+        {
+            key: "monster",
+            title: "召喚獸設定",
+            count:
+                selectedAttributes.length +
+                selectedRaces.length +
+                selectedStars.length +
+                selectedTags.length,
+            content: (
+                <>
+                    <FilterRow
+                        title={"召喚獸屬性"}
+                        type={"attribute"}
+                        data={attrTypeString}
+                        selectedData={selectedAttributes}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                    />
+                    <FilterRow
+                        title={"召喚獸種族"}
+                        type={"race"}
+                        data={raceTypeString}
+                        selectedData={selectedRaces}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                    />
+                    <FilterRow
+                        title={"召喚獸稀有度"}
+                        type={"star"}
+                        data={starTypeString}
+                        selectedData={selectedStars}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                        btnSuffix={" ★"}
+                    />
+                    <FilterRow
+                        title={"召喚獸標籤"}
+                        type={"tag"}
+                        data={tagString}
+                        selectedData={selectedTags}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                        pages={tagPageString}
+                        enableSearch
+                    />
+                </>
+            ),
+        },
+        {
+            key: "condition",
+            title: "技能設定",
+            count: selectedCharges.length + selectedGenres.length,
+            content: (
+                <>
+                    <FilterRow
+                        title={"技能累積方式"}
+                        type={"charge"}
+                        data={chargeTypeString}
+                        selectedData={selectedCharges}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                    />
+                    <FilterRow
+                        title={"技能種類"}
+                        type={"genre"}
+                        data={genreTypeString}
+                        selectedData={selectedGenres}
+                        toggleButton={toggleButton}
+                        resetButton={resetButton}
+                    />
+                </>
+            ),
+        },
+    ]
 
     return (
         <ContextProvider toolId='skill-filter'>
@@ -1033,74 +1165,7 @@ const SkillFilter: React.FC<ISkillFilterProps> = () => {
                 }}
             >
                 <>
-                    <FilterRow
-                        title={"功能"}
-                        type={"functions"}
-                        data={skillFunctionString}
-                        selectedData={selectedFunctions}
-                        toggleButton={toggleButton}
-                        excludeData={excludedFunctions}
-                        excludeButton={excludeButton}
-                        resetButton={resetButton}
-                        enableSearch
-                        showSkillIcon={showSkillIcon}
-                    />
-                    <KeywordRow
-                        keyword={keyword}
-                        changeKeyword={(value: string) => setKeyword(value)}
-                        resetKeyword={() => setKeyword("")}
-                    />
-                    <FilterRow
-                        title={"召喚獸標籤"}
-                        type={"tag"}
-                        data={tagString}
-                        selectedData={selectedTags}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        collapsible
-                        enableSearch
-                    />
-                    <FilterRow
-                        title={"召喚獸屬性"}
-                        type={"attribute"}
-                        data={attrTypeString}
-                        selectedData={selectedAttributes}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                    />
-                    <FilterRow
-                        title={"召喚獸種族"}
-                        type={"race"}
-                        data={raceTypeString}
-                        selectedData={selectedRaces}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                    />
-                    <FilterRow
-                        title={"召喚獸稀有度"}
-                        type={"star"}
-                        data={starTypeString}
-                        selectedData={selectedStars}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                        btnSuffix={" ★"}
-                    />
-                    <FilterRow
-                        title={"技能累積方式"}
-                        type={"charge"}
-                        data={chargeTypeString}
-                        selectedData={selectedCharges}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                    />
-                    <FilterRow
-                        title={"技能種類"}
-                        type={"genre"}
-                        data={genreTypeString}
-                        selectedData={selectedGenres}
-                        toggleButton={toggleButton}
-                        resetButton={resetButton}
-                    />
+                    <FilterTabs id='skill-filter-tabs' tabs={filterTabs} />
                     <div ref={resultRef}>
                         {isAfterFilter ? (
                             <ResultRow

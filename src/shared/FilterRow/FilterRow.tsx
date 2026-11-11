@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react"
+import React, { useCallback, useMemo, useState } from "react"
 import _ from "lodash"
 import { Col, Row, Collapse } from "react-bootstrap"
 import {
@@ -17,6 +17,11 @@ import FilterButtonGroup from "./FilterButtonGroup"
 
 import "./style.scss"
 
+export interface IFilterRowPage {
+    title: string
+    groups: number[]
+}
+
 export interface IFilterRowProps {
     title: string
     type: string
@@ -32,6 +37,7 @@ export interface IFilterRowProps {
     enableSearch?: boolean
     resetButton?: (type: string) => void
     showSkillIcon?: boolean
+    pages?: IFilterRowPage[]
 }
 
 const FilterRow: React.FC<IFilterRowProps> = (props) => {
@@ -50,17 +56,53 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
         excludeButton,
         resetButton,
         showSkillIcon,
+        pages,
     } = props
 
     const [isCollapseOpen, setIsCollapseOpen] = useState<boolean>(defaultOpen)
     const [searchText, setSearchText] = useState<string>("")
     const [searchDisplayText, setSearchDisplayText] = useState<string>("")
+    const [currentPage, setCurrentPage] = useState<number>(0)
+
+    const isPaged = !!pages?.length && !searchText.length
+
+    const displayData = useMemo(
+        () =>
+            isPaged
+                ? (pages?.[currentPage]?.groups ?? [])
+                      .map((groupIndex) => data[groupIndex])
+                      .filter((group) => group !== undefined)
+                : data,
+        [currentPage, data, isPaged, pages],
+    )
+
+    const pageSelectedCount = useMemo(
+        () =>
+            pages?.map(({ groups }) =>
+                groups.reduce((acc, groupIndex) => {
+                    const group = data[groupIndex]
+                    const items =
+                        group === undefined
+                            ? []
+                            : Array.isArray(group)
+                              ? group
+                              : [group]
+                    return (
+                        acc +
+                        items.filter((item) =>
+                            selectedData.includes(`${item}${btnSuffix}`),
+                        ).length
+                    )
+                }, 0),
+            ) ?? [],
+        [btnSuffix, data, pages, selectedData],
+    )
 
     const renderFilterButtonGroupRow = useCallback(() => {
         return (
             <FilterButtonGroup
                 type={type}
-                groupData={data}
+                groupData={displayData}
                 btnSuffix={btnSuffix}
                 useLazyLoad={collapsible}
                 selectedData={selectedData}
@@ -75,7 +117,7 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
     }, [
         btnSuffix,
         collapsible,
-        data,
+        displayData,
         enableSearch,
         excludeButton,
         excludeData,
@@ -125,6 +167,30 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
             </Col>
         )
     }, [onSearch, searchDisplayText])
+
+    const renderPageNav = useCallback(() => {
+        return (
+            <Col xs={12} className='filter-row-page-nav'>
+                {pages?.map(({ title: pageTitle }, index) => (
+                    <button
+                        type='button'
+                        key={`${type}_page_${pageTitle}`}
+                        className={`page-nav-btn${
+                            index === currentPage ? " active" : ""
+                        }`}
+                        onClick={() => setCurrentPage(index)}
+                    >
+                        {pageTitle}
+                        {!!pageSelectedCount[index] && (
+                            <span className='page-nav-count'>
+                                {pageSelectedCount[index]}
+                            </span>
+                        )}
+                    </button>
+                ))}
+            </Col>
+        )
+    }, [currentPage, pageSelectedCount, pages, type])
 
     return (
         <>
@@ -182,6 +248,7 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
                     </>
                 )}
                 {!collapsible && enableSearch && renderSearchRow()}
+                {!collapsible && isPaged && renderPageNav()}
             </Row>
             <Row className={`${type}-row filter-button-group-wrapper`}>
                 {collapsible ? (
@@ -189,6 +256,7 @@ const FilterRow: React.FC<IFilterRowProps> = (props) => {
                         {/* Do not remove <div /> here, <div /> wrapped here is necessary for <Collapse /> to work */}
                         <div>
                             {enableSearch && renderSearchRow()}
+                            {isPaged && renderPageNav()}
                             {renderFilterButtonGroupRow()}
                         </div>
                     </Collapse>
