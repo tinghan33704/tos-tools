@@ -1,4 +1,4 @@
-// Last modified : 2026.11.09 23:40
+// Last modified : 2026.11.12 20:30
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -240107,55 +240107,85 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11315,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '欺詐詭龍 ‧ 奧弗尼爾',
+        'attribute': '暗',
+        'race': '龍類',
+        'star': 6,
+        'monsterTag': ['北域之詩', '欺詐詭龍'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '虛實滅擊',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. <board>將所有符石轉化為固定版面符石 (五屬龍類強化符石)</board>
+				1 回合內
+				II. 神族、龍類及【北域之詩】成員攻擊力 2 倍
+				III. 隊長及戰友攻擊力 4 倍
+				IV. 隊伍成員攻擊力變為 0 (隊長及戰友除外)
+				V. 隊長為神族、龍類或【北域之詩】成員 (發動技能時)
+				⓵ 隊長及戰友無視「連擊相等盾」及「連擊護盾」
+				⓶ 回合結束時，自身技能 CD -4
+				VI. 移動符石時
+				⇒ 將觸碰的符石添加為龍類符石
                 `,
-                'tag': []
+                'tag': ['符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉水強化', '符石轉火強化', '符石轉木強化', '符石轉光強化', '符石轉暗強化', '龍族符石製造', '五屬版面', '固定版面', '大幅轉版', '增傷', '界王拳', '我方減攻', '無視連擊相等盾', '無視攻擊次數盾', '減CD', '軌跡轉化']
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+		'board': [
+			[
+				'Dr', 'Dr', 'Dr', 'Dr', 'Dr', 'Dr', 
+				'Dr', 'Wr', 'Fr', 'Er', 'Lr', 'Dr',
+				'Dr', 'Wr', 'Fr', 'Er', 'Lr', 'Dr',
+				'Dr', 'Wr', 'Fr', 'Er', 'Lr', 'Dr',
+				'Dr', 'Dr', 'Dr', 'Dr', 'Dr', 'Dr', 
+			]
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.61'
     },
     {
         'id': 11316,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '幻橋之衛 ‧ 海姆達爾',
+        'attribute': '木',
+        'race': '神族',
+        'star': 6,
+        'monsterTag': ['北域之詩', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '虹光萬象',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I.【北域之詩】成員
+				⓵ 攻擊力 2.2 倍
+				⓶ 無視「首消組數屬性符石盾」
+				II. 隊伍成員回復力變為 0
+				III. 點選元素法陣上的符石 2 次 (不能重複點擊)
+				⇒ 將第 1 次點選的種類符石的掉落率轉移至第 2 次點選的種類符石
+				IV. 首批消除所有任何一種【北域之詩】成員屬性符石
+				⇒ 回合結束時，【北域之詩】成員技能 CD -1
+				(此技能可隨時關閉，效果會在此「技能關閉」或死亡後消失)
+				
+				V.「技能關閉」時
+				⓵【北域之詩】成員技能 CD -1 (「幻橋之衛 ‧ 海姆達爾」除外)
+				⓶【北域之詩】成員進入 2 回合「暴怒」狀態
                 `,
-                'tag': []
+                'tag': [['增傷', -1], ['無視首消組數屬性盾', -1], ['我方減回', -1], ['改變掉落機率', -1], ['禁珠', -1], ['減CD', -1], '隨時關閉', ['暴怒狀態', 2], '頭像狀態']
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.61'
     },
     {
         'id': 11317,
