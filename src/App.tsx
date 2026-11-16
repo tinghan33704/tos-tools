@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router"
 import { ThemeContextProvider } from "./utilities/Context/ThemeContext"
 import { THEMES } from "./constant/toolConfig"
 import { DataContextProvider } from "./utilities/Context/DataContext"
+import { LayoutContextProvider } from "./utilities/Context/LayoutContext"
 import { getPlayerStoredData } from "./utilities/utils"
 
 /***** EASTER EGG *****/
@@ -35,6 +36,17 @@ const App = () => {
             : THEMES?.[0]
     )
     const [playerData, setPlayerData] = useState<string>(getPlayerStoredData())
+    const [isTagTab, setIsTagTab] = useState<boolean>(
+        () => localStorage?.getItem("TAG_TAB") !== "false",
+    )
+
+    const toggleTagTab = useCallback(() => {
+        setIsTagTab((prev) => !prev)
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("TAG_TAB", JSON.stringify(isTagTab))
+    }, [isTagTab])
 
     const changeTheme = useCallback(() => {
         const _theme =
@@ -60,50 +72,55 @@ const App = () => {
             changeTheme={changeTheme}
             repairThemeSwitch={repairThemeSwitch}
         >
-            <DataContextProvider
-                playerData={playerData}
-                setPlayerData={setPlayerData}
+            <LayoutContextProvider
+                isTagTab={isTagTab}
+                toggleTagTab={toggleTagTab}
             >
-                <div className={`App ${theme}-theme`}>
-                    <Routes>
-                        <Route path=''>
-                            <Route index element={<MainPage />} />
-                            <Route
-                                path='/tos-skill-filter'
-                                element={<SkillFilter />}
-                            />
-                            <Route
-                                path='/tos-team-skill-filter'
-                                element={<TeamSkillFilter />}
-                            />
-                            <Route
-                                path='/tos-leader-skill-filter'
-                                element={<LeaderSkillFilter />}
-                            />
-                            <Route
-                                path='/tos-craft-filter'
-                                element={<CraftFilter />}
-                            />
-                            <Route
-                                path='/tos-monster-selector'
-                                element={<MonsterSelector />}
-                            />
-                            <Route
-                                path='/tos-craft-selector'
-                                element={<CraftSelector />}
-                            />
-                            <Route
-                                path='/tos-backpack-viewer'
-                                element={<BackpackViewer />}
-                            />
-                            <Route
-                                path='*'
-                                element={<Navigate to='/' replace />}
-                            />
-                        </Route>
-                    </Routes>
-                </div>
-            </DataContextProvider>
+                <DataContextProvider
+                    playerData={playerData}
+                    setPlayerData={setPlayerData}
+                >
+                    <div className={`App ${theme}-theme`}>
+                        <Routes>
+                            <Route path=''>
+                                <Route index element={<MainPage />} />
+                                <Route
+                                    path='/tos-skill-filter'
+                                    element={<SkillFilter />}
+                                />
+                                <Route
+                                    path='/tos-team-skill-filter'
+                                    element={<TeamSkillFilter />}
+                                />
+                                <Route
+                                    path='/tos-leader-skill-filter'
+                                    element={<LeaderSkillFilter />}
+                                />
+                                <Route
+                                    path='/tos-craft-filter'
+                                    element={<CraftFilter />}
+                                />
+                                <Route
+                                    path='/tos-monster-selector'
+                                    element={<MonsterSelector />}
+                                />
+                                <Route
+                                    path='/tos-craft-selector'
+                                    element={<CraftSelector />}
+                                />
+                                <Route
+                                    path='/tos-backpack-viewer'
+                                    element={<BackpackViewer />}
+                                />
+                                <Route
+                                    path='*'
+                                    element={<Navigate to='/' replace />}
+                                />
+                            </Route>
+                        </Routes>
+                    </div>
+                </DataContextProvider>
+            </LayoutContextProvider>
         </ThemeContextProvider>
     )
 }

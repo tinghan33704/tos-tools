@@ -1,5 +1,7 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useContext } from "react"
 import { Tab, Tabs } from "react-bootstrap"
+
+import LayoutContext from "src/utilities/Context/LayoutContext"
 
 import "./style.scss"
 
@@ -18,10 +20,21 @@ export interface IFilterTabsProps {
 
 const FilterTabs: React.FC<IFilterTabsProps> = (props) => {
     const { id, tabs, defaultActiveKey } = props
+    const { isTagTab } = useContext(LayoutContext)
 
     const onSelect = useCallback(() => {
         window.scrollTo({ top: 0 })
     }, [])
+
+    if (!isTagTab) {
+        return (
+            <>
+                {tabs.map(({ key, content }) => (
+                    <React.Fragment key={key}>{content}</React.Fragment>
+                ))}
+            </>
+        )
+    }
 
     return (
         <div className='filter-tabs'>

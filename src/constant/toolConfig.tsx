@@ -8,11 +8,17 @@ export const toolConfig: IObject = {
         topBtn: ["reset-all", "sort", "and-or", "start-filter"],
         setting: [
             "use_inventory",
-            "show_no_data",
             "backpack",
             "duration_option",
-            "show_skill_icon",
-            "theme",
+            {
+                group: "display_group",
+                children: [
+                    "show_no_data",
+                    "show_skill_icon",
+                    "tag_tab",
+                    "theme",
+                ],
+            },
         ],
         toolPath: "tos-skill-filter",
     },
@@ -21,7 +27,13 @@ export const toolConfig: IObject = {
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=3778158",
         icon: "team_favicon",
         topBtn: ["reset-all", "and-or", "start-filter"],
-        setting: ["result_view", "show_skill_icon", "theme"],
+        setting: [
+            "result_view",
+            {
+                group: "display_group",
+                children: ["show_skill_icon", "tag_tab", "theme"],
+            },
+        ],
         toolPath: "tos-team-skill-filter",
     },
     "leader-skill-filter": {
@@ -33,8 +45,10 @@ export const toolConfig: IObject = {
             "use_inventory",
             "backpack",
             "objective_option",
-            "show_skill_icon",
-            "theme",
+            {
+                group: "display_group",
+                children: ["show_skill_icon", "tag_tab", "theme"],
+            },
         ],
         toolPath: "tos-leader-skill-filter",
     },
@@ -43,7 +57,12 @@ export const toolConfig: IObject = {
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=3623648",
         icon: "craft_favicon",
         topBtn: ["reset-all", "and-or", "start-filter"],
-        setting: ["show_skill_icon", "theme"],
+        setting: [
+            {
+                group: "display_group",
+                children: ["show_skill_icon", "tag_tab", "theme"],
+            },
+        ],
         toolPath: "tos-craft-filter",
     },
     "monster-selector": {
@@ -51,7 +70,10 @@ export const toolConfig: IObject = {
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=3923622",
         icon: "monster_favicon",
         topBtn: ["reset-all", "start-generate"],
-        setting: ["input_id", "theme"],
+        setting: [
+            "input_id",
+            { group: "display_group", children: ["tag_tab", "theme"] },
+        ],
         toolPath: "tos-monster-selector",
     },
     "craft-selector": {
@@ -59,7 +81,7 @@ export const toolConfig: IObject = {
         docLink: "https://forum.gamer.com.tw/Co.php?bsn=23805&sn=3897329",
         icon: "craft_selector_favicon",
         topBtn: ["reset-all", "start-generate"],
-        setting: ["input_id", "theme"],
+        setting: ["input_id", { group: "display_group", children: ["theme"] }],
         toolPath: "tos-craft-selector",
     },
     "backpack-viewer": {
@@ -68,13 +90,41 @@ export const toolConfig: IObject = {
         icon: "backpack_favicon",
         topInfo: ["uid", "last-update"],
         setting: {
-            "All Max 自選": ["sort", "hide_had_monster", "backpack", "theme"],
-            古幣封印: ["sort", "backpack", "theme"],
-            魔法石封印: ["sort", "backpack", "theme"],
-            獨立封印: ["sort", "backpack", "theme"],
-            合作系列: ["backpack", "theme"],
-            其他卡片: ["sort", "category", "backpack", "theme"],
-            完整背包: ["backpack", "theme"],
+            "All Max 自選": [
+                "sort",
+                "hide_had_monster",
+                "backpack",
+                { group: "display_group", children: ["theme"] },
+            ],
+            古幣封印: [
+                "sort",
+                "backpack",
+                { group: "display_group", children: ["theme"] },
+            ],
+            魔法石封印: [
+                "sort",
+                "backpack",
+                { group: "display_group", children: ["theme"] },
+            ],
+            獨立封印: [
+                "sort",
+                "backpack",
+                { group: "display_group", children: ["theme"] },
+            ],
+            合作系列: [
+                "backpack",
+                { group: "display_group", children: ["theme"] },
+            ],
+            其他卡片: [
+                "sort",
+                "category",
+                "backpack",
+                { group: "display_group", children: ["theme"] },
+            ],
+            完整背包: [
+                "backpack",
+                { group: "display_group", children: ["theme"] },
+            ],
         },
         toolPath: "tos-backpack-viewer",
     },

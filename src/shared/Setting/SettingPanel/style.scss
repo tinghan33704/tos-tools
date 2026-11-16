@@ -45,6 +45,45 @@
         margin-left: 5px;
         white-space: nowrap;
     }
+
+    &-arrow {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        padding-left: 1rem;
+        font-size: 1rem;
+    }
+
+    &-list {
+        &.forward {
+            animation: setting-panel-slide-from-right 0.25s ease-out;
+        }
+        &.backward {
+            animation: setting-panel-slide-from-left 0.25s ease-out;
+        }
+    }
+}
+
+@keyframes setting-panel-slide-from-right {
+    from {
+        opacity: 0;
+        transform: translateX(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes setting-panel-slide-from-left {
+    from {
+        opacity: 0;
+        transform: translateX(-1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @include max576 {

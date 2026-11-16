@@ -4,18 +4,25 @@ import React, {
     useMemo,
     useRef,
     useEffect,
+    useLayoutEffect,
+    useState,
 } from "react"
 import {
     faAdjust,
     faArchive,
     faArrowUpShortWide,
+    faChevronLeft,
+    faChevronRight,
     faCircleInfo,
     faCompress,
     faDatabase,
     faExpand,
+    faFile,
     faFilter,
     faInbox,
+    faLayerGroup,
     faList,
+    faSliders,
     faTableCellsLarge,
     faUser,
 } from "@fortawesome/free-solid-svg-icons"
@@ -23,10 +30,20 @@ import {
 import { sealContent } from "src/constant/filterConstants"
 import Context from "src/utilities/Context/Context"
 import ThemeContext from "src/utilities/Context/ThemeContext"
+import LayoutContext from "src/utilities/Context/LayoutContext"
 import { toolConfig } from "src/constant/toolConfig"
 import Icon from "src/utilities/Icon"
 
 import "./style.scss"
+
+export interface ISettingGroup {
+    group: string
+    children: string[]
+}
+
+export type SettingItem = string | ISettingGroup
+
+type SlideDirection = "none" | "forward" | "backward"
 
 export interface ISettingPanelProps {
     panelOpen: boolean
@@ -82,8 +99,16 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
     const config = useContext(Context)
     const ref = useRef<HTMLDivElement>(null)
     const { theme, changeTheme } = useContext(ThemeContext)
+    const { isTagTab, toggleTagTab } = useContext(LayoutContext)
+    const [openGroup, setOpenGroup] = useState<string | null>(null)
+    const [direction, setDirection] = useState<SlideDirection>("none")
+
     const panelMapping: IObject = useMemo(() => {
         return {
+            display_group: {
+                icon: faSliders,
+                text: "顯示設定",
+            },
             theme: {
                 icon: faAdjust,
                 text: `${theme === "light" ? "淺" : "深"}色主題`,
@@ -154,10 +179,17 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
                 text: `${showSkillIcon ? "顯示" : "隱藏"}技能圖示`,
                 callback: toggleShowSkillIcon,
             },
+            tag_tab: {
+                icon: isTagTab ? faLayerGroup : faFile,
+                text: `${isTagTab ? "分頁式" : "一頁式"}標籤`,
+                callback: toggleTagTab,
+            },
         }
     }, [
         theme,
         changeTheme,
+        isTagTab,
+        toggleTagTab,
         openDurationModal,
         openObjectiveModal,
         openUserDataModal,
@@ -179,11 +211,12 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
     ])
 
     const onClick = useCallback(
-        (e: React.MouseEvent<HTMLDivElement>) => {
+        (e: MouseEvent) => {
+            const path = e.composedPath()
             if (
                 panelOpen &&
-                !ref?.current?.contains(e.target as Node) &&
-                !iconRef?.current?.contains(e.target as Node)
+                !(ref.current && path.includes(ref.current)) &&
+                !(iconRef.current && path.includes(iconRef.current))
             ) {
                 onClosePanel()
             }
@@ -192,47 +225,124 @@ const SettingPanel: React.FC<ISettingPanelProps> = (props) => {
     )
 
     useEffect(() => {
-        window.addEventListener("click", onClick as any)
+        window.addEventListener("click", onClick)
         return () => {
-            window.removeEventListener("click", onClick as any)
+            window.removeEventListener("click", onClick)
+        }
+    }, [onClick])
+
+    useLayoutEffect(() => {
+        if (panelOpen) {
+            setOpenGroup(null)
+            setDirection("none")
         }
     }, [panelOpen])
 
-    const renderPanels = useCallback(() => {
-        const toolSettings =
-            config?.toolId === "backpack-viewer"
-                ? toolConfig[config.toolId]?.setting?.[backpackViewerPage] || []
-                : toolConfig[config.toolId]?.setting || []
+    const goToGroup = useCallback((group: string | null) => {
+        setDirection(group ? "forward" : "backward")
+        setOpenGroup(group)
+    }, [])
 
-        return toolSettings.map((setting: string) => {
-            const toolSetting = panelMapping[setting]
+    const toolSettings: SettingItem[] = useMemo(
+        () =>
+            (config?.toolId === "backpack-viewer"
+                ? toolConfig[config.toolId]?.setting?.[backpackViewerPage]
+                : toolConfig[config.toolId]?.setting) || [],
+        [backpackViewerPage, config?.toolId],
+    )
+
+    const currentGroup = useMemo(
+        () =>
+            toolSettings.find(
+                (item): item is ISettingGroup =>
+                    typeof item !== "string" && item.group === openGroup,
+            ),
+        [openGroup, toolSettings],
+    )
+
+    const renderRow = useCallback(
+        (
+            key: string,
+            id: string,
+            onRowClick?: () => void,
+            options?: {
+                leading?: React.ReactNode
+                trailing?: React.ReactNode
+                text?: string
+            },
+        ) => {
+            const toolSetting = panelMapping[id]
+            if (!toolSetting) return null
             return (
-                <div
-                    className='setting-panel'
-                    onClick={
-                        toolSetting?.autoClose
-                            ? () => {
-                                  onClosePanel()
-                                  toolSetting.callback()
-                              }
-                            : toolSetting.callback
-                    }
-                >
+                <div key={key} className='setting-panel' onClick={onRowClick}>
                     <div className='setting-panel-icon'>
-                        <Icon icon={toolSetting.icon} />
+                        {options?.leading ?? <Icon icon={toolSetting.icon} />}
                     </div>
-                    <div className='setting-panel-desc'>{toolSetting.text}</div>
+                    <div className='setting-panel-desc'>
+                        {options?.text ?? toolSetting.text}
+                    </div>
+                    {options?.trailing}
                 </div>
             )
-        })
-    }, [backpackViewerPage, config.toolId, onClosePanel, panelMapping])
+        },
+        [panelMapping],
+    )
+
+    const renderItem = useCallback(
+        (item: SettingItem) => {
+            if (typeof item !== "string") {
+                return renderRow(
+                    item.group,
+                    item.group,
+                    () => goToGroup(item.group),
+                    {
+                        trailing: (
+                            <div className='setting-panel-arrow'>
+                                <Icon icon={faChevronRight} />
+                            </div>
+                        ),
+                    },
+                )
+            }
+            const toolSetting = panelMapping[item]
+            return renderRow(
+                item,
+                item,
+                toolSetting?.autoClose
+                    ? () => {
+                          onClosePanel()
+                          toolSetting.callback?.()
+                      }
+                    : toolSetting?.callback,
+            )
+        },
+        [goToGroup, onClosePanel, panelMapping, renderRow],
+    )
 
     return (
         <div
             className={`setting-panel-row${panelOpen ? "" : " hide"}`}
             ref={ref}
         >
-            {renderPanels()}
+            <div
+                key={currentGroup?.group ?? "root"}
+                className={`setting-panel-list ${direction}`}
+            >
+                {currentGroup
+                    ? [
+                          ...currentGroup.children.map(renderItem),
+                          renderRow(
+                              "back",
+                              currentGroup.group,
+                              () => goToGroup(null),
+                              {
+                                  leading: <Icon icon={faChevronLeft} />,
+                                  text: "返回",
+                              },
+                          ),
+                      ]
+                    : toolSettings.map(renderItem)}
+            </div>
         </div>
     )
 }
