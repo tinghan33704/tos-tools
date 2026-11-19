@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect, useLayoutEffect, useCallback } from "react"
 import { Routes, Route, Navigate } from "react-router"
 
 import { ThemeContextProvider } from "./utilities/Context/ThemeContext"
@@ -60,6 +60,10 @@ const App = () => {
             localStorage.setItem("TOOL_THEME", _theme)
         })
     }, [theme, toggleTheme])
+
+    useLayoutEffect(() => {
+        document.documentElement.dataset.theme = theme
+    }, [theme])
 
     useEffect(() => {
         const currentTheme = localStorage.getItem("TOOL_THEME")

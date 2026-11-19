@@ -1,4 +1,4 @@
-// Last modified : 2026.11.17 01:34
+// Last modified : 2026.11.19 21:04
 
 // @ts-nocheck
 /* prettier-ignore */
@@ -240189,81 +240189,111 @@ export const monsterData: IObject[] = [
     },
     {
         'id': 11317,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '永葆青蔥 ‧ 聖果',
+        'attribute': '光',
+        'race': '神族',
+        'star': 6,
+        'monsterTag': ['北域之詩', '永葆青蔥'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '不朽生機',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 解除我方「囚錮生命力上限」
+				II. 回復 3 億點生命力
+				1 回合內
+				III. 隊伍成員回復力 3 倍
+				IV. 隊長為【北域之詩】成員 (發動技能時)
+				⇒ 回血溢出時，對敵方造成 1,000 倍的回血溢出無屬性傷害 (此傷害無視「強化突破」及「防禦力」)
                 `,
-                'tag': []
+                'tag': ['解除血量囚錮', '回血', '增回', '溢補攻擊']
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.61'
     },
     {
         'id': 11318,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '極夜奇遇 ‧ 庭院衛侍',
+        'attribute': '光',
+        'race': '獸類',
+        'star': 6,
+        'monsterTag': ['北域之詩', '極夜奇遇'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '冰原光佑',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. 使敵人進入「電擊」狀態，持續 3 回合
+				▋ 敵人轉換為光屬性
+				3 回合內
+				II. 隊伍成員攻擊力 2 倍
+				III. 獸類及【北域之詩】成員無視「首殺盾」
+				IV. 獲得「強減傷」至 0
+				V.「一步一傷」傷害減至 0
+				VI. 發動技能時或回合結束時
+				⇒ 完全回復生命力
                 `,
-                'tag': []
+                'tag': [['電擊敵方', 3], ['敵方轉光', 3], ['增傷', 3], ['無視首殺盾', 3], ['硬減傷', 3], ['減傷', 3], ['無視一步一傷', 3], ['回血', 3], '敵身狀態']
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.61'
     },
     {
         'id': 11319,
-        'name': '',
-        'attribute': '',
-        'race': '',
-        'star': 0,
-        'monsterTag': [],
+        'name': '灼愛餘溫 ‧ 安爾伯達',
+        'attribute': '火',
+        'race': '神族',
+        'star': 6,
+        'monsterTag': ['北域之詩', '地獄魔王'],
         'crossOver': false,
         'skill': [
             {
-                'name': '',
+                'name': '災厄序曲',
                 'type': 'normal',
                 'charge': 'CD',
-                'num': 0,
+                'num': 6,
                 'description': `
-
+				I. <board>將所有符石轉化為固定版面符石 (五屬及心「魔力」強化符石)</board>
+				1 回合內
+				II. 自身無視「反首消符石盾」及「角色符石地型盾」
+				III. 只能消除首批符石
+				IV. 發動角色符石
+				⓵ 自身攻擊力 15 倍
+				⓶ 自身以外成員攻擊力變為 0
+				V. 發動【北域之詩】成員角色符石或若有擊斃敵人
+				⇒ 該回合不會扣減該技能效果的尚餘回合數
                 `,
-                'tag': []
+                'tag': ['符石轉水', '符石轉火', '符石轉木', '符石轉光', '符石轉暗', '符石轉心', '符石轉水強化', '符石轉火強化', '符石轉木強化', '符石轉光強化', '符石轉暗強化', '符石轉心強化', '五屬版面', '五屬心版面', '固定版面', '大幅轉版', '無視反首消盾', '無視角色符石地型', '只能首消符石', '界王拳', '增傷', '我方減攻']
             }
         ],
         'teamSkill': [],
-        'maxLevel': 0,
-        'maxSkill': 0,
+		'board': [
+			[
+				'W', 'F', 'E', 'L', 'D', 'H', 
+				'W', 'F', 'E', 'L', 'D', 'H', 
+				'W', 'F', 'E', 'L', 'D', 'H', 
+				'W', 'F', 'E', 'L', 'D', 'H', 
+				'W', 'F', 'E', 'L', 'D', 'H', 
+			]
+		],
+        'maxLevel': 99,
+        'maxSkill': 12,
         'maxRefine': 0,
-        'version': ''
+        'version': 'v2026.61'
     },
     {
         'id': 11320,

@@ -1,9 +1,13 @@
 @import "colors";
 @import "mixins";
 
-.App.light-theme {
+:root[data-theme="light"] {
     @include spread-map($theme-light);
 }
-.App.dark-theme {
+:root[data-theme="dark"] {
     @include spread-map($theme-dark);
+}
+
+:root[data-theme] body {
+    background-color: var(--background-color);
 }
